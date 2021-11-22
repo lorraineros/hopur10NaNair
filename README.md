@@ -1,4 +1,4 @@
 # hopur10NaNair
 ......
-Dagbók
-22. Vóvember 2021
+## Dagbók
+### 22. Nóvember 2021
