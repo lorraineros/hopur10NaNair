@@ -9,3 +9,9 @@ Við byrjuðum fund dagsins á að kynnast hvort öðru og ræða verkefnið. S�
   Wireframe og Kröfulisti
 * Anh og Lorraine: 
   Notkunartilvik og Notendahópagreining
+
+Afrakstur dagsins:
+* Andri og Arnaldur:
+  Unnum í klasaritinu, náðum ekkert að vinna í stöðuritinu.
+* Andriy og Ari:
+* Anh og Lorraine:
