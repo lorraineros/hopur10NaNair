@@ -27,7 +27,7 @@ Héldum áfram að vinna í sömu verkefnaskiptingu og daginn áður.
 * Anh og Lorraine: 
   Notkunartilvik og Notendahópagreining
   
-  Afrakstur dagsins:
+Afrakstur dagsins:
 * Andri og Arnaldur:
   Héldum áfram að vinna í klasaritinu og byrjuðum á stöðuritinu. Andri Hjálpaði Ara og Andriy líka með Kröfulistann.
 * Andriy og Ari: 
