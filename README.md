@@ -15,5 +15,6 @@ Afrakstur dagsins:
   Unnum í klasaritinu, náðum ekkert að vinna í stöðuritinu.
 * Andriy og Ari:
 * Anh og Lorraine:
+  Unnum í notkunartilvik og notendahópagreiningu, náðum að klára notendahópagreining.
 
 ### 23. nóvember 2021
