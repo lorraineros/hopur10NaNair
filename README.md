@@ -29,7 +29,7 @@ Héldum áfram að vinna í sömu verkefnaskiptingu og daginn áður.
   
 Afrakstur dagsins:
 * Andri og Arnaldur:
-  Héldum áfram að vinna í klasaritinu og byrjuðum á stöðuritinu. Andri Hjálpaði Ara og Andriy líka með Kröfulistann.
+  Héldum áfram að vinna í klasaritinu og komumst frekar langt með það, byrjuðum á stöðuritinu. Andri Hjálpaði Ara og Andriy líka með Kröfulistann.
 * Andriy og Ari: 
 * Anh og Lorraine:
   
