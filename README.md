@@ -33,3 +33,4 @@ Afrakstur dagsins:
 * Andriy og Ari: 
 * Anh og Lorraine:
   
+Ákváðum í lok dags að hittast kl.9 í HR miðvikudaginn 24. nóvember og samræma hugmyndina okkar betur og sjá til þess að allir séu á sömu blaðsíðu. 
