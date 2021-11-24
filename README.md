@@ -38,7 +38,5 @@ Afrakstur dagsins:
 Ákváðum í lok dags að hittast kl.9 í HR miðvikudaginn 24. nóvember og samræma hugmyndina okkar betur og sjá til þess að allir séu á sömu blaðsíðu. 
 
 ### 24. nóvember 2021
-Hófum daginn í dag á að hittastt upp í skóla og taka stöðuna. Mættu einungis fjórir, Andri, Ari, Anh og Lorraine, Arnaldur mætti seint og Andriy var veikur. Við runnum yfir kröfulistann og unnum svo öll saman í use cases að klára það. Þegar use cases var búið fórum við í wireframes.
+Hófum daginn í dag á að hittastt upp í skóla og taka stöðuna. Mættu einungis fjórir, Andri, Ari, Anh og Lorraine, Arnaldur mætti seint og Andriy var veikur. Við runnum yfir kröfulistann og unnum svo öll saman í use cases að klára það unnum svo í Wireframes og náðum að afkasta vel í dag. Ákváðum í lok dags að hittast aftur upp í HR fimmtudaginn 25. nóvember kl.10 og leggja loka hönd á verkþættina.
 
-* Anh og Lorraine:
-  Unnu í use cases vorum búin með B-kröfu
