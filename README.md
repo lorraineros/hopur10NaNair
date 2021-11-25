@@ -40,3 +40,4 @@ Afrakstur dagsins:
 ### 24. nóvember 2021
 Hófum daginn í dag á að hittastt upp í skóla og taka stöðuna. Mættu einungis fjórir, Andri, Ari, Anh og Lorraine, Arnaldur mætti seint og Andriy var veikur. Við runnum yfir kröfulistann og unnum svo öll saman í use cases að klára það unnum svo í Wireframes og náðum að afkasta vel í dag. Ákváðum í lok dags að hittast aftur upp í HR fimmtudaginn 25. nóvember kl.10 og leggja loka hönd á verkþættina.
 
+### 25. nóvember 2021
