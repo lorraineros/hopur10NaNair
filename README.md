@@ -41,3 +41,4 @@ Afrakstur dagsins:
 Hófum daginn í dag á að hittastt upp í skóla og taka stöðuna. Mættu einungis fjórir, Andri, Ari, Anh og Lorraine, Arnaldur mætti seint og Andriy var veikur. Við runnum yfir kröfulistann og unnum svo öll saman í use cases að klára það unnum svo í Wireframes og náðum að afkasta vel í dag. Ákváðum í lok dags að hittast aftur upp í HR fimmtudaginn 25. nóvember kl.10 og leggja loka hönd á verkþættina.
 
 ### 25. nóvember 2021
+Dagurinn í dag hófst kl. 10 í HR, allir mættir nema Andriy sem var en þá veikur. Dagurinn fór svolítið í það að fínpússa alla verkþættina og fór mestur tími í að vinna í wireframes og use cases. Byrjuðum einnig á hönnunar skýrslunni og náðum góðum grunni á henni. Þurfum því á morgun að fínpússa skýrsluna og klára hana fyrir skil. Ákváðum að það væri óþarfi að hittast upp í skóla á morgun og ákváðum því að taka morgundaginn(26. nóvember) á Discord og klára skýrsluna þar í sameiningu.
