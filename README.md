@@ -13,7 +13,8 @@ Við byrjuðum fund dagsins á að kynnast hvort öðru og ræða verkefnið, ve
 Afrakstur dagsins:
 * Andri og Arnaldur:
   Unnum í klasaritinu, náðum ekkert að vinna í stöðuritinu.
-* Andriy og Ari: Unnu í wireframes náðu ekkert að vinna í kröfulistanum.
+* Andriy og Ari: 
+  Unnum í wireframes náðu ekkert að vinna í kröfulistanum.
 * Anh og Lorraine:
   Unnum í notkunartilvik og notendahópagreiningu, náðum að klára notendahópagreining.
 
@@ -31,9 +32,9 @@ Afrakstur dagsins:
 * Andri og Arnaldur:
   Héldum áfram að vinna í klasaritinu og komumst frekar langt með það, byrjuðum á stöðuritinu. Andri Hjálpaði Ara og Andriy líka með Kröfulistann.
 * Andriy og Ari:  
-  Unnu í Wireframes of kröfulistanum
+  Unnum í Wireframes of kröfulistanum
 * Anh og Lorraine:
-  Unnu í use cases vorum búin með A-kröfu
+  Unnum í use cases vorum búin með A-kröfu
 
 Ákváðum í lok dags að hittast kl.9 í HR miðvikudaginn 24. nóvember og samræma hugmyndina okkar betur og sjá til þess að allir séu á sömu blaðsíðu. 
 
