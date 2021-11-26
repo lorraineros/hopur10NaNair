@@ -43,3 +43,6 @@ Hófum daginn í dag á að hittastt upp í skóla og taka stöðuna. Mættu ein
 
 ### 25. nóvember 2021
 Dagurinn í dag hófst kl. 10 í HR, allir mættir nema Andriy sem var en þá veikur. Dagurinn fór svolítið í það að fínpússa alla verkþættina og fór mestur tími í að vinna í wireframes og use cases. Byrjuðum einnig á hönnunar skýrslunni og náðum góðum grunni á henni. Þurfum því á morgun að fínpússa skýrsluna og klára hana fyrir skil. Ákváðum að það væri óþarfi að hittast upp í skóla á morgun og ákváðum því að taka morgundaginn(26. nóvember) á Discord og klára skýrsluna þar í sameiningu.
+
+###26. nóvember 2021
+Í dag við höfðum fund á Discord, fórum yfir okkar hönnunarskýrslu og það sem veið eigum eftir að klára. Það vantar að setja inn klasarit og gera klára smá atriði. Allir mættu og allir tóku þátt við fund og hver og einn var sáttur með vinnu sem við erum búin að framkvæma. 
