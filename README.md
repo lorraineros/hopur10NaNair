@@ -1,4 +1,11 @@
 # hopur10NaNair
+## Running the program
+
+To run the program go to the root directory of the project (the folder where `src` is) an run:
+``` sh
+python -m src.main
+```
+
 ## Dagbók
 ### 22. nóvember 2021
 Við byrjuðum fund dagsins á að kynnast hvort öðru og ræða verkefnið, verkstjóri var valinn og var það Andriy sem varð fyrir valinu. Síðan skiptum við verkum niður á pör, skiptingin var eftirfarandi:
