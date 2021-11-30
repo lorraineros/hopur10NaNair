@@ -39,5 +39,7 @@ class WorkRequest(BaseWorkRequest):
 class RealEstate:
     id: Id
     address: str
+    type_of_real_estate: str
+    size: int
     condition: str
     facilities: str
