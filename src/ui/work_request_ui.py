@@ -3,6 +3,7 @@ from ..logic.work_request_logic import WorkRequestLogic
 
 class WorkRequestMenu:
     def show(self):
+        print("--- Work Request Menu ---")
         print("1. Register a new work request")
         print("2. Find work request")
         print("b. Back")
