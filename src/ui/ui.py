@@ -1,5 +1,6 @@
 # from ui import *
 from ..ui.employee_ui import EmployeeMenu
+from ..ui.work_request_ui import WorkRequestMenu
 from ..models import models
 import dataclasses
 
