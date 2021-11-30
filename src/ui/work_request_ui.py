@@ -22,7 +22,7 @@ class WorkRequestMenu:
 
 class FindWorkRequestMenu:
     def show(self):
-        #print("--- FIND WORK REQUEST MENU ---")
+        print("--- Find Work Request Menu ---")
         print("1. By ID")
         print("2. By real estate")
         print("3. By employee")
