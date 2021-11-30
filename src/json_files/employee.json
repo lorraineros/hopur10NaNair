@@ -1,0 +1,19 @@
+[{
+	"name": "Jói",
+	"age": 25,
+	"id": 1,
+	"home_addess": "1, Reykjavík",
+	"work_number": "1234567",
+	"mobile_number": "7654321",
+	"email": "joi@ru.is",
+	"work_destination": 1
+}, {
+	"name": "Frikki",
+	"age": 21,
+	"id": 2,
+	"home_addess": "2, Reykjavík",
+	"work_number": "2345678",
+	"mobile_number": "8765432",
+	"email": "frikki@ru.is",
+	"work_destination": 2
+}]
