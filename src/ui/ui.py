@@ -1,4 +1,5 @@
 # from ui import *
+from ..ui.real_estate_ui import RealEstateMenu
 from ..ui.employee_ui import EmployeeMenu
 from ..models import models
 import dataclasses
@@ -38,6 +39,7 @@ class MainMenu:
  
  --------------- Welcome to NaN Air ---------------
  """)
+        print("--- Main Menu ---")
         print("1. Employee")
         print("2. Real Estate")
         print("3. Work request")
