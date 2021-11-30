@@ -55,7 +55,7 @@ class FindWorkRequestMenu:
 class FindWorkByID:
     def show(self):
         print("--- Find Work Request by ID ---")
-        print()
+        print("\n(Display list of work requests)\n")
         inp = input("Choose a work request: ")
 
     def handle_input(self, command):
@@ -70,7 +70,7 @@ class FindWorkByID:
 class FindWorkByRealEstate:
     def show(self):
         print("--- Find Work Request by Real Estate ---")
-        print()
+        print("\n(Display list of work requests)\n")
         inp = input("Choose a work request: ")
 
     def handle_input(self, command):
@@ -82,7 +82,7 @@ class FindWorkByRealEstate:
 class FindWorkByEmployee:
     def show(self):
         print("--- Find Work Request by Employee ---")
-        print()
+        print("\n(Display list of work requests)\n")
         inp = input("Choose a work request: ")
 
     def handle_input(self, command):
@@ -94,7 +94,7 @@ class FindWorkByEmployee:
 class FindWorkByContractor:
     def show(self):
         print("--- Find Work Request by Contractor ---")
-        print()
+        print("\n(Display list of work requests)\n")
         inp = input("Choose a work request: ")
 
     def handle_input(self, inp):
@@ -106,7 +106,7 @@ class FindWorkByContractor:
 class FindWorkByDate:
     def show(self):
         print("--- Find Work Request by Date ---")
-        print()
+        print("\n(Display list of work requests)\n")
         inp = input("Choose a work request: ")
 
     def handle_input(self, command):
@@ -118,7 +118,7 @@ class FindWorkByDate:
 class FindWorkByPeriod:
     def show(self):
         print("--- Find Work Request by Period ---")
-        print()
+        print("\n(Display list of work requests)\n")
         inp = input("Choose a work request: ")
 
     def handle_input(self, command):

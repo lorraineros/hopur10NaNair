@@ -32,7 +32,7 @@ class Employee(BaseEmployee):
 class WorkRequest:
     id: Id
     title: str
-    destination: str
+    location: str
     real_estate: str
     description: str
     priority: str
