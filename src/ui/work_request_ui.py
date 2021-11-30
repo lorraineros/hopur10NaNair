@@ -11,6 +11,7 @@ class WorkRequestMenu:
 
     def handle_input(self, command):
         if command == "1":
+            #return CreationMenu(models.WorkRequest)
             pass
         elif command == "2":
             return FindWorkRequestMenu()
@@ -57,11 +58,14 @@ class FindWorkByID:
         print()
         inp = input("Choose a work request: ")
 
-    def handle_input(self, inp):
-        if inp == "b":
+    def handle_input(self, command):
+        if command == "b":
             return "back"
-        elif inp == "q":
+        elif command == "q":
             return "quit"
+        else:
+            print("Invalid ID\n")
+            return "back"
 
 class FindWorkByRealEstate:
     def show(self):
@@ -69,10 +73,10 @@ class FindWorkByRealEstate:
         print()
         inp = input("Choose a work request: ")
 
-    def handle_input(self, inp):
-        if inp == "b":
+    def handle_input(self, command):
+        if command == "b":
             return "back"
-        elif inp == "q":
+        elif command == "q":
             return "quit"
 
 class FindWorkByEmployee:
@@ -81,10 +85,10 @@ class FindWorkByEmployee:
         print()
         inp = input("Choose a work request: ")
 
-    def handle_input(self, inp):
-        if inp == "b":
+    def handle_input(self, command):
+        if command == "b":
             return "back"
-        elif inp == "q":
+        elif command == "q":
             return "quit"
 
 class FindWorkByContractor:
@@ -105,10 +109,10 @@ class FindWorkByDate:
         print()
         inp = input("Choose a work request: ")
 
-    def handle_input(self, inp):
-        if inp == "b":
+    def handle_input(self, command):
+        if command == "b":
             return "back"
-        elif inp == "q":
+        elif command == "q":
             return "quit"
 
 class FindWorkByPeriod:
@@ -117,8 +121,8 @@ class FindWorkByPeriod:
         print()
         inp = input("Choose a work request: ")
 
-    def handle_input(self, inp):
-        if inp == "b":
+    def handle_input(self, command):
+        if command == "b":
             return "back"
-        elif inp == "q":
+        elif command == "q":
             return "quit"

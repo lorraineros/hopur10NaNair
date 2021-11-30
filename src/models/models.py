@@ -13,13 +13,6 @@ class BaseEmployee:
     mobile_number: str
     address: str
 
-@dataclass
-class BaseWorkRequest:
-    id: Id
-    real_estate: str
-    mobile_number: str
-    address: str
-
 
 @dataclass
 class Employee(BaseEmployee):
@@ -29,10 +22,14 @@ class Employee(BaseEmployee):
 
 
 @dataclass
-class WorkRequest(BaseWorkRequest):
-    phone_number: str
-    email_address: str
-    workplace: Id
+class WorkRequest:
+    id: Id
+    title: str
+    destination: str
+    real_estate: str
+    description: str
+    priority: str
+    repeated_work: int
 
 
 @dataclass
