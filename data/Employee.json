@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "name": "Gunnar",
+    "mobile_number": "5885522",
+    "address": "Bessastaðir 1",
+    "phone_number": "",
+    "email_address": "gunnar@gunnar.is",
+    "workplace": 1
+  },
+  {
+    "id": 2,
+    "name": "Freyja",
+    "mobile_number": "5812345",
+    "address": "Bessastaðir 2",
+    "phone_number": "",
+    "email_address": "freyja@gunnar.is",
+    "workplace": 1
+  }
+]

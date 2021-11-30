@@ -24,7 +24,8 @@ class EmployeeMenu:
 
 class EmployeeListMenu:
     def show(self):
-        print(EmployeeLogic.get_list())
+        for emp in EmployeeLogic.get_list():
+            print(emp)
         print()
         print("b. Back")
         print("q. Quit")
