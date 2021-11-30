@@ -1,6 +1,8 @@
 # from ui import *
+from ..ui.real_estate_ui import RealEstateMenu
 from ..ui.employee_ui import EmployeeMenu
 from ..ui.contractor_ui import ContractorMenu
+from ..ui.work_request_ui import WorkRequestMenu
 from ..models import models
 import dataclasses
 
@@ -30,6 +32,16 @@ class App:
 
 class MainMenu:
     def show(self):
+        print("""
+         _   _       _   _      _    _      
+        | \ | | __ _| \ | |    / \  (_)_ __ 
+        |  \| |/ _` |  \| |   / _ \ | | '__|
+        | |\  | (_| | |\  |  / ___ \| | |   
+        |_| \_|\__,_|_| \_| /_/   \_\_|_|   
+ 
+ --------------- Welcome to NaN Air ---------------
+ """)
+        print("--- Main Menu ---")
         print("1. Employee")
         print("2. Real Estate")
         print("3. Work request")

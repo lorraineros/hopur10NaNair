@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "Gera kjarnaofn subcritical",
+        "location": "Longyearbyen - Svalbarða",
+        "real_estate": "AA999-1",
+        "description": "OK-650VV kjarnaofninn er voru hannaðir um 1970.\\nÞeir eiga það þó til að ofhitna ef þeim er ekki sint sem skyldi.\\nReglulega (amk. 1 sinni í viku) þarf sáldra smá boron í kerfið.\nATH! Við þetta þarf verktaka sem á góðan gúmígalla því þetta er\\nallt frekar blautt og heitt, og svo er ekki verra að vita\\neitthvað hvað maður er að gera.",
+        "priority": "Emergency",
+        "repeated_work": 0
+    },
+    {
+        "id": 2,
+        "title": "Hengja upp jólaskrautið",
+        "location": "Longyearbyen - Svalbarða",
+        "real_estate": "AA999-1",
+        "description": "Þar sem hótelið er ekki að nýta öll 190 mega vöttin sem OK-650VV\\ngetur búið til hefur verið ákv. að á hverju ári skuli sett upp\\neinhver sú skrautlegasta jólaskrauts útstilling sem sögur fara af.\\nSkal hefast handa við að hengja upp skrautið 1 nóv. ár hvert\\nog svo aftur að taka það niður 10 jan. ár hvert.",
+        "priority": "As soon as possible",
+        "repeated_work": 3
+    },
+    {
+        "id": 3,
+        "title": "Kæla niður snjóhús og stoppa í glufur",
+        "location": "Nuuk - Grænlandi",
+        "real_estate": "64-3900 - 64-3910",
+        "description": "Rétt yfir há sumartímann, frá 15 júlí til 25 ágúst, þarf að ditta\\nað iGlú-ville húsunum (öllum). Aðalega þarf að bæta við snjó og\\npassa að það sé ekki komin göt á veggi osfrv.",
+        "priority": "Now",
+        "repeated_work": 1
+    },
+    {
+        "id": 4,
+        "title": "Slá og reita arfa af moldarhúsum",
+        "location": "Þórshöfn - Færeyjar",
+        "real_estate": "ix-9492 - ix-9502",
+        "description": "Yfir sumartímann þarf slá gras og reita arfa af moldrahúsunum amk.\\neinusinni í viku. Gildir þetta frá 1 maí til 30 sept.",
+        "priority": "As soon as possible",
+        "repeated_work": 5
+    },
+    {
+        "id": 5,
+        "title": "Gluggaþvottur",
+        "location": "Allstaðar",
+        "real_estate": "64-3875-6, 64-3831, 64-3812,\\nix-9331 - ix-9333, ix-2239,\\nF959594",
+        "description": "Einusinni í viku þarf að þrífa glugga á öllum ofantöldum fasteignum.\\nÖll hús nema igloo, kafbáturinn og moldarhúsin, en ekkert af þeim\\ner með glugga.",
+        "priority": "As soon as possible",
+        "repeated_work": 4
+    }
+]
