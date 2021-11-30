@@ -1,4 +1,4 @@
-#from ..logic.real_estate_logic import RealEstateLogic
+from ..logic.real_estate_logic import RealEstateLogic
 #from ..ui.ui import CreationMenu
 
 
@@ -27,7 +27,8 @@ class RealEstateMenu:
 class RealEstateListMenu:
     def show(self):
         print("--- List of Real Estate ---")
-        #print(RealEstateLogic.get_list())
+        for emp in RealEstateLogic.get_list():
+            print(emp)
         print()
         print("b. Back")
         print("q. Quit")

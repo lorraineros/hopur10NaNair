@@ -1,4 +1,4 @@
-from storage.real_estate_storage import RealEstateStorage
+from ..storage.real_estate_storage import RealEstateStorage
 
 
 class RealEstateLogic:

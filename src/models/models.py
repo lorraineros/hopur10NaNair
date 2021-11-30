@@ -40,7 +40,7 @@ class WorkRequest:
 
 
 @dataclass
-class RealEstate:
+class RealEstate(Model):
     id: Id
     address: str
     real_estate_number: str

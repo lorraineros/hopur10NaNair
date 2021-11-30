@@ -25,7 +25,9 @@
         "real_estate_number": "64-3900",
         "condition": "",
         "facilities": "",
-        "type_of_real_estate": "Reception and restaurant"
+        "type_of_real_estate": "Reception and restaurant",
+        "rooms": 1,
+        "size": 100
     },
     {
         "id": 83,
