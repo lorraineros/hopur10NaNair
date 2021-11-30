@@ -3,6 +3,7 @@ from ..logic.work_request_logic import WorkRequestLogic
 
 class WorkRequestMenu:
     def show(self):
+        print("--- Work Request Menu ---")
         print("1. Register a new work request")
         print("2. Find work request")
         print("b. Back")
@@ -10,6 +11,7 @@ class WorkRequestMenu:
 
     def handle_input(self, command):
         if command == "1":
+            #return CreationMenu(models.WorkRequest)
             pass
         elif command == "2":
             return FindWorkRequestMenu()
@@ -21,7 +23,7 @@ class WorkRequestMenu:
 
 class FindWorkRequestMenu:
     def show(self):
-        #print("--- FIND WORK REQUEST MENU ---")
+        print("--- Find Work Request Menu ---")
         print("1. By ID")
         print("2. By real estate")
         print("3. By employee")
@@ -33,19 +35,94 @@ class FindWorkRequestMenu:
 
     def handle_input(self, command):
         if command == "1":
-            pass
+            return FindWorkByID()
         elif command == "2":
-            pass
+            return FindWorkByRealEstate()
         elif command == "3":
-            pass
+            return FindWorkByEmployee()
         elif command == "4":
-            pass
+            return FindWorkByContractor()
         elif command == "5":
-            pass
+            return FindWorkByDate()
         elif command == "6":
-            pass
+            return FindWorkByPeriod()
         elif command == "b":
             return "back"
         elif command == "q":
             return "quit"
 
+
+class FindWorkByID:
+    def show(self):
+        print("--- Find Work Request by ID ---")
+        print("\n(Display list of work requests)\n")
+        inp = input("Choose a work request: ")
+
+    def handle_input(self, command):
+        if command == "b":
+            return "back"
+        elif command == "q":
+            return "quit"
+        else:
+            print("Invalid ID\n")
+            return "back"
+
+class FindWorkByRealEstate:
+    def show(self):
+        print("--- Find Work Request by Real Estate ---")
+        print("\n(Display list of work requests)\n")
+        inp = input("Choose a work request: ")
+
+    def handle_input(self, command):
+        if command == "b":
+            return "back"
+        elif command == "q":
+            return "quit"
+
+class FindWorkByEmployee:
+    def show(self):
+        print("--- Find Work Request by Employee ---")
+        print("\n(Display list of work requests)\n")
+        inp = input("Choose a work request: ")
+
+    def handle_input(self, command):
+        if command == "b":
+            return "back"
+        elif command == "q":
+            return "quit"
+
+class FindWorkByContractor:
+    def show(self):
+        print("--- Find Work Request by Contractor ---")
+        print("\n(Display list of work requests)\n")
+        inp = input("Choose a work request: ")
+
+    def handle_input(self, inp):
+        if inp == "b":
+            return "back"
+        elif inp == "q":
+            return "quit"
+
+class FindWorkByDate:
+    def show(self):
+        print("--- Find Work Request by Date ---")
+        print("\n(Display list of work requests)\n")
+        inp = input("Choose a work request: ")
+
+    def handle_input(self, command):
+        if command == "b":
+            return "back"
+        elif command == "q":
+            return "quit"
+
+class FindWorkByPeriod:
+    def show(self):
+        print("--- Find Work Request by Period ---")
+        print("\n(Display list of work requests)\n")
+        inp = input("Choose a work request: ")
+
+    def handle_input(self, command):
+        if command == "b":
+            return "back"
+        elif command == "q":
+            return "quit"

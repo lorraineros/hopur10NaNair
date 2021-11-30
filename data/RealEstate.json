@@ -1,0 +1,322 @@
+[
+    {
+        "id": 1,
+        "address": "Vei 217",
+        "real_estate_number": "F959594",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "House",
+        "rooms": 4,
+        "size": 150 
+    }, 
+    {
+        "id": 2,
+        "address": "Longyearbyen Harbor 1",
+        "real_estate_number": "AA999-1",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Submarine",
+        "rooms": 1,
+        "size": 62
+    },
+    {
+        "id": 82,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3900",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Reception and restaurant",
+        "rooms": 1,
+        "size": 100
+    },
+    {
+        "id": 83,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3901",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 84,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3902",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 85,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3903",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 86,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3904",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 87,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3905",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 88,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3906",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 89,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3907",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 90,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3908",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 91,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3909",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 92,
+        "address": "iGloo-Ville",
+        "real_estate_number": "64-3910",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id":93,
+        "address": "Suloraq 42",
+        "real_estate_number": "64-3875",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Apartment",
+        "rooms": 1,
+        "size": 34.5
+    },
+    {
+        "id": 94,
+        "address": "Suloraq 42",
+        "real_estate_number": "64-3876",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Apartment",
+        "rooms": 1,
+        "size": 34.5
+    },
+    {
+        "id": 95,
+        "address": "Igimaq 7",
+        "real_estate_number": "64-3831",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Igloo",
+        "rooms": 1,
+        "size": 10
+    },
+    {
+        "id": 96,
+        "address": "Nuussuaq 4",
+        "real_estate_number": "64-3812",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Villa",
+        "rooms": 8,
+        "size": 400
+    },
+    {
+        "id": 97,
+        "address": "Skákið 15",
+        "real_estate_number": "ix-9331",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Raðhús???",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 98,
+        "address": "Skákið 15",
+        "real_estate_number": "ix-9332",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Raðhús???",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 99,
+        "address": "Skákið 15",
+        "real_estate_number": "ix-9333",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Raðhús???",
+        "rooms": 1,
+        "size": 35
+    },
+    {
+        "id": 100,
+        "address": "Svalbarðsvegur 22",
+        "real_estate_number": "ix-2239",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "House",
+        "rooms": 5,
+        "size": 200
+    },
+    {
+        "id": 101,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9492",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 102,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9493",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 103,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9494",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 104,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9494",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 105,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9495",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 106,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9496",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 107,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9497",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 108,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9498",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 109,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9499",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 110,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9500",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    },
+    {
+        "id": 111,
+        "address": "Nýggivegur 1",
+        "real_estate_number": "ix-9501",
+        "condition": "",
+        "facilities": "",
+        "type_of_real_estate": "Mold house",
+        "rooms": 1,
+        "size": 15
+    }
+]

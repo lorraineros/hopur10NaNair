@@ -1,6 +1,7 @@
 # from ui import *
 from ..ui.real_estate_ui import RealEstateMenu
 from ..ui.employee_ui import EmployeeMenu
+from ..ui.contractor_ui import ContractorMenu
 from ..ui.work_request_ui import WorkRequestMenu
 from ..models import models
 import dataclasses
@@ -76,3 +77,4 @@ class CreationMenu:
     def handle_input(self, command):
         if command == "q":
             return "quit"
+

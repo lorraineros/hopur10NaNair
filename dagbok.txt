@@ -50,5 +50,5 @@ Dagurinn í dag hófst kl. 10 í HR, allir mættir nema Andriy sem var en þá v
 Byrjuðum daginn á Zoom fyrirlestri þ.s. farið var yfir góð ráð þegar kemur að því að forrita í Python og hvað við þrufum að hafa í huga þegar við tæklum verkefnið okkar. Eftir fyrirlesturinn tóku við matarpásu og hittumst kl.12 á Discord. Allir mættir og byrjuðum við á því að fara yfir feedback-ið sem við fengum fyrir hönnunarkskýrsluna. Síðan byrjuðum við að skipuleggja vinnuna okkar og hvernig við ætlum að forrita verkefnið. Við gerðum beinagrind og ræddum okkar á milli hvernig við ætlum að vinna verkefnið, þegar það var allt saman komið ákváðum við að hittast í fyrramálið (30. nóvember) kl.10 í HR, þ.s. við ætlum að skipta verkum á milli okkar, en samt sem áður vinna verkefnið saman.
 
 ### 30. nóvember 2021
-Hittumst í HR og vorum að forrita verkefnið saman.
+Hittumst í HR í dag kl.10 og ræddum verkefnið aðeins og hvernig framvinda þess myndi vera. Þegar við vorum búin að því byrjuðum við að vinna að verkefninu og vorum með létta verkskiptingu, þar sem hver og einn var að forrita. Ákváðum að hittast aftur í HR miðvikudaginn 1. desember kl.10.
 
