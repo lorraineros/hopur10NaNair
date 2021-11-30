@@ -15,11 +15,9 @@ class RealEstateMenu:
         if command == "1":
             pass
         elif command == "2":
-            pass
-            #return RealEstateSearch()
+            return RealEstateSearch()
         elif command == "3":
-            pass
-            #return RealEstateListMenu()
+            return RealEstateListMenu()
         elif command == "b":
             return "back"
         elif command == "q":
@@ -28,7 +26,8 @@ class RealEstateMenu:
 
 class RealEstateListMenu:
     def show(self):
-        print(RealEstateLogic.get_list())
+        print("--- List of Real Estate ---")
+        #print(RealEstateLogic.get_list())
         print()
         print("b. Back")
         print("q. Quit")
@@ -42,9 +41,10 @@ class RealEstateListMenu:
 
 class RealEstateSearch:
     def show(self):
-        print(RealEstateLogic.get_list())
+        print("--- Find a Real Estate ---")
+        #print(RealEstateLogic.get_list())
         print()
-        inp = input("Choose a real estate: ")
+        inp = input("Choose a real estate from list: ")
 
     def handle_input(self, inp):
         pass
