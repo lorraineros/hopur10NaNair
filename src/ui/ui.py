@@ -29,6 +29,15 @@ class App:
 
 class MainMenu:
     def show(self):
+        print("""
+         _   _       _   _      _    _      
+        | \ | | __ _| \ | |    / \  (_)_ __ 
+        |  \| |/ _` |  \| |   / _ \ | | '__|
+        | |\  | (_| | |\  |  / ___ \| | |   
+        |_| \_|\__,_|_| \_| /_/   \_\_|_|   
+ 
+ --------------- Welcome to NaN Air ---------------
+ """)
         print("1. Employee")
         print("2. Real Estate")
         print("3. Work request")
