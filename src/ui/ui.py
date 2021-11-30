@@ -1,5 +1,6 @@
 # from ui import *
 from ..ui.employee_ui import EmployeeMenu
+from ..ui.contractor_ui import ContractorMenu
 from ..models import models
 import dataclasses
 
@@ -64,3 +65,4 @@ class CreationMenu:
     def handle_input(self, command):
         if command == "q":
             return "quit"
+
