@@ -1,3 +1,4 @@
+from storage.real_estate_storage import RealEstateStorage
 
 
 class RealEstateLogic:

@@ -1,6 +1,7 @@
 #from ..logic.real_estate_logic import RealEstateLogic
 #from ..ui.ui import CreationMenu
 
+
 class RealEstateMenu:
     def show(self):
         print("--- Real Estate Menu ---")
@@ -24,6 +25,7 @@ class RealEstateMenu:
         elif command == "q":
             return "quit"
 
+
 class RealEstateListMenu:
     def show(self):
         print(RealEstateLogic.get_list())
@@ -36,6 +38,7 @@ class RealEstateListMenu:
             return "back"
         elif command == "q":
             return "quit"
+
 
 class RealEstateSearch:
     def show(self):
