@@ -27,8 +27,17 @@ class Employee(BaseEmployee):
     email_address: str
     workplace: Id
 
+
 @dataclass
 class WorkRequest(BaseWorkRequest):
     phone_number: str
     email_address: str
     workplace: Id
+
+
+@dataclass
+class RealEstate:
+    id: Id
+    address: str
+    condition: str
+    facilities: str
