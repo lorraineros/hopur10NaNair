@@ -4,43 +4,68 @@
         "title": "Make the nuclear reactor subcritical",
         "location": "Longyearbyen - Svalbard",
         "real_estate": "AA999-1",
-        "description": "OK-650VV The nuclear reactor designed around 1970.\\nÞeir eiga það þó til að ofhitna ef þeim er ekki sint sem skyldi.\\nReglulega (amk. 1 sinni í viku) þarf sáldra smá boron í kerfið.\nATH! Við þetta þarf verktaka sem á góðan gúmígalla því þetta er\\nallt frekar blautt og heitt, og svo er ekki verra að vita\\neitthvað hvað maður er að gera.",
+        "employee": 2,
+        "description": "OK-650VV The nuclear reactor designed around 1970.\nHowever, they tend to overheat if they are not heated properly.\nRegularly (at least once a week) a little boron is injected into the system.\nNOTE! This requires a contractor who has a good rubber defect because this is it\nall rather wet and hot, and so it is not worse to know\nsomething what you are doing.",
         "priority": "Emergency",
         "repeated_work": 1
     },
     {
         "id": 2,
-        "title": "Hengja upp jólaskrautið",
+        "title": "Hang up the Christmas decorations",
         "location": "Longyearbyen - Svalbard",
         "real_estate": "AA999-1",
-        "description": "Þar sem hótelið er ekki að nýta öll 190 mega vöttin sem OK-650VV\\ngetur búið til hefur verið ákv. að á hverju ári skuli sett upp\\neinhver sú skrautlegasta jólaskrauts útstilling sem sögur fara af.\\nSkal hefast handa við að hengja upp skrautið 1 nóv. ár hvert\\nog svo aftur að taka það niður 10 jan. ár hvert.",
+        "employee": 3,
+        "description": "As the hotel does not use all 190 may the watts as OK-650VV\ncan create has been decided. that each year shall be installed\none of the most beautiful Christmas decoration exhibitions that stories go by.\nThe hanging of the ornament will begin on November 1 every year\nand then again to take it down January 10 every year.",
         "priority": "As soon as possible",
         "repeated_work": 1
     },
     {
         "id": 3,
-        "title": "Kæla niður snjóhús og stoppa í glufur",
+        "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3900 - 64-3910",
-        "description": "Rétt yfir há sumartímann, frá 15 júlí til 25 ágúst, þarf að ditta\\nað iGlú-ville húsunum (öllum). Aðalega þarf að bæta við snjó og\\npassa að það sé ekki komin göt á veggi osfrv.",
+        "employee": 5,
+        "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": 1
     },
     {
         "id": 4,
-        "title": "Slá og reita arfa af moldarhúsum",
+        "title": "Beat and plow heirlooms of mud houses",
         "location": "Þórshöfn - Faroe Islands",
         "real_estate": "ix-9492 - ix-9502",
-        "description": "Yfir sumartímann þarf slá gras og reita arfa af moldrahúsunum amk.\\neinusinni í viku. Gildir þetta frá 1 maí til 30 sept.",
+        "employee": 8,
+        "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": 20
     },
     {
         "id": 5,
-        "title": "Gluggaþvottur",
+        "title": "Window washing",
         "location": "Everywhere",
-        "real_estate": "64-3875-6, 64-3831, 64-3812,\\nix-9331 - ix-9333, ix-2239,\\nF959594",
-        "description": "Einusinni í viku þarf að þrífa glugga á öllum ofantöldum fasteignum.\\nÖll hús nema igloo, kafbáturinn og moldarhúsin, en ekkert af þeim\\ner með glugga.",
+        "real_estate": "64-3875-6, 64-3831, 64-3812",
+        "employee": 5,
+        "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
+        "priority": "As soon as possible",
+        "repeated_work": 4
+    },
+    {
+        "id": 6,
+        "title": "Window washing",
+        "location": "Everywhere",
+        "real_estate": "ix-9331 - ix-9333, ix-2239",
+        "employee": 7,
+        "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
+        "priority": "As soon as possible",
+        "repeated_work": 4
+    },
+    {
+        "id": 7,
+        "title": "Window washing",
+        "location": "Everywhere",
+        "real_estate": "F959594",
+        "employee": 2,
+        "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
         "repeated_work": 4
     }

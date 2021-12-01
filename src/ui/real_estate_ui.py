@@ -52,6 +52,7 @@ class RealEstateSearch:
         print("1. By ID")
         print("2. By address")
         print("3. By destination")
+        print("4. By real estate number")
         print("b. Back")
         print("q. Quit")
 
@@ -62,6 +63,8 @@ class RealEstateSearch:
             return FindRealEstateByAddress()
         elif command == "3":
             return FindRealEstateByDest()
+        elif command == "4":
+            return FindRealEstateByRENum()
         elif command == "b":
             return "back"
         elif command == "q":
@@ -73,16 +76,41 @@ class FindRealEstateByID(RealEstateListMenu):
         print(f"{'--- Find Real Estate by ID ---':^52}")
         self.print_list()
         print()
+        id_input = int(input("Enter ID to choose a Real Estate: "))
+
+        self.print_list_by_id(id_input)
         print("b. Back")
         print("q. Quit")
+
+    def print_list_by_id(self, id_input):
+        print("-"*52)
+        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
+        print("-"*52)
+        for real_est in RealEstateLogic.get_list():
+            if real_est.id == id_input:
+                print(f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |")
+        print("-"*52)
+
     
 class FindRealEstateByAddress(RealEstateListMenu):
     def show(self):
         print(f"{'--- Find Real Estate by Address ---':^52}")
         self.print_list()
         print()
+        address_input = input("Enter address to see Real Estate: ")
+
+        self.print_list_by_address(address_input)
         print("b. Back")
         print("q. Quit")
+
+    def print_list_by_address(self, address_input):
+        print("-"*52)
+        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
+        print("-"*52)
+        for real_est in RealEstateLogic.get_list():
+            if real_est.address.lower() == address_input.lower():
+                print(f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |")
+        print("-"*52)
 
 class FindRealEstateByDest(RealEstateListMenu):
     def show(self):
@@ -91,3 +119,24 @@ class FindRealEstateByDest(RealEstateListMenu):
         print()
         print("b. Back")
         print("q. Quit")
+
+
+class FindRealEstateByRENum(RealEstateListMenu):
+    def show(self):
+        print(f"{'--- Find Real Estate by Real Estate Number ---':^52}")
+        self.print_list()
+        print()
+        renum_input = input("Enter Real Estate Number to choose Real Estate: ")
+
+        self.print_list_by_renum(renum_input)
+        print("b. Back")
+        print("q. Quit")
+    
+    def print_list_by_renum(self, renum_input):
+        print("-"*52)
+        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
+        print("-"*52)
+        for real_est in RealEstateLogic.get_list():
+            if real_est.real_estate_number.lower() == renum_input.lower():
+                print(f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |")
+        print("-"*52)
