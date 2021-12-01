@@ -26,9 +26,13 @@ class RealEstateMenu:
 
 class RealEstateListMenu:
     def show(self):
-        print("--- List of Real Estate ---")
-        for emp in RealEstateLogic.get_list():
-            print(emp)
+        print(f"{'--- List of Real Estate ---':^52}")
+        print()
+        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
+        print("-"*52)
+        for real_est in RealEstateLogic.get_list():
+            print(f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |")
+        print("-"*52)
         print()
         print("b. Back")
         print("q. Quit")
