@@ -24,8 +24,13 @@ class EmployeeMenu:
 
 class EmployeeListMenu:
     def show(self):
+        print(f"{'--- List of Employee ---':^61}")
+        print("-"*61)
+        print(f"| {'ID':^3} | {'Name':^21} | {'Email':^27} |")
+        print("-"*61)
         for emp in EmployeeLogic.get_list():
-            print(emp)
+            print(f"| {emp.id:<3} | {emp.name:<21} | {emp.email:<27} |")
+        print("-"*61)
         print()
         print("b. Back")
         print("q. Quit")

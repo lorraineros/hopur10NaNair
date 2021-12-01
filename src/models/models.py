@@ -17,15 +17,16 @@ class Model:
 class BaseEmployee(Model):
     id: Id
     name: str
-    mobile_number: str
-    address: str
+    home_address: str
+    phone_number: str
+    
 
 
 @dataclass
 class Employee(BaseEmployee):
-    phone_number: str
-    email_address: str
-    workplace: Id
+    gsm: str
+    email: str
+    work_destination: Id
 
 
 @dataclass
