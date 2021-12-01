@@ -50,3 +50,12 @@ class RealEstate(Model):
     type_of_real_estate: str
     rooms: int
     size: int
+
+@dataclass
+class Contractor:
+    id: Id
+    name: str
+    name_of_contact: str
+    mobile_number: str
+    working_hours: str
+    location: str
