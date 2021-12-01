@@ -1,8 +1,6 @@
 from src.ui.abstract_menu import AbstractMenu
 from ..logic.real_estate_logic import RealEstateLogic
 
-# from ..ui.ui import CreationMenu
-
 
 class RealEstateMenu(AbstractMenu):
     def show(self):
