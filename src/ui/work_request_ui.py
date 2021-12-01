@@ -54,9 +54,22 @@ class FindWorkRequestMenu:
 
 class FindWorkByID:
     def show(self):
-        print("--- Find Work Request by ID ---")
-        print("\n(Display list of work requests)\n")
-        inp = input("Choose a work request: ")
+        print(f"{'--- Find Work Request by ID ---':^52}")
+        print("-"*52)
+        print(f"| {'ID':^2} | {'Title':^43} |")
+        print("-"*52)
+        for work in WorkRequestLogic.get_list():
+            print(f"| {work.id:<2} | {work.title:<43} |")
+        print("-"*52)
+        id = int(input("Enter id to choose a work request: "))
+
+        print("-"*52)
+        print(f"| {'ID':^2} | {'Title':^43} |")
+        print("-"*52)
+        for work in WorkRequestLogic.get_list():
+            if work.id == id:
+                print(f"| {work.id:<2} | {work.title:<43} | ")
+        print("-"*52)
 
     def handle_input(self, command):
         if command == "b":
@@ -70,8 +83,13 @@ class FindWorkByID:
 class FindWorkByRealEstate:
     def show(self):
         print("--- Find Work Request by Real Estate ---")
-        print("\n(Display list of work requests)\n")
-        inp = input("Choose a work request: ")
+        print("-"*46)
+        print(f"| {'Real estate':^40} | {'Title':^43} |")
+        print("-"*46)
+        for work in WorkRequestLogic.get_list():
+            print(f"| {work.real_estate:<40} | {work.title:<43} |")
+        print("-"*46)
+        inp = str(input("Choose a work request: "))
 
     def handle_input(self, command):
         if command == "b":

@@ -16,7 +16,9 @@ class WorkRequestStorage:
 
     @staticmethod
     def get_all():
-        pass
+        with open(FILE_PATH, 'r', encoding="utf-8", ) as file:
+            data = json.load(file)
+            return [WorkRequest.from_dict(work) for work in data]
 
     def add(entity: WorkRequest):
         pass
