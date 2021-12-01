@@ -3,5 +3,8 @@ from .ui.ui import App
 
 if __name__ == "__main__":
     app = App()
-    app.run()
+    try:
+        app.run()
+    except KeyboardInterrupt:
+        pass
     print("Thank you for using NaNAir")
