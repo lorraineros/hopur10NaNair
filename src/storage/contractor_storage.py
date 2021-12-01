@@ -1,13 +1,13 @@
 import json
 import pathlib
 
-from ..models.models import RealEstate
+from ..models.models import Contractor
 
 
-FILE_PATH = "data/RealEstate.json"
+FILE_PATH = "data/Contractor.json"
 
 
-class RealEstateStorage:
+class ContractorStorage:
     @staticmethod
     def get(id: int):
         print("get")
@@ -19,7 +19,7 @@ class RealEstateStorage:
     def get_all():
         with open(FILE_PATH, 'r', encoding="utf-8", ) as file:
             data = json.load(file)
-            return [RealEstate.from_dict(real_est) for real_est in data]
+            return [Contractor.from_dict(contr) for contr in data]
 
-    def add(entity: RealEstate):
+    def add(entity: Contractor):
         pass
