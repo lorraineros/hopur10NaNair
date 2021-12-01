@@ -36,6 +36,7 @@ class WorkRequest(Model):
     title: str
     location: str
     real_estate: str
+    employee: int
     description: str
     priority: str
     repeated_work: int
