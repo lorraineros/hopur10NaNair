@@ -1,5 +1,5 @@
 from ..logic.real_estate_logic import RealEstateLogic
-#from ..ui.ui import CreationMenu
+
 
 class RealEstateMenu:
     def show(self):
