@@ -4,7 +4,7 @@
         "title": "Make the nuclear reactor subcritical",
         "location": "Longyearbyen - Svalbard",
         "real_estate": "AA999-1",
-        "description": "OK-650VV The nuclear reactor designed around 1970.\\nHowever, they tend to overheat if they are not heated properly.\\nRegularly (at least once a week) a little boron is injected into the system.\nNOTE! This requires a contractor who has a good rubber defect because this is it\\nall rather wet and hot, and so it is not worse to know\\nsomething what you are doing.",
+        "description": "OK-650VV The nuclear reactor designed around 1970.\nHowever, they tend to overheat if they are not heated properly.\nRegularly (at least once a week) a little boron is injected into the system.\nNOTE! This requires a contractor who has a good rubber defect because this is it\nall rather wet and hot, and so it is not worse to know\nsomething what you are doing.",
         "priority": "Emergency",
         "repeated_work": 1
     },
@@ -13,7 +13,7 @@
         "title": "Hang up the Christmas decorations",
         "location": "Longyearbyen - Svalbard",
         "real_estate": "AA999-1",
-        "description": "As the hotel does not use all 190 may the watts as OK-650VV\\ncan create has been decided. that each year shall be installed\\none of the most beautiful Christmas decoration exhibitions that stories go by.\\nThe hanging of the ornament will begin on November 1 every year\\nand then again to take it down January 10 every year.",
+        "description": "As the hotel does not use all 190 may the watts as OK-650VV\ncan create has been decided. that each year shall be installed\none of the most beautiful Christmas decoration exhibitions that stories go by.\nThe hanging of the ornament will begin on November 1 every year\nand then again to take it down January 10 every year.",
         "priority": "As soon as possible",
         "repeated_work": 1
     },
@@ -22,7 +22,7 @@
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3900 - 64-3910",
-        "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\\nto the iGloo-ville houses (all). Mainly need to add snow and\\nmake sure there are no holes in the walls, etc.",
+        "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": 1
     },
@@ -31,7 +31,7 @@
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Þórshöfn - Faroe Islands",
         "real_estate": "ix-9492 - ix-9502",
-        "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\\nonce a week. This is valid from May 1 to September 30.",
+        "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": 20
     },
@@ -39,8 +39,8 @@
         "id": 5,
         "title": "Window washing",
         "location": "Everywhere",
-        "real_estate": "64-3875-6, 64-3831, 64-3812,\\nix-9331 - ix-9333, ix-2239,\\nF959594",
-        "description": "Once a week, windows on all of the above real estate need to be cleaned.\\nAll houses except the igloo, the submarine and the mud houses, but none of them\\nhas a window.",
+        "real_estate": "64-3875-6, 64-3831, 64-3812,\nix-9331 - ix-9333, ix-2239,\nF959594",
+        "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
         "repeated_work": 4
     }
