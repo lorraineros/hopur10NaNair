@@ -27,7 +27,7 @@ class RealEstateMenu:
 class RealEstateListMenu:
     def show(self):
         print(f"{'--- List of Real Estate ---':^52}")
-        print()
+        print("-"*52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
         print("-"*52)
         for real_est in RealEstateLogic.get_list():
@@ -44,13 +44,9 @@ class RealEstateListMenu:
             return "quit"
 
 
-class RealEstateSearch:
-    def show(self):
-        print("--- Find a Real Estate ---")
-        #print(RealEstateLogic.get_list())
-        print()
-        inp = input("Choose a real estate from list: ")
+class RealEstateSearch(RealEstateListMenu):
+    pass
 
-    def handle_input(self, inp):
-        pass
+
+    
 
