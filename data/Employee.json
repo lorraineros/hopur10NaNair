@@ -1,83 +1,83 @@
 [
-	{
-		"id": 1,
-		"name": "Jan Jacobsen",
-		"home_address": "Vei 230 12, Longyearbyen, Svalbard",
-		"phone_number": "+47 92 09 77 00",
-		"gsm": "+354 777 1337",
-		"email": "jan.jacobsen@nanair.is",
-		"work_destination": 1
-	}, 
-	{
-		"id": 2,
-		"name": "Jacob Yxa",
-		"home_address": "Vei 224 3B, Longyearbyen, Svalbard",
-		"phone_number": "+47 92 09 77 01",
-		"gsm": "+354 777 1338",
-		"email": "jacob.yxa@nanair.is",
-		"work_destination": 1
-	},
-	{
-		"id": 3,
-		"name": "Nanna Daema",
-		"home_address": "Ivan Starostin st. 109, Barantsburg, Svalbard",
-		"phone_number": "+47 92 09 77 02",
-		"gsm": "+354 777 1339",
-		"email": "nanna.daema@nanair.is",
-		"work_destination": 1
-	},
-	{
-		"id": 4,
-		"name": "Minik Wallace",
-		"home_address": "Isaajap Aqqutaa 1, 3900, Nuuk, Greenland",
-		"phone_number": "+299 34 24 67",
-		"gsm": "+354 777 1361",
-		"email": "minik.wallace@nanair.is",
-		"work_destination": 2
-	},
-	{
-		"id": 5,
-		"name": "Aqqaluk Lynge",
-		"home_address": "Qattaaq 44, 3905, Nuuk, Greenland",
-		"phone_number": "+299 35 24 66",
-		"gsm": "+354 777 1362",
-		"email": "aqqaluk.lynge@nanair.is",
-		"work_destination": 2
-	},
-	{
-		"id": 6,
-		"name": "Nauja Lynge",
-		"home_address": "Qunguleq 3759, 3905, Nuuk, Greenland",
-		"phone_number": "+299 31 21 64",
-		"gsm": "+354 777 1363",
-		"email": "nauja.lynge@nanair.is",
-		"work_destination": 2
-	},
-	{
-		"id": 7,
-		"name": "Annette Djurhuus",
-		"home_address": "Tjarnardeild 8, 100, Tórshavn, Faroe Islands",
-		"phone_number": "+298 772000",
-		"gsm": "+354 777 1381",
-		"email": "annette.djurhuus@nanair.is",
-		"work_destination": 3
-	},
-	{
-		"id": 8,
-		"name": "Áki Knudsen",
-		"home_address": "Traðartún 3, 108, Argir, Faroe Islands",
-		"phone_number": "+298 617210",
-		"gsm": "+354 777 1382",
-		"email": "aki.knudsen@nanair.is",
-		"work_destination": 3
-	},
-	{
-		"id": 9,
-		"name": "André Hjaltalin",
-		"home_address": "Í Lágni 19, 100, Tórshavn, Faroe Islands",
-		"phone_number": "+298 661441",
-		"gsm": "+354 777 1383",
-		"email": "andre.hjaltalin@nanair.is",
-		"work_destination": 3
-	}
+    {
+        "id": 1,
+        "name": "Jan Jacobsen",
+        "home_address": "Vei 230 12, Longyearbyen, Svalbard",
+        "phone": "+47 92 09 77 00",
+        "gsm": "+354 777 1337",
+        "email": "jan.jacobsen@nanair.is",
+        "work_destination": 1
+    },
+    {
+        "id": 2,
+        "name": "Jacob Yxa",
+        "home_address": "Vei 224 3B, Longyearbyen, Svalbard",
+        "phone": "+47 92 09 77 01",
+        "gsm": "+354 777 1338",
+        "email": "jacob.yxa@nanair.is",
+        "work_destination": 1
+    },
+    {
+        "id": 3,
+        "name": "Nanna Daema",
+        "home_address": "Ivan Starostin st. 109, Barantsburg, Svalbard",
+        "phone": "+47 92 09 77 02",
+        "gsm": "+354 777 1339",
+        "email": "nanna.daema@nanair.is",
+        "work_destination": 1
+    },
+    {
+        "id": 4,
+        "name": "Minik Wallace",
+        "home_address": "Isaajap Aqqutaa 1, 3900, Nuuk, Greenland",
+        "phone": "+299 34 24 67",
+        "gsm": "+354 777 1361",
+        "email": "minik.wallace@nanair.is",
+        "work_destination": 2
+    },
+    {
+        "id": 5,
+        "name": "Aqqaluk Lynge",
+        "home_address": "Qattaaq 44, 3905, Nuuk, Greenland",
+        "phone": "+299 35 24 66",
+        "gsm": "+354 777 1362",
+        "email": "aqqaluk.lynge@nanair.is",
+        "work_destination": 2
+    },
+    {
+        "id": 6,
+        "name": "Nauja Lynge",
+        "home_address": "Qunguleq 3759, 3905, Nuuk, Greenland",
+        "phone": "+299 31 21 64",
+        "gsm": "+354 777 1363",
+        "email": "nauja.lynge@nanair.is",
+        "work_destination": 2
+    },
+    {
+        "id": 7,
+        "name": "Annette Djurhuus",
+        "home_address": "Tjarnardeild 8, 100, Tórshavn, Faroe Islands",
+        "phone": "+298 772000",
+        "gsm": "+354 777 1381",
+        "email": "annette.djurhuus@nanair.is",
+        "work_destination": 3
+    },
+    {
+        "id": 8,
+        "name": "Áki Knudsen",
+        "home_address": "Traðartún 3, 108, Argir, Faroe Islands",
+        "phone": "+298 617210",
+        "gsm": "+354 777 1382",
+        "email": "aki.knudsen@nanair.is",
+        "work_destination": 3
+    },
+    {
+        "id": 9,
+        "name": "André Hjaltalin",
+        "home_address": "Í Lágni 19, 100, Tórshavn, Faroe Islands",
+        "phone": "+298 661441",
+        "gsm": "+354 777 1383",
+        "email": "andre.hjaltalin@nanair.is",
+        "work_destination": 3
+    }
 ]

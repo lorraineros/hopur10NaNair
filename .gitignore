@@ -2,6 +2,7 @@
 .idea
 tmp/
 src/test.py
+.prettierrc.json
 
 # taken from https://github.com/github/gitignore/blob/master/Python.gitignore
 # Byte-compiled / optimized / DLL files
