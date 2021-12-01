@@ -1,8 +1,9 @@
+from src.ui.abstract_menu import AbstractMenu
 from ..logic.work_request_logic import WorkRequestLogic
 from ..logic.employee_logic import EmployeeLogic
 
 
-class WorkRequestMenu:
+class WorkRequestMenu(AbstractMenu):
     def show(self):
         print("--- Work Request Menu ---")
         print("1. Register a new work request")
@@ -12,7 +13,7 @@ class WorkRequestMenu:
 
     def handle_input(self, command):
         if command == "1":
-            #return CreationMenu(models.WorkRequest)
+            # return CreationMenu(models.WorkRequest)
             pass
         elif command == "2":
             return FindWorkRequestMenu()
@@ -22,7 +23,7 @@ class WorkRequestMenu:
             return "quit"
 
 
-class FindWorkRequestMenu:
+class FindWorkRequestMenu(AbstractMenu):
     def show(self):
         print("--- Find Work Request Menu ---")
         print("1. By ID")
@@ -53,7 +54,7 @@ class FindWorkRequestMenu:
             return "quit"
 
 
-class FindWorkByID:
+class FindWorkByID(AbstractMenu):
     def show(self):
         print(f"{'--- Find Work Request by ID ---':^52}")
         self.print_list()
@@ -63,7 +64,6 @@ class FindWorkByID:
         print("b. Back")
         print("q. Quit")
         edit = input("\nDo you want to edit work request (Y/N)? ")
-        
 
     def handle_input(self, command):
         if command == "b":
@@ -75,23 +75,24 @@ class FindWorkByID:
             return "back"
 
     def print_list(self):
-        print("-"*52)
+        print("-" * 52)
         print(f"| {'ID':^2} | {'Title':^43} |")
-        print("-"*52)
+        print("-" * 52)
         for work in WorkRequestLogic.get_list():
             print(f"| {work.id:<2} | {work.title:<43} |")
-        print("-"*52)
+        print("-" * 52)
 
-    def print_filtered_list(self,id):
-        print("-"*52)
+    def print_filtered_list(self, id):
+        print("-" * 52)
         print(f"| {'ID':^2} | {'Title':^43} |")
-        print("-"*52)
+        print("-" * 52)
         for work in WorkRequestLogic.get_list():
             if work.id == id:
                 print(f"| {work.id:<2} | {work.title:<43} | ")
-        print("-"*52)
-        
-class FindWorkByRealEstate:
+        print("-" * 52)
+
+
+class FindWorkByRealEstate(AbstractMenu):
     def show(self):
         print(f"{'--- Find Work Request by Real Estate ---':^78}")
         self.print_list()
@@ -106,25 +107,26 @@ class FindWorkByRealEstate:
             return "back"
         elif command == "q":
             return "quit"
-    
+
     def print_list(self):
-        print("-"*78)
+        print("-" * 78)
         print(f"| {'Real estate':^28} | {'Title':^43} |")
-        print("-"*78)
+        print("-" * 78)
         for work in WorkRequestLogic.get_list():
             print(f"| {work.real_estate:<28} | {work.title:<43} |")
-        print("-"*78)
+        print("-" * 78)
 
     def print_filtered_list(self, real_est):
-        print("-"*78)
+        print("-" * 78)
         print(f"| {'Real estate':^28} | {'Title':^43} |")
-        print("-"*78)
+        print("-" * 78)
         for work in WorkRequestLogic.get_list():
             if work.real_estate.lower() == real_est.lower():
                 print(f"| {work.real_estate:<28} | {work.title:<43} |")
-        print("-"*78)
+        print("-" * 78)
 
-class FindWorkByEmployee:
+
+class FindWorkByEmployee(AbstractMenu):
     def show(self):
         print(f"{'--- Find Work Request by Employee ---':^72}")
         self.print_list()
@@ -141,26 +143,27 @@ class FindWorkByEmployee:
             return "quit"
 
     def print_list(self):
-        print("-"*72)
+        print("-" * 72)
         print(f"| {'Employee':^22} | {'Title':^43} |")
-        print("-"*72)
+        print("-" * 72)
         for work in WorkRequestLogic.get_list():
             for emp in EmployeeLogic.get_list():
                 if work.employee == emp.id:
                     print(f"| {work.employee:<2} | {emp.name:<17} | {work.title:<43} |")
-        print("-"*72)
-    
+        print("-" * 72)
+
     def print_filtered_list(self, emp_id):
-        print("-"*72)
+        print("-" * 72)
         print(f"| {'Employee':^22} | {'Title':^43} |")
-        print("-"*72)
+        print("-" * 72)
         for work in WorkRequestLogic.get_list():
             for emp in EmployeeLogic.get_list():
                 if work.employee == emp.id == emp_id:
                     print(f"| {work.employee:<2} | {emp.name:<17} | {work.title:<43} |")
-        print("-"*72)
+        print("-" * 72)
 
-class FindWorkByContractor:
+
+class FindWorkByContractor(AbstractMenu):
     def show(self):
         print("--- Find Work Request by Contractor ---")
         print("\n(Display list of work requests)\n")
@@ -172,7 +175,8 @@ class FindWorkByContractor:
         elif inp == "q":
             return "quit"
 
-class FindWorkByDate:
+
+class FindWorkByDate(AbstractMenu):
     def show(self):
         print("--- Find Work Request by Date ---")
         print("\n(Display list of work requests)\n")
@@ -184,7 +188,8 @@ class FindWorkByDate:
         elif command == "q":
             return "quit"
 
-class FindWorkByPeriod:
+
+class FindWorkByPeriod(AbstractMenu):
     def show(self):
         print("--- Find Work Request by Period ---")
         print("\n(Display list of work requests)\n")

@@ -1,6 +1,8 @@
+from src.ui.abstract_menu import AbstractMenu
 from ..logic.contractor_logic import ContractorLogic
 
-class ContractorMenu:
+
+class ContractorMenu(AbstractMenu):
     def show(self):
         print("1. Register a new contractor")
         print("2. Find a contractor")
@@ -8,12 +10,12 @@ class ContractorMenu:
         print("b. Back")
         print("q. Quit")
 
-    def handle_input(self ,command):
+    def handle_input(self, command):
         if command == "1":
-            #return CreationMenu(models.Contractor)
+            # return CreationMenu(models.Contractor)
             pass
         elif command == "2":
-            pass 
+            pass
         elif command == "3":
             return ContractorListMenu()
         elif command == "b":
@@ -22,15 +24,17 @@ class ContractorMenu:
             return "quit"
 
 
-class ContractorListMenu:
+class ContractorListMenu(AbstractMenu):
     def show(self):
         print(f"{'--- List of Contractor ---':^61}")
-        print("-"*61)
-        print(f"| {'ID':^3} | {'Name':^21} | {'Name of contact':^27} | {'Mobile_number':^27} | {'Working hours':^27} | {'Location':^27} |")
-        print("-"*61)
+        print("-" * 61)
+        print(
+            f"| {'ID':^3} | {'Name':^21} | {'Name of contact':^27} | {'Mobile_number':^27} | {'Working hours':^27} | {'Location':^27} |"
+        )
+        print("-" * 61)
         for contr in ContractorLogic.get_list():
             print(f"| {contr.id:<3} | {contr.name:<21} | {contr.name_of_contact:<27} |")
-        print("-"*61)
+        print("-" * 61)
         print()
         print("b. Back")
         print("q. Quit")
@@ -40,4 +44,3 @@ class ContractorListMenu:
             return "back"
         elif command == "q":
             return "quit"
-

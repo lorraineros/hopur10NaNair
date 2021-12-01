@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import json
 from typing import Dict, Any
 import dataclasses
@@ -8,20 +8,21 @@ import dataclasses
 class Id:
     value: int
 
+
 @dataclass
 class Model:
-    id: Id
+    id: Id = field(metadata={"autoinit": True})
 
     @classmethod
     def from_dict(cls, dictionary: Dict[str, Any]):
         return cls(**dictionary)
+
 
 @dataclass
 class BaseEmployee(Model):
     name: str
     home_address: str
     phone: str
-    
 
 
 @dataclass
@@ -51,6 +52,7 @@ class RealEstate(Model):
     type_of_real_estate: str
     rooms: int
     size: int
+
 
 @dataclass
 class Contractor(BaseEmployee):

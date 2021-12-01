@@ -6,8 +6,8 @@ from src.ui.abstract_menu import AbstractMenu
 
 class CreationMenu(AbstractMenu):
     @classmethod
-    def from(cls, model: Model):
-        return lambda: cls(model)
+    # def from(cls, model: Model):
+    #     return lambda: cls(model)
 
     def __init__(self, model: Model):
         self.fields = [field for field in dataclasses.fields(model)]

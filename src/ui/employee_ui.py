@@ -1,7 +1,10 @@
+from src.models.models import Employee
+from src.ui.abstract_menu import AbstractMenu
+from src.ui.creation_menu import CreationMenu
 from ..logic.employee_logic import EmployeeLogic
 
 
-class EmployeeMenu:
+class EmployeeMenu(AbstractMenu):
     def show(self):
         print("1. Register a new employee")
         print("2. Find an employee")
@@ -11,7 +14,7 @@ class EmployeeMenu:
 
     def handle_input(self, command):
         if command == "1":
-            return CreationMenu(models.Employee)
+            return CreationMenu(Employee)
         elif command == "2":
             pass
         elif command == "3":
@@ -22,15 +25,15 @@ class EmployeeMenu:
             return "quit"
 
 
-class EmployeeListMenu:
+class EmployeeListMenu(AbstractMenu):
     def show(self):
         print(f"{'--- List of Employee ---':^61}")
-        print("-"*61)
+        print("-" * 61)
         print(f"| {'ID':^3} | {'Name':^21} | {'Email':^27} |")
-        print("-"*61)
+        print("-" * 61)
         for emp in EmployeeLogic.get_list():
             print(f"| {emp.id:<3} | {emp.name:<21} | {emp.email:<27} |")
-        print("-"*61)
+        print("-" * 61)
         print()
         print("b. Back")
         print("q. Quit")

@@ -1,7 +1,10 @@
+from src.ui.abstract_menu import AbstractMenu
 from ..logic.real_estate_logic import RealEstateLogic
-#from ..ui.ui import CreationMenu
 
-class RealEstateMenu:
+# from ..ui.ui import CreationMenu
+
+
+class RealEstateMenu(AbstractMenu):
     def show(self):
         print("--- Real Estate Menu ---")
         print("1. Register a new real estate")
@@ -23,7 +26,7 @@ class RealEstateMenu:
             return "quit"
 
 
-class RealEstateListMenu:
+class RealEstateListMenu(AbstractMenu):
     def show(self):
         print(f"{'--- List of Real Estate ---':^52}")
         self.print_list()
@@ -38,15 +41,17 @@ class RealEstateListMenu:
             return "quit"
 
     def print_list(self):
-        print("-"*52)
+        print("-" * 52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
-        print("-"*52)
+        print("-" * 52)
         for real_est in RealEstateLogic.get_list():
-            print(f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |")
-        print("-"*52)
+            print(
+                f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
+            )
+        print("-" * 52)
 
 
-class RealEstateSearch:
+class RealEstateSearch(AbstractMenu):
     def show(self):
         print("--- Find a Real Estate ---")
         print("1. By ID")
@@ -68,7 +73,7 @@ class RealEstateSearch:
         elif command == "b":
             return "back"
         elif command == "q":
-            return "quit"    
+            return "quit"
 
 
 class FindRealEstateByID(RealEstateListMenu):
@@ -83,15 +88,17 @@ class FindRealEstateByID(RealEstateListMenu):
         print("q. Quit")
 
     def print_list_by_id(self, id_input):
-        print("-"*52)
+        print("-" * 52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
-        print("-"*52)
+        print("-" * 52)
         for real_est in RealEstateLogic.get_list():
             if real_est.id == id_input:
-                print(f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |")
-        print("-"*52)
+                print(
+                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
+                )
+        print("-" * 52)
 
-    
+
 class FindRealEstateByAddress(RealEstateListMenu):
     def show(self):
         print(f"{'--- Find Real Estate by Address ---':^52}")
@@ -104,13 +111,16 @@ class FindRealEstateByAddress(RealEstateListMenu):
         print("q. Quit")
 
     def print_list_by_address(self, address_input):
-        print("-"*52)
+        print("-" * 52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
-        print("-"*52)
+        print("-" * 52)
         for real_est in RealEstateLogic.get_list():
             if real_est.address.lower() == address_input.lower():
-                print(f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |")
-        print("-"*52)
+                print(
+                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
+                )
+        print("-" * 52)
+
 
 class FindRealEstateByDest(RealEstateListMenu):
     def show(self):
@@ -131,12 +141,14 @@ class FindRealEstateByRENum(RealEstateListMenu):
         self.print_list_by_renum(renum_input)
         print("b. Back")
         print("q. Quit")
-    
+
     def print_list_by_renum(self, renum_input):
-        print("-"*52)
+        print("-" * 52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
-        print("-"*52)
+        print("-" * 52)
         for real_est in RealEstateLogic.get_list():
             if real_est.real_estate_number.lower() == renum_input.lower():
-                print(f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |")
-        print("-"*52)
+                print(
+                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
+                )
+        print("-" * 52)
