@@ -10,11 +10,12 @@ class ContractorMenu:
 
     def handle_input(self ,command):
         if command == "1":
-            return CreationMenu(models.Contractor)
+            #return CreationMenu(models.Contractor)
+            pass
         elif command == "2":
             pass 
         elif command == "3":
-            return ContractorMenu()
+            return ContractorListMenu()
         elif command == "b":
             return "back"
         elif command == "q":
@@ -28,7 +29,7 @@ class ContractorListMenu:
         print(f"| {'ID':^3} | {'Name':^21} | {'Name of contact':^27} | {'Mobile_number':^27} | {'Working hours':^27} | {'Location':^27} |")
         print("-"*61)
         for contr in ContractorLogic.get_list():
-            print(f"| {contr.id:<3} | {contr.name:<21} | {contr.email:<27} |")
+            print(f"| {contr.id:<3} | {contr.name:<21} | {contr.name_of_contact:<27} |")
         print("-"*61)
         print()
         print("b. Back")

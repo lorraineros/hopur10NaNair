@@ -9,7 +9,6 @@ import dataclasses
 
 class App:
     def __init__(self):
-
         self.stack = [MainMenu()]
 
     def run(self):
