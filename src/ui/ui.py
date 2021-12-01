@@ -31,15 +31,17 @@ class App:
 
 class MainMenu:
     def show(self):
-        print("""
-         _   _       _   _      _    _      
+        print(
+            """
+         _   _       _   _      _    _
         | \ | | __ _| \ | |    / \  (_)_ __ 
         |  \| |/ _` |  \| |   / _ \ | | '__|
         | |\  | (_| | |\  |  / ___ \| | |   
         |_| \_|\__,_|_| \_| /_/   \_\_|_|   
  
  --------------- Welcome to NaN Air ---------------
- """)
+ """
+        )
         print("--- Main Menu ---")
         print("1. Employee")
         print("2. Real Estate")
@@ -61,19 +63,3 @@ class MainMenu:
             return DestinationMenu()
         elif command == "q":
             return "quit"
-
-
-class CreationMenu:
-    def __init__(self, model):
-        self.fields = [field.name for field in dataclasses.fields(model)]
-
-    def show(self):
-        print(self.fields)
-        print()
-        print("b. Back")
-        print("q. Quit")
-
-    def handle_input(self, command):
-        if command == "q":
-            return "quit"
-
