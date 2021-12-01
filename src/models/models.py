@@ -8,17 +8,19 @@ import dataclasses
 class Id:
     value: int
 
+@dataclass
 class Model:
+    id: Id
+
     @classmethod
     def from_dict(cls, dictionary: Dict[str, Any]):
         return cls(**dictionary)
 
 @dataclass
 class BaseEmployee(Model):
-    id: Id
     name: str
     home_address: str
-    phone_number: str
+    phone: str
     
 
 
@@ -30,8 +32,7 @@ class Employee(BaseEmployee):
 
 
 @dataclass
-class WorkRequest:
-    id: Id
+class WorkRequest(Model):
     title: str
     location: str
     real_estate: str
@@ -42,7 +43,6 @@ class WorkRequest:
 
 @dataclass
 class RealEstate(Model):
-    id: Id
     address: str
     real_estate_number: str
     condition: str
@@ -52,10 +52,7 @@ class RealEstate(Model):
     size: int
 
 @dataclass
-class Contractor:
-    id: Id
-    name: str
+class Contractor(BaseEmployee):
     name_of_contact: str
-    mobile_number: str
     working_hours: str
     location: str

@@ -1,18 +1,18 @@
 [
-    {
-        "id": 1,
-        "name": "",
-        "name_of_contact": "",
-        "mobile_number": "",
-        "working_hours": "",
-        "location": ""
-    },
-    {
-        "id": 2,
-        "name": "",
-        "name_of_contact": "",
-        "mobile_number": "",
-        "working_hours": "",
-        "location": ""
-    }
+  {
+    "id": 1,
+    "name": "",
+    "name_of_contact": "",
+    "phone": "",
+    "working_hours": "",
+    "location": ""
+  },
+  {
+    "id": 2,
+    "name": "",
+    "name_of_contact": "",
+    "phone": "",
+    "working_hours": "",
+    "location": ""
+  }
 ]
