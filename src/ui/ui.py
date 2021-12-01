@@ -1,4 +1,5 @@
 from abc import abstractmethod, abstractproperty
+from typing import List
 from src.ui.abstract_menu import AbstractMenu
 from ..ui.real_estate_ui import RealEstateMenu
 from ..ui.employee_ui import EmployeeMenu
@@ -10,7 +11,7 @@ import dataclasses
 
 class App:
     def __init__(self):
-        self.stack = [MainMenu()]
+        self.stack: List[AbstractMenu] = [MainMenu()]
 
     def run(self):
         while True:
