@@ -78,6 +78,6 @@ class Contractor(BaseEmployee):
 
 
 @dataclass
-class Destination(Id):
+class Destination(Model):
     Id: int
     name: str

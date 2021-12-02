@@ -1,4 +1,4 @@
-
+import data.Destination
 
 
 class Destination:
@@ -31,8 +31,10 @@ class Destination:
                 print("Invalid option, try again!")
 
     def list_destinations(self):
-        print("--- List of all Destinations ---")
-        # json list of all destinations
+        print(f"{'--- List of Real Estate ---':^52}")
+        print("-" * 52)
+        print(f"| {'ID':^3} | {'Name':^21} | ")
+        print("-" * 52)
 
 
     def change_destination_info(self):

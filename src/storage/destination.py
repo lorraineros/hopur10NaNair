@@ -1,9 +1,9 @@
 import json
 import pathlib
 
-from ..models.models import Employee
+from ..models.models import Destination
 
-FILE_PATH = "data/Employee.json"
+FILE_PATH = "data/Destination.json"
 
 
 class EmployeeStorage:
@@ -18,7 +18,7 @@ class EmployeeStorage:
     def get_all():
         with open(FILE_PATH, 'r', encoding="utf-8", ) as file:
             data = json.load(file)
-            return [Employee.from_dict(emp) for emp in data]
+            return [Destination.from_dict(emp) for emp in data]
 
-    def add(entity: Employee):
+    def add(entity: Destination):
         pass
