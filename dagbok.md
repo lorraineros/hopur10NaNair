@@ -59,7 +59,7 @@ Dagurinn í dag fór í að halda áfram að vinna með verkefnið og hittumst v
 Andri, Anh, Ari og Lorraine hittust í HR en Arnaldur og Andriy voru að vinna heima. Þessi dagur eins og undarfarnir dagar fór í að halda áfram með forritun á verkefninu. Lítið hægt að segja í dagbókinni þessa dagana þar sem þeir fara bara í að kóða. Allir eru með sín verkefni og er góð verkaskipting, samt sem áður erum við að vinna þetta saman. 
 
 Afrakstur dagsins:
-* Andri Þór:
+* Andri Þór: Vann í Real Estate, þá aðallega UI og Logic layernum.
 * Andriy:
 * Anh:
 * Ari:
