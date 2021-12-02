@@ -71,13 +71,11 @@ class RealEstateListMenu(RealEstateMenu):
         '''This function displays a list of real estate filtered by a address, i.e. displays only the real estates by a certain address.'''
         self.print_addresses()
         address_input = input("Enter address to see Real Estate: ")
-
         is_address = RealEstateLogic.address_check(address_input)
 
         while not is_address:
             print("Sorry did not find address, try again.")
             address_input = input("Enter address to see Real Estate: ")
-
             is_address = RealEstateLogic.address_check(address_input)
     
         print(f"{'--- List of Real Estate by Address ---':^52}")
@@ -139,29 +137,33 @@ class RealEstateSearch(RealEstateMenu):
         self.display_all_real_estate()
         print()
 
-        id_input = int(input("Enter ID to choose a Real Estate: "))
-
+        id_input = input("Enter ID to choose a Real Estate: ")
         is_id = RealEstateLogic.id_check(id_input)
 
         while not is_id:
             print("Sorry did not find address, try again.")
-            id_input = int(input("Enter ID to choose Real Estate: "))
-
+            id_input = input("Enter ID to choose Real Estate: ")
             is_id = RealEstateLogic.id_check(id_input)
 
         for real_est in RealEstateLogic.get_real_estate_list():
-            if real_est.id == id_input:
+            if real_est.id == int(id_input):
                 print(real_est)
 
         print()
 
-    def find_real_estate_by_re_num(self):
+    def find_real_estate_by_re_num(self): #To-Do: Create a check function in LL for Real Estate Number
         '''This function finds the Real Estate given the Real Estate Number inputed and prints it. '''
         print(f"{'--- Find Real Estate by Real Estate Number ---':^52}")
         self.display_all_real_estate()
         print()
 
-        re_num_input = input("Enter ID to choose a Real Estate: ")
+        re_num_input = input("Enter Real Estate Number to choose a Real Estate: ")
+        is_re_num = RealEstateLogic.re_num_check(re_num_input)
+
+        while not is_re_num:
+            print("Sorry did not find Real Estate Number, try again.")
+            re_num_input = input("Enter Real Estate Number to choose Real Estate: ")
+            is_re_num = RealEstateLogic.re_num_check(re_num_input)
 
         for real_est in RealEstateLogic.get_real_estate_list():
             if real_est.real_estate_number.lower() == re_num_input.lower():

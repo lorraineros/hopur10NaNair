@@ -1,4 +1,4 @@
-from ..storage.real_estate_storage import RealEstateStorage
+from src.storage.real_estate_storage import RealEstateStorage
 
 
 class RealEstateLogic:
@@ -23,9 +23,16 @@ class RealEstateLogic:
         else:
             return False
 
-    def id_check(id_input): # To-Do: Need to make invalid if id_input not int / or have both as str
+    def id_check(id_input): 
         '''Checks if the ID that was inputed is valid.'''
         for real_est in RealEstateLogic.get_real_estate_list():
-            if int(real_est.id) == id_input:
+            if str(real_est.id) == str(id_input):
+                return True
+        return False
+
+    def re_num_check(re_num_input):
+        '''Checks if the Real Estate Number that was inputed is valid.'''
+        for real_est in RealEstateLogic.get_real_estate_list():
+            if real_est.real_estate_number.lower() == re_num_input.lower():
                 return True
         return False
