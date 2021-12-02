@@ -231,3 +231,4 @@ class FindWorkByPeriod(FindWork):
             if work.start_date == start_date and work.end_date == end_date:
                 print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
         print("-" * 115)
+        

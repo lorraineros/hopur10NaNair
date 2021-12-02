@@ -16,7 +16,7 @@ class EmployeeMenu(AbstractMenu):
         if command == "1":
             return CreationMenu(Employee)
         elif command == "2":
-            pass
+            return FindEmployee()
         elif command == "3":
             return EmployeeListMenu()
         elif command == "b":
@@ -43,3 +43,31 @@ class EmployeeListMenu(AbstractMenu):
             return "back"
         elif command == "q":
             return "quit"
+
+class FindEmployee(EmployeeMenu):
+    def show(self):
+        print(f"{'--- Find an employee ---':^29}")
+        self.print_list()
+        id = int(input("\nEnter id to choose an employee: "))
+        self.print_filtered_list(id)
+        print()
+        print("b. Back")
+        print("q. Quit")
+        edit = input("\nDo you want to edit the employee (Y/N)? ")
+
+    def print_list(self):
+        print("-" * 29)
+        print(f"| {'ID':^2} | {'Employee':^20} |")
+        print("-" * 29)
+        for emp in EmployeeLogic.get_list():
+            print(f"| {emp.id:<2} | {emp.name:<20} |")
+        print("-" * 29)
+    
+    def print_filtered_list(self, id):
+        print("-" * 78)
+        print(f"| {'ID':^2} | {'Employee':^20} | {'Email':^28} | {'GSM':^15} |")
+        print("-" * 78)
+        for emp in EmployeeLogic.get_list():
+            if emp.id == id:
+                print(f"| {emp.id:<2} | {emp.name:<20} |  {emp.email:<27} | {emp.gsm:<15} |")
+        print("-" * 78)
