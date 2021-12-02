@@ -6,7 +6,7 @@ from ..models.models import Destination
 FILE_PATH = "data/Destination.json"
 
 
-class EmployeeStorage:
+class DestinationStorage:
     @staticmethod
     def get(id: int):
         print("get")

@@ -1,7 +1,10 @@
-import data.Destination
+
+from src.logic.destination_logic  import DestinationLogic
 
 
-class Destination:
+# python3 -m src.main
+
+class DestinationMenu:
     def __init__(self):
         self.options = """
         ---Destination Menu---
@@ -31,10 +34,14 @@ class Destination:
                 print("Invalid option, try again!")
 
     def list_destinations(self):
-        print(f"{'--- List of Real Estate ---':^52}")
+        print(f"{'--- List of Destinations ---':^52}")
         print("-" * 52)
         print(f"| {'ID':^3} | {'Name':^21} | ")
         print("-" * 52)
+        for destination in DestinationLogic.get_destination_list():
+            print(
+                f"| {destination.id:<3} | {destination.name:<21} |"
+            )
 
 
     def change_destination_info(self):
