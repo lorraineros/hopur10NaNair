@@ -21,7 +21,8 @@ class RealEstateMenu(AbstractMenu):
         elif command == "2":
             return RealEstateSearch()
         elif command == "3":
-            return RealEstateListMenu()
+            self.display_all_real_estate()
+            return BackQuitMenu()
         elif command == "b":
             return "back"
         elif command == "q":
@@ -39,61 +40,6 @@ class RealEstateMenu(AbstractMenu):
             )
         print("-" * 52)
         print()
-
-
-class RealEstateListMenu(RealEstateMenu):
-    def show(self):
-        '''Displays a menu that filters display of real estate list '''
-        print("--- Display list of Real Estate ---")
-        print("1. All real estate")
-        print("2. By address")
-        print("3. By destination")
-        print("b. Back")
-        print("q. Quit")
-
-    def handle_input(self, command):
-        '''This function handles input for the RealEstateListMenu'''
-        if command == "1":
-            self.display_all_real_estate()
-            return BackQuitMenu()
-        elif command == "2":
-            self.display_real_estate_by_address()
-            return BackQuitMenu()
-        elif command == "3":
-            self.display_real_estate_by_dest
-            return BackQuitMenu()
-        elif command == "b":
-            return "back"
-        elif command == "q":
-            return "quit"
-
-    def display_real_estate_by_address(self):
-        '''This function displays a list of real estate filtered by a address, i.e. displays only the real estates by a certain address.'''
-        self.print_addresses()
-        address_input = input("Enter address to see Real Estate: ")
-        is_address = RealEstateLogic.address_check(address_input)
-
-        while not is_address:
-            print("Sorry did not find address, try again.")
-            address_input = input("Enter address to see Real Estate: ")
-            is_address = RealEstateLogic.address_check(address_input)
-    
-        print(f"{'--- List of Real Estate by Address ---':^52}")
-        print("-" * 52)
-        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
-        print("-" * 52)
-        for real_est in RealEstateLogic.get_real_estate_list():
-            if real_est.address.lower() == address_input.lower():
-                print(
-                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
-                )
-        print("-" * 52)
-        print()
-        
-    def display_real_estate_by_dest(self):
-        '''This function displays a list of real estate filtered by a destination, i.e. displays only the real estates by a certain destination.'''
-
-        pass
 
     def print_addresses(self):
         '''This function prints all possible addresses that a real estate can have.'''
@@ -116,16 +62,32 @@ class RealEstateSearch(RealEstateMenu):
         print("--- Find a Real Estate ---")
         print("1. By ID")
         print("2. By real estate number")
+        print("3. By address")
+        print("4. By destination")
         print("b. Back")
         print("q. Quit")
 
     def handle_input(self, command):
         if command == "1":
+            print(f"{'--- Find Real Estate by ID ---':^52}")
+            self.display_all_real_estate()
+            print()
             self.find_real_estate_by_id()
             return ChangingMenu()
         elif command == "2":
+            print(f"{'--- Find Real Estate by Real Estate Number ---':^52}")
+            self.display_all_real_estate()
+            print()
             self.find_real_estate_by_re_num()
             return ChangingMenu()
+        elif command == "3":
+            print(f"{'--- Find Real Estate by Address ---':^52}")
+            print()
+            self.find_real_estate_by_address()
+            self.find_real_estate_by_id()
+            return ChangingMenu()
+        elif command == "4":
+            pass
         elif command == "b":
             return "back"
         elif command == "q":
@@ -133,10 +95,6 @@ class RealEstateSearch(RealEstateMenu):
 
     def find_real_estate_by_id(self): # To-Do: Need to create a id_check function.
         '''This function finds the Real Estate given the ID inputed and prints it. '''
-        print(f"{'--- Find Real Estate by ID ---':^52}")
-        self.display_all_real_estate()
-        print()
-
         id_input = input("Enter ID to choose a Real Estate: ")
         is_id = RealEstateLogic.id_check(id_input)
 
@@ -151,12 +109,8 @@ class RealEstateSearch(RealEstateMenu):
 
         print()
 
-    def find_real_estate_by_re_num(self): #To-Do: Create a check function in LL for Real Estate Number
+    def find_real_estate_by_re_num(self): 
         '''This function finds the Real Estate given the Real Estate Number inputed and prints it. '''
-        print(f"{'--- Find Real Estate by Real Estate Number ---':^52}")
-        self.display_all_real_estate()
-        print()
-
         re_num_input = input("Enter Real Estate Number to choose a Real Estate: ")
         is_re_num = RealEstateLogic.re_num_check(re_num_input)
 
@@ -171,6 +125,33 @@ class RealEstateSearch(RealEstateMenu):
 
         print()
 
+    def find_real_estate_by_address(self):
+        '''This function displays a list of real estate filtered by a address, i.e. displays only the real estates by a certain address.'''
+        self.print_addresses()
+        address_input = input("Enter address to filter Real Estate: ")
+        is_address = RealEstateLogic.address_check(address_input)
+
+        while not is_address:
+            print("Sorry did not find address, try again.")
+            address_input = input("Enter address to see Real Estate: ")
+            is_address = RealEstateLogic.address_check(address_input)
+    
+        print(f"{'--- List of Real Estate by Address ---':^52}")
+        print("-" * 52)
+        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
+        print("-" * 52)
+        for real_est in RealEstateLogic.get_real_estate_list():
+            if real_est.address.lower() == address_input.lower():
+                print(
+                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
+                )
+        print("-" * 52)
+        print()
+
+    def display_real_estate_by_dest(self):
+        '''This function displays a list of real estate filtered by a destination, i.e. displays only the real estates by a certain destination.'''
+
+        pass
 
 class ChangingMenu(AbstractMenu):
     def show(self):
