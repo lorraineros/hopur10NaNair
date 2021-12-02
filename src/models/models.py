@@ -53,6 +53,17 @@ class RealEstate(Model):
     rooms: int
     size: int
 
+    def __str__(self):
+        str =""" 
+Address: {}        
+Real Estate Number: {}
+Condition: {}
+Facilities: {}
+Type of Real Estate: {}
+Rooms: {}
+Size: {} """.format(self.address, self.real_estate_number, self.condition, self.facilities, self.type_of_real_estate, self.rooms, self.size)
+        return str
+
 
 @dataclass
 class Contractor(BaseEmployee):
