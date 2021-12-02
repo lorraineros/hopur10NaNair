@@ -42,7 +42,7 @@ class RealEstateMenu(AbstractMenu):
         print()
 
     def print_addresses(self):
-        '''This function prints all possible addresses that a real estate can have.'''
+        """This function prints all possible addresses that a real estate can have."""
         list_of_addresses = RealEstateLogic.get_address_list()
         print(f"{'--- List of Addresses ---':^25}")
         print("-" * 25)

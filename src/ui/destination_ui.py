@@ -8,13 +8,17 @@ class DestinationMenu:
     def __init__(self):
         self.options = """
         ---Destination Menu---
-        1. List of all destinations 
-        2. Change destination information  
-        3. Add new Destination
+        1. List of all destinations   
+        2. Add new Destination
+        3. Find a Destination
         4. Delete destination 
+        
+        q. Quit
+        b. Back
         """
 
     def draw_options(self):
+        """This shows a Menu """
         print(self.options)
         self.user_input()
 
@@ -22,6 +26,7 @@ class DestinationMenu:
         while True:
             print()
             command = input("> ")
+            print()
             if command == '1':
                 self.list_destinations()
             elif command == '2':
@@ -30,14 +35,18 @@ class DestinationMenu:
                  self.add_destination()
             elif command == '4':
                  self.delete_destination()
+            elif command == "b":
+                return "back"
+            elif command == "q":
+                return "quit"
             else:
                 print("Invalid option, try again!")
 
     def list_destinations(self):
-        print(f"{'--- List of Destinations ---':^52}")
-        print("-" * 52)
+        print(f"{'--- List of Destinations ---':^34}")
+        print("-" * 34)
         print(f"| {'ID':^3} | {'Name':^21} | ")
-        print("-" * 52)
+        print("-" * 34)
         for destination in DestinationLogic.get_destination_list():
             print(
                 f"| {destination.id:<3} | {destination.name:<21} |"
