@@ -57,3 +57,11 @@ Dagurinn í dag fór í að halda áfram að vinna með verkefnið og hittumst v
 
 ### 2. desember 2021
 Andri, Anh, Ari og Lorraine hittust í HR en Arnaldur og Andriy voru að vinna heima. Þessi dagur eins og undarfarnir dagar fór í að halda áfram með forritun á verkefninu. Lítið hægt að segja í dagbókinni þessa dagana þar sem þeir fara bara í að kóða. Allir eru með sín verkefni og er góð verkaskipting, samt sem áður erum við að vinna þetta saman. 
+
+Afrakstur dagsins:
+* Andri Þór:
+* Andriy:
+* Anh:
+* Ari:
+* Arnaldur:
+* Lorraine:
