@@ -27,8 +27,10 @@ class BaseEmployee(Model):
 
 @dataclass
 class Employee(BaseEmployee):
+    password: str
     gsm: str
     email: str
+    is_manager: bool
     work_destination: Id
 
 
@@ -38,6 +40,8 @@ class WorkRequest(Model):
     location: str
     real_estate: str
     employee: int
+    start_date: str
+    end_date: str
     description: str
     priority: str
     repeated_work: int
