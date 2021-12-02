@@ -72,15 +72,13 @@ class RealEstateListMenu(RealEstateMenu):
         self.print_addresses()
         address_input = input("Enter address to see Real Estate: ")
 
-        is_address = self.address_check(address_input)
+        is_address = RealEstateLogic.address_check(address_input)
 
         while not is_address:
-            self.print_addresses()
             print("Sorry did not find address, try again.")
             address_input = input("Enter address to see Real Estate: ")
 
-            is_address = self.address_check(address_input)
-
+            is_address = RealEstateLogic.address_check(address_input)
     
         print(f"{'--- List of Real Estate by Address ---':^52}")
         print("-" * 52)
@@ -97,37 +95,22 @@ class RealEstateListMenu(RealEstateMenu):
     def display_real_estate_by_dest(self):
         '''This function displays a list of real estate filtered by a destination, i.e. displays only the real estates by a certain destination.'''
 
-        
         pass
 
     def print_addresses(self):
         '''This function prints all possible addresses that a real estate can have.'''
-        list_of_addresses = []
+        list_of_addresses = RealEstateLogic.get_address_list()
         print(f"{'--- List of Addresses ---':^25}")
         print("-" * 25)
         print(f"| {'Addresses':^21} |")
         print("-" * 25)
-        for real_est in RealEstateLogic.get_real_estate_list():
-            if real_est.address not in list_of_addresses:
-                list_of_addresses.append(real_est.address) # To-Do: Create a function in Logic Layer called get_address_list        
-                print(
-                    f"| {real_est.address:<21} |"
-                )
+        for address in list_of_addresses:
+            print(
+                f"| {address:<21} |"
+            )
         print("-" * 25)
         print()
     
-    def address_check(self, address_input): # To-Do: Need to move to Logic Layer
-        '''Checks if the address that was inputed is valid.'''
-        list_of_addresses = []
-        for real_est in RealEstateLogic.get_real_estate_list():
-            if real_est.address not in list_of_addresses:
-                list_of_addresses.append(real_est.address)
-        
-        if address_input in list_of_addresses:
-            return True
-        else:
-            return False
-
 
 class RealEstateSearch(RealEstateMenu):
     def show(self):
@@ -157,6 +140,14 @@ class RealEstateSearch(RealEstateMenu):
         print()
 
         id_input = int(input("Enter ID to choose a Real Estate: "))
+
+        is_id = RealEstateLogic.id_check(id_input)
+
+        while not is_id:
+            print("Sorry did not find address, try again.")
+            id_input = int(input("Enter ID to choose Real Estate: "))
+
+            is_id = RealEstateLogic.id_check(id_input)
 
         for real_est in RealEstateLogic.get_real_estate_list():
             if real_est.id == id_input:
