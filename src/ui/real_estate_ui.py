@@ -99,7 +99,7 @@ class RealEstateListMenu(RealEstateMenu):
         print("-" * 25)
         for real_est in RealEstateLogic.get_real_estate_list():
             if real_est.address not in list_of_addresses:
-                list_of_addresses.append(real_est.address)        
+                list_of_addresses.append(real_est.address) # Create a function in Logic Layer called get_address_list        
                 print(
                     f"| {real_est.address:<21} |"
                 )
@@ -107,6 +107,7 @@ class RealEstateListMenu(RealEstateMenu):
         print()
     
     def address_check(self, address_input):
+        # Need to move to Logic Layer
         list_of_addresses = []
         for real_est in RealEstateLogic.get_real_estate_list():
             if real_est.address not in list_of_addresses:
