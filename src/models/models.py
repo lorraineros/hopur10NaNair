@@ -58,14 +58,15 @@ class RealEstate(Model):
     size: int
 
     def __str__(self):
-        str =""" 
+        str = """ 
 Address: {}        
 Real Estate Number: {}
 Condition: {}
 Facilities: {}
 Type of Real Estate: {}
 Rooms: {}
-Size: {} """.format(self.address, self.real_estate_number, self.condition, self.facilities, self.type_of_real_estate, self.rooms, self.size)
+Size: {} """.format(self.address, self.real_estate_number, self.condition, self.facilities, self.type_of_real_estate,
+                    self.rooms, self.size)
         return str
 
 
@@ -74,3 +75,9 @@ class Contractor(BaseEmployee):
     name_of_contact: str
     working_hours: str
     location: str
+
+
+@dataclass
+class Destination(Id):
+    Id: int
+    name: str
