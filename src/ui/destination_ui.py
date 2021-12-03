@@ -49,19 +49,15 @@ class DestinationMenu:
 
     def list_destinations(self):
         print(f"{'--- List of Destinations ---':^34}")
-        print("-" * 34)
-        print(f"| {'ID':^3} | {'Name':^21} | ")
-        print("-" * 34)
+        print("-" * 54)
+        print(f"| {'ID':^3} | {'Name':^21} | {'Country':^18} ")
+        print("-" * 52)
         for destination in DestinationLogic.get_destination_list():
             print(
-                f"| {destination.id:<3} | {destination.name:<21} |"
+                f"| {destination.id:<3} | {destination.name:<21} | {destination.country:<18} |"
             )
 
 
     def delete_destination(self):
         print(self.options2)
 
-
-
-class DestinationSearch(DestinationMenu):
-    pass
