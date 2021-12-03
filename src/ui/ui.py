@@ -9,7 +9,6 @@ from ..ui.work_request_ui import WorkRequestMenu
 from ..ui.destination_ui import DestinationMenu
 from ..ui.user_stories_ui import UserStoriesMenu
 from ..models import models
-import dataclasses
 
 
 class App:

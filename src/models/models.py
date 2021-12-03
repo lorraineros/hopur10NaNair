@@ -58,6 +58,7 @@ class RealEstate(Model):
     type_of_real_estate: str
     rooms: int
     size: int
+    destination: Id
 
     def __str__(self):
         str = """ 

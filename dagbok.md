@@ -70,7 +70,7 @@ Afrakstur dagsins:
 Héldum áfram að vinna í verkefninu í dag og unnu allir heima hjá sér og voru samskipti hafð í gegnum Discord. 
 
 Afrakstur dagsins:
-* Andri Þór: 
+* Andri Þór: Vann í Real Estate UI og Real Estate Logic, vann líka í LogicAPI og vann líka í Contractor UI.
 * Andriy:
 * Anh: 
 * Ari: 
