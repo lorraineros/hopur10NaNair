@@ -1,4 +1,5 @@
 import dataclasses
+from typing import Type
 
 from src.models.models import Model
 from src.ui.abstract_menu import AbstractMenu
@@ -9,8 +10,10 @@ class CreationMenu(AbstractMenu):
     # def from(cls, model: Model):
     #     return lambda: cls(model)
 
-    def __init__(self, model: Model):
-        self.builder = {}
+    def __init__(self, model: Type[Model]):
+        self.model = model
+        # TODO: do proper default initialization or find a better solution
+        self.builder = {field.name: None for field in dataclasses.fields(model)}
         self.fields = [field for field in dataclasses.fields(model)]
         self.options = dict(
             map(
@@ -44,8 +47,8 @@ class CreationMenu(AbstractMenu):
             print(self.options[command])
             return EditingMenu(self.options[command], self.builder)
         if command == "c":
+            return self.model.from_dict(self.builder)
             # TODO: Write self.builder to file
-            return "back"
         if command == "b":
             return "back"
         if command == "q":

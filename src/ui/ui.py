@@ -1,5 +1,6 @@
 from abc import abstractmethod, abstractproperty
 from typing import List
+from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu
 from ..ui.real_estate_ui import RealEstateMenu
 from ..ui.employee_ui import EmployeeMenu
@@ -11,6 +12,7 @@ import dataclasses
 
 class App:
     def __init__(self):
+        self.logic = LogicAPI()
         self.stack: List[AbstractMenu] = [MainMenu()]
 
     def run(self):
@@ -26,6 +28,8 @@ class App:
                 break
             elif choice == "self":
                 continue
+            elif issubclass(type(choice), models.Model):
+                self.logic.create(choice)
             elif issubclass(type(choice), AbstractMenu):
                 self.stack.append(choice)
             else:
