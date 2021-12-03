@@ -58,26 +58,9 @@ class DestinationMenu:
             )
 
 
-
     def delete_destination(self):
         print(self.options2)
 
-
-    # def find_dstination_by_id(self):
-
-        id_input = input("Enter ID to choose a Real Estate: ")
-        is_id = DestinationLogic.id_check(id_input)
-
-        while not is_id:
-            print("Sorry did not find address, try again.")
-            id_input = input("Enter ID to choose Real Estate: ")
-            is_id = DestinationLogic.id_check(id_input)
-
-        for dest in DestinationLogic.get_destination_list():
-            if dest.id == int(id_input):
-                print(dest)
-
-        print()
 
 
 class DestinationSearch(DestinationMenu):
