@@ -1,3 +1,4 @@
+from src.logic.logic_api import LogicAPI
 from src.logic.contractor_logic import ContractorLogic
 from src.ui.abstract_menu import AbstractMenu
 from src.logic.work_request_logic import WorkRequestLogic
@@ -74,7 +75,7 @@ class FindWork(AbstractMenu):
         print("-" * 138)
         for work in WorkRequestLogic.get_list():
             for emp in EmployeeLogic.get_list():
-                for contr in ContractorLogic.get_list():
+                for contr in LogicAPI.contractor_list():
                     if work.employee == emp.id and work.contractor == contr.id:
                         print(f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {emp.id}. {emp.name:<17} | {contr.id}. {contr.name:<17} | {work.start_date:<7} | {work.end_date:<7} |")
         print("-" * 138)
