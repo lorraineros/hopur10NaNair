@@ -27,26 +27,6 @@ class DestinationMenu(AbstractMenu):
             return "back"
         elif command == "q":
             return "quit"
-    
-    # def user_input(self):
-    #     while True:
-    #         print()
-    #         command = input("> ")
-    #         print()
-    #         if command == '1':
-    #             self.list_destinations()
-    #         elif command == '2':
-    #             pass
-    #             # return CreationMenu(Destination)
-    #         elif command == '3':
-    #             self.delete_destination()
-    #         elif command == "b":
-    #             return "back"
-    #         elif command == "q":
-    #             return "quit"
-    #         else:
-    #             print("Invalid option, try again!")
-        return super().handle_input(command)
 
     def user_input(self):
         while True:
