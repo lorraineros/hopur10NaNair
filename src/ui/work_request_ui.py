@@ -153,10 +153,10 @@ class FindWorkByEmployee(FindWork):
 
 class FindWorkByContractor(FindWork):
     def show(self):
-        print(f"{'--- Find Work Request by Contractor ---':^138}")
+        print("--- Find Work Request by Contractor ---")
         self.print_list()
-        contr_id = int(input("\nEnter contractor id to choose a work request: "))
-        self.print_filtered_list(contr_id)
+        contr = int(input("\nEnter contractor id to choose a work request: "))
+        self.print_filtered_list(contr)
         print()
         print("b. Back")
         print("q. Quit")
@@ -164,17 +164,19 @@ class FindWorkByContractor(FindWork):
     def handle_input(self, command):
         return super().handle_input(command)
     
+    
     def print_list(self):
         return super().print_list()
 
-    def print_filtered_list(self, contr_id):
+    def print_filtered_list(self, contr):
         print("-" * 115)
         print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
         print("-" * 115)
         for work in WorkRequestLogic.get_list():
-            if work.contractor == contr_id:
+            if work.contractor == contr:
                 print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
         print("-" * 115)
+
 
 class FindWorkByDate(FindWork):
     def show(self):

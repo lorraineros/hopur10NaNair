@@ -2,6 +2,7 @@ from src.models.models import Employee
 from src.ui.abstract_menu import AbstractMenu
 from src.ui.creation_menu import CreationMenu
 from ..logic.employee_logic import EmployeeLogic
+from ..logic.destination_logic import DestinationLogic
 
 
 class EmployeeMenu(AbstractMenu):
@@ -27,16 +28,31 @@ class EmployeeMenu(AbstractMenu):
 
 class EmployeeListMenu(AbstractMenu):
     def show(self):
-        print(f"{'--- List of Employee ---':^61}")
-        print("-" * 61)
-        print(f"| {'ID':^3} | {'Name':^21} | {'Email':^27} |")
-        print("-" * 61)
-        for emp in EmployeeLogic.get_list():
-            print(f"| {emp.id:<3} | {emp.name:<21} | {emp.email:<27} |")
-        print("-" * 61)
-        print()
-        print("b. Back")
-        print("q. Quit")
+        dest = input("Do you want to display a list of employees by destination (Y/N)?")
+        if dest.upper() == "Y":
+            print(f"{'--- List of Employee ---':^50}")
+            print("-" * 50)
+            print(f"| {'ID':^3} | {'Name':^21} | {'Destination':^16} |")
+            print("-" * 50)
+            for emp in EmployeeLogic.get_list():
+                for dest in DestinationLogic.get_destination_list():
+                    if emp.work_destination == dest.id:
+                        print(f"| {emp.id:<3} | {emp.name:<21} | {dest.id}. {dest.country:<14}|")
+            print("-" * 50)
+            print()
+            print("b. Back")
+            print("q. Quit")
+        else:
+            print(f"{'--- List of Employee ---':^61}")
+            print("-" * 61)
+            print(f"| {'ID':^3} | {'Name':^21} | {'Email':^27} |")
+            print("-" * 61)
+            for emp in EmployeeLogic.get_list():
+                print(f"| {emp.id:<3} | {emp.name:<21} | {emp.email:<27} |")
+            print("-" * 61)
+            print()
+            print("b. Back")
+            print("q. Quit")
 
     def handle_input(self, command):
         if command == "b":

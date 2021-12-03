@@ -31,6 +31,7 @@ class Employee(BaseEmployee):
     gsm: str
     email: str
     is_manager: bool
+    home_address: str
     work_destination: Id
 
 
@@ -40,7 +41,7 @@ class WorkRequest(Model):
     location: str
     real_estate: str
     employee: int
-    contractor: Id
+    contractor: int
     start_date: str
     end_date: str
     description: str
@@ -75,13 +76,14 @@ Size: {} """.format(self.address, self.real_estate_number, self.condition, self.
 class Contractor(BaseEmployee):
     name_of_contact: str
     working_hours: str
-    location: str
+    location: int
 
 
 @dataclass
 class Destination(Model):
-    Id: int
+    id: Id
     name: str
+    country: str
 
     def __str__(self):
         str = """
