@@ -64,4 +64,4 @@ Afrakstur dagsins:
 * Anh:
 * Ari:
 * Arnaldur:
-* Lorraine:
+* Lorraine: Vann í Work Request UI og Employee UI með Anh
