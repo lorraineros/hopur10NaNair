@@ -54,6 +54,11 @@ class FindWorkRequestMenu(AbstractMenu):
             return "quit"
 
 class FindWork(AbstractMenu):
+    
+    def show(self):
+        print(f"{'--- Find Work Request ---':^138}")
+        self.print_list()
+
     def handle_input(self, command):
         if command == "b":
             return "back"
@@ -76,9 +81,8 @@ class FindWork(AbstractMenu):
 
 class FindWorkByID(FindWork):
     def show(self):
-        print(f"{'--- Find Work Request by ID ---':^138}")
-        self.print_list()
-        id = int(input("\nEnter id to choose a work request: "))
+        super().show()
+        id = input("\nEnter id to choose a work request: ")
         self.print_filtered_list(id)
         print()
         print("b. Back")
@@ -92,20 +96,20 @@ class FindWorkByID(FindWork):
         return super().print_list()
 
     def print_filtered_list(self, id):
+        print(f"{'--- Find Work Request by ID ---':^115}")
         print("-" * 115)
         print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
         print("-" * 115)
         for work in WorkRequestLogic.get_list():
-            if work.id == id:
+            if work.id == int(id):
                 print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
         print("-" * 115)
 
 
 class FindWorkByRealEstate(FindWork):
     def show(self):
-        print(f"{'--- Find Work Request by Real Estate ---':^138}")
-        self.print_list()
-        real_est = input("\nEnter real estate to choose a work request: ")
+        super().show()
+        real_est = input("\nEnter real estate address to choose a work request: ")
         self.print_filtered_list(real_est)
         print()
         print("b. Back")
@@ -118,6 +122,7 @@ class FindWorkByRealEstate(FindWork):
         return super().print_list()
 
     def print_filtered_list(self, real_est):
+        print(f"{'--- Find Work Request by Real Estate ---':^115}")
         print("-" * 115)
         print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
         print("-" * 115)
@@ -128,9 +133,8 @@ class FindWorkByRealEstate(FindWork):
 
 class FindWorkByEmployee(FindWork):
     def show(self):
-        print(f"{'--- Find Work Request by Employee ---':^138}")
-        self.print_list()
-        emp_id = int(input("\nEnter employee id to choose a work request:  "))
+        super().show()
+        emp_id = input("\nEnter employee id to choose a work request: ")
         self.print_filtered_list(emp_id)
         print()
         print("b. Back")
@@ -143,20 +147,20 @@ class FindWorkByEmployee(FindWork):
         return super().print_list()
 
     def print_filtered_list(self, emp_id):
+        print(f"{'--- Find Work Request by Employee ---':^115}")
         print("-" * 115)
         print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
         print("-" * 115)
         for work in WorkRequestLogic.get_list():
-            if work.employee == emp_id:
+            if work.employee == int(emp_id):
                 print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
         print("-" * 115)
 
 class FindWorkByContractor(FindWork):
     def show(self):
-        print("--- Find Work Request by Contractor ---")
-        self.print_list()
-        contr = int(input("\nEnter contractor id to choose a work request: "))
-        self.print_filtered_list(contr)
+        super().show()
+        contr_id = input("\nEnter contractor id to choose a work request: ")
+        self.print_filtered_list(contr_id)
         print()
         print("b. Back")
         print("q. Quit")
@@ -164,25 +168,23 @@ class FindWorkByContractor(FindWork):
     def handle_input(self, command):
         return super().handle_input(command)
     
-    
     def print_list(self):
         return super().print_list()
 
-    def print_filtered_list(self, contr):
+    def print_filtered_list(self, contr_id):
+        print(f"{'--- Find Work Request by Contractor ---':^115}")
         print("-" * 115)
         print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
         print("-" * 115)
         for work in WorkRequestLogic.get_list():
-            if work.contractor == contr:
+            if work.contractor == int(contr_id):
                 print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
         print("-" * 115)
 
-
 class FindWorkByDate(FindWork):
     def show(self):
-        print(f"{'--- Find Work Request by Date ---':^138}")
-        self.print_list()
-        date = input("Enter date to choose a work request: ")
+        super().show()
+        date = input("Enter date to choose a work request (YYYY-MM-DD): ")
         self.print_filtered_list(date)
         print()
         print("b. Back")
@@ -195,6 +197,7 @@ class FindWorkByDate(FindWork):
         return super().print_list()
 
     def print_filtered_list(self, date):
+        print(f"{'--- Find Work Request by Date ---':^115}")
         print("-" * 115)
         print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
         print("-" * 115)
@@ -205,10 +208,9 @@ class FindWorkByDate(FindWork):
 
 class FindWorkByPeriod(FindWork):
     def show(self):
-        print(f"{'--- Find Work Request by Period ---':^138}")
-        self.print_list()
-        start_date = input("Enter start date to choose a work request: ")
-        end_date = input("Enter end date to choose a work request: ")
+        super().show()
+        start_date = input("Enter start date (YYYY-MM-DD): ")
+        end_date = input("Enter end date (YYYY-MM-DD): ")
         self.print_filtered_list(start_date, end_date)
         print()
         print("b. Back")
@@ -221,6 +223,7 @@ class FindWorkByPeriod(FindWork):
         return super().print_list()
 
     def print_filtered_list(self, start_date, end_date):
+        print(f"{'--- Find Work Request by Period ---':^115}")
         print("-" * 115)
         print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
         print("-" * 115)
