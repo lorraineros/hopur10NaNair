@@ -16,7 +16,7 @@ class DestinationMenu:
         b. Back
         """
         self.options2 = """
-        --- Find a Destination ---
+        --- Delete a Destination ---
         1. By ID   
         2. By Name  
 
@@ -60,11 +60,11 @@ class DestinationMenu:
 
 
     def delete_destination(self):
-        print("--- Delete Destination ---")
+        print(self.options2)
 
 
     # def find_dstination_by_id(self):
-        '''This function finds the Real Estate given the ID inputed and prints it. '''
+
         id_input = input("Enter ID to choose a Real Estate: ")
         is_id = DestinationLogic.id_check(id_input)
 
