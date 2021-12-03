@@ -61,7 +61,73 @@ Andri, Anh, Ari og Lorraine hittust í HR en Arnaldur og Andriy voru að vinna h
 Afrakstur dagsins:
 * Andri Þór: Vann í Real Estate, þá aðallega UI og Logic layernum.
 * Andriy:
-* Anh:
-* Ari:
+* Anh: Vann í Work Request UI og Employee UI með Lorraine.
+* Ari: 
 * Arnaldur:
-* Lorraine:
+* Lorraine: Vann í Work Request UI og Employee UI með Anh.
+
+### 3. desember 2021
+Héldum áfram að vinna í verkefninu í dag og unnu allir heima hjá sér og voru samskipti hafð í gegnum Discord. 
+
+Afrakstur dagsins:
+* Andri Þór: 
+* Andriy:
+* Anh: 
+* Ari: 
+* Arnaldur:
+* Lorraine: 
+
+### 6. desember 2021
+(Upplýsingar um daginn)
+
+Afrakstur dagsins:
+* Andri Þór: 
+* Andriy:
+* Anh: 
+* Ari: 
+* Arnaldur:
+* Lorraine: 
+
+### 7. desember 2021
+(Upplýsingar um daginn)
+
+Afrakstur dagsins:
+* Andri Þór: 
+* Andriy:
+* Anh: 
+* Ari: 
+* Arnaldur:
+* Lorraine: 
+
+### 8. desember 2021
+(Upplýsingar um daginn)
+
+Afrakstur dagsins:
+* Andri Þór: 
+* Andriy:
+* Anh: 
+* Ari: 
+* Arnaldur:
+* Lorraine: 
+
+### 9. desember 2021
+(Upplýsingar um daginn)
+
+Afrakstur dagsins:
+* Andri Þór: 
+* Andriy:
+* Anh: 
+* Ari: 
+* Arnaldur:
+* Lorraine: 
+
+### 10. desember 2021
+(Upplýsingar um daginn)
+
+Afrakstur dagsins:
+* Andri Þór: 
+* Andriy:
+* Anh: 
+* Ari: 
+* Arnaldur:
+* Lorraine: 

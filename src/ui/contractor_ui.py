@@ -1,5 +1,7 @@
+from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu
 from ..logic.contractor_logic import ContractorLogic
+from src.ui.common_menus import BackQuitMenu, ChangingMenu
 
 
 class ContractorMenu(AbstractMenu):
@@ -15,32 +17,42 @@ class ContractorMenu(AbstractMenu):
             # return CreationMenu(models.Contractor)
             pass
         elif command == "2":
-            pass
+            self.display_all_contractors()
+            self.find_contractor()
+            return ChangingMenu()
         elif command == "3":
-            return ContractorListMenu()
+            self.display_all_contractors()
+            return BackQuitMenu()
         elif command == "b":
             return "back"
         elif command == "q":
             return "quit"
 
-
-class ContractorListMenu(AbstractMenu):
-    def show(self):
-        print(f"{'--- List of Contractor ---':^61}")
-        print("-" * 61)
+    def display_all_contractors(self):
+        print(f"{'--- List of Contractor ---':^45}")
+        print("-" * 45)
         print(
-            f"| {'ID':^3} | {'Name':^21} | {'Name of contact':^27} | {'Mobile_number':^27} | {'Working hours':^27} | {'Location':^27} |"
+            f"| {'ID':^3} | {'Name':^16} | {'Location':^16} |"
         )
-        print("-" * 61)
-        for contr in ContractorLogic.get_list():
-            print(f"| {contr.id:<3} | {contr.name:<21} | {contr.name_of_contact:<27} |")
-        print("-" * 61)
+        print("-" * 45)
+        for contr in LogicAPI.contractor_list():
+            print(f"| {contr.id:<3} | {contr.name:<16} | {contr.location:<16} |")
+        print("-" * 45)
         print()
-        print("b. Back")
-        print("q. Quit")
 
-    def handle_input(self, command):
-        if command == "b":
-            return "back"
-        elif command == "q":
-            return "quit"
+    def find_contractor(self):
+        id_input = input("Enter ID to choose a contractor: ")
+        is_id = LogicAPI.contractor_id_check(id_input)
+
+        while not is_id:
+            print("Sorry did not find address, try again.")
+            id_input = input("Enter ID to choose a contractor: ")
+            is_id = LogicAPI.contractor_id_check(id_input)
+
+        for contr in LogicAPI.contractor_list():
+            if contr.id == int(id_input):
+                print(contr)
+
+        print()
+
+

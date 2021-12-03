@@ -1,14 +1,17 @@
 [
     {
         "id": 1,
-        "name": "Svalbard"
+        "name": "Kulusuk",
+        "country": "Graenland"
     },
     {
         "id": 2,
-        "name": "Greenland"
+        "name": "Thorshofn",
+        "country": "Faroe Islands"
     },
     {
         "id": 3,
-        "name": "Faroe Islands"
+        "name": "Longyearbyen",
+        "country": "Svalbarda"
     }
 ]
