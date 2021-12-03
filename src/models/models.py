@@ -21,12 +21,12 @@ class Model:
 @dataclass
 class BaseEmployee(Model):
     name: str
-    home_address: str
     phone: str
 
 
 @dataclass
 class Employee(BaseEmployee):
+    home_address: str
     password: str
     gsm: str
     email: str
@@ -40,6 +40,7 @@ class WorkRequest(Model):
     location: str
     real_estate: str
     employee: int
+    contractor: Id
     start_date: str
     end_date: str
     description: str

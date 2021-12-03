@@ -1,18 +1,18 @@
 [
     {
-        "location": "",
-        "working_hours": "",
-        "phone": "",
-        "name_of_contact": "",
-        "name": "",
-        "id": 1
+        "id": 1,
+        "name_of_contact": "ABC",
+        "name": "Abcd Efg",
+        "phone": "1234567",
+        "location": 1,
+        "working_hours": "08:00 - 16:00"
     },
     {
-        "location": "",
-        "working_hours": "",
-        "phone": "",
-        "name_of_contact": "",
-        "name": "",
-        "id": 2
+        "id": 2,
+        "name_of_contact": "BCD",
+        "name": "Bcde Fgh",
+        "phone": "2345678",
+        "location": 2,
+        "working_hours": "09:00 - 17:00"
     }
 ]
