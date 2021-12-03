@@ -38,7 +38,8 @@ class DestinationMenu:
             if command == '1':
                 self.list_destinations()
             elif command == '2':
-                return CreationMenu(Destination)
+                pass
+                # return CreationMenu(Destination)
             elif command == '3':
                 self.delete_destination()
             elif command == "b":
