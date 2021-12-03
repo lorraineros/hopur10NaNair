@@ -1,13 +1,13 @@
+
+from src.ui.abstract_menu import AbstractMenu
 from src.logic.destination_logic import DestinationLogic
 from src.ui.creation_menu import CreationMenu
 from src.models.models import Destination
 
 
-# python3 -m src.main
-
-class DestinationMenu:
-    def __init__(self):
-        self.options = """
+class DestinationMenu(AbstractMenu):
+    def show(self):
+        print("""
         --- Destination Menu ---
         1. List of all destinations   
         2. Add new Destination
@@ -15,7 +15,7 @@ class DestinationMenu:
         
         q. Quit
         b. Back
-        """
+        """)
         self.options2 = """
         --- Delete a Destination ---
         1. By ID   
@@ -24,11 +24,6 @@ class DestinationMenu:
         q. Quit
         b. Back
                 """
-
-    def draw_options(self):
-        """This shows a Menu """
-        print(self.options)
-        self.user_input()
 
     def user_input(self):
         while True:
