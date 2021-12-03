@@ -3,7 +3,7 @@ from src.storage.destination_storage import DestinationStorage
 
 
 class DestinationLogic:
-    def get_destination_list(self):
+    def get_destination_list():
         return DestinationStorage.get_all()
 
     def get_address_list(self):
