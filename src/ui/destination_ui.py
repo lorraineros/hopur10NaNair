@@ -17,8 +17,6 @@ q. Quit
 b. Back
         """)
 
-    # def handle_input(self, command):
-    #     return super().handle_input(command)
 
     def handle_input(self, command):
             if command == '1':
