@@ -16,14 +16,6 @@ class DestinationMenu(AbstractMenu):
         q. Quit
         b. Back
         """)
-        self.options2 = """
-        --- Delete a Destination ---
-        1. By ID   
-        2. By Name  
-
-        q. Quit
-        b. Back
-                """
 
     def user_input(self):
         while True:
@@ -55,4 +47,11 @@ class DestinationMenu(AbstractMenu):
             )
 
     def delete_destination(self):
-        print(self.options2)
+        print("""
+        --- Delete a Destination ---
+        1. By ID   
+        2. By Name  
+
+        q. Quit
+        b. Back
+                """)
