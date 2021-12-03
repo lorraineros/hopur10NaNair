@@ -75,7 +75,7 @@ Afrakstur dagsins:
 * Anh: 
 * Ari: 
 * Arnaldur:
-* Lorraine: 
+* Lorraine: Ég og Anh héldum áfram að vinna í WorkRequestUI og EmployeeUI, bætti við contractor id í WorkRequest.json
 
 ### 6. desember 2021
 (Upplýsingar um daginn)
