@@ -34,7 +34,7 @@ b. Back
 
     def list_of_all_destinations(self):
         print(f"{'--- List of Destinations ---':^34}")
-        print("-" * 54)
+        print("-" * 52)
         print(f"| {'ID':^3} | {'Name':^21} | {'Country':^18} ")
         print("-" * 52)
         for destination in DestinationLogic.get_destination_list():
