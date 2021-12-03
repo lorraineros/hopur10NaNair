@@ -1,9 +1,8 @@
-
 from src.ui.abstract_menu import AbstractMenu
 from src.logic.destination_logic import DestinationLogic
 from src.ui.creation_menu import CreationMenu
 from src.models.models import Destination
-
+from src.ui.common_menus import BackQuitMenu
 
 class DestinationMenu(AbstractMenu):
     def show(self):
@@ -20,7 +19,8 @@ b. Back
 
     def handle_input(self, command):
             if command == '1':
-                self.list_destinations()
+                self.list_of_all_destinations()
+                return BackQuitMenu()
             elif command == '2':
                 pass
                 # return CreationMenu(Destination)
@@ -32,7 +32,7 @@ b. Back
                 return "quit"
 
 
-    def list_destinations(self):
+    def list_of_all_destinations(self):
         print(f"{'--- List of Destinations ---':^34}")
         print("-" * 54)
         print(f"| {'ID':^3} | {'Name':^21} | {'Country':^18} ")
