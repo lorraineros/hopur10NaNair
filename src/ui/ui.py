@@ -8,7 +8,6 @@ from ..ui.contractor_ui import ContractorMenu
 from ..ui.work_request_ui import WorkRequestMenu
 from ..ui.destination_ui import DestinationMenu
 from ..models import models
-import dataclasses
 
 
 class App:
