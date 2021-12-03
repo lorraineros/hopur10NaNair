@@ -9,9 +9,9 @@ class DestinationLogic:
     def get_address_list(self):
         '''Gets a list of addresses for all real estate'''
         list_of_addresses = []
-        for real_est in DestinationLogic.get_destination_list():
-            if real_est.address not in list_of_addresses:
-                list_of_addresses.append(real_est.address)
+        for dest in DestinationLogic.get_destination_list():
+            if dest.address not in list_of_addresses:
+                list_of_addresses.append(dest.address)
 
         return list_of_addresses
 
@@ -26,8 +26,8 @@ class DestinationLogic:
 
     def id_check(id_input):
         '''Checks if the ID that was inputed is valid.'''
-        for real_est in DestinationLogic.get_destination_list():
-            if str(real_est.id) == str(id_input):
+        for dest in DestinationLogic.get_destination_list():
+            if str(dest.id) == str(id_input):
                 return True
         return False
 

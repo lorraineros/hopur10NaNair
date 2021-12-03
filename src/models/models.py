@@ -81,3 +81,10 @@ class Contractor(BaseEmployee):
 class Destination(Model):
     Id: int
     name: str
+
+    def __str__(self):
+        str = """
+        Id: {}
+        Name: {} 
+        """. format(self.id, self.name)
+        return str
