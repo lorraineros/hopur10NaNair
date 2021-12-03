@@ -15,19 +15,4 @@ class DestinationLogic:
 
         return list_of_addresses
 
-    def address_check(address_input):
-        '''Checks if the address that was inputed is valid.'''
-        list_of_addresses = DestinationLogic.get_address_list()
-
-        if address_input in list_of_addresses:
-            return True
-        else:
-            return False
-
-    def id_check(id_input):
-        '''Checks if the ID that was inputed is valid.'''
-        for dest in DestinationLogic.get_destination_list():
-            if str(dest.id) == str(id_input):
-                return True
-        return False
 
