@@ -1,3 +1,4 @@
+from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu
 from src.logic.real_estate_logic import RealEstateLogic
 from src.ui.creation_menu import CreationMenu, EditingMenu
@@ -35,7 +36,7 @@ class RealEstateMenu(AbstractMenu):
         print("-" * 52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
         print("-" * 52)
-        for real_est in RealEstateLogic.get_real_estate_list():
+        for real_est in LogicAPI.real_estate_list():
             print(
                 f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
             )
@@ -44,7 +45,7 @@ class RealEstateMenu(AbstractMenu):
 
     def print_addresses(self):
         """This function prints all possible addresses that a real estate can have."""
-        list_of_addresses = RealEstateLogic.get_address_list()
+        list_of_addresses = LogicAPI.address_list()
         print(f"{'--- List of Addresses ---':^25}")
         print("-" * 25)
         print(f"| {'Addresses':^21} |")
@@ -97,14 +98,14 @@ class RealEstateSearch(RealEstateMenu):
     def find_real_estate_by_id(self): # To-Do: Need to create a id_check function.
         '''This function finds the Real Estate given the ID inputed and prints it. '''
         id_input = input("Enter ID to choose a Real Estate: ")
-        is_id = RealEstateLogic.id_check(id_input)
+        is_id = LogicAPI.id_check(id_input)
 
         while not is_id:
             print("Sorry did not find address, try again.")
             id_input = input("Enter ID to choose Real Estate: ")
-            is_id = RealEstateLogic.id_check(id_input)
+            is_id = LogicAPI.id_check(id_input)
 
-        for real_est in RealEstateLogic.get_real_estate_list():
+        for real_est in LogicAPI.real_estate_list():
             if real_est.id == int(id_input):
                 print(real_est)
 
@@ -113,14 +114,14 @@ class RealEstateSearch(RealEstateMenu):
     def find_real_estate_by_re_num(self): 
         '''This function finds the Real Estate given the Real Estate Number inputed and prints it. '''
         re_num_input = input("Enter Real Estate Number to choose a Real Estate: ")
-        is_re_num = RealEstateLogic.re_num_check(re_num_input)
+        is_re_num = LogicAPI.re_num_check(re_num_input)
 
         while not is_re_num:
             print("Sorry did not find Real Estate Number, try again.")
             re_num_input = input("Enter Real Estate Number to choose Real Estate: ")
-            is_re_num = RealEstateLogic.re_num_check(re_num_input)
+            is_re_num = LogicAPI.re_num_check(re_num_input)
 
-        for real_est in RealEstateLogic.get_real_estate_list():
+        for real_est in LogicAPI.real_estate_list():
             if real_est.real_estate_number.lower() == re_num_input.lower():
                 print(real_est)
 
@@ -130,18 +131,18 @@ class RealEstateSearch(RealEstateMenu):
         '''This function displays a list of real estate filtered by a address, i.e. displays only the real estates by a certain address.'''
         self.print_addresses()
         address_input = input("Enter address to filter Real Estate: ")
-        is_address = RealEstateLogic.address_check(address_input)
+        is_address = LogicAPI.address_check(address_input)
 
         while not is_address:
             print("Sorry did not find address, try again.")
             address_input = input("Enter address to see Real Estate: ")
-            is_address = RealEstateLogic.address_check(address_input)
+            is_address = LogicAPI.address_check(address_input)
     
         print(f"{'--- List of Real Estate by Address ---':^52}")
         print("-" * 52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
         print("-" * 52)
-        for real_est in RealEstateLogic.get_real_estate_list():
+        for real_est in LogicAPI.real_estate_list():
             if real_est.address.lower() == address_input.lower():
                 print(
                     f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
