@@ -1,6 +1,7 @@
-from src.logic.destination_logic  import DestinationLogic
+from src.logic.destination_logic import DestinationLogic
 from src.ui.creation_menu import CreationMenu
 from src.models.models import Destination
+
 
 # python3 -m src.main
 
@@ -37,9 +38,9 @@ class DestinationMenu:
             if command == '1':
                 self.list_destinations()
             elif command == '2':
-                 return CreationMenu(Destination)
+                return CreationMenu(Destination)
             elif command == '3':
-                 self.delete_destination()
+                self.delete_destination()
             elif command == "b":
                 return "back"
             elif command == "q":
@@ -57,7 +58,5 @@ class DestinationMenu:
                 f"| {destination.id:<3} | {destination.name:<21} | {destination.country:<18} |"
             )
 
-
     def delete_destination(self):
         print(self.options2)
-
