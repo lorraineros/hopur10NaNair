@@ -1,18 +1,26 @@
 [
     {
-        "location": 1,
+        "location": "Kulusuk",
         "working_hours": "08:00 - 16:00",
-        "phone": "1234567",
-        "name_of_contact": "ABC",
-        "name": "Abcd Efg",
+        "phone": "888-3434",
+        "name_of_contact": "Jón Ólafsson",
+        "name": "JÓ-Contractors",
         "id": 1
     },
     {
-        "location": 2,
+        "location": "Thorshofn",
         "working_hours": "09:00 - 17:00",
-        "phone": "2345678",
-        "name_of_contact": "BCD",
-        "name": "Bcde Fgh",
+        "phone": "777-2525",
+        "name_of_contact": "Guðmundur Guðmundsson",
+        "name": "GG-Contractors",
         "id": 2
+    },
+    {
+        "location": "Longyearbyen",
+        "working_hours": "08:00 - 17:00",
+        "phone": "666-7887",
+        "name_of_contact": "Jóhann Jónsdóttir",
+        "name": "JJ-Contractors",
+        "id": 3
     }
 ]

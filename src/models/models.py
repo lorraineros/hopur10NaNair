@@ -78,6 +78,15 @@ class Contractor(BaseEmployee):
     working_hours: str
     location: int
 
+    def __str__(self):
+        str = """
+ID: {}
+Name: {}
+Name of contact: {}
+Phone number: {}
+Working hours: {}
+Location: {}""".format(self.id, self.name, self.name_of_contact, self.phone, self.working_hours, self.location)
+        return str
 
 @dataclass
 class Destination(Model):

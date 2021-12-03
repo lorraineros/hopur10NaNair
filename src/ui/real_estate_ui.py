@@ -98,12 +98,12 @@ class RealEstateSearch(RealEstateMenu):
     def find_real_estate_by_id(self): # To-Do: Need to create a id_check function.
         '''This function finds the Real Estate given the ID inputed and prints it. '''
         id_input = input("Enter ID to choose a Real Estate: ")
-        is_id = LogicAPI.id_check(id_input)
+        is_id = LogicAPI.real_estate_id_check(id_input)
 
         while not is_id:
             print("Sorry did not find address, try again.")
             id_input = input("Enter ID to choose Real Estate: ")
-            is_id = LogicAPI.id_check(id_input)
+            is_id = LogicAPI.real_estate_id_check(id_input)
 
         for real_est in LogicAPI.real_estate_list():
             if real_est.id == int(id_input):
