@@ -62,6 +62,6 @@ Afrakstur dagsins:
 * Andri Þór: Vann í Real Estate, þá aðallega UI og Logic layernum.
 * Andriy:
 * Anh: Vann í Work Request UI og Employee UI með Lorraine.
-* Ari:
+* Ari: Vann í User Stories
 * Arnaldur:
 * Lorraine: Vann í Work Request UI og Employee UI með Anh.
