@@ -1,5 +1,4 @@
 import json
-import pathlib
 
 from ..models.models import Contractor
 
