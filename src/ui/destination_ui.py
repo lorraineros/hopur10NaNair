@@ -17,6 +17,9 @@ class DestinationMenu(AbstractMenu):
         b. Back
         """)
 
+    def handle_input(self, command):
+        return super().handle_input(command)
+
     def user_input(self):
         while True:
             print()
