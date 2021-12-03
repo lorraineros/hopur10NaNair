@@ -61,7 +61,7 @@ Andri, Anh, Ari og Lorraine hittust í HR en Arnaldur og Andriy voru að vinna h
 Afrakstur dagsins:
 * Andri Þór: Vann í Real Estate, þá aðallega UI og Logic layernum.
 * Andriy:
-* Anh:
+* Anh: Vann í Work Request UI og Employee UI með Lorraine.
 * Ari:
 * Arnaldur:
-* Lorraine: Vann í Work Request UI og Employee UI með Anh
+* Lorraine: Vann í Work Request UI og Employee UI með Anh.
