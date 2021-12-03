@@ -2,6 +2,7 @@ from src.ui.abstract_menu import AbstractMenu
 from src.logic.real_estate_logic import RealEstateLogic
 from src.ui.creation_menu import CreationMenu, EditingMenu
 from src.models.models import RealEstate
+from src.ui.common_menus import ChangingMenu, BackQuitMenu
 
 
 class RealEstateMenu(AbstractMenu):
@@ -153,33 +154,33 @@ class RealEstateSearch(RealEstateMenu):
 
         pass
 
-class ChangingMenu(AbstractMenu):
-    def show(self):
-        '''Menu for changing information.'''
-        print("1. Change Infromation")
-        print("b. Back")
-        print("q. Quit")
+# class ChangingMenu(AbstractMenu):
+#     def show(self):
+#         '''Menu for changing information.'''
+#         print("c. Change Infromation")
+#         print("b. Back")
+#         print("q. Quit")
     
-    def handle_input(self, command):
-        '''Handles the input for ChangingMenu'''
-        if command == "1":
-            # return EditingMenu()
-            pass
-        elif command == "b":
-            return "back"
-        elif command == "q":
-            return "quit"
+#     def handle_input(self, command):
+#         '''Handles the input for ChangingMenu'''
+#         if command == "c":
+#             # return EditingMenu()
+#             pass
+#         elif command == "b":
+#             return "back"
+#         elif command == "q":
+#             return "quit"
 
-class BackQuitMenu(AbstractMenu):
-    def show(self):
-        '''Menu for only back and quit'''
-        print("b. Back")
-        print("q. Quit")
+# class BackQuitMenu(AbstractMenu):
+#     def show(self):
+#         '''Menu for only back and quit'''
+#         print("b. Back")
+#         print("q. Quit")
     
-    def handle_input(self, command):
-        '''Handles the input for BackQuitMenu'''
-        if command == "b":
-            return "back"
-        elif command == "q":
-            return "quit"
+#     def handle_input(self, command):
+#         '''Handles the input for BackQuitMenu'''
+#         if command == "b":
+#             return "back"
+#         elif command == "q":
+#             return "quit"
 
