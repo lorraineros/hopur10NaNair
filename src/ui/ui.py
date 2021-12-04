@@ -26,6 +26,7 @@ class App:
             if choice == "back":
                 self.stack.pop()
             elif choice == "quit":
+                LogicAPI().flush_to_disk()
                 break
             elif choice == "self":
                 continue

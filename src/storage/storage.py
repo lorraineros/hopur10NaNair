@@ -18,9 +18,12 @@ class StorageAPI(metaclass=Singleton):
     def get_all(self, model: Type[M]) -> Dict[int, M]:
         return self.storages[model].get_all()
 
-    def add(self, entity: Model):
-        # TODO
-        pass
+    def create(self, entity: Model):
+        self.storages[type(entity)].create(entity)
+
+    def flush_to_disk(self):
+        for storage in filter(lambda s: s.modified, self.storages.values()):
+            storage.store()
 
 
 class Storage:
@@ -29,6 +32,7 @@ class Storage:
         self.loaded = False
         self.modified = False
         self.file_name = f"new_data/{self.model.__name__}.json"
+        self.next_id = 0
 
         self.data = {}
 
@@ -39,6 +43,12 @@ class Storage:
     def get_all(self):
         self.ensure_loaded()
         return self.data
+
+    def create(self, entity: Model):
+        entity.id = self.next_id
+        self.data[self.next_id] = entity
+        self.next_id += 1
+        self.modified = True
 
     def ensure_loaded(self):
         if not self.loaded:
@@ -55,5 +65,13 @@ class Storage:
 
     def store(self):
         with open(self.file_name, "w", encoding="utf-8") as file:
-            file.write(json.dumps(self.data))
+            json.dump(
+                {
+                    "next_id": self.next_id,
+                    "data": {k: dataclasses.asdict(v) for k, v in self.data.items()},
+                },
+                file,
+                indent="    ",
+            )
+            # file.write(json.dumps({e.asdict() for e in self.data}))
         self.modified = False

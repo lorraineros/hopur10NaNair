@@ -19,9 +19,11 @@ class LogicAPI(metaclass=Singleton):
     def get_all(self, model: Type[M]) -> Dict[int, M]:
         return self.storage.get_all(model)
 
-    # TODO: implement this
     def create(self, model: Model):
-        pass
+        self.storage.create(model)
+
+    def flush_to_disk(self):
+        self.storage.flush_to_disk()
 
     def employee_list(self):
         return EmployeeStorage().get_all()

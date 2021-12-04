@@ -1,15 +1,12 @@
 import dataclasses
 from typing import Type
 
+from src.logic.logic_api import LogicAPI
 from src.models.models import Model
 from src.ui.abstract_menu import AbstractMenu
 
 
 class CreationMenu(AbstractMenu):
-    # @classmethod
-    # def from(cls, model: Model):
-    #     return lambda: cls(model)
-
     def __init__(self, model: Type[Model]):
         self.model = model
         # TODO: do proper default initialization or find a better solution
@@ -28,12 +25,13 @@ class CreationMenu(AbstractMenu):
 
     def show(self):
         print("Choose a property to edit: ")
+        max_prop_len = max(len(prop.name) for prop in self.fields) + 1
         for (i, prop) in enumerate(
             filter(lambda field: not field.metadata.get("autoinit"), self.fields)
         ):
             # print(prop)
-            print(f"{i+1}. {prop.name:<18}", end="")
-            if prop.name in self.builder:
+            print(f"{i+1}. {prop.name:<{max_prop_len}}", end="")
+            if prop.name in self.builder and not self.builder[prop.name] is None:
                 print(f"= {self.builder[prop.name]}", end="")
             print()
         print()
@@ -47,8 +45,8 @@ class CreationMenu(AbstractMenu):
             print(self.options[command])
             return EditingMenu(self.options[command], self.builder)
         if command == "c":
-            return self.model.from_dict(self.builder)
-            # TODO: Write self.builder to file
+            LogicAPI().create(self.model.from_dict(self.builder))
+            return "back"
         if command == "b":
             return "back"
         if command == "q":
