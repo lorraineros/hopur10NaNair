@@ -1,9 +1,17 @@
-class UserStoriesMenu:
+
+
+
+
+
+from src.ui.abstract_menu import AbstractMenu
+
+
+class UserStoriesMenu(AbstractMenu):
     def show(self):
         print("--- User Stories Menu ---")
-        print("1. Register a new user storie")
-        print("2. Finde user storie")
-        print("3. Display list of user storie")
+        print("1. Register a new user story")
+        print("2. Find user story")
+        print("3. Display list of user story")
         print("b. back")
         print("q. quit")
 
@@ -21,9 +29,9 @@ class UserStoriesMenu:
 
 class UserStoriesSearch:
     def show(self):
-        print("--- Finde User Stories ---")
+        print("--- Find User Stories ---")
         print()
-        inp = input("Chose a Finde User Stories")
+        inp = input("Choose a Find User Stories")
 
     def handle_input(self, inp):
         pass
@@ -33,7 +41,7 @@ class DestinationMenu:
     def show(self):
         print("--- Destination Menu ---")
         print("1. Register a new Destination menu")
-        print("2. Finde Destination menu")
+        print("2. Find Destination menu")
         print("3. Display Destination value")
         print("b. back")
         print("q. quit")
