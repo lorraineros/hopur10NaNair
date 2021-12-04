@@ -1,4 +1,4 @@
-from src.storage.real_estate_storage import UserStories
+from src.storage.user_stories_storage import UserStories
 
 class UserStories:
     def user_stories_list(self):

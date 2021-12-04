@@ -1,6 +1,6 @@
 import json
 
-from ..models.models import User_stories
+from ..models.models import UserStories
 
 FILE_PATH = "data/User_stories.json"
 
@@ -17,7 +17,7 @@ class User_stories_Storage:
     def get_all():
         with open(FILE_PATH, 'r', encoding="utf-8", ) as file:
             data = json.load(file)
-            return [User_stories.from_dict(emp) for emp in data]
+            return [UserStories.from_dict(emp) for emp in data]
 
-    def add(entity: User_stories):
+    def add(entity: UserStories):
         pass
