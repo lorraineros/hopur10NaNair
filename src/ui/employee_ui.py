@@ -1,8 +1,8 @@
-from src.models.models import Employee
+from src.logic.employee_logic import EmployeeLogic
+from src.logic.logic_api import LogicAPI
+from src.models.models import Destination, Employee
 from src.ui.abstract_menu import AbstractMenu
 from src.ui.creation_menu import CreationMenu
-from ..logic.employee_logic import EmployeeLogic
-from ..logic.destination_logic import DestinationLogic
 
 
 class EmployeeMenu(AbstractMenu):
@@ -34,10 +34,12 @@ class EmployeeListMenu(AbstractMenu):
             print("-" * 50)
             print(f"| {'ID':^3} | {'Name':^21} | {'Destination':^16} |")
             print("-" * 50)
-            for emp in EmployeeLogic.get_list():
-                for dest in DestinationLogic.get_destination_list():
-                    if emp.work_destination == dest.id:
-                        print(f"| {emp.id:<3} | {emp.name:<21} | {dest.id}. {dest.country:<14}|")
+            for (emp_id, emp) in LogicAPI().get_all(Employee).items():
+                dest = LogicAPI().get(Destination, emp.work_destination)
+                if dest:
+                    print(
+                        f"| {emp.id:<3} | {emp.name:<21} | {dest.id}. {dest.country:<14}|"
+                    )
             print("-" * 50)
             print()
             print("b. Back")
@@ -60,6 +62,7 @@ class EmployeeListMenu(AbstractMenu):
         elif command == "q":
             return "quit"
 
+
 class FindEmployee(EmployeeMenu):
     def show(self):
         print(f"{'--- Find an employee ---':^29}")
@@ -78,12 +81,14 @@ class FindEmployee(EmployeeMenu):
         for emp in EmployeeLogic.get_list():
             print(f"| {emp.id:<2} | {emp.name:<20} |")
         print("-" * 29)
-    
+
     def print_filtered_list(self, id):
         print("-" * 78)
         print(f"| {'ID':^2} | {'Employee':^20} | {'Email':^28} | {'GSM':^15} |")
         print("-" * 78)
         for emp in EmployeeLogic.get_list():
             if emp.id == id:
-                print(f"| {emp.id:<2} | {emp.name:<20} |  {emp.email:<27} | {emp.gsm:<15} |")
+                print(
+                    f"| {emp.id:<2} | {emp.name:<20} |  {emp.email:<27} | {emp.gsm:<15} |"
+                )
         print("-" * 78)
