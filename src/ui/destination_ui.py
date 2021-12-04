@@ -41,6 +41,8 @@ b. Back
             print(
                 f"| {destination.id:<3} | {destination.name:<21} | {destination.country:<18} |"
             )
+        print("-" * 52)
+        print()
 
     def delete_destination(self):
         print("""

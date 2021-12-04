@@ -58,6 +58,7 @@ class RealEstate(Model):
     type_of_real_estate: str
     rooms: int
     size: int
+    destination: Id
 
     def __str__(self):
         str = """ 
@@ -100,3 +101,16 @@ class Destination(Model):
         Name: {} 
         """. format(self.id, self.name)
         return str
+
+@dataclass 
+class UserStories(Model):
+    id: Id 
+    name: str
+    story: str
+
+    def __str__(self):
+        str = """
+        Id: {}
+        Name: {}
+        """. format(self.id, self.name)
+        return str 

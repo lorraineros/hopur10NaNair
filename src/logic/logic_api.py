@@ -1,3 +1,4 @@
+from src.logic.destination_logic import DestinationLogic
 from src.logic.contractor_logic import ContractorLogic
 from src.logic.real_estate_logic import RealEstateLogic
 from src.storage.storage import StorageAPI
@@ -36,3 +37,6 @@ class LogicAPI(metaclass=Singleton):
 
     def contractor_id_check(contractor_id_input):
         return ContractorLogic().id_check(contractor_id_input)
+
+    def dest_check(dest_input):
+        return DestinationLogic().dest_check(dest_input)

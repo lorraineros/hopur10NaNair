@@ -1,9 +1,11 @@
+from src.logic.destination_logic import DestinationLogic
 from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu
 from src.logic.real_estate_logic import RealEstateLogic
 from src.ui.creation_menu import CreationMenu, EditingMenu
 from src.models.models import RealEstate
 from src.ui.common_menus import ChangingMenu, BackQuitMenu
+from src.ui.destination_ui import DestinationMenu
 
 
 class RealEstateMenu(AbstractMenu):
@@ -89,7 +91,11 @@ class RealEstateSearch(RealEstateMenu):
             self.find_real_estate_by_id()
             return ChangingMenu()
         elif command == "4":
-            pass
+            print(f"{'--- Find Real Estate by Destination ---':^52}")
+            print()
+            self.display_real_estate_by_dest()
+            self.find_real_estate_by_id()
+            return ChangingMenu()
         elif command == "b":
             return "back"
         elif command == "q":
@@ -152,8 +158,28 @@ class RealEstateSearch(RealEstateMenu):
 
     def display_real_estate_by_dest(self):
         '''This function displays a list of real estate filtered by a destination, i.e. displays only the real estates by a certain destination.'''
+        DestinationMenu().list_of_all_destinations()
+        dest_input = input("Enter Destination ID to filter Real Estate: ")
+        is_dest = LogicAPI.dest_check(dest_input)
 
-        pass
+        while not is_dest:
+            print("Sorry did not find Destination ID, try again.")
+            dest_input = input("Enter Destination ID to filter Real Estate: ")
+            is_dest = LogicAPI.dest_check(dest_input)
+
+        print(f"{'--- List of Real Estate by Destination ---':^52}")
+        print("-" * 52)
+        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
+        print("-" * 52)
+        for real_est in LogicAPI.real_estate_list():
+            if real_est.destination == int(dest_input):
+                #print(real_est.destination, dest_input)
+                print(
+                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
+                )
+        print("-" * 52)
+        print()
+        
 
 
 
