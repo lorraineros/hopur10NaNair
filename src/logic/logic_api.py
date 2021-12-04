@@ -1,11 +1,12 @@
 from src.logic.contractor_logic import ContractorLogic
 from src.logic.real_estate_logic import RealEstateLogic
 from src.storage.storage import StorageAPI
+from src.utilities.singleton import Singleton
 from ..storage.employee_storage import EmployeeStorage
 from src.models.models import Model
 
 
-class LogicAPI:
+class LogicAPI(metaclass=Singleton):
     def __init__(self):
         self.storage = StorageAPI()
 
