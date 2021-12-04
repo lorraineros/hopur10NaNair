@@ -1,7 +1,9 @@
 from dataclasses import dataclass, field
 import json
-from typing import Dict, Any
+from typing import Dict, Any, TypeVar
 import dataclasses
+
+M = TypeVar("M")
 
 
 @dataclass
@@ -61,16 +63,22 @@ class RealEstate(Model):
     destination: Id
 
     def __str__(self):
-        str = """ 
+        return """
 Address: {}        
 Real Estate Number: {}
 Condition: {}
 Facilities: {}
 Type of Real Estate: {}
 Rooms: {}
-Size: {} """.format(self.address, self.real_estate_number, self.condition, self.facilities, self.type_of_real_estate,
-                    self.rooms, self.size)
-        return str
+Size: {} """.format(
+            self.address,
+            self.real_estate_number,
+            self.condition,
+            self.facilities,
+            self.type_of_real_estate,
+            self.rooms,
+            self.size,
+        )
 
 
 @dataclass
@@ -80,14 +88,21 @@ class Contractor(BaseEmployee):
     location: int
 
     def __str__(self):
-        str = """
+        return """
 ID: {}
 Name: {}
 Name of contact: {}
 Phone number: {}
 Working hours: {}
-Location: {}""".format(self.id, self.name, self.name_of_contact, self.phone, self.working_hours, self.location)
-        return str
+Location: {}""".format(
+            self.id,
+            self.name,
+            self.name_of_contact,
+            self.phone,
+            self.working_hours,
+            self.location,
+        )
+
 
 @dataclass
 class Destination(Model):
@@ -96,21 +111,9 @@ class Destination(Model):
     country: str
 
     def __str__(self):
-        str = """
+        return """
         Id: {}
         Name: {} 
-        """. format(self.id, self.name)
-        return str
-
-@dataclass 
-class UserStories(Model):
-    id: Id 
-    name: str
-    story: str
-
-    def __str__(self):
-        str = """
-        Id: {}
-        Name: {}
-        """. format(self.id, self.name)
-        return str 
+        """.format(
+            self.id, self.name
+        )
