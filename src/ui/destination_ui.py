@@ -3,6 +3,7 @@ from src.logic.destination_logic import DestinationLogic
 from src.ui.creation_menu import CreationMenu
 from src.models.models import Destination
 from src.ui.common_menus import BackQuitMenu
+from src.logic.logic_api import LogicAPI
 
 class DestinationMenu(AbstractMenu):
     def show(self):
@@ -37,7 +38,7 @@ b. Back
         print("-" * 52)
         print(f"| {'ID':^3} | {'Name':^21} | {'Country':^18} ")
         print("-" * 52)
-        for destination in DestinationLogic.get_destination_list():
+        for (dest_id, destination) in LogicAPI().get_all(Destination).items():
             print(
                 f"| {destination.id:<3} | {destination.name:<21} | {destination.country:<18} |"
             )
