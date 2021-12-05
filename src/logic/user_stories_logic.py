@@ -1,14 +1,14 @@
-from src.storage.user_stories_storage import UserStories
+from src.storage.user_stories_storage import UserStoriesStorage
 
 class UserStories:
-    def user_stories_list(self):
-        return UserStories.get_all()
+    def get_user_stories_list():
+        return UserStoriesStorage.get_all()
 
     def get_address_list(self):
         list_of_addresses = []
-        for user_stor in self.get_user_stories_list():
-            if user_stor not in list_of_addresses:
-                list_of_addresses.append(user_stor.address)
+        for user_story in self.get_user_stories_list():
+            if user_story not in list_of_addresses:
+                list_of_addresses.append(user_story.address)
 
 
         return list_of_addresses

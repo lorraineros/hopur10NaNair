@@ -2,10 +2,10 @@ import json
 
 from ..models.models import UserStories
 
-FILE_PATH = "data/User_stories.json"
+FILE_PATH = "data/UserStories.json"
 
 
-class User_stories_Storage:
+class UserStoriesStorage:
     @staticmethod
     def get(id: int):
         print("get")

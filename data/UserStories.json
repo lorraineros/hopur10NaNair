@@ -1,7 +1,7 @@
 [ {
     "id": 1,
     "name": "Problem",
-    "stroy": "Problem of building site"
+    "story": "Problem of building site"
 },
 {
     "id": 2,
@@ -10,7 +10,7 @@
 },
 {
     "id": 3,
-    "name": "Issue",
+    "name": "Computurers",
     "story": "The servers were down"
 }
 ]
