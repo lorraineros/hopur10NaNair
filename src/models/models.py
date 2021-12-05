@@ -67,6 +67,7 @@ class RealEstate(Model):
         return """
 Address: {}        
 Real Estate Number: {}
+Destination: {}
 Condition: {}
 Facilities: {}
 Type of Real Estate: {}
@@ -74,6 +75,7 @@ Rooms: {}
 Size: {} """.format(
             self.address,
             self.real_estate_number,
+            self.destination,
             self.condition,
             self.facilities,
             self.type_of_real_estate,
@@ -115,6 +117,9 @@ class Destination(Model):
         return """
         Id: {}
         Name: {} 
+        Country: {}
         """.format(
-            self.id, self.name
+            self.id, 
+            self.name,
+            self.country
         )

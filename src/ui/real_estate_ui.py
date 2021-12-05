@@ -3,7 +3,7 @@ from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu
 from src.logic.real_estate_logic import RealEstateLogic
 from src.ui.creation_menu import CreationMenu, EditingMenu
-from src.models.models import RealEstate
+from src.models.models import Destination, RealEstate
 from src.ui.common_menus import ChangingMenu, BackQuitMenu
 from src.ui.destination_ui import DestinationMenu
 
@@ -34,20 +34,22 @@ class RealEstateMenu(AbstractMenu):
 
     def display_all_real_estate(self):
         '''Display a list of all the real estate'''
-        print(f"{'--- List of Real Estate ---':^52}")
-        print("-" * 52)
-        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
-        print("-" * 52)
-        for real_est in LogicAPI.real_estate_list():
+        print(f"{'--- List of Real Estate ---':^70}")
+        print("-" * 70)
+        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} | {'Destination':^15} |")
+        print("-" * 70)
+        for (real_est_id, real_est) in LogicAPI().get_all(RealEstate).items():
+            dest = LogicAPI().get(Destination, real_est.destination)
             print(
-                f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
+                f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} | {dest.name:<15} |"
+                
             )
-        print("-" * 52)
+        print("-" * 70)
         print()
 
     def print_addresses(self):
         """This function prints all possible addresses that a real estate can have."""
-        list_of_addresses = LogicAPI.address_list()
+        list_of_addresses = LogicAPI().address_list()
         print(f"{'--- List of Addresses ---':^25}")
         print("-" * 25)
         print(f"| {'Addresses':^21} |")
@@ -104,31 +106,30 @@ class RealEstateSearch(RealEstateMenu):
     def find_real_estate_by_id(self): # To-Do: Need to create a id_check function.
         '''This function finds the Real Estate given the ID inputed and prints it. '''
         id_input = input("Enter ID to choose a Real Estate: ")
-        is_id = LogicAPI.real_estate_id_check(id_input)
+        is_id = LogicAPI().real_estate_id_check(id_input)
 
         while not is_id:
             print("Sorry did not find address, try again.")
             id_input = input("Enter ID to choose Real Estate: ")
-            is_id = LogicAPI.real_estate_id_check(id_input)
+            is_id = LogicAPI().real_estate_id_check(id_input)
 
-        for real_est in LogicAPI.real_estate_list():
-            if real_est.id == int(id_input):
-                print(real_est)
+        real_est = LogicAPI().get(RealEstate, int(id_input))
+        print(real_est)
 
         print()
 
     def find_real_estate_by_re_num(self): 
         '''This function finds the Real Estate given the Real Estate Number inputed and prints it. '''
         re_num_input = input("Enter Real Estate Number to choose a Real Estate: ")
-        is_re_num = LogicAPI.re_num_check(re_num_input)
+        is_re_num = LogicAPI().re_num_check(re_num_input)
 
         while not is_re_num:
             print("Sorry did not find Real Estate Number, try again.")
             re_num_input = input("Enter Real Estate Number to choose Real Estate: ")
-            is_re_num = LogicAPI.re_num_check(re_num_input)
+            is_re_num = LogicAPI().re_num_check(re_num_input)
 
-        for real_est in LogicAPI.real_estate_list():
-            if real_est.real_estate_number.lower() == re_num_input.lower():
+        for (real_est_id, real_est) in LogicAPI().get_all(RealEstate).items():
+            if real_est.real_estate_number == re_num_input:
                 print(real_est)
 
         print()
@@ -137,19 +138,19 @@ class RealEstateSearch(RealEstateMenu):
         '''This function displays a list of real estate filtered by a address, i.e. displays only the real estates by a certain address.'''
         self.print_addresses()
         address_input = input("Enter address to filter Real Estate: ")
-        is_address = LogicAPI.address_check(address_input)
+        is_address = LogicAPI().address_check(address_input)
 
         while not is_address:
             print("Sorry did not find address, try again.")
             address_input = input("Enter address to see Real Estate: ")
-            is_address = LogicAPI.address_check(address_input)
+            is_address = LogicAPI().address_check(address_input)
     
         print(f"{'--- List of Real Estate by Address ---':^52}")
         print("-" * 52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
         print("-" * 52)
-        for real_est in LogicAPI.real_estate_list():
-            if real_est.address.lower() == address_input.lower():
+        for (real_est_id, real_est) in LogicAPI().get_all(RealEstate).items():
+            if real_est.address == address_input:
                 print(
                     f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
                 )
@@ -160,20 +161,22 @@ class RealEstateSearch(RealEstateMenu):
         '''This function displays a list of real estate filtered by a destination, i.e. displays only the real estates by a certain destination.'''
         DestinationMenu().list_of_all_destinations()
         dest_input = input("Enter Destination ID to filter Real Estate: ")
-        is_dest = LogicAPI.dest_check(dest_input)
+        is_dest = LogicAPI().dest_check(dest_input)
 
         while not is_dest:
             print("Sorry did not find Destination ID, try again.")
             dest_input = input("Enter Destination ID to filter Real Estate: ")
-            is_dest = LogicAPI.dest_check(dest_input)
+            is_dest = LogicAPI().dest_check(dest_input)
 
-        print(f"{'--- List of Real Estate by Destination ---':^52}")
+        dest = LogicAPI().get(Destination, int(dest_input))
+
+        print()
+        print(f"{'--- List of Real Estate by {} ---':^52}".format(dest.name))
         print("-" * 52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
         print("-" * 52)
-        for real_est in LogicAPI.real_estate_list():
+        for (real_est_id, real_est) in LogicAPI().get_all(RealEstate).items():
             if real_est.destination == int(dest_input):
-                #print(real_est.destination, dest_input)
                 print(
                     f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
                 )
