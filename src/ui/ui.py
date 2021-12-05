@@ -26,11 +26,10 @@ class App:
             if choice == "back":
                 self.stack.pop()
             elif choice == "quit":
+                LogicAPI().flush_to_disk()
                 break
             elif choice == "self":
                 continue
-            elif issubclass(type(choice), models.Model):
-                self.logic.create(choice)
             elif issubclass(type(choice), AbstractMenu):
                 self.stack.append(choice)
             else:
@@ -71,7 +70,9 @@ class SimpleMenu(AbstractMenu):
 class MainMenu(SimpleMenu):
     is_root = True
 
-    header = """
+    @property
+    def header(self):
+        return """
         _   _       _   _      _    _
        | \ | | __ _| \ | |    / \  (_)_ __
        |  \| |/ _` |  \| |   / _ \ | | '__|
@@ -81,11 +82,12 @@ class MainMenu(SimpleMenu):
 --------------- Welcome to NaN Air ---------------
 """
 
-    options = [
-        ("Employee", EmployeeMenu),
-        ("Real Estate", RealEstateMenu),
-        ("Work request", WorkRequestMenu),
-        ("Contractor", ContractorMenu),
-        ("Destination", DestinationMenu),
-        ("User Stories", UserStoriesMenu)
-    ]
+    @property
+    def options(self):
+        return [
+            ("Employee", EmployeeMenu),
+            ("Real Estate", RealEstateMenu),
+            ("Work request", WorkRequestMenu),
+            ("Contractor", ContractorMenu),
+            ("Destination", DestinationMenu),
+        ]

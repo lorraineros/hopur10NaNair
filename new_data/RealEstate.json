@@ -1,0 +1,1125 @@
+{
+    "next_id": 113,
+    "data": {
+        "1": {
+            "id": 1,
+            "address": "Vei 217",
+            "real_estate_number": "F959594",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "House",
+            "rooms": 4,
+            "size": 150
+        },
+        "2": {
+            "id": 2,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-1",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine Common Space",
+            "rooms": 1,
+            "size": 62
+        },
+        "3": {
+            "id": 3,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-2",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "4": {
+            "id": 4,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-3",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "5": {
+            "id": 5,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-4",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "6": {
+            "id": 6,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-5",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "7": {
+            "id": 7,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-6",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "8": {
+            "id": 8,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-7",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "9": {
+            "id": 9,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-8",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "10": {
+            "id": 10,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-9",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "11": {
+            "id": 11,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-10",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "12": {
+            "id": 12,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-11",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "13": {
+            "id": 13,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-12",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "14": {
+            "id": 14,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-13",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "15": {
+            "id": 15,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-14",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "16": {
+            "id": 16,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-15",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "17": {
+            "id": 17,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-16",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "18": {
+            "id": 18,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-17",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "19": {
+            "id": 19,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-18",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "20": {
+            "id": 20,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-19",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "21": {
+            "id": 21,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-20",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "22": {
+            "id": 22,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-21",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "23": {
+            "id": 23,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-22",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "24": {
+            "id": 24,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-23",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "25": {
+            "id": 25,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-24",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "26": {
+            "id": 26,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-25",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "27": {
+            "id": 27,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-26",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "28": {
+            "id": 28,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-27",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "29": {
+            "id": 29,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-28",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "30": {
+            "id": 30,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-29",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "31": {
+            "id": 31,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-30",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "32": {
+            "id": 32,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-31",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "33": {
+            "id": 33,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-32",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "34": {
+            "id": 34,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-33",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "35": {
+            "id": 35,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-34",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "36": {
+            "id": 36,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-35",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "37": {
+            "id": 37,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-36",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "38": {
+            "id": 38,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-37",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "39": {
+            "id": 39,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-38",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "40": {
+            "id": 40,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-39",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "41": {
+            "id": 41,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-40",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "42": {
+            "id": 42,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-41",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "43": {
+            "id": 43,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-42",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "44": {
+            "id": 44,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-43",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "45": {
+            "id": 45,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-44",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "46": {
+            "id": 46,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-45",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "47": {
+            "id": 47,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-46",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "48": {
+            "id": 48,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-47",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "49": {
+            "id": 49,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-48",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "50": {
+            "id": 50,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-49",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "51": {
+            "id": 51,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-50",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "52": {
+            "id": 52,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-51",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "53": {
+            "id": 53,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-52",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "54": {
+            "id": 54,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-53",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "55": {
+            "id": 55,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-54",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "56": {
+            "id": 56,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-55",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "57": {
+            "id": 57,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-56",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "58": {
+            "id": 58,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-57",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "59": {
+            "id": 59,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-58",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "60": {
+            "id": 60,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-59",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "61": {
+            "id": 61,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-60",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "62": {
+            "id": 62,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-61",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "63": {
+            "id": 63,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-62",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "64": {
+            "id": 64,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-63",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "65": {
+            "id": 65,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-64",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "66": {
+            "id": 66,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-65",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "67": {
+            "id": 67,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-66",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "68": {
+            "id": 68,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-67",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "69": {
+            "id": 69,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-68",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "70": {
+            "id": 70,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-69",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "71": {
+            "id": 71,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-70",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "72": {
+            "id": 72,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-71",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "73": {
+            "id": 73,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-72",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "74": {
+            "id": 74,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-73",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "75": {
+            "id": 75,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-74",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "76": {
+            "id": 76,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-75",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "77": {
+            "id": 77,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-76",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "78": {
+            "id": 78,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-77",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "79": {
+            "id": 79,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-78",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "80": {
+            "id": 80,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-79",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "81": {
+            "id": 81,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-80",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "82": {
+            "id": 82,
+            "address": "Longyearbyen Harbor 1",
+            "real_estate_number": "AA999-81",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Submarine",
+            "rooms": 1,
+            "size": 62
+        },
+        "83": {
+            "id": 83,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3900",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Reception and restaurant",
+            "rooms": 1,
+            "size": 100
+        },
+        "84": {
+            "id": 84,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3901",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "85": {
+            "id": 85,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3902",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "86": {
+            "id": 86,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3903",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "87": {
+            "id": 87,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3904",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "88": {
+            "id": 88,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3905",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "89": {
+            "id": 89,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3906",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "90": {
+            "id": 90,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3907",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "91": {
+            "id": 91,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3908",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "92": {
+            "id": 92,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3909",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "93": {
+            "id": 93,
+            "address": "iGloo-Ville",
+            "real_estate_number": "64-3910",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 35
+        },
+        "94": {
+            "id": 94,
+            "address": "Suloraq 42",
+            "real_estate_number": "64-3875",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Apartment",
+            "rooms": 1,
+            "size": 34.5
+        },
+        "95": {
+            "id": 95,
+            "address": "Suloraq 42",
+            "real_estate_number": "64-3876",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Apartment",
+            "rooms": 1,
+            "size": 34.5
+        },
+        "96": {
+            "id": 96,
+            "address": "Igimaq 7",
+            "real_estate_number": "64-3831",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Igloo",
+            "rooms": 1,
+            "size": 10
+        },
+        "97": {
+            "id": 97,
+            "address": "Nuussuaq 4",
+            "real_estate_number": "64-3812",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Villa",
+            "rooms": 8,
+            "size": 400
+        },
+        "98": {
+            "id": 98,
+            "address": "Sk\u00e1ki\u00f0 15",
+            "real_estate_number": "ix-9331",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Ra\u00f0h\u00fas???",
+            "rooms": 1,
+            "size": 35
+        },
+        "99": {
+            "id": 99,
+            "address": "Sk\u00e1ki\u00f0 15",
+            "real_estate_number": "ix-9332",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Ra\u00f0h\u00fas???",
+            "rooms": 1,
+            "size": 35
+        },
+        "100": {
+            "id": 100,
+            "address": "Sk\u00e1ki\u00f0 15",
+            "real_estate_number": "ix-9333",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Ra\u00f0h\u00fas???",
+            "rooms": 1,
+            "size": 35
+        },
+        "101": {
+            "id": 101,
+            "address": "Svalbar\u00f0svegur 22",
+            "real_estate_number": "ix-2239",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "House",
+            "rooms": 5,
+            "size": 200
+        },
+        "102": {
+            "id": 102,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9492",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "103": {
+            "id": 103,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9493",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "104": {
+            "id": 104,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9494",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "105": {
+            "id": 105,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9494",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "106": {
+            "id": 106,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9495",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "107": {
+            "id": 107,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9496",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "108": {
+            "id": 108,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9497",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "109": {
+            "id": 109,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9498",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "110": {
+            "id": 110,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9499",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "111": {
+            "id": 111,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9500",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        },
+        "112": {
+            "id": 112,
+            "address": "N\u00fdggivegur 1",
+            "real_estate_number": "ix-9501",
+            "condition": "",
+            "facilities": "",
+            "type_of_real_estate": "Mold house",
+            "rooms": 1,
+            "size": 15
+        }
+    }
+}
