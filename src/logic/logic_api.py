@@ -40,9 +40,6 @@ class LogicAPI(metaclass=Singleton):
     def re_num_check(self, re_num_input):
         return RealEstateLogic().re_num_check(re_num_input)
 
-    def contractor_list(self):
-        return ContractorLogic().get_list()
-
     def contractor_id_check(self, contractor_id_input):
         return ContractorLogic().id_check(contractor_id_input)
 

@@ -6,8 +6,6 @@ from src.storage.storage import StorageAPI
 
 
 class RealEstateLogic:
-    def get_real_estate_list(self):
-        return RealEstateStorage.get_all()
 
     def get_address_list(self):
         '''Gets a list of addresses for all real estate'''
