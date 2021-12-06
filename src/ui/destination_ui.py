@@ -5,6 +5,7 @@ from src.models.models import Destination
 from src.ui.common_menus import BackQuitMenu
 from src.logic.logic_api import LogicAPI
 
+
 class DestinationMenu(AbstractMenu):
     def show(self):
         print("""
@@ -17,21 +18,18 @@ q. Quit
 b. Back
         """)
 
-
     def handle_input(self, command):
-            if command == '1':
-                self.list_of_all_destinations()
-                return BackQuitMenu()
-            elif command == '2':
-                pass
-                # return CreationMenu(Destination)
-            elif command == '3':
-                self.delete_destination()
-            elif command == "b":
-                return "back"
-            elif command == "q":
-                return "quit"
-
+        if command == '1':
+            self.list_of_all_destinations()
+            return BackQuitMenu()
+        elif command == '2':
+            return CreationMenu(Destination)
+        elif command == '3':
+            self.delete_destination()
+        elif command == "b":
+            return "back"
+        elif command == "q":
+            return "quit"
 
     def list_of_all_destinations(self):
         print(f"{'--- List of Destinations ---':^51}")
