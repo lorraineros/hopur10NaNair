@@ -1,7 +1,5 @@
 from dataclasses import dataclass, field
-import json
-from typing import Dict, Any, TypeVar
-import dataclasses
+from typing import Any, Dict, TypeVar
 
 M = TypeVar("M")
 
@@ -40,9 +38,9 @@ class Employee(BaseEmployee):
 
 @dataclass
 class WorkRequest(Model):
-    title: str = field(default="")
+    title: str = field(default="", metadata={"pretty_name": "Title"})
     location: str = field(default="")
-    real_estate: str = field(default="")
+    real_estate: str = field(default="", metadata={"pretty_name": "Real estate"})
     employee: Id = field(default=Id())
     contractor: Id = field(default=Id())
     start_date: str = field(default="")
@@ -93,7 +91,5 @@ class Destination(Model):
         Name: {} 
         Country: {}
         """.format(
-            self.id, 
-            self.name,
-            self.country
+            self.id, self.name, self.country
         )

@@ -1,14 +1,14 @@
-from abc import abstractmethod, abstractproperty
+import os
 from typing import List
+
 from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu, SimpleMenu
-from ..ui.real_estate_ui import RealEstateMenu
-from ..ui.employee_ui import EmployeeMenu
+
 from ..ui.contractor_ui import ContractorMenu
-from ..ui.work_request_ui import WorkRequestMenu
 from ..ui.destination_ui import DestinationMenu
-#from ..ui.user_stories_ui import UserStoriesMenu
-from ..models import models
+from ..ui.employee_ui import EmployeeMenu
+from ..ui.real_estate_ui import RealEstateMenu
+from ..ui.work_request_ui import WorkRequestMenu
 
 
 class App:
