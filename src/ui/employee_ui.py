@@ -89,7 +89,7 @@ Email: {}
         dest = LogicAPI().get(Destination, int(dest_input))
 
         print()
-        print(f"{'--- List of Employees by {dest.name} ---':^61}")
+        print(f"{'--- List of Employees by {} ---':^61}".format(dest.name))
         print("-" * 61)
         print(f"| {'ID':^3} | {'Name':^21} | {'Email':^27} |")
         print("-" * 61)
