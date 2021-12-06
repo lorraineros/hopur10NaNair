@@ -51,6 +51,13 @@ class EmployeeMenu(AbstractMenu):
         print()
 
     def print_emp(self,emp):
+        work_loc = LogicAPI().get(Destination, emp.work_destination)
+
+        if emp.is_manager:
+            position = "Manger"
+        elif not emp.is_manager:
+            position = "Employee"
+
         print("""
 Name: {}
 Home address: {}
@@ -62,8 +69,8 @@ Email: {}
         """.format(
             emp.name,
             emp.home_address,
-            emp.work_destination,
-            emp.is_manager,
+            work_loc.name,
+            position,
             emp.phone,
             emp.gsm,
             emp.email
