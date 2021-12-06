@@ -111,7 +111,7 @@ class FindWorkByID(FindWork):
         print()
         print(f"{'--- Work Report ---':^76}")
         print("-" * 76)
-        print(f"| {'ID':^2} | {'Employee':^19} | {'Contractor':^19} | {'From':^10} | {'To':^10} |")
+        print(f"| {'ID':^2} | {'Employee':^20} | {'Contractor':^18} | {'From':^10} | {'To':^10} |")
         print("-" * 76)
         for workr in WorkReportLogic.get_list():
             for emp in EmployeeLogic.get_list():
