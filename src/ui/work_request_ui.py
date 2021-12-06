@@ -1,4 +1,4 @@
-from src.models.models import Contractor
+from src.models.models import Contractor, WorkRequest
 from src.logic.logic_api import LogicAPI
 from src.logic.contractor_logic import ContractorLogic
 from src.ui.abstract_menu import AbstractMenu
@@ -25,8 +25,31 @@ class WorkRequestMenu(AbstractMenu):
         elif command == "q":
             return "quit"
 
+    def display_all_works(self):
+        print(f"{'--- Find Work Request ---':^138}")
+        print("-" * 138)
+        print(f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} |  {'Employee':^19} |  {'Contractor':^19} | {'From':^10} | {'To':^10} |")
+        print("-" * 138)
+        for work in WorkRequestLogic.get_list():
+            for emp in EmployeeLogic.get_list():
+                for (contr_id, contr) in LogicAPI().get_all(Contractor).items():
+                    if work.employee == emp.id and work.contractor == contr.id:
+                        print(f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {emp.id}. {emp.name:<17} | {contr.id}. {contr.name:<17} | {work.start_date:<7} | {work.end_date:<7} |")
+        print("-" * 138)
 
-class FindWorkRequestMenu(AbstractMenu):
+    def print_work(self,work):
+
+        print("""
+Title: {}
+Description: {}
+Location: {}
+        """.format(
+            work.title,
+            work.description,
+            work.location
+        ))
+
+class FindWorkRequestMenu(WorkRequestMenu):
     def show(self):
         print("--- Find Work Request Menu ---")
         print("1. By ID")
@@ -40,22 +63,115 @@ class FindWorkRequestMenu(AbstractMenu):
 
     def handle_input(self, command):
         if command == "1":
-            return FindWorkByID()
+            print("Find Work by ID:")
+            print()
+            self.display_all_works()
+            self.find_work_by_id()
+
         elif command == "2":
-            return FindWorkByRealEstate()
+            print("Find Work by Real Estate:")
+            print()
+            self.display_all_works()
+            self.find_work_by_real_estate()
+
         elif command == "3":
-            return FindWorkByEmployee()
+            print("Find Work by Employee:")
+            print()
+            self.display_all_works()
+            self.find_work_by_employee()
+
         elif command == "4":
-            return FindWorkByContractor()
+            print("Find Work by Contractor:")
+            print()
+            self.display_all_works()
+            self.find_work_by_contractor()
+
         elif command == "5":
-            return FindWorkByDate()
+            print("Find Work by Date:")
+            print()
+            self.display_all_works()
+            self.find_work_by_date()
+
         elif command == "6":
-            return FindWorkByPeriod()
+            print("Find Work by Period:")
+            print()
+            self.display_all_works()
+            self.find_work_by_period()
+
         elif command == "b":
             return "back"
         elif command == "q":
             return "quit"
+        
+    def find_work_by_id(self):
+        id = input("\nEnter id to choose a work request: ")
+        print(f"{'--- Find Work Request by ID ---':^115}")
+        print("-" * 115)
+        print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
+        print("-" * 115)
+        for work in WorkRequestLogic.get_list():
+            if work.id == int(id):
+                print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
+        print("-" * 115)
 
+    
+    def find_work_by_real_estate(self):
+        real_est = input("\nEnter real estate address to choose a work request: ")
+        print(f"{'--- Find Work Request by Real Estate ---':^115}")
+        print("-" * 115)
+        print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
+        print("-" * 115)
+        for work in WorkRequestLogic.get_list():
+            if work.real_estate.lower() == real_est.lower():
+                print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
+        print("-" * 115)
+
+    def find_work_by_employee(self):
+        emp_id = input("\nEnter employee id to choose a work request: ")
+        print(f"{'--- Find Work Request by Employee ---':^115}")
+        print("-" * 115)
+        print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
+        print("-" * 115)
+        for work in WorkRequestLogic.get_list():
+            if work.employee == int(emp_id):
+                print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
+        print("-" * 115)
+
+    def find_work_by_contractor(self):
+        contr_id = input("\nEnter contractor id to choose a work request: ")
+        print(f"{'--- Find Work Request by Employee ---':^115}")
+        print("-" * 115)
+        print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
+        print("-" * 115)
+        for work in WorkRequestLogic.get_list():
+            if work.contractor == int(contr_id):
+                print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
+        print("-" * 115)
+
+    def find_work_by_date(self):
+        date = input("Enter date to choose a work request (YYYY-MM-DD): ")
+        print(f"{'--- Find Work Request by Date ---':^115}")
+        print("-" * 115)
+        print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
+        print("-" * 115)
+        for work in WorkRequestLogic.get_list():
+            if work.start_date == date or work.end_date == date:
+                print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
+        print("-" * 115)
+    
+    def find_work_by_period(self):
+        start_date = input("Enter start date (YYYY-MM-DD): ")
+        end_date = input("Enter end date (YYYY-MM-DD): ")
+        print(f"{'--- Find Work Request by Period ---':^115}")
+        print("-" * 115)
+        print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
+        print("-" * 115)
+        for work in WorkRequestLogic.get_list():
+            if work.start_date == start_date and work.end_date == end_date:
+                print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
+        print("-" * 115)
+
+"""
 class FindWork(AbstractMenu):
     
     def show(self):
@@ -249,4 +365,4 @@ class FindWorkByPeriod(FindWork):
             if work.start_date == start_date and work.end_date == end_date:
                 print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
         print("-" * 115)
-        
+"""
