@@ -18,9 +18,17 @@ class App:
 
     def run(self):
         while True:
+            # os.system("cls" if os.name == "nt" else "clear")
             self.stack[-1].show()
             print()
-            inp = input("> ")
+            while True:
+                try:
+                    inp = input("> ")
+                    break
+                except UnicodeDecodeError as e:
+                    print(e)
+                    continue
+
             print()
             choice = self.stack[-1].handle_input(inp)
             if choice == "back":
