@@ -51,6 +51,16 @@ class WorkRequest(Model):
     priority: str = field(default="")
     repeated_work: int = field(default=0)
 
+@dataclass
+class WorkReport(Model):
+    work_request_id: Id = field(default=Id())
+    employee_id: Id = field(default=Id())
+    contractors: str = field(default="")
+    description: str = field(default="")
+    material_cost: str = field(default="")
+    start_date: str = field(default="")
+    end_date: str = field(default="")
+
 
 @dataclass
 class RealEstate(Model):
@@ -63,46 +73,12 @@ class RealEstate(Model):
     size: int = field(default=0)
     destination: Id = field(default=Id())
 
-    def __str__(self):
-        return """
-Address: {}        
-Real Estate Number: {}
-Condition: {}
-Facilities: {}
-Type of Real Estate: {}
-Rooms: {}
-Size: {} """.format(
-            self.address,
-            self.real_estate_number,
-            self.condition,
-            self.facilities,
-            self.type_of_real_estate,
-            self.rooms,
-            self.size,
-        )
-
 
 @dataclass
 class Contractor(BaseEmployee):
     name_of_contact: str = field(default="")
     working_hours: str = field(default="")
-    location: int = field(default=0)
-
-    def __str__(self):
-        return """
-ID: {}
-Name: {}
-Name of contact: {}
-Phone number: {}
-Working hours: {}
-Location: {}""".format(
-            self.id,
-            self.name,
-            self.name_of_contact,
-            self.phone,
-            self.working_hours,
-            self.location,
-        )
+    location: Id = field(default=Id())
 
 
 @dataclass
@@ -115,6 +91,9 @@ class Destination(Model):
         return """
         Id: {}
         Name: {} 
+        Country: {}
         """.format(
-            self.id, self.name
+            self.id, 
+            self.name,
+            self.country
         )

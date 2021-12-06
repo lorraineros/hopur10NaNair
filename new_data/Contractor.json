@@ -2,7 +2,7 @@
     "next_id": 4,
     "data": {
         "1": {
-            "location": "Kulusuk",
+            "location": 1,
             "working_hours": "08:00 - 16:00",
             "phone": "888-3434",
             "name_of_contact": "J\u00f3n \u00d3lafsson",
@@ -10,7 +10,7 @@
             "id": 1
         },
         "2": {
-            "location": "Thorshofn",
+            "location": 2,
             "working_hours": "09:00 - 17:00",
             "phone": "777-2525",
             "name_of_contact": "Gu\u00f0mundur Gu\u00f0mundsson",
@@ -18,7 +18,7 @@
             "id": 2
         },
         "3": {
-            "location": "Longyearbyen",
+            "location": 3,
             "working_hours": "08:00 - 17:00",
             "phone": "666-7887",
             "name_of_contact": "J\u00f3hann J\u00f3nsd\u00f3ttir",

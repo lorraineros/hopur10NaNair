@@ -1,23 +1,24 @@
 import json
 
-from ..models.models import UserStories
-
-FILE_PATH = "data/UserStories.json"
+from ..models.models import WorkReport
 
 
-class UserStoriesStorage:
+FILE_PATH = "data/WorkReport.json"
+
+
+class WorkReportStorage:
     @staticmethod
     def get(id: int):
-        print("get")
         with open(FILE_PATH, encoding="utf-8") as file:
             data = json.load(file)
+            print("This is the work report storage")
             print(data[id])
 
     @staticmethod
     def get_all():
         with open(FILE_PATH, 'r', encoding="utf-8", ) as file:
             data = json.load(file)
-            return [UserStories.from_dict(emp) for emp in data]
+            return [WorkReport.from_dict(work) for work in data]
 
-    def add(entity: UserStories):
+    def add(entity: WorkReport):
         pass
