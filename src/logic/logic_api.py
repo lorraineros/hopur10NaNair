@@ -3,6 +3,7 @@ from src.logic.employee_logic import EmployeeLogic
 from src.logic.destination_logic import DestinationLogic
 from src.logic.contractor_logic import ContractorLogic
 from src.logic.real_estate_logic import RealEstateLogic
+from src.logic.work_request_logic import WorkRequestLogic
 from src.storage.storage import StorageAPI
 from src.utilities.singleton import Singleton
 from ..storage.employee_storage import EmployeeStorage
@@ -48,6 +49,9 @@ class LogicAPI(metaclass=Singleton):
     
     def employee_id_check(self, employee_id):
         return EmployeeLogic().id_check(employee_id)
+    
+    def work_id_check(self, work_id):
+        return WorkRequestLogic().id_check(work_id)
 
     def yes_no_check(self, yes_no_input):
         return EmployeeLogic().yes_no_check(yes_no_input)

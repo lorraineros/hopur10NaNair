@@ -1,4 +1,4 @@
-from src.models.models import Contractor, WorkRequest
+from src.models.models import Contractor, Employee, WorkRequest
 from src.logic.logic_api import LogicAPI
 from src.logic.contractor_logic import ContractorLogic
 from src.ui.abstract_menu import AbstractMenu
@@ -38,15 +38,24 @@ class WorkRequestMenu(AbstractMenu):
         print("-" * 138)
 
     def print_work(self,work):
-
+        employee = LogicAPI().get(Employee, work.employee)
+        contractor = LogicAPI().get(Contractor, work.contractor)
         print("""
 Title: {}
-Description: {}
 Location: {}
+Real Estate: {}
+Employee: {}
+Contractor: {}
+Priority: {}
+Description: {}
         """.format(
             work.title,
-            work.description,
-            work.location
+            work.location,
+            work.real_estate,
+            employee.name,
+            contractor.name,
+            work.priority,
+            work.description
         ))
 
 class FindWorkRequestMenu(WorkRequestMenu):
@@ -105,15 +114,15 @@ class FindWorkRequestMenu(WorkRequestMenu):
         
     def find_work_by_id(self):
         id = input("\nEnter id to choose a work request: ")
-        print(f"{'--- Find Work Request by ID ---':^115}")
-        print("-" * 115)
-        print(f"| {'ID':^2} | {'Title':^43} | {'Location':^28} | {'Priority':^20} | {'Repeat':^6} |")
-        print("-" * 115)
-        for work in WorkRequestLogic.get_list():
-            if work.id == int(id):
-                print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
-        print("-" * 115)
+        is_id = LogicAPI().work_id_check(id)
 
+        while not is_id:
+            print("Sorry did not find work request, try again.")
+            id = input("Enter id to choose a work request: ")
+            is_id = LogicAPI().work_id_check(id)
+
+        work = LogicAPI().get(WorkRequest, int(id))
+        self.print_work(work)
     
     def find_work_by_real_estate(self):
         real_est = input("\nEnter real estate address to choose a work request: ")
