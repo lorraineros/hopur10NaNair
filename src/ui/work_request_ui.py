@@ -3,6 +3,7 @@ from src.logic.logic_api import LogicAPI
 from src.logic.contractor_logic import ContractorLogic
 from src.ui.abstract_menu import AbstractMenu
 from src.logic.work_request_logic import WorkRequestLogic
+from src.logic.work_report_logic import WorkReportLogic
 from src.logic.employee_logic import EmployeeLogic
 
 class WorkRequestMenu(AbstractMenu):
@@ -90,6 +91,7 @@ class FindWorkByID(FindWork):
         print("b. Back")
         print("q. Quit")
         edit = input("\nDo you want to edit work request (Y/N)? ")
+        accept = input("\nDo you want to accept work report (Y/N)? ")
 
     def handle_input(self, command):
         return super().handle_input(command)
@@ -106,6 +108,20 @@ class FindWorkByID(FindWork):
             if work.id == int(id):
                 print(f"| {work.id:<2} | {work.title:<43} |  {work.location:<27} | {work.priority:<20} | {work.repeated_work:<6} |")
         print("-" * 115)
+        print()
+        print(f"{'--- Work Report ---':^76}")
+        print("-" * 76)
+        print(f"| {'ID':^2} | {'Employee':^19} | {'Contractor':^19} | {'From':^10} | {'To':^10} |")
+        print("-" * 76)
+        for workr in WorkReportLogic.get_list():
+            for emp in EmployeeLogic.get_list():
+                if workr.work_request_id == int(id) and workr.employee_id == emp.id:
+                    print(f"| {workr.work_request_id:<2} | {emp.id}. {emp.name:<17} |  {workr.contractors:<17} | {workr.start_date:<7} | {workr.end_date:<7} |")
+                    print("-" * 76)
+                    print(f"| {'Description':^72} |")
+                    print("-" * 76)
+                    print(f"| {workr.description} |")
+        print("-" * 76)
 
 
 class FindWorkByRealEstate(FindWork):

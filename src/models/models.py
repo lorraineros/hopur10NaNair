@@ -51,6 +51,16 @@ class WorkRequest(Model):
     priority: str = field(default="")
     repeated_work: int = field(default=0)
 
+@dataclass
+class WorkReport(Model):
+    work_request_id: Id = field(default=Id())
+    employee_id: Id = field(default=Id())
+    contractors: str = field(default="")
+    description: str = field(default="")
+    material_cost: str = field(default="")
+    start_date: str = field(default="")
+    end_date: str = field(default="")
+
 
 @dataclass
 class RealEstate(Model):
