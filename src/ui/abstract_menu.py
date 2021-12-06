@@ -38,7 +38,10 @@ class SimpleMenu(AbstractMenu):
         if command.isdigit():
             choice = int(command) - 1
             if choice < len(self.options):
-                return self.options[choice][1]()
+                if len(self.options[choice]) == 3:
+                    return self.options[choice][1](self.options[choice][2])
+                else:
+                    return self.options[choice][1]()
         elif command == "b":
             return "back"
         elif command == "q":
