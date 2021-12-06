@@ -25,7 +25,19 @@ class RealEstateMenu(AbstractMenu):
         elif command == "2":
             return RealEstateSearch()
         elif command == "3":
-            self.display_all_real_estate()
+            yes_no_input = input("Do you want to display a list of real estate by destination (Y/N)? ")
+            is_yes_no = LogicAPI().yes_no_check(yes_no_input)
+
+            while not is_yes_no:
+                print("Sorry, did not understand that, try again.")
+                yes_no_input = input("Do you want to display a list of real estate by destination (Y/N)? ")
+                is_yes_no = LogicAPI().yes_no_check(yes_no_input)
+            
+            if yes_no_input.upper() == "Y":
+                self.display_real_estate_by_dest()
+            elif yes_no_input.upper() == "N":
+                self.display_all_real_estate()
+            
             return BackQuitMenu()
         elif command == "b":
             return "back"
@@ -60,7 +72,53 @@ class RealEstateMenu(AbstractMenu):
             )
         print("-" * 25)
         print()
-    
+
+    def display_real_estate_by_dest(self):
+        '''This function displays a list of real estate filtered by a destination, i.e. displays only the real estates by a certain destination.'''
+        DestinationMenu().list_of_all_destinations()
+        dest_input = input("Enter Destination ID to filter Real Estate: ")
+        is_dest = LogicAPI().dest_check(dest_input)
+
+        while not is_dest:
+            print("Sorry did not find Destination ID, try again.")
+            dest_input = input("Enter Destination ID to filter Real Estate: ")
+            is_dest = LogicAPI().dest_check(dest_input)
+
+        dest = LogicAPI().get(Destination, int(dest_input))
+
+        print()
+        print(f"{'--- List of Real Estate by {} ---':^52}".format(dest.name))
+        print("-" * 52)
+        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
+        print("-" * 52)
+        for (real_est_id, real_est) in LogicAPI().get_all(RealEstate).items():
+            if real_est.destination == int(dest_input):
+                print(
+                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
+                )
+        print("-" * 52)
+        print()
+
+    def print_real_estate(self, real_est):
+        destination = LogicAPI().get(Destination, real_est.destination)
+        print("""
+Address: {}        
+Real Estate Number: {}
+Destination: {}
+Condition: {}
+Facilities: {}
+Type of Real Estate: {}
+Rooms: {}
+Size: {} """.format(
+            real_est.address,
+            real_est.real_estate_number,
+            destination.name,
+            real_est.condition,
+            real_est.facilities,
+            real_est.type_of_real_estate,
+            real_est.rooms,
+            real_est.size,
+        ))
 
 class RealEstateSearch(RealEstateMenu):
     def show(self):
@@ -114,7 +172,8 @@ class RealEstateSearch(RealEstateMenu):
             is_id = LogicAPI().real_estate_id_check(id_input)
 
         real_est = LogicAPI().get(RealEstate, int(id_input))
-        print(real_est)
+        self.print_real_estate(real_est)
+        #print(real_est)
 
         print()
 
@@ -130,7 +189,8 @@ class RealEstateSearch(RealEstateMenu):
 
         for (real_est_id, real_est) in LogicAPI().get_all(RealEstate).items():
             if real_est.real_estate_number == re_num_input:
-                print(real_est)
+                self.print_real_estate(real_est)
+                #print(real_est)
 
         print()
 
@@ -157,32 +217,7 @@ class RealEstateSearch(RealEstateMenu):
         print("-" * 52)
         print()
 
-    def display_real_estate_by_dest(self):
-        '''This function displays a list of real estate filtered by a destination, i.e. displays only the real estates by a certain destination.'''
-        DestinationMenu().list_of_all_destinations()
-        dest_input = input("Enter Destination ID to filter Real Estate: ")
-        is_dest = LogicAPI().dest_check(dest_input)
-
-        while not is_dest:
-            print("Sorry did not find Destination ID, try again.")
-            dest_input = input("Enter Destination ID to filter Real Estate: ")
-            is_dest = LogicAPI().dest_check(dest_input)
-
-        dest = LogicAPI().get(Destination, int(dest_input))
-
-        print()
-        print(f"{'--- List of Real Estate by {} ---':^52}".format(dest.name))
-        print("-" * 52)
-        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
-        print("-" * 52)
-        for (real_est_id, real_est) in LogicAPI().get_all(RealEstate).items():
-            if real_est.destination == int(dest_input):
-                print(
-                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
-                )
-        print("-" * 52)
-        print()
-        
+    
 
 
 
