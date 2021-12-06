@@ -1,6 +1,7 @@
 from src.models.models import Contractor
 from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu
+from src.ui.creation_menu import CreationMenu
 from ..logic.contractor_logic import ContractorLogic
 from src.ui.common_menus import BackQuitMenu, ChangingMenu
 
@@ -15,7 +16,7 @@ class ContractorMenu(AbstractMenu):
 
     def handle_input(self, command):
         if command == "1":
-            # return CreationMenu(models.Contractor)
+            return CreationMenu(Contractor)
             pass
         elif command == "2":
             self.display_all_contractors()
