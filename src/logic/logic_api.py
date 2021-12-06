@@ -1,5 +1,5 @@
 from typing import Dict, List, Type, TypeVar
-
+from src.logic.employee_logic import EmployeeLogic
 from src.logic.destination_logic import DestinationLogic
 from src.logic.contractor_logic import ContractorLogic
 from src.logic.real_estate_logic import RealEstateLogic
@@ -45,3 +45,9 @@ class LogicAPI(metaclass=Singleton):
 
     def dest_check(self, dest_input):
         return DestinationLogic().dest_check(dest_input)
+    
+    def employee_id_check(self, employee_id):
+        return EmployeeLogic().id_check(employee_id)
+
+    def yes_no_check(self, yes_no_input):
+        return EmployeeLogic().yes_no_check(yes_no_input)
