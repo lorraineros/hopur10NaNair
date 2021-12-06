@@ -1,23 +1,21 @@
-from src.logic.employee_logic import EmployeeLogic
 from src.logic.logic_api import LogicAPI
 from src.models.models import Destination, Employee
 from src.ui.abstract_menu import AbstractMenu, SimpleMenu
-from src.ui.creation_menu import CreationMenu
-from src.ui.common_menus import BackQuitMenu, ChangingMenu
+from src.ui.common_menus import BackQuitMenu, ChangingMenu, CreationMenu
 from src.ui.destination_ui import DestinationMenu
 
 
-class EmployeeMenu(SimpleMenu):
+class EmployeeMenuExample(SimpleMenu):
     @property
     def options(self):
         return [
-            ("Register a new employee", CreationMenu(Employee)),
-            ("Find an employee", FindEmployee()),
-            ("Display list of employees", EmployeeListMenu()),
+            ("Register a new employee", CreationMenu, Employee),
+            ("Find an employee", FindEmployee),
+            ("Display list of employees", EmployeeListMenu),
         ]
 
 
-class EmployeeMenu2(AbstractMenu):
+class EmployeeMenu(AbstractMenu):
     def show(self):
         print("1. Register a new employee")
         print("2. Find an employee")
@@ -31,19 +29,23 @@ class EmployeeMenu2(AbstractMenu):
         elif command == "2":
             return FindEmployee()
         elif command == "3":
-            yes_no_input = input("Do you want to display a list of employees by destination (Y/N)? ")
+            yes_no_input = input(
+                "Do you want to display a list of employees by destination (Y/N)? "
+            )
             is_yes_no = LogicAPI().yes_no_check(yes_no_input)
 
             while not is_yes_no:
                 print("Sorry, did not understand that, try again.")
-                yes_no_input = input("Do you want to display a list of employees by destination (Y/N)? ")
+                yes_no_input = input(
+                    "Do you want to display a list of employees by destination (Y/N)? "
+                )
                 is_yes_no = LogicAPI().yes_no_check(yes_no_input)
 
             if yes_no_input.upper() == "Y":
                 self.display_employees_by_dest()
             elif yes_no_input.upper() == "N":
                 self.display_all_employees()
-            
+
             return BackQuitMenu()
         elif command == "b":
             return "back"
@@ -60,7 +62,7 @@ class EmployeeMenu2(AbstractMenu):
         print("-" * 61)
         print()
 
-    def print_emp(self,emp):
+    def print_emp(self, emp):
         work_loc = LogicAPI().get(Destination, emp.work_destination)
 
         if emp.is_manager:
@@ -68,7 +70,8 @@ class EmployeeMenu2(AbstractMenu):
         elif not emp.is_manager:
             position = "Employee"
 
-        print("""
+        print(
+            """
 Name: {}
 Home address: {}
 Work Location: {}
@@ -77,14 +80,15 @@ Phone: {}
 GSM: {}
 Email: {}
         """.format(
-            emp.name,
-            emp.home_address,
-            work_loc.name,
-            position,
-            emp.phone,
-            emp.gsm,
-            emp.email
-        ))
+                emp.name,
+                emp.home_address,
+                work_loc.name,
+                position,
+                emp.phone,
+                emp.gsm,
+                emp.email,
+            )
+        )
 
     def display_employees_by_dest(self):
         DestinationMenu().list_of_all_destinations()
@@ -105,11 +109,10 @@ Email: {}
         print("-" * 61)
         for (emp_id, emp) in LogicAPI().get_all(Employee).items():
             if emp.work_destination == int(dest_input):
-                print(
-                    f"| {emp.id:<3} | {emp.name:<21} | {emp.email:<27} |"
-                )
+                print(f"| {emp.id:<3} | {emp.name:<21} | {emp.email:<27} |")
         print("-" * 61)
         print()
+
 
 class FindEmployee(EmployeeMenu):
     def show(self):
@@ -145,9 +148,10 @@ class FindEmployee(EmployeeMenu):
             print("Sorry did not find employee, try again.")
             id_input = input("Enter id to choose an employee: ")
             is_id = LogicAPI().employee_id_check(id_input)
-        
+
         emp = LogicAPI().get(Employee, int(id_input))
         self.print_emp(emp)
+
 
 # class EmployeeListMenu(AbstractMenu):
 #     def show(self):
@@ -215,4 +219,3 @@ class FindEmployee(EmployeeMenu):
 #                     f"| {emp.id:<2} | {emp.name:<20} |  {emp.email:<27} | {emp.gsm:<15} |"
 #                 )
 #         print("-" * 78)
-

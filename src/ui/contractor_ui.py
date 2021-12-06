@@ -1,10 +1,9 @@
 from src.models.models import Contractor, Destination
 from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu
-from src.ui.creation_menu import CreationMenu
+from src.ui.common_menus import CreationMenu
 from ..logic.contractor_logic import ContractorLogic
 from src.ui.common_menus import BackQuitMenu, ChangingMenu
-
 
 
 class ContractorMenu(AbstractMenu):
@@ -34,9 +33,7 @@ class ContractorMenu(AbstractMenu):
     def display_all_contractors(self):
         print(f"{'--- List of Contractor ---':^45}")
         print("-" * 45)
-        print(
-            f"| {'ID':^3} | {'Name':^16} | {'Location':^16} |"
-        )
+        print(f"| {'ID':^3} | {'Name':^16} | {'Location':^16} |")
         print("-" * 45)
         for (contr_id, contr) in LogicAPI().get_all(Contractor).items():
             contr_location = LogicAPI().get(Destination, contr.location)
@@ -57,9 +54,10 @@ class ContractorMenu(AbstractMenu):
         self.print_contractor(contr)
         print()
 
-    def print_contractor(self,contr):
+    def print_contractor(self, contr):
         contr_location = LogicAPI().get(Destination, contr.location)
-        print("""
+        print(
+            """
 ID: {}
 Name: {}
 Name of Contact: {}
@@ -67,11 +65,11 @@ Phone Number: {}
 Working hours: {}
 Location: {}
         """.format(
-            contr.id,
-            contr.name,
-            contr.name_of_contact,
-            contr.phone,
-            contr.working_hours,
-            contr_location.name
-        ))
-
+                contr.id,
+                contr.name,
+                contr.name_of_contact,
+                contr.phone,
+                contr.working_hours,
+                contr_location.name,
+            )
+        )

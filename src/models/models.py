@@ -1,5 +1,7 @@
 from dataclasses import dataclass, field
-from typing import Any, Dict, TypeVar
+import json
+from typing import Dict, Any, MutableSet, TypeVar
+import dataclasses
 
 M = TypeVar("M")
 
@@ -30,26 +32,42 @@ class BaseEmployee(Model):
 
 @dataclass
 class Employee(BaseEmployee):
-    home_address: str = field(default="")
-    password: str = field(default="")
-    gsm: str = field(default="")
-    email: str = field(default="")
+    home_address: str = field(default="", metadata={"required": True})
+    password: str = field(
+        default="", metadata={"pretty_name": "Password", "required": True}
+    )
+    gsm: str = field(default="", metadata={"pretty_name": "Gsm", "required": True})
+    email: str = field(default="", metadata={"pretty_name": "Email", "required": True})
     is_manager: bool = field(default=False)
-    home_address: str = field(default="")
+    home_address: str = field(
+        default="", metadata={"pretty_name": "Home Address", "required": True}
+    )
     work_destination: Id = field(default=Id())
 
 
 @dataclass
 class WorkRequest(Model):
-    title: str = field(default="", metadata={"pretty_name": "Title"})
-    location: str = field(default="")
-    real_estate: str = field(default="", metadata={"pretty_name": "Real estate"})
+    title: str = field(default="", metadata={"pretty_name": "Title", "required": True})
+    location: str = field(
+        default="", metadata={"pretty_name": "Location", "required": True}
+    )
+    real_estate: str = field(
+        default="", metadata={"pretty_name": "Real Estate", "required": True}
+    )
     employee: Id = field(default=Id())
     contractor: Id = field(default=Id())
-    start_date: str = field(default="")
-    end_date: str = field(default="")
-    description: str = field(default="")
-    priority: str = field(default="")
+    start_date: str = field(
+        default="", metadata={"pretty_name": "Start Date", "required": True}
+    )
+    end_date: str = field(
+        default="", metadata={"pretty_name": "End Date", "required": True}
+    )
+    description: str = field(
+        default="", metadata={"pretty_name": "Description", "required": True}
+    )
+    priority: str = field(
+        default="", metadata={"pretty_name": "Priority", "required": True}
+    )
     repeated_work: int = field(default=0)
 
 
@@ -66,34 +84,83 @@ class WorkReport(Model):
 
 @dataclass
 class RealEstate(Model):
-    address: str = field(default="")
-    real_estate_number: str = field(default="")
-    condition: str = field(default="")
-    facilities: str = field(default="")
-    type_of_real_estate: str = field(default="")
+    address: str = field(
+        default="", metadata={"pretty_name": "Address", "required": True}
+    )
+    real_estate_number: str = field(
+        default="", metadata={"pretty_name": "Real Estate Number", "required": True}
+    )
+    condition: str = field(
+        default="", metadata={"pretty_name": "Condition", "required": True}
+    )
+    facilities: str = field(
+        default="", metadata={"pretty_name": "Facilities", "required": True}
+    )
+    type_of_real_estate: str = field(
+        default="", metadata={"pretty_name": "Type of Real Estate", "required": True}
+    )
     rooms: int = field(default=0)
     size: int = field(default=0)
     destination: Id = field(default=Id())
 
+    def __str__(self):
+        return """
+Address: {}        
+Real Estate Number: {}
+Condition: {}
+Facilities: {}
+Type of Real Estate: {}
+Rooms: {}
+Size: {} """.format(
+            self.address,
+            self.real_estate_number,
+            self.condition,
+            self.facilities,
+            self.type_of_real_estate,
+            self.rooms,
+            self.size,
+        )
+
 
 @dataclass
 class Contractor(BaseEmployee):
-    name_of_contact: str = field(default="")
-    working_hours: str = field(default="")
-    location: Id = field(default=Id())
+    name_of_contact: str = field(
+        default="", metadata={"pretty_name": "Name Of Contact", "required": True}
+    )
+    working_hours: str = field(
+        default="", metadata={"pretty_name": "Location", "required": True}
+    )
+    location: int = field(default=0)
+
+    def __str__(self):
+        return """
+ID: {}
+Name: {}
+Name of contact: {}
+Phone number: {}
+Working hours: {}
+Location: {}""".format(
+            self.id,
+            self.name,
+            self.name_of_contact,
+            self.phone,
+            self.working_hours,
+            self.location,
+        )
 
 
 @dataclass
 class Destination(Model):
     id: Id = field(default=Id())
-    name: str = field(default="")
-    country: str = field(default="")
+    name: str = field(default="", metadata={"pretty_name": "Name", "required": True})
+    country: str = field(
+        default="", metadata={"pretty_name": "Country", "required": True}
+    )
 
     def __str__(self):
         return """
         Id: {}
         Name: {} 
-        Country: {}
         """.format(
-            self.id, self.name, self.country
+            self.id, self.name
         )
