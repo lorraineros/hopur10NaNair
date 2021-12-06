@@ -34,15 +34,15 @@ b. Back
 
 
     def list_of_all_destinations(self):
-        print(f"{'--- List of Destinations ---':^34}")
-        print("-" * 52)
-        print(f"| {'ID':^3} | {'Name':^21} | {'Country':^18} ")
-        print("-" * 52)
+        print(f"{'--- List of Destinations ---':^51}")
+        print("-" * 51)
+        print(f"| {'ID':^2} | {'Name':^21} | {'Country':^18} |")
+        print("-" * 51)
         for (dest_id, destination) in LogicAPI().get_all(Destination).items():
             print(
-                f"| {destination.id:<3} | {destination.name:<21} | {destination.country:<18} |"
+                f"| {destination.id:<2} | {destination.name:<21} | {destination.country:<18} |"
             )
-        print("-" * 52)
+        print("-" * 51)
         print()
 
     def delete_destination(self):
