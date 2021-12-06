@@ -98,7 +98,7 @@ Síðasta vikan í verkefninu hafin og tókum við fund í dag, til að ræða s
 
 Afrakstur dagsins:
 
--   Andri Þór: 
+-   Andri Þór: Vann í Employee(breytti sumum klösum í föll og bætti við error check), RealEstate(fínpússa) og WorkRequest(laga).
 -   Andriy:
 -   Anh:
 -   Ari:
