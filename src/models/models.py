@@ -63,48 +63,12 @@ class RealEstate(Model):
     size: int = field(default=0)
     destination: Id = field(default=Id())
 
-    def __str__(self):
-        return """
-Address: {}        
-Real Estate Number: {}
-Destination: {}
-Condition: {}
-Facilities: {}
-Type of Real Estate: {}
-Rooms: {}
-Size: {} """.format(
-            self.address,
-            self.real_estate_number,
-            self.destination,
-            self.condition,
-            self.facilities,
-            self.type_of_real_estate,
-            self.rooms,
-            self.size,
-        )
-
 
 @dataclass
 class Contractor(BaseEmployee):
     name_of_contact: str = field(default="")
     working_hours: str = field(default="")
-    location: int = field(default=0)
-
-    def __str__(self):
-        return """
-ID: {}
-Name: {}
-Name of contact: {}
-Phone number: {}
-Working hours: {}
-Location: {}""".format(
-            self.id,
-            self.name,
-            self.name_of_contact,
-            self.phone,
-            self.working_hours,
-            self.location,
-        )
+    location: Id = field(default=Id())
 
 
 @dataclass
