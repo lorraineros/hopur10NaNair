@@ -9,6 +9,9 @@ class Id:
     idx: int = 0
     model: str = ""
 
+    def __bool__(self):
+        return bool(self.idx) or bool(self.model)
+
 
 @dataclass
 class Model:
@@ -48,6 +51,7 @@ class WorkRequest(Model):
     description: str = field(default="")
     priority: str = field(default="")
     repeated_work: int = field(default=0)
+
 
 @dataclass
 class WorkReport(Model):
