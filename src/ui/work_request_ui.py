@@ -120,7 +120,7 @@ class FindWorkByID(FindWork):
                     print("-" * 76)
                     print(f"| {'Description':^72} |")
                     print("-" * 76)
-                    print(f"| {workr.description} |")
+                    print(f"{workr.description:^72}")
         print("-" * 76)
 
 
