@@ -32,7 +32,8 @@ class RealEstateMenu(AbstractMenu):
                 print("Sorry, did not understand that, try again.")
                 yes_no_input = input("Do you want to display a list of real estate by destination (Y/N)? ")
                 is_yes_no = LogicAPI().yes_no_check(yes_no_input)
-            
+            print()
+
             if yes_no_input.upper() == "Y":
                 self.display_real_estate_by_dest()
             elif yes_no_input.upper() == "N":
@@ -87,16 +88,17 @@ class RealEstateMenu(AbstractMenu):
         dest = LogicAPI().get(Destination, int(dest_input))
 
         print()
-        print(f"{'--- List of Real Estate by {} ---':^52}".format(dest.name))
-        print("-" * 52)
-        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
-        print("-" * 52)
+        print(f"{'--- List of Real Estate by {} ---':^70}".format(dest.name))
+        print("-" * 70)
+        print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} | {'Destination':^15} |")
+        print("-" * 70)
         for (real_est_id, real_est) in LogicAPI().get_all(RealEstate).items():
             if real_est.destination == int(dest_input):
+                dest = LogicAPI().get(Destination, real_est.destination)
                 print(
-                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
-                )
-        print("-" * 52)
+                    f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} | {dest.name:<15} |"
+                    )
+        print("-" * 70)
         print()
 
     def print_real_estate(self, real_est):

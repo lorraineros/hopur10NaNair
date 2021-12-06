@@ -1,5 +1,6 @@
 from src.ui.real_estate_ui import RealEstateMenu, RealEstateSearch
 from src.ui.common_menus import BackQuitMenu
+from src.logic.logic_api import LogicAPI
 
 
 class RealEstateMenuUserEmp(RealEstateMenu):
@@ -15,7 +16,20 @@ class RealEstateMenuUserEmp(RealEstateMenu):
         if command == "1":
             return RealEstateSearchUserEmp()
         elif command == "2":
-            self.display_all_real_estate()
+            yes_no_input = input("Do you want to display a list of real estate by destination (Y/N)? ")
+            is_yes_no = LogicAPI().yes_no_check(yes_no_input)
+
+            while not is_yes_no:
+                print("Sorry, did not understand that, try again.")
+                yes_no_input = input("Do you want to display a list of real estate by destination (Y/N)? ")
+                is_yes_no = LogicAPI().yes_no_check(yes_no_input)
+            print()
+
+            if yes_no_input.upper() == "Y":
+                self.display_real_estate_by_dest()
+            elif yes_no_input.upper() == "N":
+                self.display_all_real_estate()
+                
             return BackQuitMenu()
         elif command == "b":
             return "back"
