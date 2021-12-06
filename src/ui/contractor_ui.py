@@ -1,7 +1,10 @@
+from src.models.models import Contractor, Destination
 from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu
+from src.ui.creation_menu import CreationMenu
 from ..logic.contractor_logic import ContractorLogic
 from src.ui.common_menus import BackQuitMenu, ChangingMenu
+
 
 
 class ContractorMenu(AbstractMenu):
@@ -14,7 +17,7 @@ class ContractorMenu(AbstractMenu):
 
     def handle_input(self, command):
         if command == "1":
-            # return CreationMenu(models.Contractor)
+            return CreationMenu(Contractor)
             pass
         elif command == "2":
             self.display_all_contractors()
@@ -35,24 +38,40 @@ class ContractorMenu(AbstractMenu):
             f"| {'ID':^3} | {'Name':^16} | {'Location':^16} |"
         )
         print("-" * 45)
-        for contr in LogicAPI.contractor_list():
-            print(f"| {contr.id:<3} | {contr.name:<16} | {contr.location:<16} |")
+        for (contr_id, contr) in LogicAPI().get_all(Contractor).items():
+            contr_location = LogicAPI().get(Destination, contr.location)
+            print(f"| {contr.id:<3} | {contr.name:<16} | {contr_location.name:<16} |")
         print("-" * 45)
         print()
 
     def find_contractor(self):
         id_input = input("Enter ID to choose a contractor: ")
-        is_id = LogicAPI.contractor_id_check(id_input)
+        is_id = LogicAPI().contractor_id_check(id_input)
 
         while not is_id:
             print("Sorry did not find address, try again.")
             id_input = input("Enter ID to choose a contractor: ")
-            is_id = LogicAPI.contractor_id_check(id_input)
+            is_id = LogicAPI().contractor_id_check(id_input)
 
-        for contr in LogicAPI.contractor_list():
-            if contr.id == int(id_input):
-                print(contr)
-
+        contr = LogicAPI().get(Contractor, int(id_input))
+        self.print_contractor(contr)
         print()
 
+    def print_contractor(self,contr):
+        contr_location = LogicAPI().get(Destination, contr.location)
+        print("""
+ID: {}
+Name: {}
+Name of Contact: {}
+Phone Number: {}
+Working hours: {}
+Location: {}
+        """.format(
+            contr.id,
+            contr.name,
+            contr.name_of_contact,
+            contr.phone,
+            contr.working_hours,
+            contr_location.name
+        ))
 

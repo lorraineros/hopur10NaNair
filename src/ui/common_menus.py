@@ -4,7 +4,7 @@ from src.ui.abstract_menu import AbstractMenu
 class ChangingMenu(AbstractMenu):
     def show(self):
         '''Menu for changing information.'''
-        print("c. Change Infromation")
+        print("c. Change Information")
         print("b. Back")
         print("q. Quit")
     

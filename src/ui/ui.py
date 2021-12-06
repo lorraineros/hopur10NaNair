@@ -7,7 +7,7 @@ from ..ui.employee_ui import EmployeeMenu
 from ..ui.contractor_ui import ContractorMenu
 from ..ui.work_request_ui import WorkRequestMenu
 from ..ui.destination_ui import DestinationMenu
-from ..ui.user_stories_ui import UserStoriesMenu
+#from ..ui.user_stories_ui import UserStoriesMenu
 from ..models import models
 
 

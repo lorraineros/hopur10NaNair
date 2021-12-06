@@ -7,7 +7,7 @@ from src.utilities.singleton import Singleton
 
 class StorageAPI(metaclass=Singleton):
     def __init__(self):
-        models = [Employee, Contractor, RealEstate, Destination]
+        models = [Employee, Contractor, RealEstate, Destination, WorkRequest]
         self.storages: Dict[Type[Model], Any] = {
             model: Storage(model) for model in models
         }

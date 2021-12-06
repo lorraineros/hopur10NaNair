@@ -1,0 +1,56 @@
+[
+    {
+        "work_request_id": 2,
+        "employee_id": 3,
+        "contractors": "JÓ-Contractors",
+        "description": "We replaced all summer season into the iGloo-ville houses.\nAdded alot of snow and other Christmas decoration",
+        "material_cost": "...",
+        "start_date": "2021-07-19",
+        "end_date": "2021-08-21"
+    },
+    {
+        "work_request_id": 15,
+        "employee_id": 9,
+        "contractors": "GG-Contractors",
+        "description": "We let some of our employee to mow the grass and \nplow the heirlooms of the mud houses nonce a week",
+        "material_cost": "...",
+        "start_date": "2021-05-05",
+        "end_date": "2021-09-30"
+    },
+    {
+        "work_request_id": 20,
+        "employee_id": 8,
+        "contractors": "GG-Contractors",
+        "description": "We let some of our employee to mow the grass and \nplow the heirlooms of the mud houses nonce a week",
+        "material_cost": "...",
+        "start_date": "2021-05-05",
+        "end_date": "2021-09-30"
+    },
+    {
+        "work_request_id": 25,
+        "employee_id": 6,
+        "contractors": "JJ-Contractors",
+        "description": "We hired some window cleaners to wash the real estate's windows once a week. \nWe made sure we only let them clean the houses. ",
+        "material_cost": "...",
+        "start_date": "2021-10-05",
+        "end_date": "2021-11-25"
+    },
+    {
+        "work_request_id": 31,
+        "employee_id": 9,
+        "contractors": "JJ-Contractors",
+        "description": "We hired some window cleaners to wash the real estate's windows once a week. \nWe made sure we only let them clean the houses. ",
+        "material_cost": "...",
+        "start_date": "2021-10-05",
+        "end_date": "2021-11-25"
+    },
+    {
+        "work_request_id": 32,
+        "employee_id": 3,
+        "contractors": "JÓ-Contractors",
+        "description": "We hired some window cleaners to wash the real estate's windows once a week. \nWe made sure we only let them clean the houses. ",
+        "material_cost": "...",
+        "start_date": "2021-10-05",
+        "end_date": "2021-11-25"
+    }
+]
