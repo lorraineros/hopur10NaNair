@@ -5,6 +5,7 @@ from src.ui.abstract_menu import AbstractMenu
 from src.logic.work_request_logic import WorkRequestLogic
 from src.logic.work_report_logic import WorkReportLogic
 from src.logic.employee_logic import EmployeeLogic
+from src.ui.common_menus import ChangingMenu
 
 class WorkRequestMenu(AbstractMenu):
     def show(self):
@@ -77,42 +78,42 @@ class FindWorkRequestMenu(WorkRequestMenu):
             print()
             self.display_all_works()
             self.find_work_by_id()
-
+            return ChangingMenu()
         elif command == "2":
             print("Find Work by Real Estate:")
             print()
             self.display_all_works()
             self.find_work_by_real_estate()
             self.find_work_by_id()
-
+            return ChangingMenu()
         elif command == "3":
             print("Find Work by Employee:")
             print()
             self.display_all_works()
             self.find_work_by_employee()
             self.find_work_by_id()
-
+            return ChangingMenu()
         elif command == "4":
             print("Find Work by Contractor:")
             print()
             self.display_all_works()
             self.find_work_by_contractor()
             self.find_work_by_id()
-
+            return ChangingMenu()
         elif command == "5":
             print("Find Work by Date:")
             print()
             self.display_all_works()
             self.find_work_by_date()
             self.find_work_by_id()
-
+            return ChangingMenu()
         elif command == "6":
             print("Find Work by Period:")
             print()
             self.display_all_works()
             self.find_work_by_period()
             self.find_work_by_id()
-
+            return ChangingMenu()
         elif command == "b":
             return "back"
         elif command == "q":
