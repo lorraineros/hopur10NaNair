@@ -94,11 +94,11 @@ Afrakstur dagsins:
 
 ### 6. desember 2021
 
-(Upplýsingar um daginn)
+Síðasta vikan í verkefninu hafin og tókum við fund í dag, til að ræða stöðuna á verkefninu, hvað væri búið og hvað við ættum eftir. Héldum svo bara áfram að vinna í verkefninu og ákváðum að taka stöðuna aftur á morgunn.
 
 Afrakstur dagsins:
 
--   Andri Þór:
+-   Andri Þór: 
 -   Andriy:
 -   Anh:
 -   Ari:
