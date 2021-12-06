@@ -37,11 +37,11 @@ class Storage:
         self.data = {}
 
     def get(self, id: int):
-        self.ensure_loaded()
+        self._ensure_loaded()
         return self.data[id]
 
     def get_all(self):
-        self.ensure_loaded()
+        self._ensure_loaded()
         return self.data
 
     def create(self, entity: Model):
@@ -50,7 +50,7 @@ class Storage:
         self.next_id += 1
         self.modified = True
 
-    def ensure_loaded(self):
+    def _ensure_loaded(self):
         if not self.loaded:
             self.load()
 
