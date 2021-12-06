@@ -73,5 +73,4 @@ class Storage:
                 file,
                 indent="    ",
             )
-            # file.write(json.dumps({e.asdict() for e in self.data}))
         self.modified = False

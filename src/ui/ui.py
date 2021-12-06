@@ -1,7 +1,7 @@
 from abc import abstractmethod, abstractproperty
 from typing import List
 from src.logic.logic_api import LogicAPI
-from src.ui.abstract_menu import AbstractMenu
+from src.ui.abstract_menu import AbstractMenu, SimpleMenu
 from ..ui.real_estate_ui import RealEstateMenu
 from ..ui.employee_ui import EmployeeMenu
 from ..ui.contractor_ui import ContractorMenu
@@ -35,36 +35,6 @@ class App:
             else:
                 print("I did not understand that dave, try again")
                 print()
-
-
-class SimpleMenu(AbstractMenu):
-    @property
-    def header(self):
-        return f"--- {self.__class__.__name__} ---"
-
-    @property
-    @abstractmethod
-    def options(self):
-        raise NotImplementedError
-
-    def show(self):
-        print(self.header)
-        for (i, option) in enumerate(self.options):
-            print(f"{i+1}. {option[0]}")
-        print()
-        if not self.is_root:
-            print("b. Back")
-        print("q. Quit")
-
-    def handle_input(self, command):
-        if command.isdigit():
-            choice = int(command) - 1
-            if choice < len(self.options):
-                return self.options[choice][1]()
-        elif command == "b":
-            return "quit"
-        elif command == "q":
-            return "quit"
 
 
 class MainMenu(SimpleMenu):

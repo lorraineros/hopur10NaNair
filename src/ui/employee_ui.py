@@ -1,11 +1,21 @@
 from src.logic.employee_logic import EmployeeLogic
 from src.logic.logic_api import LogicAPI
 from src.models.models import Destination, Employee
-from src.ui.abstract_menu import AbstractMenu
+from src.ui.abstract_menu import AbstractMenu, SimpleMenu
 from src.ui.creation_menu import CreationMenu
 
 
-class EmployeeMenu(AbstractMenu):
+class EmployeeMenu(SimpleMenu):
+    @property
+    def options(self):
+        return [
+            ("Register a new employee", CreationMenu(Employee)),
+            ("Find an employee", FindEmployee()),
+            ("Display list of employees", EmployeeListMenu()),
+        ]
+
+
+class EmployeeMenu2(AbstractMenu):
     def show(self):
         print("1. Register a new employee")
         print("2. Find an employee")
