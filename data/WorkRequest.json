@@ -296,8 +296,8 @@
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": "weekly",
-        "open": 1
+        "repeated_work": 4,
+        "is_open": 0
     },
     {
         "id": 26,
@@ -368,8 +368,8 @@
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": "weekly",
-        "open": 1
+        "repeated_work": 4,
+        "repeated_period": "weekly"
     },
     {
         "id": 32,

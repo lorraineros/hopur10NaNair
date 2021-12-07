@@ -54,8 +54,6 @@ class WorkRequest(Model):
     real_estate: str = field(
         default="", metadata={"pretty_name": "Real Estate", "required": True}
     )
-    employee: Id = field(default=Id())
-    contractor: Id = field(default=Id())
     start_date: str = field(
         default="", metadata={"pretty_name": "Start Date", "required": True}
     )
@@ -68,18 +66,23 @@ class WorkRequest(Model):
     priority: str = field(
         default="", metadata={"pretty_name": "Priority", "required": True}
     )
-    repeated_work: int = field(default=0)
+    repeated_work: str = field(
+        default="none", metadata={"pretty_name": "Repeat", "required": True}
+    )
+    is_open: bool = field(default=True)
 
 
 @dataclass
 class WorkReport(Model):
     work_request_id: Id = field(default=Id())
     employee_id: Id = field(default=Id())
-    contractors: str = field(default="")
+    contractor_id: Id = field(default=Id())
+    contractors_fee: str = field(default="")
     description: str = field(default="")
     material_cost: str = field(default="")
-    start_date: str = field(default="")
-    end_date: str = field(default="")
+    date: str = field(default="")
+    ready: bool = field(default=False)
+    comment: str = field(default="")
 
 
 @dataclass

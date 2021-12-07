@@ -3,6 +3,7 @@ from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import SimpleMenu
 from src.logic.work_request_logic import WorkRequestLogic
 from src.logic.employee_logic import EmployeeLogic
+from src.logic.work_report_logic import WorkReportLogic
 from src.ui.common_menus import BackQuitMenu, CreationMenu, ChangingMenu
 from src.ui.real_estate_ui import RealEstateMenu
 from src.ui.employee_ui import EmployeeMenu
@@ -56,11 +57,36 @@ Description: {}
                 work.description,
             )
         )
+    
+    def print_work_report(self, work):
+        employee = LogicAPI().get(Employee, work.employee)
+        contractor = LogicAPI().get(Contractor, work.contractor)
+        print(
+            """
+Employee: {}
+Contractors: {}
+Contractor's fee: {}
+Description: {}
+Material Cost: {}
+Date: {}
+Ready: {}
+Comment: {}
+        """.format(
+                employee.name,
+                contractor.name,
+                work.contractors_fee,
+                work.description,
+                work.material_cost,
+                work.date,
+                work.ready,
+                work.comment,
+            )
+        )
 
 
 class FindWorkRequestMenu(WorkRequestMenu): 
     def show(self):
-        print("--- Find Work Request Menu ---")
+        print("--- Find Work Menu ---")
         print("1. By ID")
         print("2. By real estate")
         print("3. By employee")
