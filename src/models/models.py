@@ -44,10 +44,12 @@ class Employee(BaseEmployee):
     )
     work_destination: Id = field(default=Id())
 
+
 def id_validator(string: str):
     if string.isdigit():
         return True
-
+    else:
+        Perint
 
 
 @dataclass
@@ -60,10 +62,10 @@ class WorkRequest(Model):
         default="", metadata={"pretty_name": "Real Estate", "required": True}
     )
     start_date: datetime.date = field(
-        default="", metadata={"pretty_name": "Start Date", "required": True}
+        default="", metadata={"pretty_name": "Start Date", "required": False}
     )
     end_date: str = field(
-        default="", metadata={"pretty_name": "End Date", "required": True}
+        default="", metadata={"pretty_name": "End Date", "required": False}
     )
     description: str = field(
         default="", metadata={"pretty_name": "Description", "required": True}
