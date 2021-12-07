@@ -13,7 +13,7 @@ class ContractorMenuUserEmp(ContractorMenu):
         if command == "1":
             self.display_all_contractors()
             self.find_contractor()
-            return BackQuitMenu
+            return BackQuitMenu()
         elif command == "2":
             self.display_all_contractors()
             return BackQuitMenu()
