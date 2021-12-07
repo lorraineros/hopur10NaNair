@@ -51,6 +51,17 @@ def id_validator(string: str):
     else:
         print("Invalid ID")
 
+def date_validator(string: str):
+    day, month, year = string.split('-')
+    isValidDate = True
+    try:
+        datetime.datetime(int(year), int(month), int(day))
+    except ValueError:
+        isValidDate = False
+    if(isValidDate):
+        return
+    else:
+        print("Input date is not valid..")
 
 @dataclass
 class WorkRequest(Model):
