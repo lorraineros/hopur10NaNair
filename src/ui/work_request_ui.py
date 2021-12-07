@@ -3,7 +3,7 @@ from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import SimpleMenu
 from src.logic.work_request_logic import WorkRequestLogic
 from src.logic.employee_logic import EmployeeLogic
-from src.ui.common_menus import CreationMenu, ChangingMenu
+from src.ui.common_menus import BackQuitMenu, CreationMenu, ChangingMenu
 from src.ui.real_estate_ui import RealEstateMenu
 from src.ui.employee_ui import EmployeeMenu
 from src.ui.contractor_ui import ContractorMenu
@@ -58,7 +58,7 @@ Description: {}
         )
 
 
-class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that checks if there is a work request for inputed filter and if not print No Work Request for filter
+class FindWorkRequestMenu(WorkRequestMenu): 
     def show(self):
         print("--- Find Work Request Menu ---")
         print("1. By ID")
@@ -81,21 +81,48 @@ class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that chec
             print("Find Work by Real Estate:")
             print()
             RealEstateMenu().display_all_real_estate()
-            self.display_work_by_real_estate()
+            real_est_input = self.real_estate_input()
+
+            work_report_exist_emp = LogicAPI().real_est_work_check(real_est_input)
+            if not work_report_exist_emp:
+                print("There is no work request for {}.".format(real_est_input.real_estate_number))
+                print()
+                return BackQuitMenu()
+
+            print()
+            self.display_work_by_real_estate(real_est_input)
             self.find_work_by_id()
             return ChangingMenu()
         elif command == "3":
             print("Find Work by Employee:")
             print()
             EmployeeMenu().display_all_employees()
-            self.display_work_by_employee()
+            emp_input = self.emp_input()
+
+            work_report_exist_emp = LogicAPI().emp_work_check(emp_input)
+            if not work_report_exist_emp:
+                print("There is no work request for {}.".format(emp_input.name))
+                print()
+                return BackQuitMenu()
+
+            print()
+            self.display_work_by_employee(emp_input)
             self.find_work_by_id()
             return ChangingMenu()
         elif command == "4":
             print("Find Work by Contractor:")
             print()
             ContractorMenu().display_all_contractors()
-            self.display_work_by_contractor()
+            contr_input = self.contr_input()
+
+            work_report_exist_contr = LogicAPI().contr_work_check(contr_input)
+            if not work_report_exist_contr:
+                print("There is no work request for {}.".format(contr_input.name))
+                print()
+                return BackQuitMenu()
+
+            print()
+            self.display_work_by_contractor(contr_input)
             self.find_work_by_id()
             return ChangingMenu()
         elif command == "5":
@@ -129,7 +156,7 @@ class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that chec
         work = LogicAPI().get(WorkRequest, int(id))
         self.print_work(work)
 
-    def display_work_by_real_estate(self):
+    def real_estate_input(self):
         real_est_id = input("Enter real estate ID to choose a work request: ")
         is_real_est_id = LogicAPI().real_estate_id_check(real_est_id)
 
@@ -139,7 +166,9 @@ class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that chec
             is_real_est_id = LogicAPI().real_estate_id_check(real_est_id)
 
         real_est = LogicAPI().get(RealEstate, int(real_est_id))
-        print()
+        return real_est
+
+    def display_work_by_real_estate(self, real_est):
         print(f"{'--- List of Work Requests by {} ---':^66}".format(real_est.real_estate_number))
         print("-" * 66)
         print(
@@ -153,7 +182,7 @@ class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that chec
                 )
         print("-" * 66)
 
-    def display_work_by_employee(self):
+    def emp_input(self):
         emp_id = input("Enter employee id to choose a work request: ")
         is_emp_id = LogicAPI().employee_id_check(emp_id)
 
@@ -163,7 +192,9 @@ class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that chec
             is_emp_id = LogicAPI().employee_id_check(emp_id)
 
         emp = LogicAPI().get(Employee, int(emp_id))
-        print()
+        return emp
+
+    def display_work_by_employee(self, emp):
         print(f"{'--- List of Work Requests by {} ---':^85}".format(emp.name))
         print("-" * 85)
         print(
@@ -177,7 +208,7 @@ class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that chec
                 )        
         print("-" * 85)
 
-    def display_work_by_contractor(self):
+    def contr_input(self):
         contr_id = input("Enter contractor id to choose a work request: ")
         is_contr_id = LogicAPI().contractor_id_check(contr_id)
 
@@ -187,6 +218,9 @@ class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that chec
             is_contr_id = LogicAPI().contractor_id_check(contr_id)
 
         contr = LogicAPI().get(Contractor, int(contr_id))
+        return contr
+
+    def display_work_by_contractor(self, contr):
         print(f"{'--- List of Work Requests by {} ---':^84}".format(contr.name))
         print("-" * 84)
         print(
