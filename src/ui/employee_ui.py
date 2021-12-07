@@ -5,18 +5,9 @@ from src.ui.common_menus import BackQuitMenu, ChangingMenu, CreationMenu
 from src.ui.destination_ui import DestinationMenu
 
 
-class EmployeeMenuExample(SimpleMenu):
-    @property
-    def options(self):
-        return [
-            ("Register a new employee", CreationMenu, Employee),
-            ("Find an employee", FindEmployee),
-            ("Display list of employees", EmployeeListMenu),
-        ]
-
-
 class EmployeeMenu(AbstractMenu):
     def show(self):
+        print("--- Real Estate Menu ---")
         print("1. Register a new employee")
         print("2. Find an employee")
         print("3. Display list of employees")
@@ -24,6 +15,7 @@ class EmployeeMenu(AbstractMenu):
         print("q. Quit")
 
     def handle_input(self, command):
+
         if command == "1":
             return CreationMenu(Employee)
         elif command == "2":
