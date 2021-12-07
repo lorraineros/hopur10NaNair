@@ -1,6 +1,6 @@
 from src.models.models import Contractor, Employee, RealEstate, WorkRequest
 from src.logic.logic_api import LogicAPI
-from src.ui.abstract_menu import AbstractMenu, SimpleMenu
+from src.ui.abstract_menu import SimpleMenu
 from src.logic.work_request_logic import WorkRequestLogic
 from src.logic.employee_logic import EmployeeLogic
 from src.ui.common_menus import CreationMenu, ChangingMenu
@@ -58,7 +58,7 @@ Description: {}
         )
 
 
-class FindWorkRequestMenu(WorkRequestMenu):
+class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that checks if there is a work request for inputed filter and if not print No Work Request for filter
     def show(self):
         print("--- Find Work Request Menu ---")
         print("1. By ID")
