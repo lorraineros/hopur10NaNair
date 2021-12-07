@@ -5,6 +5,7 @@ from src.ui.common_menus import BackQuitMenu, CreationMenu
 
 
 class DestinationMenu(AbstractMenu):
+    """This class contrlos destination menu"""
     def show(self):
         print(
             """
@@ -18,6 +19,8 @@ b. Back
         )
 
     def handle_input(self, command):
+        """This function handles input for AbstractMenu"""
+        
         if command == "1":
             self.list_of_all_destinations()
             return BackQuitMenu()
@@ -29,6 +32,7 @@ b. Back
             return "quit"
 
     def list_of_all_destinations(self):
+        """This function handles input for list of all destinations"""
         print(f"{'--- List of Destinations ---':^51}")
         print("-" * 51)
         print(f"| {'ID':^2} | {'Name':^21} | {'Country':^18} |")
