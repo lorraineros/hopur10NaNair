@@ -32,6 +32,8 @@ class App:
             #     os.system("cls" if os.name == "nt" else "clear")
             self.stack[-1].show()
             print()
+            # this handles an issue that occurs with when inputting
+            # unicode characters and erasing them
             while True:
                 try:
                     inp = input("> ")
