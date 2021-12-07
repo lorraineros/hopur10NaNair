@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 import json
 from typing import Dict, Any, MutableSet, TypeVar
 import dataclasses
-
+import datetime
 M = TypeVar("M")
 
 
@@ -36,13 +36,18 @@ class Employee(BaseEmployee):
     password: str = field(
         default="", metadata={"pretty_name": "Password", "required": True}
     )
-    gsm: str = field(default="", metadata={"pretty_name": "Gsm", "required": True})
-    email: str = field(default="", metadata={"pretty_name": "Email", "required": True})
+    gsm: str = field(default="", metadata={"pretty_name": "Gsm", "required": False})
+    email: str = field(default="", metadata={"pretty_name": "Email", "required": False})
     is_manager: bool = field(default=False)
     home_address: str = field(
         default="", metadata={"pretty_name": "Home Address", "required": True}
     )
     work_destination: Id = field(default=Id())
+
+def id_validator(string: str):
+    if string.isdigit():
+        return True
+
 
 
 @dataclass
@@ -54,7 +59,7 @@ class WorkRequest(Model):
     real_estate: str = field(
         default="", metadata={"pretty_name": "Real Estate", "required": True}
     )
-    start_date: str = field(
+    start_date: datetime.date = field(
         default="", metadata={"pretty_name": "Start Date", "required": True}
     )
     end_date: str = field(
@@ -64,11 +69,12 @@ class WorkRequest(Model):
         default="", metadata={"pretty_name": "Description", "required": True}
     )
     priority: str = field(
-        default="", metadata={"pretty_name": "Priority", "required": True}
+        default="", metadata={"pretty_name": "Priority", "required": False}
     )
     repeated_work: str = field(
-        default="none", metadata={"pretty_name": "Repeat", "required": True}
+        default="none", metadata={"pretty_name": "Repeat", "required": False}
     )
+    repeated_work: datetime.timedelta = field(default=datetime.timedelta(days=7))
     is_open: bool = field(default=True)
 
 
@@ -94,13 +100,13 @@ class RealEstate(Model):
         default="", metadata={"pretty_name": "Real Estate Number", "required": True}
     )
     condition: str = field(
-        default="", metadata={"pretty_name": "Condition", "required": True}
+        default="", metadata={"pretty_name": "Condition", "required": False}
     )
     facilities: str = field(
-        default="", metadata={"pretty_name": "Facilities", "required": True}
+        default="", metadata={"pretty_name": "Facilities", "required": False}
     )
     type_of_real_estate: str = field(
-        default="", metadata={"pretty_name": "Type of Real Estate", "required": True}
+        default="", metadata={"pretty_name": "Type of Real Estate", "required": False}
     )
     rooms: int = field(default=0)
     size: int = field(default=0)
