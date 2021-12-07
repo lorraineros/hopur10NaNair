@@ -19,13 +19,13 @@ class WorkReportLogic:
     
     def emp_work_check(self, emp):
         for (work_id, work) in StorageAPI().get_all(WorkReport).items():
-            if work.employee == emp.id:
+            if work.employee_id == emp.id:
                 return True
         return False
 
 
     def contr_work_check(self, contr):
         for (work_id, work) in StorageAPI().get_all(WorkReport).items():
-            if work.contractor == contr.id:
+            if work.contractor_id == contr.id:
                 return True
         return False

@@ -64,11 +64,11 @@ class LogicAPI(metaclass=Singleton):
     def yes_no_check(self, yes_no_input):
         return EmployeeLogic().yes_no_check(yes_no_input)
     
-    def emp_work_check(self, emp):
-        return WorkRequestLogic().emp_work_check(emp)
-    
     def real_est_work_check(self, real_est):
         return WorkRequestLogic().real_est_work_check(real_est)
 
+    def emp_work_check(self, emp):
+        return WorkReportLogic().emp_work_check(emp)
+
     def contr_work_check(self, contr):
-        return WorkRequestLogic().contr_work_check(contr)
+        return WorkReportLogic().contr_work_check(contr)

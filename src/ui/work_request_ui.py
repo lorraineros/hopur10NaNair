@@ -35,7 +35,7 @@ class WorkRequestMenu(SimpleMenu):
             )
         print("-" * 94)
 
-    def print_work(self, work):
+    def print_work_request(self, work):
         print(
             """
 Title: {}
@@ -176,7 +176,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
         work = LogicAPI().get(WorkRequest, int(id))
         print()
         print(f"--- Work Request ---")
-        self.print_work(work)
+        self.print_work_request(work)
 
         work_report_id = 0
         for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
@@ -227,20 +227,19 @@ class FindWorkRequestMenu(WorkRequestMenu):
         return emp
 
     def display_work_by_employee(self, emp):
-        """
-        print(f"{'--- List of Work Requests by {} ---':^85}".format(emp.name))
-        print("-" * 85)
+        print(f"{'--- List of Work Requests by {} ---':^94}".format(emp.name))
+        print("-" * 94)
         print(
-            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'Employee':^15} |"
+            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^11} | {'To':^11} |"
         )
-        print("-" * 85)
+        print("-" * 94)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            if work.employee == emp.id:
-                print(
-                    f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {emp.name:<15} |"
-                )        
-        print("-" * 85)
-        """
+            for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
+                if workr.employee_id == emp.id and work_id == workr.work_request_id:
+                    print(
+                        f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
+                )
+        print("-" * 94)
 
     def contr_input(self):
         contr_id = input("Enter contractor id to choose a work request: ")
@@ -255,20 +254,19 @@ class FindWorkRequestMenu(WorkRequestMenu):
         return contr
 
     def display_work_by_contractor(self, contr):
-        """
-        print(f"{'--- List of Work Requests by {} ---':^84}".format(contr.name))
-        print("-" * 84)
+        print(f"{'--- List of Work Requests by {} ---':^94}".format(contr.name))
+        print("-" * 94)
         print(
-            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'Contractor':^15} |"
+            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^11} | {'To':^11} |"
         )
-        print("-" * 84)
+        print("-" * 94)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            if work.contractor == contr.id:
-                print(
-                    f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {contr.name:<15} |"
-                ) 
-        print("-" * 84)
-        """
+            for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
+                if workr.contractor_id == contr.id and work_id == workr.work_request_id:
+                    print(
+                        f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
+                )
+        print("-" * 94)
 
     def display_work_by_date(self):
         date = input("Enter date to choose a work request (YYYY-MM-DD): ")

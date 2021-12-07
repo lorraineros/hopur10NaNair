@@ -107,11 +107,11 @@ Afrakstur dagsins:
 
 ### 7. desember 2021
 
-(Upplýsingar um daginn)
+Í dag héldum við áfram með verkefnið og allt að gerast, erum að færast nær fullbúnu forriti og héldum við því áfram verkefna vinnu í dag.
 
 Afrakstur dagsins:
 
--   Andri Þór:
+-   Andri Þór: Vann í WorkRequestUI og WorkRequestLogic. Bætti einnig við UserControl
 -   Andriy:
 -   Anh:
 -   Ari:

@@ -6,6 +6,7 @@ from src.ui.destination_ui import DestinationMenu
 
 
 class EmployeeMenu(AbstractMenu):
+    """This class controles Abstract Menu"""
     def show(self):
         print("--- Real Estate Menu ---")
         print("1. Register a new employee")
@@ -13,9 +14,9 @@ class EmployeeMenu(AbstractMenu):
         print("3. Display list of employees")
         print("b. Back")
         print("q. Quit")
-
+    
     def handle_input(self, command):
-
+        """This function handels input Abstrcat Menu"""
         if command == "1":
             return CreationMenu(Employee)
         elif command == "2":
@@ -45,6 +46,7 @@ class EmployeeMenu(AbstractMenu):
             return "quit"
 
     def display_all_employees(self):
+        """This function displays all employees"""
         print(f"{'--- List of Employee ---':^61}")
         print("-" * 61)
         print(f"| {'ID':^3} | {'Name':^21} | {'Email':^27} |")
@@ -55,6 +57,7 @@ class EmployeeMenu(AbstractMenu):
         print()
 
     def print_emp(self, emp):
+        """This function prints employees"""
         work_loc = LogicAPI().get(Destination, emp.work_destination)
 
         if emp.is_manager:
@@ -83,6 +86,7 @@ Email: {}
         )
 
     def display_employees_by_dest(self):
+        """This function displays employees by destination"""
         DestinationMenu().list_of_all_destinations()
         dest_input = input("Enter Destination ID to filter Employees: ")
         is_dest = LogicAPI().dest_check(dest_input)
@@ -107,6 +111,7 @@ Email: {}
 
 
 class FindEmployee(EmployeeMenu):
+    """This class finds EmployeeMenu"""
     def show(self):
         print("--- Find an Employee ---")
         print("1. By ID")
@@ -115,6 +120,7 @@ class FindEmployee(EmployeeMenu):
         print("q. Quit")
 
     def handle_input(self, command):
+        """This function handels input EmployeeMenu"""
         if command == "1":
             print("Find Employee by ID:")
             print()
@@ -133,6 +139,7 @@ class FindEmployee(EmployeeMenu):
             return "quit"
 
     def find_employee_by_id(self):
+        """This function finds employee by id in Employee Menu"""
         id_input = input("Enter id to choose an employee: ")
         is_id = LogicAPI().employee_id_check(id_input)
 
