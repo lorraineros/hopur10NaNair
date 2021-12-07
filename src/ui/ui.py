@@ -18,11 +18,13 @@ from src.ui.ui_employee_user.user_emp_work_request_ui import WorkRequestMenuUser
 
 
 class App:
+    
     def __init__(self):
         self.logic = LogicAPI()
         self.stack: List[AbstractMenu] = [UserControl()]
 
     def run(self):
+        """This function runs the generic menues"""
         os.system("cls")
         while True:
             # if type(self.stack[-1]) == type(ChangingMenu()) or type(self.stack[-1]) == type(BackQuitMenu()):
@@ -55,6 +57,7 @@ class App:
                 print()
 
 class UserControl(SimpleMenu):
+    """This class defines userclass"""
     is_root = True
 
     @property
@@ -70,6 +73,7 @@ class UserControl(SimpleMenu):
         ]
 
 class MainMenu(SimpleMenu):
+    """This class prints the main menu for maneger"""
     is_root = True
 
     @property
@@ -96,6 +100,7 @@ class MainMenu(SimpleMenu):
         ]
 
 class MainMenuUserEmp(SimpleMenu):
+    """This class is the main menu for the employees"""
     is_root = True
 
     @property
