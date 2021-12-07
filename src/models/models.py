@@ -93,15 +93,9 @@ class WorkRequest(Model):
 
 @dataclass
 class WorkReport(Model):
-    work_request_id: Id = field(
-        default="", metadata={"pretty_name": "Work Request ID", "required": False}
-    )
-    employee_id: Id = field(
-        default="", metadata={"pretty_name": "Employee ID", "required": False}
-    )
-    contractor_id: Id = field(
-        default="", metadata={"pretty_name": "Contractors ID", "required": False}
-    )
+    work_request_id: Id = field(default=Id())
+    employee_id: Id = field(default=Id())
+    contractor_id: Id = field(default=Id())
     contractors_fee: str = field(
         default="", metadata={"pretty_name": "Contractor's fee", "required": False}
     )
