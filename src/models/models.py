@@ -107,9 +107,15 @@ class WorkReport(Model):
     contractor_id: int = field(
         default=int(), metadata={"id": True, "model": lambda: Contractor}
     )
-    contractors_fee: str = field(default="")
-    description: str = field(default="")
-    material_cost: str = field(default="")
+    contractors_fee: str = field(
+        default="", metadata={"pretty_name": "Contractor's fee", "required": False}
+    )
+    description: str = field(
+        default="", metadata={"pretty_name": "Description", "required": False}
+    )
+    material_cost: str = field(
+        default="", metadata={"pretty_name": "Material cost", "required": False}
+    )
     date: str = field(default="")
     ready: bool = field(default=False)
     comment: str = field(default="")

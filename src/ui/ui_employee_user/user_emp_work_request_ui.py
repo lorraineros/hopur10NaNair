@@ -1,5 +1,6 @@
 from src.ui.work_request_ui import FindWorkRequestMenu, WorkRequestMenu
-from src.ui.common_menus import BackQuitMenu
+from src.ui.common_menus import BackQuitMenu, ChangingMenu, CreationMenu
+from src.models.models import WorkReport
 from src.ui.real_estate_ui import RealEstateMenu
 from src.ui.employee_ui import EmployeeMenu
 from src.ui.contractor_ui import ContractorMenu
@@ -14,8 +15,7 @@ class WorkRequestMenuUserEmp(WorkRequestMenu):
 
     def handle_input(self, command):
         if command == "1":
-            # return CreationMenu(models.WorkReport)
-            pass
+            return CreationMenu(WorkReport)
         elif command == "2":
             return EmpFindWorkRequestMenu()
         elif command == "b":
@@ -29,6 +29,8 @@ class EmpFindWorkRequestMenu(FindWorkRequestMenu): # To-Do: Add a function that 
         return super().show()
     
     def handle_input(self, command):
+        return super().handle_input(command)
+        """
         if command == "1":
             print("Find Work by ID:")
             print()
@@ -74,3 +76,4 @@ class EmpFindWorkRequestMenu(FindWorkRequestMenu): # To-Do: Add a function that 
             return "back"
         elif command == "q":
             return "quit"
+        """
