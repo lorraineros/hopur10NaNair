@@ -18,21 +18,10 @@ class WorkRequestLogic:
             return True
         return False
     
-    def emp_work_check(self, emp):
-        for (work_id, work) in StorageAPI().get_all(WorkRequest).items():
-            if work.employee == emp.id:
-                return True
-        return False
-
     def real_est_work_check(self, real_est):
         for (work_id, work) in StorageAPI().get_all(WorkRequest).items():
             if work.real_estate == real_est.real_estate_number:
                 return True
         return False
 
-    def contr_work_check(self, contr):
-        for (work_id, work) in StorageAPI().get_all(WorkRequest).items():
-            if work.contractor == contr.id:
-                return True
-        return False
 
