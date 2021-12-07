@@ -174,12 +174,19 @@ class FindWorkRequestMenu(WorkRequestMenu):
             is_id = LogicAPI().work_id_check(id)
 
         work = LogicAPI().get(WorkRequest, int(id))
-        workr = LogicAPI().get(WorkReport, int(id))
         print()
         print(f"--- Work Request ---")
         self.print_work(work)
-        print(f"--- Work Report ---")
-        self.print_work_report(workr)
+
+        work_report_id = 0
+        for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
+            if workr.work_request_id ==int(id):
+                work_report_id = workr_id
+        
+        if work_report_id:
+            workr = LogicAPI().get(WorkReport, int(work_report_id))
+            print(f"--- Work Report ---")
+            self.print_work_report(workr)
 
     def real_estate_input(self):
         real_est_id = input("Enter real estate ID to choose a work request: ")
