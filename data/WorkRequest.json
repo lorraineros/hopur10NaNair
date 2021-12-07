@@ -4,415 +4,383 @@
         "title": "Make the nuclear reactor subcritical",
         "location": "Longyearbyen - Svalbard",
         "real_estate": "AA999-1",
-        "employee": 2,
-        "contractor": 1,
         "start_date": "2021-10-01",
         "end_date": "2021-11-30",
         "description": "OK-650VV The nuclear reactor designed around 1970.\nHowever, they tend to overheat if they are not heated properly.\nRegularly (at least once a week) a little boron is injected into the system.\nNOTE! This requires a contractor who has a good rubber defect because this is it\nall rather wet and hot, and so it is not worse to know\nsomething what you are doing.",
         "priority": "Emergency",
-        "repeated_work": 1
+        "repeated_work": "weekly",
+        "open": 1
     },
     {
         "id": 2,
         "title": "Hang up the Christmas decorations",
         "location": "Longyearbyen - Svalbard",
         "real_estate": "AA999-1",
-        "employee": 3,
-        "contractor": 1,
         "start_date": "2021-11-01",
         "end_date": "2022-01-10",
         "description": "As the hotel does not use all 190 may the watts as OK-650VV\ncan create has been decided. that each year shall be installed\none of the most beautiful Christmas decoration exhibitions that stories go by.\nThe hanging of the ornament will begin on November 1 every year\nand then again to take it down January 10 every year.",
         "priority": "As soon as possible",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 1
     },
     {
         "id": 3,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3900",
-        "employee": 5,
-        "contractor": 1,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 4,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3901",
-        "employee": 5,
-        "contractor": 1,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 5,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3902",
-        "employee": 5,
-        "contractor": 3,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 6,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3903",
-        "employee": 5,
-        "contractor": 2,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 7,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3904",
-        "employee": 5,
-        "contractor": 1,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 8,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3905",
-        "employee": 5,
-        "contractor": 1,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 9,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3906",
-        "employee": 6,
-        "contractor": 1,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 10,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3907",
-        "employee": 6,
-        "contractor": 1,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 11,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3908",
-        "employee": 6,
-        "contractor": 2,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 12,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3909",
-        "employee": 6,
-        "contractor": 2,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 13,
         "title": "Cool down snow houses and stop in loopholes",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3910",
-        "employee": 6,
-        "contractor": 2,
         "start_date": "2021-07-15",
         "end_date": "2021-08-25",
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
-        "repeated_work": 1
+        "repeated_work": "none",
+        "open": 0
     },
     {
         "id": 14,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9492",
-        "employee": 9,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 15,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9493",
-        "employee": 9,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 16,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9494",
-        "employee": 9,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 17,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9495",
-        "employee": 9,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 18,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9496",
-        "employee": 9,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 19,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9497",
-        "employee": 9,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 20,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9498",
-        "employee": 8,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 21,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9499",
-        "employee": 8,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 22,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9500",
-        "employee": 8,
-        "contractor": 3,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 23,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9501",
-        "employee": 8,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 24,
         "title": "Beat and plow heirlooms of mud houses",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9502",
-        "employee": 8,
-        "contractor": 2,
         "start_date": "2021-05-01",
         "end_date": "2021-09-30",
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
-        "repeated_work": 20
+        "repeated_work": "weekly",
+        "open": 0
     },
     {
         "id": 25,
         "title": "Window washing",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3875",
-        "employee": 6,
-        "contractor": 2,
         "start_date": "2021-10-01",
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4
+        "repeated_work": "weekly",
+        "open": 1
     },
     {
         "id": 26,
         "title": "Window washing",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3831",
-        "employee": 5,
-        "contractor": 2,
         "start_date": "2021-10-01",
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4
+        "repeated_work": "weekly",
+        "open": 1
     },
     {
         "id": 27,
         "title": "Window washing",
         "location": "Nuuk - Greenland",
         "real_estate": "64-3812",
-        "employee": 5,
-        "contractor": 1,
         "start_date": "2021-10-01",
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4
+        "repeated_work": "weekly",
+        "open": 1
     },
     {
         "id": 28,
         "title": "Window washing",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9331",
-        "employee": 8,
-        "contractor": 3,
         "start_date": "2021-10-01",
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4
+        "repeated_work": "weekly",
+        "open": 1
     },
     {
         "id": 29,
         "title": "Window washing",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9332",
-        "employee": 8,
-        "contractor": 1,
         "start_date": "2021-10-01",
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4
+        "repeated_work": "weekly",
+        "open": 1
     },
     {
         "id": 30,
         "title": "Window washing",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-9333",
-        "employee": 8,
-        "contractor": 3,
         "start_date": "2021-10-01",
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4
+        "repeated_work": "weekly",
+        "open": 1
     },
     {
         "id": 31,
         "title": "Window washing",
         "location": "Thorshofn - Faroe Islands",
         "real_estate": "ix-2239",
-        "employee": 9,
-        "contractor": 3,
         "start_date": "2021-10-01",
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4
+        "repeated_work": "weekly",
+        "open": 1
     },
     {
         "id": 32,
         "title": "Window washing",
         "location": "Longyearbyen - Svalbard",
         "real_estate": "F959594",
-        "employee": 3,
-        "contractor": 1,
         "start_date": "2021-10-01",
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4
+        "repeated_work": "weekly",
+        "open": 1
     }
 ]
