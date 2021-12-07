@@ -87,7 +87,7 @@ Afrakstur dagsins:
 
 -   Andri Þór: Vann í Real Estate UI og Real Estate Logic, vann líka í LogicAPI og vann líka í Contractor UI.
 -   Andriy:
--   Anh:
+-   Anh: Vann í WorkRequestUI og EmployeeUI, bætti við contractor id í WorkRequest.json með Lorraine
 -   Ari:
 -   Arnaldur: Uppfærsla á samskiptum á milli ui, logic og storage.
 -   Lorraine: Ég og Anh héldum áfram að vinna í WorkRequestUI og EmployeeUI, bætti við contractor id í WorkRequest.json
@@ -100,7 +100,7 @@ Afrakstur dagsins:
 
 -   Andri Þór: Vann í Employee(breytti sumum klösum í föll og bætti við error check), RealEstate(fínpússa) og WorkRequest(laga).
 -   Andriy:
--   Anh:
+-   Anh: Vann í Work Request, breytti klösum í föll
 -   Ari:
 -   Arnaldur:
 -   Lorraine: Vann í Work Request og bjó til Work Report
