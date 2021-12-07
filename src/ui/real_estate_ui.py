@@ -1,7 +1,8 @@
 from src.logic.logic_api import LogicAPI
 from src.models.models import Destination, RealEstate
 from src.ui.abstract_menu import AbstractMenu
-from src.ui.common_menus import BackQuitMenu, ChangingMenu, CreationMenu
+from src.ui.common_menus import BackQuitMenu, ChangingMenu
+from src.ui.creation_menu import CreationMenu
 from src.ui.destination_ui import DestinationMenu
 
 

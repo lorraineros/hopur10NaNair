@@ -56,6 +56,7 @@ class App:
                 self.stack.append(choice)
             elif type(choice) is MessageToParent:
                 self.stack.pop()
+                self.stack[-1].message_from_child(choice)
             else:
                 print("I did not understand that dave, try again")
                 print()

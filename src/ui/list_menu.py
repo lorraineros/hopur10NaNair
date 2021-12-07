@@ -1,20 +1,28 @@
 import dataclasses
 import os
 import shutil
-from typing import Type
+from typing import List, Type
 
 from src.logic.logic_api import LogicAPI
+from src.logic.utilities import RegexFilter
 from src.models.models import M
 from src.ui.abstract_menu import AbstractMenu
-from src.ui.common_menus import EditingMenu
 from src.ui.utilities import MessageToParent
 
+# commented to prevent circular imports
+# from src.ui.editing_menu import EditingMenu
+# from src.ui.creation_menu import CreationMenu
 
-class ListMenu(AbstractMenu):
+
+class AbstractListMenu(AbstractMenu):
     def __init__(self, model: Type[M]):
         self.model = model
-        self.data = LogicAPI().get_all(model)
         self.term_size = shutil.get_terminal_size()
+        self.filters: List[RegexFilter] = []
+        self.filter_options = {
+            chr(ord("A") + i): field
+            for i, field in enumerate(dataclasses.fields(self.model))
+        }
         self.options = {
             field.name: chr(ord("A") + i)
             + ". "
@@ -24,6 +32,7 @@ class ListMenu(AbstractMenu):
         self.assistance = False
 
     def show(self):
+        entities = LogicAPI().get_filtered(self.model, self.filters)
         self._update_term_size()
         # calculate column widths
         column_widths = {
@@ -31,7 +40,7 @@ class ListMenu(AbstractMenu):
             for field in dataclasses.fields(self.model)
         }
         for k in column_widths:
-            for entity in self.data.values():
+            for entity in entities.values():
                 value = str(getattr(entity, k))
                 column_widths[k] = max(column_widths[k], *map(len, value.split("\n")))
 
@@ -43,50 +52,71 @@ class ListMenu(AbstractMenu):
             if total_width + next_thing <= self.term_size.columns:
                 total_width += next_thing
                 fields_to_show.append(field)
+        column_widths = {field: column_widths[field.name] for field in fields_to_show}
 
         # top border
-        self._draw_border(
-            "\u256D", "\u2500", "\u252C", "\u256E", fields_to_show, column_widths
-        )
+        self._draw_border("\u256D", "\u2500", "\u252C", "\u256E", column_widths)
 
         # header
         line = "\u2502"
-        for field in fields_to_show:
+        for (field, width) in column_widths.items():
             prop = self.options[field.name]
-            line += f" {prop:<{column_widths[field.name]}} " + "\u2502"
+            line += f" {prop:<{width}} " + "\u2502"
         print(line)
 
         # header/body separator
-        self._draw_border(
-            "\u251C", "\u2500", "\u253C", "\u2524", fields_to_show, column_widths
-        )
+        self._draw_border("\u251C", "\u2500", "\u253C", "\u2524", column_widths)
 
         # table contents
-        for entity in self.data.values():
+        for entity in entities.values():
             line = "\u2502"
-            for field in fields_to_show:
+            for (field, width) in column_widths.items():
                 prop = getattr(entity, field.name)
-                next_thing = f" {prop:<{column_widths[field.name]}} " + "\u2502"
+                next_thing = f" {prop:<{width}} " + "\u2502"
                 if len(line + next_thing) <= self.term_size.columns:
-                    if type(prop) is str:
-                        line += f" {prop:<{column_widths[field.name]}} " + "\u2502"
+                    if type(prop) is int:
+                        line += f" {prop:>{width}} " + "\u2502"
                     else:
-                        line += f" {prop:>{column_widths[field.name]}} " + "\u2502"
+                        line += f" {prop:<{width}} " + "\u2502"
             print(line)
 
         # bottom border
-        self._draw_border(
-            "\u2570", "\u2500", "\u2534", "\u256F", fields_to_show, column_widths
-        )
+        self._draw_border("\u2570", "\u2500", "\u2534", "\u256F", column_widths)
+
+        if self.filters:
+            print()
+            print("Active filters")
+            for (i, filt) in enumerate(self.filters):
+                print(f"r {i+1}. {filt}")
+            print()
+            print("r. Reset filters")
+
         print()
         print("h. Help")
+        print(f"c. Create {self.model.__name__}")
         print()
         print("b. Back")
         print("q. Quit")
 
     def handle_input(self, command: str):
-        if command.isdigit() and LogicAPI().get(self.model, int(command)):
-            return EditingMenu(LogicAPI().get(self.model, int(command)))
+        (str_option, _sep, arg) = command.partition(" ")
+        if str_option in self.filter_options and arg:
+            self.filters.append(RegexFilter(self.filter_options[str_option].name, arg))
+            return "self"
+        if str_option == "r":
+            if arg:
+                # if the argument is a valid int then remove that filter
+                if arg.isdigit() and int(arg) > 0 and int(arg) <= len(self.filters):
+                    self.filters.pop(z(arg) - 1)
+                    return "self"
+            else:
+                # if only "r" is input then clear all filters
+                self.filters.clear()
+                return "self"
+        if command == "c":
+            from src.ui.creation_menu import CreationMenu
+
+            return CreationMenu(self.model)
         if command == "h":
             self.assistance = True
             return "self"
@@ -96,10 +126,10 @@ class ListMenu(AbstractMenu):
             return "quit"
 
     @staticmethod
-    def _draw_border(start, fill, split, end, fields_to_show, column_widths):
+    def _draw_border(start, fill, split, end, column_widths):
         line = start
-        for field in fields_to_show:
-            line += fill * (2 + column_widths[field.name]) + split
+        for (field, width) in column_widths.items():
+            line += fill * (2 + width) + split
         print(line[:-1] + end)
 
     def _update_term_size(self):
@@ -108,14 +138,18 @@ class ListMenu(AbstractMenu):
             self.term_size = os.terminal_size((80, 24))
 
 
-class IdPickerMenu(ListMenu):
+class EditPickerMenu(AbstractListMenu):
+    def handle_input(self, command):
+        if command.isdigit() and LogicAPI().get(self.model, int(command)):
+            from src.ui.editing_menu import EditingMenu
+
+            return EditingMenu(LogicAPI().get(self.model, int(command)))
+        else:
+            return super().handle_input(command)
+
+
+class IdPickerMenu(AbstractListMenu):
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
             return MessageToParent(id=int(command))
-        if command == "h":
-            self.assistance = True
-            return "self"
-        if command == "b":
-            return "back"
-        if command == "q":
-            return "quit"
+        return super().handle_input(command)

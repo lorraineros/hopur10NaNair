@@ -1,9 +1,8 @@
-from src.models.models import Contractor, Destination
 from src.logic.logic_api import LogicAPI
+from src.models.models import Contractor, Destination
 from src.ui.abstract_menu import AbstractMenu
-from src.ui.common_menus import CreationMenu
-from ..logic.contractor_logic import ContractorLogic
 from src.ui.common_menus import BackQuitMenu, ChangingMenu
+from src.ui.creation_menu import CreationMenu
 
 
 class ContractorMenu(AbstractMenu):

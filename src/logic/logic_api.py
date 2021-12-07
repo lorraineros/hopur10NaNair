@@ -1,9 +1,10 @@
-from typing import Dict, Type
+from typing import Dict, Type, List
 
 from src.logic.contractor_logic import ContractorLogic
 from src.logic.destination_logic import DestinationLogic
 from src.logic.employee_logic import EmployeeLogic
 from src.logic.real_estate_logic import RealEstateLogic
+from src.logic.utilities import RegexFilter
 from src.logic.work_request_logic import WorkRequestLogic
 from src.logic.work_report_logic import WorkReportLogic
 from src.models.models import M, Model
@@ -19,11 +20,17 @@ class LogicAPI(metaclass=Singleton):
     def get(self, model: Type[M], id: int) -> M:
         return self.storage.get(model, id)
 
-    def get_new(self, model: Type[M]):
+    def get_new(self, model: Type[M]) -> M:
         return model(id=self.storage.next_id(model))
 
     def get_all(self, model: Type[M]) -> Dict[int, M]:
         return self.storage.get_all(model)
+
+    def get_filtered(self, model: Type[M], filters: List[RegexFilter]) -> Dict[int, M]:
+        result = self.get_all(model)
+        for filt in filters:
+            result = {k: v for k, v in result.items() if filt(v)}
+        return result
 
     def set(self, model: Model):
         self.storage.set(model)
@@ -57,13 +64,13 @@ class LogicAPI(metaclass=Singleton):
 
     def work_id_check(self, work_id):
         return WorkRequestLogic().id_check(work_id)
-    
+
     def work_report_id_check(self, work_id):
         return WorkReportLogic().id_check(work_id)
 
     def yes_no_check(self, yes_no_input):
         return EmployeeLogic().yes_no_check(yes_no_input)
-    
+
     def real_est_work_check(self, real_est):
         return WorkRequestLogic().real_est_work_check(real_est)
 

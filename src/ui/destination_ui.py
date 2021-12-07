@@ -1,11 +1,13 @@
 from src.logic.logic_api import LogicAPI
 from src.models.models import Destination
 from src.ui.abstract_menu import AbstractMenu
-from src.ui.common_menus import BackQuitMenu, CreationMenu
+from src.ui.common_menus import BackQuitMenu
+from src.ui.creation_menu import CreationMenu
 
 
 class DestinationMenu(AbstractMenu):
     """This class contrlos destination menu"""
+
     def show(self):
         print(
             """
@@ -20,7 +22,7 @@ b. Back
 
     def handle_input(self, command):
         """This function handles input for AbstractMenu"""
-        
+
         if command == "1":
             self.list_of_all_destinations()
             return BackQuitMenu()
@@ -43,4 +45,3 @@ b. Back
             )
         print("-" * 51)
         print()
-

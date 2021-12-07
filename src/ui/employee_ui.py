@@ -1,12 +1,15 @@
 from src.logic.logic_api import LogicAPI
 from src.models.models import Destination, Employee
-from src.ui.abstract_menu import AbstractMenu, SimpleMenu
-from src.ui.common_menus import BackQuitMenu, ChangingMenu, CreationMenu
+from src.ui.abstract_menu import AbstractMenu
+from src.ui.common_menus import ChangingMenu
+from src.ui.creation_menu import CreationMenu
 from src.ui.destination_ui import DestinationMenu
+from src.ui.list_menu import AbstractListMenu
 
 
 class EmployeeMenu(AbstractMenu):
     """This class controles Abstract Menu"""
+
     def show(self):
         print("--- Real Estate Menu ---")
         print("1. Register a new employee")
@@ -14,7 +17,7 @@ class EmployeeMenu(AbstractMenu):
         print("3. Display list of employees")
         print("b. Back")
         print("q. Quit")
-    
+
     def handle_input(self, command):
         """This function handels input Abstrcat Menu"""
         if command == "1":
@@ -22,24 +25,7 @@ class EmployeeMenu(AbstractMenu):
         elif command == "2":
             return FindEmployee()
         elif command == "3":
-            yes_no_input = input(
-                "Do you want to display a list of employees by destination (Y/N)? "
-            )
-            is_yes_no = LogicAPI().yes_no_check(yes_no_input)
-
-            while not is_yes_no:
-                print("Sorry, did not understand that, try again.")
-                yes_no_input = input(
-                    "Do you want to display a list of employees by destination (Y/N)? "
-                )
-                is_yes_no = LogicAPI().yes_no_check(yes_no_input)
-
-            if yes_no_input.upper() == "Y":
-                self.display_employees_by_dest()
-            elif yes_no_input.upper() == "N":
-                self.display_all_employees()
-
-            return BackQuitMenu()
+            return AbstractListMenu(Employee)
         elif command == "b":
             return "back"
         elif command == "q":
@@ -112,6 +98,7 @@ Email: {}
 
 class FindEmployee(EmployeeMenu):
     """This class finds EmployeeMenu"""
+
     def show(self):
         print("--- Find an Employee ---")
         print("1. By ID")

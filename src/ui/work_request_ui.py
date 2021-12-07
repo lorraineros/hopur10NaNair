@@ -1,13 +1,11 @@
-from src.models.models import Contractor, Employee, RealEstate, WorkRequest, WorkReport
 from src.logic.logic_api import LogicAPI
+from src.models.models import Contractor, Employee, RealEstate, WorkReport, WorkRequest
 from src.ui.abstract_menu import SimpleMenu
-from src.logic.work_request_logic import WorkRequestLogic
-from src.logic.employee_logic import EmployeeLogic
-from src.logic.work_report_logic import WorkReportLogic
-from src.ui.common_menus import BackQuitMenu, CreationMenu, ChangingMenu
-from src.ui.real_estate_ui import RealEstateMenu
-from src.ui.employee_ui import EmployeeMenu
+from src.ui.common_menus import BackQuitMenu, ChangingMenu
+from src.ui.creation_menu import CreationMenu
 from src.ui.contractor_ui import ContractorMenu
+from src.ui.employee_ui import EmployeeMenu
+from src.ui.real_estate_ui import RealEstateMenu
 
 
 class WorkRequestMenu(SimpleMenu):
@@ -51,7 +49,7 @@ Description: {}
                 work.description,
             )
         )
-    
+
     def print_work_report(self, work):
         employee = LogicAPI().get(Employee, work.employee_id)
         contractor = LogicAPI().get(Contractor, work.contractor_id)
@@ -78,7 +76,7 @@ Comment: {}
         )
 
 
-class FindWorkRequestMenu(WorkRequestMenu): 
+class FindWorkRequestMenu(WorkRequestMenu):
     def show(self):
         print("--- Find Work Menu ---")
         print("1. By ID")
@@ -105,7 +103,11 @@ class FindWorkRequestMenu(WorkRequestMenu):
 
             work_report_exist_emp = LogicAPI().real_est_work_check(real_est_input)
             if not work_report_exist_emp:
-                print("There is no work request for {}.".format(real_est_input.real_estate_number))
+                print(
+                    "There is no work request for {}.".format(
+                        real_est_input.real_estate_number
+                    )
+                )
                 print()
                 return BackQuitMenu()
 
@@ -180,9 +182,9 @@ class FindWorkRequestMenu(WorkRequestMenu):
 
         work_report_id = 0
         for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
-            if workr.work_request_id ==int(id):
+            if workr.work_request_id == int(id):
                 work_report_id = workr_id
-        
+
         if work_report_id:
             workr = LogicAPI().get(WorkReport, int(work_report_id))
             print(f"--- Work Report ---")
@@ -201,7 +203,11 @@ class FindWorkRequestMenu(WorkRequestMenu):
         return real_est
 
     def display_work_by_real_estate(self, real_est):
-        print(f"{'--- List of Work Requests by {} ---':^94}".format(real_est.real_estate_number))
+        print(
+            f"{'--- List of Work Requests by {} ---':^94}".format(
+                real_est.real_estate_number
+            )
+        )
         print("-" * 94)
         print(
             f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^11} | {'To':^11} |"
@@ -211,7 +217,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
             if work.real_estate == real_est.real_estate_number:
                 print(
                     f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
-            )
+                )
         print("-" * 94)
 
     def emp_input(self):
@@ -238,7 +244,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
                 if workr.employee_id == emp.id and work_id == workr.work_request_id:
                     print(
                         f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
-                )
+                    )
         print("-" * 94)
 
     def contr_input(self):
@@ -265,7 +271,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
                 if workr.contractor_id == contr.id and work_id == workr.work_request_id:
                     print(
                         f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
-                )
+                    )
         print("-" * 94)
 
     def display_work_by_date(self):
@@ -281,10 +287,10 @@ class FindWorkRequestMenu(WorkRequestMenu):
             if work.start_date == date or work.end_date == date:
                 print(
                     f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
-            )
+                )
         print("-" * 94)
 
-    def find_work_by_period(self): # To-Do: Need to rethink the dates for work request!
+    def find_work_by_period(self):  # To-Do: Need to rethink the dates for work request!
         start_date = input("Enter start date (YYYY-MM-DD): ")
         end_date = input("Enter end date (YYYY-MM-DD): ")
 
@@ -302,7 +308,5 @@ class FindWorkRequestMenu(WorkRequestMenu):
             if work.start_date == start_date and work.end_date == end_date:
                 print(
                     f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
-            )
+                )
         print("-" * 94)
-
-

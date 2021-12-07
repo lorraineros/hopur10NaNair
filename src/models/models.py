@@ -3,6 +3,7 @@ import json
 from typing import Dict, Any, MutableSet, TypeVar
 import dataclasses
 import datetime
+
 M = TypeVar("M")
 
 
@@ -17,7 +18,7 @@ class Id:
 
 @dataclass
 class Model:
-    id: Id = field(default=Id(), metadata={"autoinit": True})
+    id: int = field(default=int(), metadata={"autoinit": True, "required": True})
 
     @classmethod
     def from_dict(cls, dictionary: Dict[str, Any]):
@@ -26,8 +27,8 @@ class Model:
 
 @dataclass
 class BaseEmployee(Model):
-    name: str = field(default="")
-    phone: str = field(default="")
+    name: str = field(default="", metadata={"required": True})
+    phone: str = field(default="", metadata={"required": True})
 
 
 @dataclass
@@ -42,7 +43,9 @@ class Employee(BaseEmployee):
     home_address: str = field(
         default="", metadata={"pretty_name": "Home Address", "required": True}
     )
-    work_destination: Id = field(default=Id())
+    work_destination: int = field(
+        default=int(), metadata={"id": True, "model": lambda: Destination}
+    )
 
 
 def id_validator(string: str):
@@ -51,17 +54,19 @@ def id_validator(string: str):
     else:
         print("Invalid ID")
 
+
 def date_validator(string: str):
-    year, month, day = string.split('-')
+    year, month, day = string.split("-")
     isValidDate = True
     try:
         datetime.datetime(int(year), int(month), int(day))
     except ValueError:
         isValidDate = False
-    if(isValidDate):
+    if isValidDate:
         return
     else:
         print("Input date is not valid..")
+
 
 @dataclass
 class WorkRequest(Model):
@@ -93,9 +98,15 @@ class WorkRequest(Model):
 
 @dataclass
 class WorkReport(Model):
-    work_request_id: Id = field(default=Id())
-    employee_id: Id = field(default=Id())
-    contractor_id: Id = field(default=Id())
+    work_request_id: int = field(
+        default=int(), metadata={"id": True, "model": lambda: WorkRequest}
+    )
+    employee_id: int = field(
+        default=int(), metadata={"id": True, "model": lambda: Employee}
+    )
+    contractor_id: int = field(
+        default=int(), metadata={"id": True, "model": lambda: Contractor}
+    )
     contractors_fee: str = field(default="")
     description: str = field(default="")
     material_cost: str = field(default="")
@@ -123,7 +134,9 @@ class RealEstate(Model):
     )
     rooms: int = field(default=0)
     size: int = field(default=0)
-    destination: Id = field(default=Id())
+    destination: int = field(
+        default=int(), metadata={"id": True, "model": lambda: WorkRequest}
+    )
 
     def __str__(self):
         return """
@@ -173,7 +186,6 @@ Location: {}""".format(
 
 @dataclass
 class Destination(Model):
-    id: Id = field(default=Id())
     name: str = field(default="", metadata={"pretty_name": "Name", "required": True})
     country: str = field(
         default="", metadata={"pretty_name": "Country", "required": True}
