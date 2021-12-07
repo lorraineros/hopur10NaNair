@@ -23,8 +23,6 @@ b. Back
             return BackQuitMenu()
         elif command == "2":
             return CreationMenu(Destination)
-        # elif command == "3":
-        #     self.delete_destination()
         elif command == "b":
             return "back"
         elif command == "q":
@@ -42,14 +40,3 @@ b. Back
         print("-" * 51)
         print()
 
-#     def delete_destination(self):
-#         print(
-#             """
-# --- Delete a Destination ---
-# 1. By ID   
-# 2. By Name  
-
-# q. Quit
-# b. Back
-#                 """
-#         )
