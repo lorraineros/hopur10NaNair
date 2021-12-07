@@ -102,7 +102,7 @@ Afrakstur dagsins:
 -   Andriy:
 -   Anh: Vann í Work Request, breytti klösum í föll
 -   Ari:
--   Arnaldur:
+-   Arnaldur: Gerði fancy lista sem getur sýnt öll gögn.
 -   Lorraine: Vann í Work Request og bjó til Work Report
 
 ### 7. desember 2021
@@ -115,7 +115,8 @@ Afrakstur dagsins:
 -   Andriy:
 -   Anh:
 -   Ari:
--   Arnaldur:
+-   Arnaldur: Nú er hægt að sía í list menu og maður getur notað lista til að velja id
+    þegar maður er að búa til eða breyta gögnum.
 -   Lorraine:
 
 ### 8. desember 2021
