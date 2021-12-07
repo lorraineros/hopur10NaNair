@@ -105,6 +105,9 @@ class EditingMenu(AbstractMenu):
             )
 
     def handle_input(self, command: str):
+        # if option in self.options and self.options[option].type is Id:
+        #     pass
+        #     # TODO: return ListMenu(self.options[option].metadata.get("model_ref"))
         self.assistance = False
         (str_option, _sep, arg) = command.partition(" ")
         option = int(str_option) if str_option.isdigit() else None

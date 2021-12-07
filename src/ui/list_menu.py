@@ -7,6 +7,7 @@ from src.logic.logic_api import LogicAPI
 from src.models.models import M
 from src.ui.abstract_menu import AbstractMenu
 from src.ui.common_menus import EditingMenu
+from src.ui.utilities import MessageToParent
 
 
 class ListMenu(AbstractMenu):
@@ -105,3 +106,16 @@ class ListMenu(AbstractMenu):
         self.term_size = shutil.get_terminal_size()
         if self.term_size.columns == 0 or self.term_size.lines == 0:
             self.term_size = os.terminal_size((80, 24))
+
+
+class IdPickerMenu(ListMenu):
+    def handle_input(self, command):
+        if command.isdigit() and LogicAPI().get(self.model, int(command)):
+            return MessageToParent(id=int(command))
+        if command == "h":
+            self.assistance = True
+            return "self"
+        if command == "b":
+            return "back"
+        if command == "q":
+            return "quit"

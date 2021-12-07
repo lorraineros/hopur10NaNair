@@ -1,8 +1,11 @@
 from abc import ABC, abstractmethod
 
+from src.ui.utilities import MessageToParent
+
 
 class AbstractMenu(ABC):
     is_root = False
+    _inbox = None
 
     @abstractmethod
     def show(self):
@@ -13,6 +16,9 @@ class AbstractMenu(ABC):
         raise NotImplementedError(
             f"{self.__name__} doesn't implement .handle_input(command)"
         )
+
+    def message_from_child(self, message: MessageToParent):
+        self._inbox = message
 
 
 class SimpleMenu(AbstractMenu):

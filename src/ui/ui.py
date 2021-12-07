@@ -4,6 +4,7 @@ from typing import List
 from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu, SimpleMenu
 from src.ui.common_menus import BackQuitMenu, ChangingMenu
+from src.ui.utilities import MessageToParent
 
 from ..ui.contractor_ui import ContractorMenu
 from ..ui.destination_ui import DestinationMenu
@@ -53,6 +54,8 @@ class App:
                 continue
             elif issubclass(type(choice), AbstractMenu):
                 self.stack.append(choice)
+            elif type(choice) is MessageToParent:
+                self.stack.pop()
             else:
                 print("I did not understand that dave, try again")
                 print()
@@ -65,7 +68,7 @@ class UserControl(SimpleMenu):
 
     @property
     def header(self):
-        return "--- Please choose a user ---"
+        return "--- Please choose a user type ---"
 
     @property
     def options(self):
