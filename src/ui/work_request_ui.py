@@ -200,7 +200,7 @@ class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that chec
                 ) 
         print("-" * 84)
 
-    def display_work_by_date(self):
+    def display_work_by_date(self): # To-Do: Need to rethink the dates for work request!
         date = input("Enter date to choose a work request (YYYY-MM-DD): ")
 
         print(f"{'--- List of Work Requests by {} ---':^138}".format(date))
@@ -222,7 +222,7 @@ class FindWorkRequestMenu(WorkRequestMenu): # To-Do: Create a function that chec
                         )
         print("-" * 138)
 
-    def find_work_by_period(self):
+    def find_work_by_period(self): # To-Do: Need to rethink the dates for work request!
         start_date = input("Enter start date (YYYY-MM-DD): ")
         end_date = input("Enter end date (YYYY-MM-DD): ")
 
