@@ -1,9 +1,7 @@
-from src.ui.work_request_ui import FindWorkRequestMenu, WorkRequestMenu
-from src.ui.common_menus import BackQuitMenu, ChangingMenu, CreationMenu
 from src.models.models import WorkReport
-from src.ui.real_estate_ui import RealEstateMenu
-from src.ui.employee_ui import EmployeeMenu
-from src.ui.contractor_ui import ContractorMenu
+from src.ui.creation_menu import CreationMenu
+from src.ui.work_request_ui import FindWorkRequestMenu, WorkRequestMenu
+
 
 class WorkRequestMenuUserEmp(WorkRequestMenu):
     def show(self):
@@ -24,10 +22,12 @@ class WorkRequestMenuUserEmp(WorkRequestMenu):
             return "quit"
 
 
-class EmpFindWorkRequestMenu(FindWorkRequestMenu): # To-Do: Add a function that allows to register a work report on a work request
+class EmpFindWorkRequestMenu(
+    FindWorkRequestMenu
+):  # To-Do: Add a function that allows to register a work report on a work request
     def show(self):
         return super().show()
-    
+
     def handle_input(self, command):
         return super().handle_input(command)
         """
