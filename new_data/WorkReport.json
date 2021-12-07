@@ -1,0 +1,77 @@
+{
+    "next_id": 7,
+    "data": {
+        "1": {
+            "id": 1,
+            "work_request_id": 2,
+            "employee_id": 3,
+            "contractor_id": 1,
+            "contractors_fee": "18.000kr",
+            "description": "We replaced all summer season into the iGloo-ville houses. Added alot of snow and other Christmas decoration",
+            "material_cost": "56.000kr",
+            "date": "2021-07-19",
+            "ready": 1,
+            "comment": ""
+        },
+        "2": {
+            "id": 2,
+            "work_request_id": 15,
+            "employee_id": 3,
+            "contractor_id": 2,
+            "contractors_fee": "16.000kr",
+            "description": "We let some of our employee to mow the grass and plow the heirlooms of the mud houses nonce a week",
+            "material_cost": "32.000kr",
+            "date": "2021-05-05",
+            "ready": 0,
+            "comment": ""
+        },
+        "3": {
+            "id": 3,
+            "work_request_id": 20,
+            "employee_id": 8,
+            "contractor_id": 2,
+            "contractors_fee": "16.000kr",
+            "description": "We let some of our employee to mow the grass and plow the heirlooms of the mud houses nonce a week",
+            "material_cost": "29.000kr",
+            "date": "2021-05-05",
+            "ready": 0,
+            "comment": ""
+        },
+        "4":{
+            "id": 4,
+            "work_request_id": 25,
+            "employee_id": 6,
+            "contractor_id": 3,
+            "contractors_fee": "18.000kr",
+            "description": "We hired some window cleaners to wash the real estate's windows once a week. We made sure we only let them clean the houses. ",
+            "material_cost": "25.000kr",
+            "date": "2021-10-05",
+            "ready": 1,
+            "comment": ""
+        },
+        "5":{
+            "id": 5,
+            "work_request_id": 31,
+            "employee_id": 9,
+            "contractor_id": 3,
+            "contractors_fee": "18.000kr",
+            "description": "We hired some window cleaners to wash the real estate's windows once a week. We made sure we only let them clean the houses. ",
+            "material_cost": "25.000kr",
+            "date": "2021-10-05",
+            "ready": 0,
+            "comment": ""
+        },
+        "6": {
+            "id": 6,
+            "work_request_id": 32,
+            "employee_id": 3,
+            "contractor_id": 1,
+            "contractors_fee": "18.000kr",
+            "description": "We hired some window cleaners to wash the real estate's windows once a week. We made sure we only let them clean the houses. ",
+            "material_cost": "25.000kr",
+            "date": "2021-10-05",
+            "ready": 1,
+            "comment": ""
+        }
+    }
+}

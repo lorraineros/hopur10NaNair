@@ -1,4 +1,4 @@
-from src.models.models import Contractor, Employee, RealEstate, WorkRequest
+from src.models.models import Contractor, Employee, RealEstate, WorkRequest, WorkReport
 from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import SimpleMenu
 from src.logic.work_request_logic import WorkRequestLogic
@@ -36,24 +36,18 @@ class WorkRequestMenu(SimpleMenu):
         print("-" * 94)
 
     def print_work(self, work):
-        if work.is_open:
-            work_state = "Open"
-        else:
-            work_state = "Close"
         print(
             """
 Title: {}
 Location: {}
 Real Estate: {}
-Start Date: {}
-State: {}
+Priority: {}
 Description: {}
         """.format(
                 work.title,
                 work.location,
                 work.real_estate,
                 work.priority,
-                work_state,
                 work.description,
             )
         )
@@ -180,7 +174,12 @@ class FindWorkRequestMenu(WorkRequestMenu):
             is_id = LogicAPI().work_id_check(id)
 
         work = LogicAPI().get(WorkRequest, int(id))
+        workr = LogicAPI().get(WorkReport, int(id))
+        print()
+        print(f"--- Work Request ---")
         self.print_work(work)
+        print(f"--- Work Report ---")
+        self.print_work_report(workr)
 
     def real_estate_input(self):
         real_est_id = input("Enter real estate ID to choose a work request: ")
