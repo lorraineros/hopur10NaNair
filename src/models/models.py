@@ -52,7 +52,7 @@ def id_validator(string: str):
         print("Invalid ID")
 
 def date_validator(string: str):
-    day, month, year = string.split('-')
+    year, month, day = string.split('-')
     isValidDate = True
     try:
         datetime.datetime(int(year), int(month), int(day))
