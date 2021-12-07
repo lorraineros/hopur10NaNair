@@ -57,6 +57,9 @@ class LogicAPI(metaclass=Singleton):
 
     def work_id_check(self, work_id):
         return WorkRequestLogic().id_check(work_id)
+    
+    def work_report_id_check(self, work_id):
+        return WorkReportLogic().id_check(work_id)
 
     def yes_no_check(self, yes_no_input):
         return EmployeeLogic().yes_no_check(yes_no_input)
