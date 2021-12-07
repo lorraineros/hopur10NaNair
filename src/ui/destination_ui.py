@@ -10,8 +10,7 @@ class DestinationMenu(AbstractMenu):
             """
 --- Destination Menu ---
 1. List of all destinations   
-2. Add new Destination
-3. Delete destination 
+2. Add new Destination 
 
 q. Quit
 b. Back
@@ -24,8 +23,8 @@ b. Back
             return BackQuitMenu()
         elif command == "2":
             return CreationMenu(Destination)
-        elif command == "3":
-            self.delete_destination()
+        # elif command == "3":
+        #     self.delete_destination()
         elif command == "b":
             return "back"
         elif command == "q":
@@ -43,14 +42,14 @@ b. Back
         print("-" * 51)
         print()
 
-    def delete_destination(self):
-        print(
-            """
---- Delete a Destination ---
-1. By ID   
-2. By Name  
+#     def delete_destination(self):
+#         print(
+#             """
+# --- Delete a Destination ---
+# 1. By ID   
+# 2. By Name  
 
-q. Quit
-b. Back
-                """
-        )
+# q. Quit
+# b. Back
+#                 """
+#         )
