@@ -3,6 +3,7 @@ from typing import List
 
 from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu, SimpleMenu
+from src.ui.common_menus import BackQuitMenu, ChangingMenu
 
 from ..ui.contractor_ui import ContractorMenu
 from ..ui.destination_ui import DestinationMenu
@@ -18,7 +19,11 @@ class App:
 
     def run(self):
         while True:
-            # os.system("cls" if os.name == "nt" else "clear")
+            if type(self.stack[-1]) == type(ChangingMenu()) or type(self.stack[-1]) == type(BackQuitMenu):
+                pass
+            else:
+                os.system("cls" if os.name == "nt" else "clear")
+
             self.stack[-1].show()
             print()
             while True:
