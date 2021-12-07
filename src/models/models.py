@@ -75,11 +75,13 @@ class WorkRequest(Model):
 class WorkReport(Model):
     work_request_id: Id = field(default=Id())
     employee_id: Id = field(default=Id())
-    contractors: str = field(default="")
+    contractor_id: Id = field(default=Id())
+    contractors_fee: str = field(default="")
     description: str = field(default="")
     material_cost: str = field(default="")
-    start_date: str = field(default="")
-    end_date: str = field(default="")
+    date: str = field(default="")
+    ready: bool = field(default=False)
+    comment: str = field(default="")
 
 
 @dataclass
