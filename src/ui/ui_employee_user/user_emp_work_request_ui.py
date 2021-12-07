@@ -4,7 +4,7 @@ from src.ui.real_estate_ui import RealEstateMenu
 from src.ui.employee_ui import EmployeeMenu
 from src.ui.contractor_ui import ContractorMenu
 
-class EmpWorkRequestMenu(WorkRequestMenu):
+class WorkRequestMenuUserEmp(WorkRequestMenu):
     def show(self):
         print("--- Work Request Menu ---")
         print("1. Register a new work report")
