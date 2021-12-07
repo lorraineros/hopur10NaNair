@@ -2,7 +2,7 @@ import dataclasses
 from typing import Type
 
 from src.logic.logic_api import LogicAPI
-from src.models.models import Model
+from src.models.models import Model, date_validator
 from src.ui.abstract_menu import AbstractMenu
 
 
@@ -112,6 +112,14 @@ class EditingMenu(AbstractMenu):
         (str_option, _sep, arg) = command.partition(" ")
         option = int(str_option) if str_option.isdigit() else None
         if option in self.options and arg:
+            if self.options[option].type is int:
+                if date_validator(arg):
+                    setattr(self.entity, self.options[option].name, arg)
+                else:
+                    print("error")
+            elif self.options[option].type is str:
+                print("error")
+        if option in self.options and arg:
             setattr(self.entity, self.options[option].name, arg)
             return "self"
         if command == "c":
@@ -129,3 +137,5 @@ class EditingMenu(AbstractMenu):
 class CreationMenu(EditingMenu):
     def __init__(self, model: Type[Model]):
         super().__init__(LogicAPI().get_new(model))
+
+
