@@ -22,8 +22,9 @@ class WorkRequestMenu(SimpleMenu):
             ("Find work request", FindWorkRequestMenu),
         ]
 
-    def display_all_works(self):
-        print(f"{'--- List of Work Request ---':^94}")
+    def display_all_work_requests(self):
+        print()
+        print(f"{'--- List of Work Requests ---':^94}")
         print("-" * 94)
         print(
             f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^11} | {'To':^11} |"
@@ -34,6 +35,23 @@ class WorkRequestMenu(SimpleMenu):
                 f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
             )
         print("-" * 94)
+
+    def display_all_work_reports(self):
+        print()
+        print(f"{'--- List of Work Reports ---':^114}")
+        print("-" * 114)
+        print(
+            f"| {'ID':^2} | {'Work Request':^48} | {'Employee':^21} | {'Contractor':^16} | {'Date':^11} |"
+        )
+        print("-" * 114)
+        for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
+            work_request = LogicAPI().get(WorkRequest, workr.work_request_id)
+            emp = LogicAPI().get(Employee, workr.employee_id)
+            contr = LogicAPI().get(Contractor, workr.contractor_id)
+            print(
+                f"| {workr.id:<2} | {workr.work_request_id:<2} | {work_request.title:<43} | {emp.name:<21} | {contr.name:<16} | {workr.date:<11} |"
+            )
+        print("-" * 114)
 
     def print_work_request(self, work):
         print(
@@ -52,9 +70,13 @@ Description: {}
             )
         )
     
-    def print_work_report(self, work):
-        employee = LogicAPI().get(Employee, work.employee_id)
-        contractor = LogicAPI().get(Contractor, work.contractor_id)
+    def print_work_report(self, workr):
+        employee = LogicAPI().get(Employee, workr.employee_id)
+        contractor = LogicAPI().get(Contractor, workr.contractor_id)
+        if workr.ready:
+            is_ready = "Yes"
+        else:
+            is_ready = "No"
         print(
             """
 Employee: {}
@@ -68,12 +90,12 @@ Comment: {}
         """.format(
                 employee.name,
                 contractor.name,
-                work.contractors_fee,
-                work.description,
-                work.material_cost,
-                work.date,
-                work.ready,
-                work.comment,
+                workr.contractors_fee,
+                workr.description,
+                workr.material_cost,
+                workr.date,
+                is_ready,
+                workr.comment,
             )
         )
 
@@ -94,7 +116,8 @@ class FindWorkRequestMenu(WorkRequestMenu):
         if command == "1":
             print("Find Work by ID:")
             print()
-            self.display_all_works()
+            self.display_all_work_requests()
+            self.display_all_work_reports()
             self.find_work_by_id()
             return ChangingMenu()
         elif command == "2":
@@ -148,14 +171,16 @@ class FindWorkRequestMenu(WorkRequestMenu):
         elif command == "5":
             print("Find Work by Date:")
             print()
-            self.display_all_works()
+            self.display_all_work_requests()
+            self.display_all_work_reports()
             self.display_work_by_date()
             self.find_work_by_id()
             return ChangingMenu()
         elif command == "6":
             print("Find Work by Period:")
             print()
-            self.display_all_works()
+            self.display_all_work_requests()
+            self.display_all_work_reports()
             self.find_work_by_period()
             self.find_work_by_id()
             return ChangingMenu()

@@ -29,6 +29,8 @@ class EmpFindWorkRequestMenu(FindWorkRequestMenu): # To-Do: Add a function that 
         return super().show()
     
     def handle_input(self, command):
+        return super().handle_input(command)
+        """
         if command == "1":
             print("Find Work by ID:")
             print()
@@ -74,3 +76,4 @@ class EmpFindWorkRequestMenu(FindWorkRequestMenu): # To-Do: Add a function that 
             return "back"
         elif command == "q":
             return "quit"
+        """
