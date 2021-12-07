@@ -9,7 +9,7 @@
         "description": "OK-650VV The nuclear reactor designed around 1970.\nHowever, they tend to overheat if they are not heated properly.\nRegularly (at least once a week) a little boron is injected into the system.\nNOTE! This requires a contractor who has a good rubber defect because this is it\nall rather wet and hot, and so it is not worse to know\nsomething what you are doing.",
         "priority": "Emergency",
         "repeated_work": "weekly",
-        "open": 1
+        "is_open": 1
     },
     {
         "id": 2,
@@ -21,7 +21,7 @@
         "description": "As the hotel does not use all 190 may the watts as OK-650VV\ncan create has been decided. that each year shall be installed\none of the most beautiful Christmas decoration exhibitions that stories go by.\nThe hanging of the ornament will begin on November 1 every year\nand then again to take it down January 10 every year.",
         "priority": "As soon as possible",
         "repeated_work": "none",
-        "open": 1
+        "is_open": 1
     },
     {
         "id": 3,
@@ -33,7 +33,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 4,
@@ -45,7 +45,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 5,
@@ -57,7 +57,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 6,
@@ -69,7 +69,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 7,
@@ -81,7 +81,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 8,
@@ -93,7 +93,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 9,
@@ -105,7 +105,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 10,
@@ -117,7 +117,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 11,
@@ -129,7 +129,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 12,
@@ -141,7 +141,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 13,
@@ -153,7 +153,7 @@
         "description": "Just during the high summer season, from July 15 to August 25, it needs to be ditched\nto the iGloo-ville houses (all). Mainly need to add snow and\nmake sure there are no holes in the walls, etc.",
         "priority": "Now",
         "repeated_work": "none",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 14,
@@ -165,7 +165,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 15,
@@ -177,7 +177,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 16,
@@ -189,7 +189,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 17,
@@ -201,7 +201,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 18,
@@ -213,7 +213,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 19,
@@ -225,7 +225,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 20,
@@ -237,7 +237,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 21,
@@ -249,7 +249,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 22,
@@ -261,7 +261,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 23,
@@ -273,7 +273,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 24,
@@ -285,7 +285,7 @@
         "description": "During the summer, grass needs to be mowed and the heirlooms of the mud houses need to be plowed at least\nonce a week. This is valid from May 1 to September 30.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 0
+        "is_open": 0
     },
     {
         "id": 25,
@@ -296,8 +296,8 @@
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4,
-        "is_open": 0
+        "repeated_work": "weekly",
+        "is_open": 1
     },
     {
         "id": 26,
@@ -309,7 +309,7 @@
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 1
+        "is_open": 1
     },
     {
         "id": 27,
@@ -321,7 +321,7 @@
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 1
+        "is_open": 1
     },
     {
         "id": 28,
@@ -333,7 +333,7 @@
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 1
+        "is_open": 1
     },
     {
         "id": 29,
@@ -345,7 +345,7 @@
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 1
+        "is_open": 1
     },
     {
         "id": 30,
@@ -357,7 +357,7 @@
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 1
+        "is_open": 1
     },
     {
         "id": 31,
@@ -368,8 +368,8 @@
         "end_date": "2021-12-31",
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
-        "repeated_work": 4,
-        "repeated_period": "weekly"
+        "repeated_work": "weekly",
+        "is_open": 1
     },
     {
         "id": 32,
@@ -381,6 +381,6 @@
         "description": "Once a week, windows on all of the above real estate need to be cleaned.\nAll houses except the igloo, the submarine and the mud houses, but none of them\nhas a window.",
         "priority": "As soon as possible",
         "repeated_work": "weekly",
-        "open": 1
+        "is_open": 1
     }
 ]
