@@ -103,7 +103,7 @@ Afrakstur dagsins:
 -   Anh:
 -   Ari:
 -   Arnaldur:
--   Lorraine:
+-   Lorraine: Vann í Work Request og bjó til Work Report
 
 ### 7. desember 2021
 
