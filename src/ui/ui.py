@@ -19,11 +19,10 @@ class App:
 
     def run(self):
         while True:
-            if type(self.stack[-1]) == type(ChangingMenu()) or type(self.stack[-1]) == type(BackQuitMenu()):
-                pass
-            else:
-                os.system("cls" if os.name == "nt" else "clear")
-
+            # if type(self.stack[-1]) == type(ChangingMenu()) or type(self.stack[-1]) == type(BackQuitMenu()):
+            #     pass
+            # else:
+            #     os.system("cls" if os.name == "nt" else "clear")
             self.stack[-1].show()
             print()
             while True:
