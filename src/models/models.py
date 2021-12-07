@@ -49,7 +49,7 @@ def id_validator(string: str):
     if string.isdigit():
         return True
     else:
-        Perint
+        print("Invalid ID")
 
 
 @dataclass
