@@ -98,6 +98,7 @@ class AbstractListMenu(BasicNavigationMenu):
         super().show()
 
     def handle_input(self, command: str):
+        self.assistance = False
         (str_option, _sep, arg) = command.partition(" ")
         if str_option in self.filter_options and arg:
             self.filters.append(RegexFilter(self.filter_options[str_option].name, arg))
@@ -119,7 +120,7 @@ class AbstractListMenu(BasicNavigationMenu):
         if command == "h":
             self.assistance = True
             return "self"
-        return super().handle_input()
+        return super().handle_input(command)
 
     @staticmethod
     def _draw_border(start, fill, split, end, column_widths):
