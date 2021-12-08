@@ -6,7 +6,7 @@ from src.ui.creation_menu import CreationMenu
 
 
 class ContractorMenu(AbstractMenu):
-    """This class for contract menu"""
+    """This class is for contract menu"""
     def show(self):
         print("1. Register a new contractor")
         print("2. Find a contractor")
