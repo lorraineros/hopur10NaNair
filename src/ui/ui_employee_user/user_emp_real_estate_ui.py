@@ -13,6 +13,7 @@ class RealEstateMenuUserEmp(RealEstateMenu):
         print("q. Quit")
 
     def handle_input(self, command):
+        """This function handels input for Real Estate"""
         if command == "1":
             return RealEstateSearchUserEmp()
         elif command == "2":
@@ -38,9 +39,11 @@ class RealEstateMenuUserEmp(RealEstateMenu):
 
 class RealEstateSearchUserEmp(RealEstateSearch):
     def show(self):
+        """This function shows the search user for User Employe"""
         return super().show()
 
     def handle_input(self, command):
+        """this function handles input for Search User Employe"""
         if command == "1":
             print(f"{'--- Find Real Estate by ID ---':^52}")
             self.display_all_real_estate()
