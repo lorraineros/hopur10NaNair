@@ -121,11 +121,11 @@ Afrakstur dagsins:
 
 ### 8. desember 2021
 
-(Upplýsingar um daginn)
+Í dag er verið að leggja loka hönd á verkefnið og unnum allir heima hjá sér og vorum samskipti höfð á Discord.
 
 Afrakstur dagsins:
 
--   Andri Þór:
+-   Andri Þór: Vann í WorkRequest að laga dagsetningar, vann líka í Models.
 -   Andriy:
 -   Anh:
 -   Ari:
