@@ -431,7 +431,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
         print("-" * 94)
 
     def display_work_by_date(self):
-        date = input("Enter date to choose a work report (YYYY-MM-DD): ")
+        date = input("Enter work report date to choose a work request (YYYY-MM-DD): ")
 
         print(f"{'--- List of Work Requests by {} ---':^94}".format(date))
         print("-" * 94)
