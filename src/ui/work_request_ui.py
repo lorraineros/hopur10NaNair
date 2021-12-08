@@ -7,6 +7,7 @@ from src.ui.contractor_ui import ContractorMenu
 from src.ui.employee_ui import EmployeeMenu
 from src.ui.list_menu import EditPickerMenu
 from src.ui.real_estate_ui import RealEstateMenu
+from datetime import datetime
 
 
 class WorkRequestMenu(SimpleMenu):
@@ -348,6 +349,10 @@ class FindWorkRequestMenu(WorkRequestMenu):
     def find_work_by_period(self):  # To-Do: Need to rethink the dates for work request!
         start_date = input("Enter start date (YYYY-MM-DD): ")
         end_date = input("Enter end date (YYYY-MM-DD): ")
+        start_year, start_month, start_day = start_date.split("-")
+        end_year, end_month, end_day = end_date.split("-")
+        start = datetime(int(start_year), int(start_month), int(start_day))
+        end = datetime(int(end_year),int(end_month), int(end_day))
 
         print(
             f"{'--- List of Work Requests by {} - {} ---':^94}".format(
@@ -360,7 +365,11 @@ class FindWorkRequestMenu(WorkRequestMenu):
         )
         print("-" * 94)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            if work.start_date == start_date and work.end_date == end_date:
+            year, month, day = work.start_date.split("-")
+            date = datetime(int(year), int(month), int(day))
+            year_end, month_end, day_end = work.end_date.split("-")
+            date_end = datetime(int(year_end), int(month_end), int(day_end))
+            if start <= date <= end and start <= date_end <= end:
                 print(
                     f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
                 )
