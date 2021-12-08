@@ -26,7 +26,7 @@ class Model:
 
     @classmethod
     def model_name(cls):
-        return cls.__class__.__name__
+        return cls.__name__
 
 
 @dataclass
