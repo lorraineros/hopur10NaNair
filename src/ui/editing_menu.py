@@ -1,14 +1,15 @@
 import dataclasses
+from datetime import date
 
 from src.logic.logic_api import LogicAPI
-from src.models.models import Id, Model
-from src.ui.abstract_menu import AbstractMenu
+from src.models.models import Model
+from src.ui.abstract_menu import HelpfulMenu
 from src.ui.list_menu import IdPickerMenu
-from src.ui.utilities import MessageToParent
 
 
-class EditingMenu(AbstractMenu):
+class EditingMenu(HelpfulMenu):
     """This class is for editing menu"""
+
     def __init__(self, entity: Model):
         self.entity = entity
         self.constants = [
@@ -22,7 +23,6 @@ class EditingMenu(AbstractMenu):
             if not field.metadata.get("autoinit")
         ]
         self.options = {(i + 1): v for i, v in enumerate(self.variables)}
-        self.assistance = False  # help was taken :(
 
     def show(self):
         """This function shows fields to edit"""
@@ -54,44 +54,37 @@ class EditingMenu(AbstractMenu):
             print()
         print()
         print("c. Confirm changes")
-        print()
-        print("h. Help")
-        print("b. Back (discard changes)")
-        print("q. Quit (discard changes)")
-        if self.assistance:
-            print()
-            print("Help message:")
-            print("\tTo change a modifiable property input:")
-            print("> <property number> <new value>")
-            print()
-            print(
-                f"\tFor example, to change the {self.options[1].name} "
-                "property to Angela Merkel, you would write:"
-            )
-            print("> 1 Angela Merkel")
-            print()
-            print(
-                f"\tBecause the {self.options[1].name} property "
-                "is number 1 in the list above"
-            )
+        super().show()
+
+    def _help_message(self):
+        return f"""
+Help message:
+    \tTo change a modifiable property input:
+    > <property number> <new value>
+
+    \tFor example, to change the {self.options[1].name} " "property to Angela Merkel, you would write:
+    > 1 Angela Merkel
+
+    \tBecause the {self.options[1].name} property " "is number 1 in the list above"""
 
     def handle_input(self, command: str):
         """This function handles input editing menu"""
-        # if option in self.options and self.options[option].type is Id:
-        #     pass
-        #     # TODO: return ListMenu(self.options[option].metadata.get("model_ref"))
         self.assistance = False
         (str_option, _sep, arg) = command.partition(" ")
         option = int(str_option) if str_option.isdigit() else None
         if option in self.options:
             if arg:
-                if self.options[option].type is int:
-                    if date_validator(arg):
-                        setattr(self.entity, self.options[option].name, arg)
-                    else:
-                        print("error")
+                if self.options[option].type is date:
+                    try:
+                        setattr(
+                            self.entity,
+                            self.options[option].name,
+                            date.fromisoformat(arg),
+                        )
+                    except ValueError as e:
+                        self._user_message = e
                 elif self.options[option].type is str:
-                    print("error")
+                    setattr(self.entity, self.options[option].name, arg)
             elif self.options[option].metadata.get("id"):
                 # a somewhat high risk play
                 self.message_from_child = lambda message: setattr(
@@ -104,13 +97,7 @@ class EditingMenu(AbstractMenu):
         if command == "c":
             LogicAPI().set(self.entity)
             return "back"
-        if command == "h":
-            self.assistance = True
-            return "self"
-        if command == "b":
-            return "back"
-        if command == "q":
-            return "quit"
+        super().handle_input(command)
 
 
 def id_validator(string: str):

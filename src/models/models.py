@@ -34,8 +34,10 @@ class Model:
 
 @dataclass
 class BaseEmployee(Model):
-    name: str = field(default="", metadata={"required": True})
-    phone: str = field(default="", metadata={"required": True})
+    name: str = field(default="", metadata={"pretty_name": "Name", "required": True})
+    phone: str = field(
+        default="", metadata={"pretty_name": "Phone number", "required": True}
+    )
 
     def short_name(self):
         return self.name

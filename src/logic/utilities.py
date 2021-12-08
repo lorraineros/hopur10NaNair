@@ -1,6 +1,6 @@
 from abc import abstractmethod
 import re
-from dataclasses import dataclass
+from dataclasses import Field, dataclass
 from typing import Any
 import datetime
 
@@ -15,30 +15,33 @@ class AbstractFilter:
 
 @dataclass
 class DateFilter(AbstractFilter):
-    field: str
+    field: Field
     date: datetime.date
 
     def __call__(self, entity: Model) -> bool:
-        prop = getattr(entity, self.field)
+        prop = getattr(entity, self.field.name)
         return self.date == prop
 
 
 @dataclass
 class PeriodFilter(AbstractFilter):
-    field: str
+    field: Field
     start_date: datetime.date
     end_date: datetime.date
 
     def __call__(self, entity: Model) -> bool:
-        prop = getattr(entity, self.field)
+        prop = getattr(entity, self.field.name)
         return self.start_date <= prop and prop <= self.end_date
 
 
 @dataclass
 class RegexFilter(AbstractFilter):
-    field: str
+    field: Field
     regex: str
 
     def __call__(self, entity: Model) -> bool:
-        prop = getattr(entity, self.field)
+        prop = getattr(entity, self.field.name)
         return bool(re.search(self.regex, prop))
+
+    def __str__(self):
+        return f"""Filtering entries in the "{self.field.metadata['pretty_name']}" column by "{self.regex}" """

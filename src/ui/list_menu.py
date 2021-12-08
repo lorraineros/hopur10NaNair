@@ -7,7 +7,7 @@ from typing import List, Type
 from src.logic.logic_api import LogicAPI
 from src.logic.utilities import DateFilter, PeriodFilter, RegexFilter
 from src.models.models import M
-from src.ui.abstract_menu import BasicNavigationMenu
+from src.ui.abstract_menu import BasicNavigationMenu, HelpfulMenu
 from src.ui.utilities import MessageToParent
 
 # commented to prevent circular imports
@@ -15,8 +15,9 @@ from src.ui.utilities import MessageToParent
 # from src.ui.creation_menu import CreationMenu
 
 
-class AbstractListMenu(BasicNavigationMenu):
+class AbstractListMenu(HelpfulMenu):
     """This class contains menu functions"""
+
     def __init__(self, model: Type[M]):
         self.model = model
         self.term_size = shutil.get_terminal_size()
@@ -31,7 +32,6 @@ class AbstractListMenu(BasicNavigationMenu):
             + field.metadata.get("pretty_name", field.name)
             for i, field in enumerate(dataclasses.fields(self.model))
         }
-        self.assistance = False
 
     def show(self):
         """This function shows menu based on display used"""
@@ -95,14 +95,19 @@ class AbstractListMenu(BasicNavigationMenu):
             print("r. Reset filters")
 
         print()
-        print("h. Help")
         print(f"c. Create {self.model.model_name()}")
         print()
         super().show()
 
+    def _help_message(self):
+        return (
+            "TODO: write a help message that exlplains adding filters, "
+            "removing them and all this menu can do"
+        )
+
     def handle_input(self, command: str):
         """This function handles input from menu"""
-        self.assistance = False
+        self._user_message = ""
         (str_option, _sep, arg) = command.partition(" ")
         if str_option in self.filter_options and arg:
             try:
@@ -111,7 +116,7 @@ class AbstractListMenu(BasicNavigationMenu):
                     if end:
                         self.filters.append(
                             PeriodFilter(
-                                self.filter_options[str_option].name,
+                                self.filter_options[str_option],
                                 date.fromisoformat(start),
                                 date.fromisoformat(end),
                             )
@@ -119,18 +124,16 @@ class AbstractListMenu(BasicNavigationMenu):
                     else:
                         self.filters.append(
                             DateFilter(
-                                self.filter_options[str_option].name,
+                                self.filter_options[str_option],
                                 date.fromisoformat(start),
                             )
                         )
                 else:
                     self.filters.append(
-                        RegexFilter(self.filter_options[str_option].name, arg)
+                        RegexFilter(self.filter_options[str_option], arg)
                     )
             except ValueError as e:
-                # TODO: show a better error message
-                print(e)
-
+                self._user_message = e
             return "self"
         if str_option == "r":
             if arg:
@@ -146,9 +149,6 @@ class AbstractListMenu(BasicNavigationMenu):
             from src.ui.creation_menu import CreationMenu
 
             return CreationMenu(self.model)
-        if command == "h":
-            self.assistance = True
-            return "self"
         return super().handle_input(command)
 
     @staticmethod
@@ -168,6 +168,7 @@ class AbstractListMenu(BasicNavigationMenu):
 
 class EditPickerMenu(AbstractListMenu):
     """This class is to edit to PickerMenu"""
+
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
             from src.ui.editing_menu import EditingMenu

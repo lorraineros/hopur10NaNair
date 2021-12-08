@@ -62,8 +62,9 @@ class App:
                 self.stack.pop()
                 self.stack[-1].message_from_child(choice)
             else:
-                print("I did not understand that dave, try again")
-                print()
+                self.stack[
+                    -1
+                ]._user_message += "I did not understand that dave, try again"
 
 
 class UserControl(SimpleMenu):
