@@ -58,24 +58,8 @@ class Employee(BaseEmployee):
     )
 
 
-def id_validator(string: str):
-    if string.isdigit():
-        return True
-    else:
-        print("Invalid ID")
 
 
-def date_validator(string: str):
-    year, month, day = string.split("-")
-    isValidDate = True
-    try:
-        datetime.datetime(int(year), int(month), int(day))
-    except ValueError:
-        isValidDate = False
-    if isValidDate:
-        return
-    else:
-        print("Input date is not valid..")
 
 
 @dataclass

@@ -1,7 +1,7 @@
 import dataclasses
 
 from src.logic.logic_api import LogicAPI
-from src.models.models import Id, Model, date_validator
+from src.models.models import Id, Model
 from src.ui.abstract_menu import AbstractMenu
 from src.ui.list_menu import IdPickerMenu
 from src.ui.utilities import MessageToParent
@@ -108,3 +108,23 @@ class EditingMenu(AbstractMenu):
             return "back"
         if command == "q":
             return "quit"
+
+
+def id_validator(string: str):
+    if string.isdigit():
+        return True
+    else:
+        print("Invalid ID")
+
+
+def date_validator(string: str):
+    year, month, day = string.split("-")
+    isValidDate = True
+    try:
+        datetime.datetime(int(year), int(month), int(day))
+    except ValueError:
+        isValidDate = False
+    if isValidDate:
+        return
+    else:
+        print("Input date is not valid..")
