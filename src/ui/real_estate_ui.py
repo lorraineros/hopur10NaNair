@@ -4,6 +4,7 @@ from src.ui.abstract_menu import AbstractMenu
 from src.ui.common_menus import BackQuitMenu, ChangingMenu
 from src.ui.creation_menu import CreationMenu
 from src.ui.destination_ui import DestinationMenu
+from src.ui.list_menu import EditPickerMenu
 
 
 class RealEstateMenu(AbstractMenu):
@@ -22,6 +23,8 @@ class RealEstateMenu(AbstractMenu):
             return CreationMenu(RealEstate)
         elif command == "2":
             return RealEstateSearch()
+        elif command == "3":
+            return EditPickerMenu(RealEstate)
         elif command == "3":
             yes_no_input = input(
                 "Do you want to display a list of real estate by destination (Y/N)? "
@@ -207,7 +210,7 @@ class RealEstateSearch(RealEstateMenu):
         """This function displays a list of real estate filtered by a address, i.e. displays only the real estates by a certain address."""
         self.print_addresses()
         address_input = input("Enter address ID to filter Real Estate: ")
-        address = LogicAPI().address_list()[int(address_input)-1]
+        address = LogicAPI().address_list()[int(address_input) - 1]
         is_address = LogicAPI().address_check(address)
 
         while not is_address:

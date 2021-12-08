@@ -112,6 +112,10 @@ class WorkRequest(Model):
     priority: str = field(default="", metadata={"pretty_name": "Priority"})
     is_open: bool = field(default=True, metadata={"required": True})
 
+    def __post_init__(self):
+        self.start_date = datetime.date.fromisoformat(self.start_date)
+        self.end_date = datetime.date.fromisoformat(self.end_date)
+
     @classmethod
     def model_name(cls):
         return "Work request"
@@ -154,6 +158,10 @@ class RealEstate(Model):
     real_estate_number: str = field(
         default="", metadata={"pretty_name": "Real Estate Number", "required": True}
     )
+    destination: int = field(
+        default=int(),
+        metadata={"pretty_name": "Destination", "id": lambda: Destination},
+    )
     condition: str = field(default="", metadata={"pretty_name": "Condition"})
     facilities: str = field(default="", metadata={"pretty_name": "Facilities"})
     type_of_real_estate: str = field(
@@ -161,10 +169,10 @@ class RealEstate(Model):
     )
     rooms: int = field(default=0, metadata={"pretty_name": "Rooms"})
     size: int = field(default=0, metadata={"pretty_name": "Size"})
-    destination: int = field(
-        default=int(),
-        metadata={"pretty_name": "Destination", "id": lambda: Destination},
-    )
+
+    @classmethod
+    def model_name(cls):
+        return "Real Estate"
 
     def short_name(self):
         return self.address

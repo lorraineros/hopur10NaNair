@@ -1,5 +1,6 @@
 import json
 import dataclasses
+from datetime import datetime, date
 from typing import Dict, Type
 
 from src.models.models import *
@@ -80,13 +81,22 @@ class Storage:
         self.loaded = True
 
     def store(self):
+        class IsoDateEncoder(json.JSONEncoder):
+            def default(self, obj):
+                if isinstance(obj, date):
+                    return obj.isoformat()
+                return super().default(obj)
+
         with open(self.file_name, "w", encoding="utf-8") as file:
             json.dump(
                 {
                     "next_id": self._next_id,
-                    "data": {k: dataclasses.asdict(v) for k, v in self.data.items()},
+                    "data": {
+                        k: dataclasses.asdict(entity) for k, entity in self.data.items()
+                    },
                 },
                 file,
                 indent=" " * 4,
+                cls=IsoDateEncoder,
             )
         self.modified = False

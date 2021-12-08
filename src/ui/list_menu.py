@@ -1,10 +1,11 @@
 import dataclasses
+from datetime import date
 import os
 import shutil
 from typing import List, Type
 
 from src.logic.logic_api import LogicAPI
-from src.logic.utilities import RegexFilter
+from src.logic.utilities import DateFilter, PeriodFilter, RegexFilter
 from src.models.models import M
 from src.ui.abstract_menu import BasicNavigationMenu
 from src.ui.utilities import MessageToParent
@@ -71,7 +72,7 @@ class AbstractListMenu(BasicNavigationMenu):
         for entity in entities.values():
             line = "\u2502"
             for (field, width) in column_widths.items():
-                prop = getattr(entity, field.name)
+                prop = str(getattr(entity, field.name))
                 next_thing = f" {prop:<{width}} " + "\u2502"
                 if len(line + next_thing) <= self.term_size.columns:
                     if type(prop) is int:
@@ -101,7 +102,32 @@ class AbstractListMenu(BasicNavigationMenu):
         self.assistance = False
         (str_option, _sep, arg) = command.partition(" ")
         if str_option in self.filter_options and arg:
-            self.filters.append(RegexFilter(self.filter_options[str_option].name, arg))
+            try:
+                if self.filter_options[str_option].type is date:
+                    (start, _sep, end) = arg.partition(" ")
+                    if end:
+                        self.filters.append(
+                            PeriodFilter(
+                                self.filter_options[str_option].name,
+                                date.fromisoformat(start),
+                                date.fromisoformat(end),
+                            )
+                        )
+                    else:
+                        self.filters.append(
+                            DateFilter(
+                                self.filter_options[str_option].name,
+                                date.fromisoformat(start),
+                            )
+                        )
+                else:
+                    self.filters.append(
+                        RegexFilter(self.filter_options[str_option].name, arg)
+                    )
+            except ValueError as e:
+                # TODO: show a better error message
+                print(e)
+
             return "self"
         if str_option == "r":
             if arg:
