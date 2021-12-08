@@ -11,7 +11,7 @@ class EmployeeMenu(AbstractMenu):
     """This class controles Abstract Menu"""
 
     def show(self):
-        print("--- Real Estate Menu ---")
+        print("--- Employee Menu ---")
         print("1. Register a new employee")
         print("2. Find an employee")
         print("3. Display list of employees")
