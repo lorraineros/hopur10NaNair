@@ -94,7 +94,7 @@ class EditingMenu(AbstractMenu):
                 self.message_from_child = lambda message: setattr(
                     self.entity, self.options[option].name, message.messages["id"]
                 )
-                return IdPickerMenu(self.options[option].metadata.get("model")())
+                return IdPickerMenu(self.options[option].metadata.get("id")())
         if option in self.options and arg:
             setattr(self.entity, self.options[option].name, arg)
             return "self"
