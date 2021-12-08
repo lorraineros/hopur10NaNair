@@ -55,18 +55,24 @@ class WorkRequestMenu(SimpleMenu):
         print("-" * 114)
 
     def print_work_request(self, work):
+        if work.is_open:
+            state = "Open"
+        else:
+            state = "Close"
         print(
             """
 Title: {}
 Location: {}
 Real Estate: {}
 Priority: {}
+State: {}
 Description: {}
         """.format(
                 work.title,
                 work.location,
                 work.real_estate,
                 work.priority,
+                state,
                 work.description,
             )
         )
@@ -74,10 +80,10 @@ Description: {}
     def print_work_report(self, workr):
         employee = LogicAPI().get(Employee, workr.employee_id)
         contractor = LogicAPI().get(Contractor, workr.contractor_id)
-        if workr.ready:
-            is_ready = "Yes"
+        if workr.done:
+            is_ready = "Ready"
         else:
-            is_ready = "No"
+            is_ready = "Not ready"
         print(
             """
 ID: {}
@@ -87,7 +93,7 @@ Contractor's fee: {}
 Description: {}
 Material Cost: {}
 Date: {}
-Ready: {}
+State: {}
 Comment: {}
         """.format(
                 workr.id,
@@ -121,11 +127,14 @@ Comment: {}
             
             print()
             if ready:
-                work.is_open = 0 # Need to change the value of is_open in json file
+                work.is_open = 0 # To-Do: Need to change the value of is_open in json file
                 print("Work report is approved successfully!")
+                comment = input("Enter comment: ")
+                workr.comment = comment # To-Do: Need to change the value of comment in json file
             else:
                 print("Work report is not ready to approve")
             print()
+            
 
 class FindWorkRequestMenu(WorkRequestMenu):
     def show(self):
