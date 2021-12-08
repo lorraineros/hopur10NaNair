@@ -79,6 +79,7 @@ Description: {}
             is_ready = "No"
         print(
             """
+ID: {}
 Employee: {}
 Contractors: {}
 Contractor's fee: {}
@@ -88,6 +89,7 @@ Date: {}
 Ready: {}
 Comment: {}
         """.format(
+                workr.id,
                 employee.name,
                 contractor.name,
                 workr.contractors_fee,
@@ -98,7 +100,30 @@ Comment: {}
                 workr.comment,
             )
         )
+    def approve_work(self, work, work_report_list):
+        approve_input = input("Do you want to accept work report (Y/N)? ")
+    
+        if approve_input.lower() == "y":
+            id = input("Enter id to choose a work report: ")
+            is_id = LogicAPI().work_report_id_check(id)
 
+            while not is_id:
+                print("Sorry did not find work request, try again.")
+                id = input("Enter id to choose a work report: ")
+                is_id = LogicAPI().work_report_id_check(id)
+
+            ready = True
+            for workr in work_report_list:
+                workr = LogicAPI().get(WorkReport, int(id))
+                if not workr.ready:
+                    ready = False
+            
+            if ready:
+                work.is_open = 0 # Need to change the value of is_open in json file
+                print("Work report is approved successfully!")
+            else:
+                print("Work report is not ready to approve")
+            print()
 
 class FindWorkRequestMenu(WorkRequestMenu):
     def show(self):
@@ -117,7 +142,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
             print("Find Work by ID:")
             print()
             self.display_all_work_requests()
-            self.display_all_work_reports()
+            #self.display_all_work_reports()
             self.find_work_by_id()
             return ChangingMenu()
         elif command == "2":
@@ -207,15 +232,17 @@ class FindWorkRequestMenu(WorkRequestMenu):
         print(f"--- Work Request ---")
         self.print_work_request(work)
 
-        work_report_id = 0
+        work_report_list = []
         for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
             if workr.work_request_id == int(id):
-                work_report_id = workr_id
+                work_report_list.append(workr_id)
 
-        if work_report_id:
-            workr = LogicAPI().get(WorkReport, int(work_report_id))
+        if work_report_list:
             print(f"--- Work Report ---")
-            self.print_work_report(workr)
+            for work_report in work_report_list:
+                workr = LogicAPI().get(WorkReport, int(work_report))
+                self.print_work_report(workr)
+            self.approve_work(work, work_report_list)
 
     def real_estate_input(self):
         real_est_id = input("Enter real estate ID to choose a work request: ")
