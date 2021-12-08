@@ -4,12 +4,14 @@ from src.ui.common_menus import BackQuitMenu
 
 class ContractorMenuUserEmp(ContractorMenu):
     def show(self):
+        """This function shows the menu for ContractorMenu"""
         print("1. Find a contractor")
         print("2. Display list of contractors")
         print("b. Back")
         print("q. Quit")
 
     def handle_input(self, command):
+        """This function handles input for ContractMenu"""
         if command == "1":
             self.display_all_contractors()
             self.find_contractor()
