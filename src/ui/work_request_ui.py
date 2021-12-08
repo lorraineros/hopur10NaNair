@@ -80,7 +80,7 @@ Description: {}
     def print_work_report(self, workr):
         employee = LogicAPI().get(Employee, workr.employee_id)
         contractor = LogicAPI().get(Contractor, workr.contractor_id)
-        if workr.ready:
+        if workr.done:
             is_ready = "Ready"
         else:
             is_ready = "Not ready"
