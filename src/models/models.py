@@ -1,8 +1,7 @@
-from dataclasses import dataclass, field
-import json
-from typing import Dict, Any, MutableSet, TypeVar
-import dataclasses
 import datetime
+from abc import abstractmethod
+from dataclasses import dataclass, field
+from typing import Any, Dict, TypeVar
 
 M = TypeVar("M")
 
@@ -27,6 +26,10 @@ class Model:
     @classmethod
     def model_name(cls):
         return cls.__name__
+
+    @abstractmethod
+    def short_name(self):
+        pass
 
 
 @dataclass
@@ -134,6 +137,10 @@ class WorkReport(Model):
     ready: bool = field(default=False)
     comment: str = field(default="")
 
+    @classmethod
+    def model_name(cls):
+        return "Work report"
+
 
 @dataclass
 class RealEstate(Model):
@@ -157,10 +164,6 @@ class RealEstate(Model):
     destination: int = field(
         default=int(), metadata={"id": True, "model": lambda: WorkRequest}
     )
-
-    @classmethod
-    def model_name(cls):
-        return "Work report"
 
     def short_name(self):
         return self.address

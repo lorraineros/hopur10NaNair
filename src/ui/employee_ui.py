@@ -4,7 +4,7 @@ from src.ui.abstract_menu import AbstractMenu
 from src.ui.common_menus import ChangingMenu
 from src.ui.creation_menu import CreationMenu
 from src.ui.destination_ui import DestinationMenu
-from src.ui.list_menu import AbstractListMenu
+from src.ui.list_menu import EditPickerMenu
 
 
 class EmployeeMenu(AbstractMenu):
@@ -25,7 +25,7 @@ class EmployeeMenu(AbstractMenu):
         elif command == "2":
             return FindEmployee()
         elif command == "3":
-            return AbstractListMenu(Employee)
+            return EditPickerMenu(Employee)
         elif command == "b":
             return "back"
         elif command == "q":

@@ -5,6 +5,7 @@ from src.ui.common_menus import BackQuitMenu, ChangingMenu
 from src.ui.creation_menu import CreationMenu
 from src.ui.contractor_ui import ContractorMenu
 from src.ui.employee_ui import EmployeeMenu
+from src.ui.list_menu import EditPickerMenu
 from src.ui.real_estate_ui import RealEstateMenu
 
 
@@ -18,6 +19,7 @@ class WorkRequestMenu(SimpleMenu):
         return [
             ("Register a new work request", CreationMenu, WorkRequest),
             ("Find work request", FindWorkRequestMenu),
+            ("List of work requests", EditPickerMenu, WorkRequest),
         ]
 
     def display_all_work_requests(self):

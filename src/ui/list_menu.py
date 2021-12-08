@@ -6,7 +6,7 @@ from typing import List, Type
 from src.logic.logic_api import LogicAPI
 from src.logic.utilities import RegexFilter
 from src.models.models import M
-from src.ui.abstract_menu import AbstractMenu, BasicNavigationMenu
+from src.ui.abstract_menu import BasicNavigationMenu
 from src.ui.utilities import MessageToParent
 
 # commented to prevent circular imports
@@ -107,7 +107,7 @@ class AbstractListMenu(BasicNavigationMenu):
             if arg:
                 # if the argument is a valid int then remove that filter
                 if arg.isdigit() and int(arg) > 0 and int(arg) <= len(self.filters):
-                    self.filters.pop(z(arg) - 1)
+                    self.filters.pop(int(arg) - 1)
                     return "self"
             else:
                 # if only "r" is input then clear all filters
