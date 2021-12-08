@@ -194,7 +194,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
             return "quit"
 
     def find_work_by_id(self):
-        id = input("Enter id to choose a work request: ")
+        id = input("Enter work request id to choose a work request: ")
         is_id = LogicAPI().work_id_check(id)
 
         while not is_id:
@@ -302,7 +302,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
         print("-" * 94)
 
     def display_work_by_date(self):
-        date = input("Enter date to choose a work request (YYYY-MM-DD): ")
+        date = input("Enter date to choose a work report (YYYY-MM-DD): ")
 
         print(f"{'--- List of Work Requests by {} ---':^94}".format(date))
         print("-" * 94)
@@ -311,10 +311,11 @@ class FindWorkRequestMenu(WorkRequestMenu):
         )
         print("-" * 94)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            if work.start_date == date or work.end_date == date:
-                print(
-                    f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
-                )
+            for (work_id, workr) in LogicAPI().get_all(WorkReport).items():
+                if work.id == workr.work_request_id and workr.date == date:
+                    print(
+                        f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
+                    )
         print("-" * 94)
 
     def find_work_by_period(self):  # To-Do: Need to rethink the dates for work request!

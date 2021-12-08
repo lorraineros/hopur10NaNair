@@ -66,13 +66,14 @@ class RealEstateMenu(AbstractMenu):
     def print_addresses(self):
         """This function prints all possible addresses that a real estate can have."""
         list_of_addresses = LogicAPI().address_list()
-        print(f"{'--- List of Addresses ---':^25}")
-        print("-" * 25)
-        print(f"| {'Addresses':^21} |")
-        print("-" * 25)
-        for address in list_of_addresses:
-            print(f"| {address:<21} |")
-        print("-" * 25)
+        print(f"{'--- List of Addresses ---':^30}")
+        print("-" * 30)
+        print(f"| {'ID':^2} | {'Addresses':^21} |")
+        print("-" * 30)
+        for i in range(len(list_of_addresses)):
+            address = list_of_addresses[i]
+            print(f"| {i+1:<2} | {address:<21} |")
+        print("-" * 30)
         print()
 
     def display_real_estate_by_dest(self):
@@ -205,20 +206,21 @@ class RealEstateSearch(RealEstateMenu):
     def find_real_estate_by_address(self):
         """This function displays a list of real estate filtered by a address, i.e. displays only the real estates by a certain address."""
         self.print_addresses()
-        address_input = input("Enter address to filter Real Estate: ")
-        is_address = LogicAPI().address_check(address_input)
+        address_input = input("Enter address ID to filter Real Estate: ")
+        address = LogicAPI().address_list()[int(address_input)-1]
+        is_address = LogicAPI().address_check(address)
 
         while not is_address:
             print("Sorry did not find address, try again.")
             address_input = input("Enter address to see Real Estate: ")
-            is_address = LogicAPI().address_check(address_input)
+            is_address = LogicAPI().address_check(address)
 
         print(f"{'--- List of Real Estate by Address ---':^52}")
         print("-" * 52)
         print(f"| {'ID':^3} | {'Address':^21} | {'Real Estate Number':^18} |")
         print("-" * 52)
         for (real_est_id, real_est) in LogicAPI().get_all(RealEstate).items():
-            if real_est.address == address_input:
+            if real_est.address == address:
                 print(
                     f"| {real_est.id:<3} | {real_est.address:<21} | {real_est.real_estate_number:<18} |"
                 )
