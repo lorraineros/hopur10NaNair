@@ -25,24 +25,24 @@ class WorkRequestMenu(SimpleMenu):
 
     def display_all_work_requests(self):
         print()
-        print(f"{'--- List of Work Requests ---':^92}")
-        print("-" * 92)
+        print(f"{'--- List of Work Requests ---':^80}")
+        print("-" * 80)
         print(
-            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^10} |"
         )
-        print("-" * 92)
+        print("-" * 80)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
             print(
-                f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date} |"
             )
-        print("-" * 92)
+        print("-" * 80)
 
     def display_all_work_reports(self):
         print()
         print(f"{'--- List of Work Reports ---':^114}")
         print("-" * 114)
         print(
-            f"| {'ID':^2} | {'Work Request':^48} | {'Employee':^21} | {'Contractor':^16} | {'Date':^11} |"
+            f"| {'ID':^3} | {'Work Request':^48} | {'Employee':^21} | {'Contractor':^16} | {'Date':^11} |"
         )
         print("-" * 114)
         for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
@@ -50,7 +50,7 @@ class WorkRequestMenu(SimpleMenu):
             emp = LogicAPI().get(Employee, workr.employee_id)
             contr = LogicAPI().get(Contractor, workr.contractor_id)
             print(
-                f"| {workr.id:<2} | {workr.work_request_id:<2} | {work_request.title:<43} | {emp.name:<21} | {contr.name_of_company:<16} | {workr.date:<11} |"
+                f"| {workr.id:<3} | {workr.work_request_id:<3} | {work_request.title:<43} | {emp.name:<21} | {contr.name_of_company:<16} | {workr.date:<11} |"
             )
         print("-" * 114)
 
@@ -289,13 +289,13 @@ class FindWorkRequestMenu(WorkRequestMenu):
             )
             print("-" * 92)
             print(
-                f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+                f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
             )
             print("-" * 92)
             for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
                 if work.real_estate == real_est.real_estate_number:
                     print(
-                        f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                        f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
                     )
             print("-" * 92)
 
@@ -308,13 +308,13 @@ class FindWorkRequestMenu(WorkRequestMenu):
         )
         print("-" * 92)
         print(
-            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
         )
         print("-" * 92)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
             if work.real_estate == real_est.real_estate_number and start <= work.start_date <= end and start <= work.end_date <= end:
                 print(
-                    f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                    f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
                 )
         print("-" * 92)
 
@@ -339,14 +339,14 @@ class FindWorkRequestMenu(WorkRequestMenu):
             print(f"{'--- List of Work Requests by {} ---':^92}".format(emp.name))
             print("-" * 92)
             print(
-                f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+                f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
             )
             print("-" * 92)
             for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
                 for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
                     if workr.employee_id == emp.id and work_id == workr.work_request_id:
                         print(
-                            f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                            f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
                         )
             print("-" * 92)
 
@@ -359,14 +359,14 @@ class FindWorkRequestMenu(WorkRequestMenu):
         )
         print("-" * 92)
         print(
-            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
         )
         print("-" * 92)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
             for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
                 if workr.employee_id == emp.id and work_id == workr.work_request_id and start <= work.start_date <= end and start <= work.end_date <= end:
                     print(
-                        f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                        f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
                     )
         print("-" * 92)
 
@@ -391,14 +391,14 @@ class FindWorkRequestMenu(WorkRequestMenu):
             print(f"{'--- List of Work Requests by {} ---':^92}".format(contr.name_of_company))
             print("-" * 92)
             print(
-                f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+                f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
             )
             print("-" * 92)
             for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
                 for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
                     if workr.contractor_id == contr.id and work_id == workr.work_request_id:
                         print(
-                            f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                            f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
                         )
             print("-" * 92)
 
@@ -411,31 +411,31 @@ class FindWorkRequestMenu(WorkRequestMenu):
         )
         print("-" * 92)
         print(
-            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
         )
         print("-" * 92)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
             for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
                 if workr.contractor_id == contr.id and work_id == workr.work_request_id and start <= work.start_date <= end and start <= work.end_date <= end:
                     print(
-                        f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                        f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
                     )
         print("-" * 92)
 
     def display_work_by_date(self):
-        date = input("Enter work report date to choose a work request (YYYY-MM-DD): ")
+        date = input("Enter date to choose a work request (YYYY-MM-DD): ")
 
         print(f"{'--- List of Work Requests by {} ---':^92}".format(date))
         print("-" * 92)
         print(
-            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^10} |"
         )
         print("-" * 92)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
             for (work_id, workr) in LogicAPI().get_all(WorkReport).items():
                 if work.id == workr.work_request_id and workr.date == date:
                     print(
-                        f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                        f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date} |"
                     )
         print("-" * 92)
 
@@ -446,14 +446,14 @@ class FindWorkRequestMenu(WorkRequestMenu):
                 start_date, end_date
             )
         )
-        print("-" * 92)
+        print("-" * 80)
         print(
-            f"| {'ID':^2} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^10} |"
         )
-        print("-" * 92)
+        print("-" * 80)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            if start <= work.start_date <= end and start <= work.end_date <= end:
+            if start <= work.date <= end:
                 print(
-                    f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                    f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date} |"
                 )
-        print("-" * 92)
+        print("-" * 80)
