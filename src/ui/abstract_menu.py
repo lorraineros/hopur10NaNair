@@ -4,6 +4,7 @@ from src.ui.utilities import MessageToParent
 
 
 class AbstractMenu(ABC):
+    """This class is for abstrct menu"""
     is_root = False
     _inbox = None
 
@@ -22,12 +23,14 @@ class AbstractMenu(ABC):
 
 
 class BasicNavigationMenu(AbstractMenu):
+    """This class is for basic navigation menu"""
     def show(self):
         if not self.is_root:
             print("b. Back")
         print("q. Quit")
 
     def handle_input(self, command):
+        """This function handels input for basic navigation menu"""
         if command == "b":
             return "back"
         elif command == "q":
@@ -35,6 +38,7 @@ class BasicNavigationMenu(AbstractMenu):
 
 
 class SimpleMenu(BasicNavigationMenu):
+    """This class is for simple menu"""
     @property
     def header(self):
         return f"--- {self.__class__.__name__} ---"
@@ -52,6 +56,7 @@ class SimpleMenu(BasicNavigationMenu):
         super().show()
 
     def handle_input(self, command):
+        """This finction handels input for simpel menu"""
         if command.isdigit():
             choice = int(command) - 1
             if choice < len(self.options):
