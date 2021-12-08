@@ -101,17 +101,17 @@ class WorkRequest(Model):
         default=datetime.date.today(),
         metadata={"pretty_name": "Date"})
 
-    # TODO: consider removal vvv
-    start_date: datetime.date = field(
-        default=datetime.date.today(),
-        metadata={"pretty_name": "Start Date"},
-    )
-    end_date: datetime.date = field(
-        default=datetime.date.today(),
-        metadata={"pretty_name": "End Date"},
-    )
-    repeated_work: datetime.timedelta = field(default=datetime.timedelta(days=7))
-    # TODO: consider removal ^^^
+    # # TODO: consider removal vvv
+    # start_date: datetime.date = field(
+    #     default=datetime.date.today(),
+    #     metadata={"pretty_name": "Start Date"},
+    # )
+    # end_date: datetime.date = field(
+    #     default=datetime.date.today(),
+    #     metadata={"pretty_name": "End Date"},
+    # )
+    # repeated_work: datetime.timedelta = field(default=datetime.timedelta(days=7))
+    # # TODO: consider removal ^^^
     description: str = field(
         default="", metadata={"pretty_name": "Description", "required": True}
     )
@@ -119,9 +119,9 @@ class WorkRequest(Model):
     is_open: bool = field(default=True, metadata={"required": True})
 
     def __post_init__(self):
-        # self.date = datetime.date.fromisoformat(self.start_date)
-        self.start_date = datetime.date.fromisoformat(self.start_date)
-        self.end_date = datetime.date.fromisoformat(self.end_date)
+        self.date = datetime.date.fromisoformat(self.date)
+        # self.start_date = datetime.date.fromisoformat(self.start_date)
+        # self.end_date = datetime.date.fromisoformat(self.end_date)
 
     @classmethod
     def model_name(cls):
