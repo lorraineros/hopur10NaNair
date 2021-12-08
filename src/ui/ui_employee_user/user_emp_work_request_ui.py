@@ -28,7 +28,7 @@ class EmpFindWorkRequestMenu(
     def show(self):
         return super().show()
 
-    def handle_input(self, command):
+    def handle_input(self, command): # This handle_input can't be the same as for the Manager because the Employee is not allowed to change the work requests.
         return super().handle_input(command)
         """
         if command == "1":
