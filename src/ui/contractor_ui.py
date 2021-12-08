@@ -39,7 +39,7 @@ class ContractorMenu(AbstractMenu):
         print("-" * 45)
         for (contr_id, contr) in LogicAPI().get_all(Contractor).items():
             contr_location = LogicAPI().get(Destination, contr.location)
-            print(f"| {contr.id:<3} | {contr.name:<16} | {contr_location.name:<16} |")
+            print(f"| {contr.id:<3} | {contr.name_of_company:<16} | {contr_location.name:<16} |")
         print("-" * 45)
         print()
 
