@@ -93,7 +93,7 @@ class AbstractListMenu(BasicNavigationMenu):
 
         print()
         print("h. Help")
-        print(f"c. Create {self.model.short_name()}")
+        print(f"c. Create {self.model.model_name()}")
         print()
         super().show()
 
