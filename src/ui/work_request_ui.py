@@ -283,21 +283,21 @@ class FindWorkRequestMenu(WorkRequestMenu):
             self.display_work_by_real_estate_in_time_range(real_est)
         else:
             print(
-                f"{'--- List of Work Requests by {} ---':^92}".format(
+                f"{'--- List of Work Requests by {} ---':^80}".format(
                     real_est.real_estate_number
                 )
             )
-            print("-" * 92)
+            print("-" * 80)
             print(
-                f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+                f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^10} |"
             )
-            print("-" * 92)
+            print("-" * 80)
             for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
                 if work.real_estate == real_est.real_estate_number:
                     print(
-                        f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                        f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date} |"
                     )
-            print("-" * 92)
+            print("-" * 80)
 
     def display_work_by_real_estate_in_time_range(self, real_est):
         start_date, end_date, start, end = self.period_input()
@@ -306,17 +306,17 @@ class FindWorkRequestMenu(WorkRequestMenu):
                 real_est.real_estate_number, start_date, end_date
             )
         )
-        print("-" * 92)
+        print("-" * 80)
         print(
-            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^10} |"
         )
-        print("-" * 92)
+        print("-" * 80)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            if work.real_estate == real_est.real_estate_number and start <= work.start_date <= end and start <= work.end_date <= end:
+            if work.real_estate == real_est.real_estate_number and start <= work.date <= end:
                 print(
-                    f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                    f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date} |"
                 )
-        print("-" * 92)
+        print("-" * 80)
 
     def emp_input(self):
         emp_id = input("Enter employee id to choose a work request: ")
@@ -336,19 +336,19 @@ class FindWorkRequestMenu(WorkRequestMenu):
         if by_time_range.lower() == "y":
             self.display_work_by_employee_in_time_range(emp)
         else:
-            print(f"{'--- List of Work Requests by {} ---':^92}".format(emp.name))
-            print("-" * 92)
+            print(f"{'--- List of Work Requests by {} ---':^80}".format(emp.name))
+            print("-" * 80)
             print(
-                f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+                f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^10} |"
             )
-            print("-" * 92)
+            print("-" * 80)
             for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
                 for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
                     if workr.employee_id == emp.id and work_id == workr.work_request_id:
                         print(
-                            f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                            f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date} |"
                         )
-            print("-" * 92)
+            print("-" * 80)
 
     def display_work_by_employee_in_time_range(self, emp):
         start_date, end_date, start, end = self.period_input()
@@ -357,18 +357,18 @@ class FindWorkRequestMenu(WorkRequestMenu):
                 emp.name, start_date, end_date
             )
         )
-        print("-" * 92)
+        print("-" * 80)
         print(
-            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^10} |"
         )
-        print("-" * 92)
+        print("-" * 80)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
             for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
-                if workr.employee_id == emp.id and work_id == workr.work_request_id and start <= work.start_date <= end and start <= work.end_date <= end:
+                if workr.employee_id == emp.id and work_id == workr.work_request_id and start <= work.date <= end:
                     print(
-                        f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                        f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date} |"
                     )
-        print("-" * 92)
+        print("-" * 80)
 
     def contr_input(self):
         contr_id = input("Enter contractor id to choose a work request: ")
@@ -388,19 +388,19 @@ class FindWorkRequestMenu(WorkRequestMenu):
         if by_time_range.lower() == "y":
             self.display_work_by_contractor_in_time_range(contr)
         else:
-            print(f"{'--- List of Work Requests by {} ---':^92}".format(contr.name_of_company))
-            print("-" * 92)
+            print(f"{'--- List of Work Requests by {} ---':^80}".format(contr.name_of_company))
+            print("-" * 80)
             print(
-                f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
+                f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^10} |"
             )
-            print("-" * 92)
+            print("-" * 80)
             for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
                 for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
                     if workr.contractor_id == contr.id and work_id == workr.work_request_id:
                         print(
-                            f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
+                            f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date} |"
                         )
-            print("-" * 92)
+            print("-" * 80)
 
     def display_work_by_contractor_in_time_range(self, contr):
         start_date, end_date, start, end = self.period_input()
@@ -409,40 +409,39 @@ class FindWorkRequestMenu(WorkRequestMenu):
                 contr.name_of_company, start_date, end_date
             )
         )
-        print("-" * 92)
-        print(
-            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'From':^10} | {'To':^10} |"
-        )
-        print("-" * 92)
-        for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
-                if workr.contractor_id == contr.id and work_id == workr.work_request_id and start <= work.start_date <= end and start <= work.end_date <= end:
-                    print(
-                        f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.start_date} | {work.end_date} |"
-                    )
-        print("-" * 92)
-
-    def display_work_by_date(self):
-        date = input("Enter date to choose a work request (YYYY-MM-DD): ")
-
-        print(f"{'--- List of Work Requests by {} ---':^92}".format(date))
-        print("-" * 92)
+        print("-" * 80)
         print(
             f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^10} |"
         )
-        print("-" * 92)
+        print("-" * 80)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            for (work_id, workr) in LogicAPI().get_all(WorkReport).items():
-                if work.id == workr.work_request_id and workr.date == date:
+            for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
+                if workr.contractor_id == contr.id and work_id == workr.work_request_id and start <= work.date <= end:
                     print(
                         f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date} |"
                     )
-        print("-" * 92)
+        print("-" * 80)
+
+    def display_work_by_date(self):
+        date = input("Enter date to choose a work request (YYYY-MM-DD): ")
+        
+        print(f"{'--- List of Work Requests by {} ---':^94}".format(date))
+        print("-" * 80)
+        print(
+            f"| {'ID':^3} | {'Title':^43} | {'Real estate':^11} | {'Date':^11} |"
+        )
+        print("-" * 80)
+        for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
+            if work.id == work.id and work.date == date:
+                print(
+                    f"| {work.id:<3} | {work.title:<43} | {work.real_estate:<11} | {work.date:<11} |"
+            )
+        print("-" * 80)
 
     def find_work_by_period(self):  # To-Do: Need to rethink the dates for work request!
         start_date, end_date, start, end = self.period_input()
         print(
-            f"{'--- List of Work Requests by {} - {} ---':^92}".format(
+            f"{'--- List of Work Requests by {} - {} ---':^80}".format(
                 start_date, end_date
             )
         )
