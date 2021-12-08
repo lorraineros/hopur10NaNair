@@ -98,8 +98,8 @@ class WorkRequest(Model):
         },
     )
     date: datetime.date = field(
-        default=datetime.date.today(),
-        metadata={"pretty_name": "Date"})
+        default=datetime.date.today(), metadata={"pretty_name": "Date"}
+    )
 
     # # TODO: consider removal vvv
     # start_date: datetime.date = field(
@@ -119,9 +119,8 @@ class WorkRequest(Model):
     is_open: bool = field(default=True, metadata={"required": True})
 
     def __post_init__(self):
-        self.date = datetime.date.fromisoformat(self.date)
-        # self.start_date = datetime.date.fromisoformat(self.start_date)
-        # self.end_date = datetime.date.fromisoformat(self.end_date)
+        if not isinstance(self.date, datetime.date):
+            self.date = datetime.date.fromisoformat(self.date)
 
     @classmethod
     def model_name(cls):
