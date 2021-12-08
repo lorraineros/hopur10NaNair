@@ -113,11 +113,11 @@ Afrakstur dagsins:
 
 -   Andri Þór: Vann í WorkRequestUI og WorkRequestLogic. Bætti einnig við UserControl
 -   Andriy:
--   Anh:
+-   Anh: Ég og Lorraine tengdum work report við work request, lagaði svo WorkRequest json og model
 -   Ari:
 -   Arnaldur: Nú er hægt að sía í list menu og maður getur notað lista til að velja id
     þegar maður er að búa til eða breyta gögnum.
--   Lorraine:
+-   Lorraine: Ég og Anh tengdum work report við work request, lagaði WorkReport json og model
 
 ### 8. desember 2021
 
