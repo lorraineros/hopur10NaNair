@@ -41,6 +41,12 @@ class LogicAPI(metaclass=Singleton):
     def employee_list(self):
         return EmployeeStorage().get_all()
 
+    def employee_id_check(self, employee_id):
+        return EmployeeLogic().id_check(employee_id)
+
+    def yes_no_check(self, yes_no_input):
+        return EmployeeLogic().yes_no_check(yes_no_input)
+
     def address_list(self):
         return RealEstateLogic().get_address_list()
 
@@ -59,17 +65,11 @@ class LogicAPI(metaclass=Singleton):
     def dest_check(self, dest_input):
         return DestinationLogic().dest_check(dest_input)
 
-    def employee_id_check(self, employee_id):
-        return EmployeeLogic().id_check(employee_id)
-
     def work_id_check(self, work_id):
         return WorkRequestLogic().id_check(work_id)
 
     def work_report_id_check(self, work_id):
         return WorkReportLogic().id_check(work_id)
-
-    def yes_no_check(self, yes_no_input):
-        return EmployeeLogic().yes_no_check(yes_no_input)
 
     def real_est_work_check(self, real_est):
         return WorkRequestLogic().real_est_work_check(real_est)
