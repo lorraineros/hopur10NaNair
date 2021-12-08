@@ -97,6 +97,10 @@ class WorkRequest(Model):
             "id": lambda: RealEstate,
         },
     )
+    date: datetime.date = field(
+        default=datetime.date.today(),
+        metadata={"pretty_name": "Date"})
+
     # TODO: consider removal vvv
     start_date: datetime.date = field(
         default=datetime.date.today(),
@@ -115,6 +119,7 @@ class WorkRequest(Model):
     is_open: bool = field(default=True, metadata={"required": True})
 
     def __post_init__(self):
+        # self.date = datetime.date.fromisoformat(self.start_date)
         self.start_date = datetime.date.fromisoformat(self.start_date)
         self.end_date = datetime.date.fromisoformat(self.end_date)
 
