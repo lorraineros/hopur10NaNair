@@ -4,12 +4,14 @@ from src.ui.common_menus import BackQuitMenu
 
 class EmployeeMenuUserEmp(EmployeeMenu):
     def show(self):
+        """This function shows the menu for EmployeeMenu"""
         print("1. Find an employee")
         print("2. Display list of employees")
         print("b. Back")
         print("q. Quit")
 
     def handle_input(self, command):
+        """This function handels input for EmployeeMenu"""
         if command == "1":
             return FindEmployeeUserEmp()
         elif command == "2":
@@ -35,6 +37,7 @@ class EmployeeMenuUserEmp(EmployeeMenu):
 
 class FindEmployeeUserEmp(FindEmployee):
     def show(self):
+        """This function shows the menu to Finde User Employee"""
         return super().show()
 
     def handle_input(self, command):

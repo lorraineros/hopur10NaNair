@@ -6,6 +6,7 @@ from src.ui.creation_menu import CreationMenu
 
 
 class ContractorMenu(AbstractMenu):
+    """This class is for contract menu"""
     def show(self):
         print("1. Register a new contractor")
         print("2. Find a contractor")
@@ -14,6 +15,7 @@ class ContractorMenu(AbstractMenu):
         print("q. Quit")
 
     def handle_input(self, command):
+        """This function handles input for contractor menu"""
         if command == "1":
             return CreationMenu(Contractor)
             pass
@@ -30,6 +32,7 @@ class ContractorMenu(AbstractMenu):
             return "quit"
 
     def display_all_contractors(self):
+        """This function displays all contractors"""
         print(f"{'--- List of Contractor ---':^45}")
         print("-" * 45)
         print(f"| {'ID':^3} | {'Name':^16} | {'Location':^16} |")
@@ -41,6 +44,7 @@ class ContractorMenu(AbstractMenu):
         print()
 
     def find_contractor(self):
+        """This function helps finding specific all contractors"""
         id_input = input("Enter ID to choose a contractor: ")
         is_id = LogicAPI().contractor_id_check(id_input)
 
@@ -54,6 +58,7 @@ class ContractorMenu(AbstractMenu):
         print()
 
     def print_contractor(self, contr):
+        """This function prints contractors"""
         contr_location = LogicAPI().get(Destination, contr.location)
         print(
             """

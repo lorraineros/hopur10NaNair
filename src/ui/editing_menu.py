@@ -8,6 +8,7 @@ from src.ui.utilities import MessageToParent
 
 
 class EditingMenu(AbstractMenu):
+    """This class is for editing menu"""
     def __init__(self, entity: Model):
         self.entity = entity
         self.constants = [
@@ -24,6 +25,7 @@ class EditingMenu(AbstractMenu):
         self.assistance = False  # help was taken :(
 
     def show(self):
+        """This function shows fields to edit"""
         max_const_len = max(len(prop.name) for prop in self.constants) + 1
         max_var_len = max(len(prop.name) for prop in self.variables) + 1
 
@@ -74,6 +76,7 @@ class EditingMenu(AbstractMenu):
             )
 
     def handle_input(self, command: str):
+        """This function handles input editing menu"""
         # if option in self.options and self.options[option].type is Id:
         #     pass
         #     # TODO: return ListMenu(self.options[option].metadata.get("model_ref"))

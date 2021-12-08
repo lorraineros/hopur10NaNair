@@ -16,6 +16,7 @@ from src.ui.utilities import MessageToParent
 
 
 class AbstractListMenu(BasicNavigationMenu):
+    """This class contains menu functions"""
     def __init__(self, model: Type[M]):
         self.model = model
         self.term_size = shutil.get_terminal_size()
@@ -33,6 +34,7 @@ class AbstractListMenu(BasicNavigationMenu):
         self.assistance = False
 
     def show(self):
+        """This function shows menu based on display used"""
         entities = LogicAPI().get_filtered(self.model, self.filters)
         self._update_term_size()
         # calculate column widths
@@ -99,6 +101,7 @@ class AbstractListMenu(BasicNavigationMenu):
         super().show()
 
     def handle_input(self, command: str):
+        """This function handles input from menu"""
         self.assistance = False
         (str_option, _sep, arg) = command.partition(" ")
         if str_option in self.filter_options and arg:
@@ -150,18 +153,21 @@ class AbstractListMenu(BasicNavigationMenu):
 
     @staticmethod
     def _draw_border(start, fill, split, end, column_widths):
+        """Function that draws border according to size of terminla"""
         line = start
         for (field, width) in column_widths.items():
             line += fill * (2 + width) + split
         print(line[:-1] + end)
 
     def _update_term_size(self):
+        """Function that gets size of terminal"""
         self.term_size = shutil.get_terminal_size()
         if self.term_size.columns == 0 or self.term_size.lines == 0:
             self.term_size = os.terminal_size((80, 24))
 
 
 class EditPickerMenu(AbstractListMenu):
+    """This class is to edit to PickerMenu"""
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
             from src.ui.editing_menu import EditingMenu
