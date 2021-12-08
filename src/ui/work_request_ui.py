@@ -119,6 +119,7 @@ Comment: {}
                 if not workr.ready:
                     ready = False
             
+            print()
             if ready:
                 work.is_open = 0 # Need to change the value of is_open in json file
                 print("Work report is approved successfully!")
@@ -244,6 +245,22 @@ class FindWorkRequestMenu(WorkRequestMenu):
                 workr = LogicAPI().get(WorkReport, int(work_report))
                 self.print_work_report(workr)
             self.approve_work(work, work_report_list)
+    
+    def convert_to_datetime(self, work):
+        year, month, day = work.start_date.split("-")
+        date_start = datetime(int(year), int(month), int(day))
+        year_end, month_end, day_end = work.end_date.split("-")
+        date_end = datetime(int(year_end), int(month_end), int(day_end))
+        return date_start, date_end
+    
+    def period_input(self):
+        start_date = input("Enter start date (YYYY-MM-DD): ")
+        end_date = input("Enter end date (YYYY-MM-DD): ")
+        start_year, start_month, start_day = start_date.split("-")
+        end_year, end_month, end_day = end_date.split("-")
+        start = datetime(int(start_year), int(start_month), int(start_day))
+        end = datetime(int(end_year),int(end_month), int(end_day))
+        return start_date, end_date, start, end
 
     def real_estate_input(self):
         real_est_id = input("Enter real estate ID to choose a work request: ")
@@ -259,6 +276,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
 
     def display_work_by_real_estate(self, real_est):
         by_time_range = input("Do you want to display work done in a specific time range(Y/N)? ")
+        print()
         if by_time_range.lower() == "y":
             self.display_work_by_real_estate_in_time_range(real_est)
         else:
@@ -280,13 +298,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
             print("-" * 94)
 
     def display_work_by_real_estate_in_time_range(self, real_est):
-        start_date = input("Enter start date (YYYY-MM-DD): ")
-        end_date = input("Enter end date (YYYY-MM-DD): ")
-        start_year, start_month, start_day = start_date.split("-")
-        end_year, end_month, end_day = end_date.split("-")
-        start = datetime(int(start_year), int(start_month), int(start_day))
-        end = datetime(int(end_year),int(end_month), int(end_day))
-        
+        start_date, end_date, start, end = self.period_input()
         print(
             f"{'--- List of Work Requests by {} in time range {} - {} ---'}".format(
                 real_est.real_estate_number, start_date, end_date
@@ -298,11 +310,8 @@ class FindWorkRequestMenu(WorkRequestMenu):
         )
         print("-" * 94)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            year, month, day = work.start_date.split("-")
-            date = datetime(int(year), int(month), int(day))
-            year_end, month_end, day_end = work.end_date.split("-")
-            date_end = datetime(int(year_end), int(month_end), int(day_end))
-            if work.real_estate == real_est.real_estate_number and start <= date <= end and start <= date_end <= end:
+            date_start, date_end = self.convert_to_datetime(work)
+            if work.real_estate == real_est.real_estate_number and start <= date_start <= end and start <= date_end <= end:
                 print(
                     f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
                 )
@@ -322,6 +331,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
 
     def display_work_by_employee(self, emp):
         by_time_range = input("Do you want to display work done in a specific time range(Y/N)? ")
+        print()
         if by_time_range.lower() == "y":
             self.display_work_by_employee_in_time_range(emp)
         else:
@@ -340,13 +350,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
             print("-" * 94)
 
     def display_work_by_employee_in_time_range(self, emp):
-        start_date = input("Enter start date (YYYY-MM-DD): ")
-        end_date = input("Enter end date (YYYY-MM-DD): ")
-        start_year, start_month, start_day = start_date.split("-")
-        end_year, end_month, end_day = end_date.split("-")
-        start = datetime(int(start_year), int(start_month), int(start_day))
-        end = datetime(int(end_year),int(end_month), int(end_day))
-        
+        start_date, end_date, start, end = self.period_input()
         print(
             f"{'--- List of Work Requests by {} in time range {} - {} ---'}".format(
                 emp.name, start_date, end_date
@@ -359,11 +363,8 @@ class FindWorkRequestMenu(WorkRequestMenu):
         print("-" * 94)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
             for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
-                year, month, day = work.start_date.split("-")
-                date = datetime(int(year), int(month), int(day))
-                year_end, month_end, day_end = work.end_date.split("-")
-                date_end = datetime(int(year_end), int(month_end), int(day_end))
-                if workr.employee_id == emp.id and work_id == workr.work_request_id and start <= date <= end and start <= date_end <= end:
+                date_start, date_end = self.convert_to_datetime(work)
+                if workr.employee_id == emp.id and work_id == workr.work_request_id and start <= date_start <= end and start <= date_end <= end:
                     print(
                         f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
                     )
@@ -383,6 +384,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
 
     def display_work_by_contractor(self, contr):
         by_time_range = input("Do you want to display work done in a specific time range(Y/N)? ")
+        print()
         if by_time_range.lower() == "y":
             self.display_work_by_contractor_in_time_range(contr)
         else:
@@ -401,13 +403,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
             print("-" * 94)
 
     def display_work_by_contractor_in_time_range(self, contr):
-        start_date = input("Enter start date (YYYY-MM-DD): ")
-        end_date = input("Enter end date (YYYY-MM-DD): ")
-        start_year, start_month, start_day = start_date.split("-")
-        end_year, end_month, end_day = end_date.split("-")
-        start = datetime(int(start_year), int(start_month), int(start_day))
-        end = datetime(int(end_year),int(end_month), int(end_day))
-        
+        start_date, end_date, start, end = self.period_input()
         print(
             f"{'--- List of Work Requests by {} in time range {} - {} ---'}".format(
                 contr.name, start_date, end_date
@@ -420,11 +416,8 @@ class FindWorkRequestMenu(WorkRequestMenu):
         print("-" * 94)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
             for (workr_id, workr) in LogicAPI().get_all(WorkReport).items():
-                year, month, day = work.start_date.split("-")
-                date = datetime(int(year), int(month), int(day))
-                year_end, month_end, day_end = work.end_date.split("-")
-                date_end = datetime(int(year_end), int(month_end), int(day_end))
-                if workr.contractor_id == contr.id and work_id == workr.work_request_id and start <= date <= end and start <= date_end <= end:
+                date_start, date_end = self.convert_to_datetime(work)
+                if workr.contractor_id == contr.id and work_id == workr.work_request_id and start <= date_start <= end and start <= date_end <= end:
                     print(
                         f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
                     )
@@ -448,13 +441,7 @@ class FindWorkRequestMenu(WorkRequestMenu):
         print("-" * 94)
 
     def find_work_by_period(self):  # To-Do: Need to rethink the dates for work request!
-        start_date = input("Enter start date (YYYY-MM-DD): ")
-        end_date = input("Enter end date (YYYY-MM-DD): ")
-        start_year, start_month, start_day = start_date.split("-")
-        end_year, end_month, end_day = end_date.split("-")
-        start = datetime(int(start_year), int(start_month), int(start_day))
-        end = datetime(int(end_year),int(end_month), int(end_day))
-
+        start_date, end_date, start, end = self.period_input()
         print(
             f"{'--- List of Work Requests by {} - {} ---':^94}".format(
                 start_date, end_date
@@ -466,11 +453,8 @@ class FindWorkRequestMenu(WorkRequestMenu):
         )
         print("-" * 94)
         for (work_id, work) in LogicAPI().get_all(WorkRequest).items():
-            year, month, day = work.start_date.split("-")
-            date = datetime(int(year), int(month), int(day))
-            year_end, month_end, day_end = work.end_date.split("-")
-            date_end = datetime(int(year_end), int(month_end), int(day_end))
-            if start <= date <= end and start <= date_end <= end:
+            date_start, date_end = self.convert_to_datetime(work)
+            if start <= date_start <= end and start <= date_end <= end:
                 print(
                     f"| {work.id:<2} | {work.title:<43} | {work.real_estate:<11} | {work.start_date:<11} | {work.end_date:<11} |"
                 )
