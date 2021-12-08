@@ -97,7 +97,7 @@ Help message:
         if command == "c":
             LogicAPI().set(self.entity)
             return "back"
-        super().handle_input(command)
+        return super().handle_input(command)
 
 
 def id_validator(string: str):
