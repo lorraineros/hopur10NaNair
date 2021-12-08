@@ -1,12 +1,12 @@
-from typing import Dict, Type, List
+from typing import Dict, List, Type
 
 from src.logic.contractor_logic import ContractorLogic
 from src.logic.destination_logic import DestinationLogic
 from src.logic.employee_logic import EmployeeLogic
 from src.logic.real_estate_logic import RealEstateLogic
 from src.logic.utilities import RegexFilter
-from src.logic.work_request_logic import WorkRequestLogic
 from src.logic.work_report_logic import WorkReportLogic
+from src.logic.work_request_logic import WorkRequestLogic
 from src.models.models import M, Model
 from src.storage.employee_storage import EmployeeStorage
 from src.storage.storage import StorageAPI
@@ -26,10 +26,10 @@ class LogicAPI(metaclass=Singleton):
     def get_all(self, model: Type[M]) -> Dict[int, M]:
         return self.storage.get_all(model)
 
-    def get_filtered(self, model: Type[M], filters: List[RegexFilter]) -> Dict[int, M]:
-        result = self.get_all(model)
+    def get_filtered(self, model: Type[M], filters: List[RegexFilter]) -> List[M]:
+        result = list(self.get_all(model).values())
         for filt in filters:
-            result = {k: v for k, v in result.items() if filt(v)}
+            result = [entity for entity in result if filt(v)]
         return result
 
     def set(self, model: Model):

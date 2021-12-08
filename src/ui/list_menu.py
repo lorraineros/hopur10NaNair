@@ -32,10 +32,16 @@ class AbstractListMenu(HelpfulMenu):
             + field.metadata.get("pretty_name", field.name)
             for i, field in enumerate(dataclasses.fields(self.model))
         }
+        self.sort_order = []
 
     def show(self):
         """This function shows menu based on display used"""
+        # fetch data from storage
         entities = LogicAPI().get_filtered(self.model, self.filters)
+        # sort data
+        for (field, rev) in self.sort_order:
+            entities.sort(key=lambda ent: getattr(ent, field), reverse=rev)
+
         self._update_term_size()
         # calculate column widths
         column_widths = {
@@ -43,7 +49,7 @@ class AbstractListMenu(HelpfulMenu):
             for field in dataclasses.fields(self.model)
         }
         for k in column_widths:
-            for entity in entities.values():
+            for entity in entities:
                 value = str(getattr(entity, k))
                 column_widths[k] = max(column_widths[k], *map(len, value.split("\n")))
 
@@ -71,7 +77,7 @@ class AbstractListMenu(HelpfulMenu):
         self._draw_border("\u251C", "\u2500", "\u253C", "\u2524", column_widths)
 
         # table contents
-        for entity in entities.values():
+        for entity in entities:
             line = "\u2502"
             for (field, width) in column_widths.items():
                 prop = str(getattr(entity, field.name))
@@ -100,23 +106,30 @@ class AbstractListMenu(HelpfulMenu):
         super().show()
 
     def _help_message(self):
-        return (
-            "TODO: write a help message that exlplains adding filters, "
-            "removing them and all this menu can do"
-        )
+        return """
+Help message:
+    A column can be sorted by inputting the capital letter in it's header.
+    A column can be filtered by inputting the capital letter in it's header,
+    followed by a string that should be matched.
+    If a column represents a date, the string should be a valid date in the format: yyyy-mm-dd
+
+    All filters can be removed with the 'r' command.
+    Individual filters can be removed by inputting 'r' followed by the number of the filter shown.
+            """
 
     def handle_input(self, command: str):
         """This function handles input from menu"""
         self._user_message = ""
-        (str_option, _sep, arg) = command.partition(" ")
-        if str_option in self.filter_options and arg:
-            try:
-                if self.filter_options[str_option].type is date:
-                    (start, _sep, end) = arg.partition(" ")
+        (str_option, _, arg) = command.partition(" ")
+        if str_option in self.filter_options and arg:  # Filtering
+            chosen_column = self.filter_options[str_option]
+            if chosen_column.type is date:
+                (start, _, end) = arg.partition(" ")
+                try:
                     if end:
                         self.filters.append(
                             PeriodFilter(
-                                self.filter_options[str_option],
+                                chosen_column,
                                 date.fromisoformat(start),
                                 date.fromisoformat(end),
                             )
@@ -124,18 +137,32 @@ class AbstractListMenu(HelpfulMenu):
                     else:
                         self.filters.append(
                             DateFilter(
-                                self.filter_options[str_option],
+                                chosen_column,
                                 date.fromisoformat(start),
                             )
                         )
-                else:
-                    self.filters.append(
-                        RegexFilter(self.filter_options[str_option], arg)
-                    )
-            except ValueError as e:
-                self._user_message = e
+                except ValueError as e:
+                    self._user_message = e
+                    return
+            else:
+                self.filters.append(RegexFilter(self.filter_options[str_option], arg))
             return "self"
-        if str_option == "r":
+        elif str_option in self.filter_options:  # Sorting
+            sort_target = self.filter_options[str_option].name
+
+            if len(self.sort_order) > 0 and self.sort_order[-1][0] == sort_target:
+                # toggle sort order
+                self.sort_order[-1] = (sort_target, not self.sort_order[-1][1])
+            elif (sort_target, False) in self.sort_order:
+                self.sort_order.remove((sort_target, False))
+                self.sort_order.append((sort_target, False))
+            elif (sort_target, True) in self.sort_order:
+                self.sort_order.remove((sort_target, True))
+                self.sort_order.append((sort_target, True))
+            else:
+                self.sort_order.append((sort_target, False))
+            return "self"
+        elif str_option == "r":
             if arg:
                 # if the argument is a valid int then remove that filter
                 if arg.isdigit() and int(arg) > 0 and int(arg) <= len(self.filters):
@@ -145,7 +172,7 @@ class AbstractListMenu(HelpfulMenu):
                 # if only "r" is input then clear all filters
                 self.filters.clear()
                 return "self"
-        if command == "c":
+        elif command == "c":
             from src.ui.creation_menu import CreationMenu
 
             return CreationMenu(self.model)
