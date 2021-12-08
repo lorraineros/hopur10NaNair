@@ -6,7 +6,7 @@ from typing import List, Type
 from src.logic.logic_api import LogicAPI
 from src.logic.utilities import RegexFilter
 from src.models.models import M
-from src.ui.abstract_menu import AbstractMenu
+from src.ui.abstract_menu import AbstractMenu, BasicNavigationMenu
 from src.ui.utilities import MessageToParent
 
 # commented to prevent circular imports
@@ -14,7 +14,7 @@ from src.ui.utilities import MessageToParent
 # from src.ui.creation_menu import CreationMenu
 
 
-class AbstractListMenu(AbstractMenu):
+class AbstractListMenu(BasicNavigationMenu):
     def __init__(self, model: Type[M]):
         self.model = model
         self.term_size = shutil.get_terminal_size()
@@ -93,10 +93,9 @@ class AbstractListMenu(AbstractMenu):
 
         print()
         print("h. Help")
-        print(f"c. Create {self.model.__name__}")
+        print(f"c. Create {self.model.short_name()}")
         print()
-        print("b. Back")
-        print("q. Quit")
+        super().show()
 
     def handle_input(self, command: str):
         (str_option, _sep, arg) = command.partition(" ")
@@ -120,10 +119,7 @@ class AbstractListMenu(AbstractMenu):
         if command == "h":
             self.assistance = True
             return "self"
-        if command == "b":
-            return "back"
-        if command == "q":
-            return "quit"
+        return super().handle_input()
 
     @staticmethod
     def _draw_border(start, fill, split, end, column_widths):

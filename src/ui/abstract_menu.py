@@ -21,7 +21,20 @@ class AbstractMenu(ABC):
         self._inbox = message
 
 
-class SimpleMenu(AbstractMenu):
+class BasicNavigationMenu(AbstractMenu):
+    def show(self):
+        if not self.is_root:
+            print("b. Back")
+        print("q. Quit")
+
+    def handle_input(self, command):
+        if command == "b":
+            return "back"
+        elif command == "q":
+            return "quit"
+
+
+class SimpleMenu(BasicNavigationMenu):
     @property
     def header(self):
         return f"--- {self.__class__.__name__} ---"
@@ -36,9 +49,7 @@ class SimpleMenu(AbstractMenu):
         for (i, option) in enumerate(self.options):
             print(f"{i+1}. {option[0]}")
         print()
-        if not self.is_root:
-            print("b. Back")
-        print("q. Quit")
+        super().show()
 
     def handle_input(self, command):
         if command.isdigit():
@@ -48,7 +59,4 @@ class SimpleMenu(AbstractMenu):
                     return self.options[choice][1](self.options[choice][2])
                 else:
                     return self.options[choice][1]()
-        elif command == "b":
-            return "back"
-        elif command == "q":
-            return "quit"
+        return super().handle_input(command)

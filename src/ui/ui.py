@@ -31,6 +31,10 @@ class App:
             #     pass
             # else:
             #     os.system("cls" if os.name == "nt" else "clear")
+
+            # Breadcrumb
+            print(" -> ".join(menu.__class__.__name__ for menu in self.stack[1:]))
+            print()
             self.stack[-1].show()
             print()
             # this handles an issue that occurs with when inputting

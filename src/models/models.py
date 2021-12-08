@@ -24,11 +24,18 @@ class Model:
     def from_dict(cls, dictionary: Dict[str, Any]):
         return cls(**dictionary)
 
+    @classmethod
+    def model_name(cls):
+        return cls.__class__.__name__
+
 
 @dataclass
 class BaseEmployee(Model):
     name: str = field(default="", metadata={"required": True})
     phone: str = field(default="", metadata={"required": True})
+
+    def short_name(self):
+        return self.name
 
 
 @dataclass
@@ -95,6 +102,13 @@ class WorkRequest(Model):
     repeated_work: datetime.timedelta = field(default=datetime.timedelta(days=7))
     is_open: bool = field(default=True)
 
+    @classmethod
+    def model_name(cls):
+        return "Work request"
+
+    def short_name(self):
+        return self.title
+
 
 @dataclass
 class WorkReport(Model):
@@ -143,6 +157,13 @@ class RealEstate(Model):
     destination: int = field(
         default=int(), metadata={"id": True, "model": lambda: WorkRequest}
     )
+
+    @classmethod
+    def model_name(cls):
+        return "Work report"
+
+    def short_name(self):
+        return self.address
 
     def __str__(self):
         return """
@@ -196,6 +217,9 @@ class Destination(Model):
     country: str = field(
         default="", metadata={"pretty_name": "Country", "required": True}
     )
+
+    def short_name(self):
+        return self.name
 
     def __str__(self):
         return """
