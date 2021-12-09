@@ -101,8 +101,9 @@ class AbstractListMenu(HelpfulMenu):
             print("r. Reset filters")
 
         print()
-        print(f"c. Create {self.model.model_name()}")
-        print()
+        if self.is_manager:
+            print(f"c. Create {self.model.model_name()}")
+            print()
         super().show()
 
     def _help_message(self):
@@ -172,7 +173,7 @@ Help message:
                 # if only "r" is input then clear all filters
                 self.filters.clear()
                 return "self"
-        elif command == "c":
+        elif command == "c" and self.is_manager:
             from src.ui.creation_menu import CreationMenu
 
             return CreationMenu(self.model)
