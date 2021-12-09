@@ -21,6 +21,7 @@ class AbstractMenu(ABC):
         if self._user_message:
             print()
             print(self._user_message)
+            self._user_message = ""
 
     @abstractmethod
     def handle_input(self, command):
