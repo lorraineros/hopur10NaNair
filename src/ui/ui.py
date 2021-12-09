@@ -26,10 +26,7 @@ class App:
         """This function runs the generic menues"""
         os.system("cls" if os.name == "nt" else "clear")
         while True:
-            # if type(self.stack[-1]) == type(ChangingMenu()) or type(self.stack[-1]) == type(BackQuitMenu()):
-            #     pass
-            # else:
-            #     os.system("cls" if os.name == "nt" else "clear")
+            os.system("cls" if os.name == "nt" else "clear")
 
             # Breadcrumb
             print(" -> ".join(menu.name() for menu in self.stack[1:]))
