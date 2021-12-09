@@ -14,7 +14,9 @@ class AbstractMenu(ABC):
 
     is_root = False
     _inbox = None
-    _user_message = ""
+
+    def __init__(self):
+        self._user_message = ""
 
     @abstractmethod
     def show(self):

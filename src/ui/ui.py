@@ -1,4 +1,3 @@
-import os
 from typing import List
 
 from src.logic.logic_api import LogicAPI
@@ -11,11 +10,6 @@ from ..ui.employee_ui import EmployeeMenu
 from ..ui.real_estate_ui import RealEstateMenu
 from ..ui.work_request_ui import WorkRequestMenu
 
-# from src.ui.ui_employee_user.user_emp_employee_ui import EmployeeMenuUserEmp
-# from src.ui.ui_employee_user.user_emp_contractor_ui import ContractorMenuUserEmp
-# from src.ui.ui_employee_user.user_emp_real_estate_ui import RealEstateMenuUserEmp
-# from src.ui.ui_employee_user.user_emp_work_request_ui import WorkRequestMenuUserEmp
-
 
 class App:
     def __init__(self):
@@ -24,7 +18,7 @@ class App:
 
     def run(self):
         """This function runs the generic menues"""
-        os.system("cls" if os.name == "nt" else "clear")
+        # os.system("cls" if os.name == "nt" else "clear")
         while True:
             # if type(self.stack[-1]) == type(ChangingMenu()) or type(self.stack[-1]) == type(BackQuitMenu()):
             #     pass

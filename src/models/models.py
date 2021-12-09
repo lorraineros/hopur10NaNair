@@ -75,7 +75,7 @@ class Employee(BaseEmployee):
 
     def __post_init__(self):
         self.is_manager = bool(self.is_manager)
-    
+
     def short_name(self):
         return f"{self.id}. {self.name}"
 
@@ -128,6 +128,22 @@ class WorkRequest(Model):
     description: str = field(
         default="",
         metadata={"pretty_name": "Description", "required": True},
+    )
+    start_date: datetime.date = field(
+        default=None,
+        metadata={"pretty_name": "Start date", "initializer": True, "required": True},
+    )
+    end_date: datetime.date = field(
+        default=None,
+        metadata={"pretty_name": "End date", "initializer": True, "required": True},
+    )
+    repeat_period: datetime.timedelta = field(
+        default=None,
+        metadata={
+            "pretty_name": "Repeat period",
+            "initializer": True,
+            "required": True,
+        },
     )
 
     def __post_init__(self):

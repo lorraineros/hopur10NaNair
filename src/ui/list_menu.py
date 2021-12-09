@@ -1,13 +1,13 @@
 import dataclasses
-from datetime import date
 import os
 import shutil
+from datetime import date
 from typing import List, Type
 
 from src.logic.logic_api import LogicAPI
 from src.logic.utilities import DateFilter, PeriodFilter, RegexFilter
 from src.models.models import M
-from src.ui.abstract_menu import BasicNavigationMenu, HelpfulMenu
+from src.ui.abstract_menu import HelpfulMenu
 from src.ui.utilities import MessageToParent
 
 # commented to prevent circular imports
@@ -19,18 +19,23 @@ class AbstractListMenu(HelpfulMenu):
     """This class contains menu functions"""
 
     def __init__(self, model: Type[M]):
+        super().__init__()
         self.model = model
         self.term_size = shutil.get_terminal_size()
+        self.fields = [
+            field
+            for field in dataclasses.fields(self.model)
+            if not field.metadata.get("initializer")
+        ]
         self.filters: List[RegexFilter] = []
         self.filter_options = {
-            chr(ord("A") + i): field
-            for i, field in enumerate(dataclasses.fields(self.model))
+            chr(ord("A") + i): field for i, field in enumerate(self.fields)
         }
         self.options = {
             field.name: chr(ord("A") + i)
             + ". "
             + field.metadata.get("pretty_name", field.name)
-            for i, field in enumerate(dataclasses.fields(self.model))
+            for i, field in enumerate(self.fields)
         }
         self.sort_order = []
 
@@ -47,7 +52,8 @@ class AbstractListMenu(HelpfulMenu):
         # start with the widths of the headers
         column_widths = {
             field.name: len(self.options[field.name])
-            for field in dataclasses.fields(self.model)
+            for field in self.fields
+            if not field.metadata.get("initialized")
         }
         # find the widest value
         for k in column_widths:
@@ -55,14 +61,14 @@ class AbstractListMenu(HelpfulMenu):
                 value = str(getattr(entity, k))
                 column_widths[k] = max(column_widths[k], *map(len, value.split("\n")))
         # hidden fields have a length of 6
-        for field in dataclasses.fields(self.model):
+        for field in self.fields:
             if field.metadata.get("hidden"):
                 column_widths[field.name] = max(column_widths[field.name], 6)
 
         # figure out which fields fit on the screen
         fields_to_show = []
         total_width = 1
-        for field in dataclasses.fields(self.model):
+        for field in self.fields:
             next_thing = (2 + column_widths[field.name]) + 1
             if total_width + next_thing <= self.term_size.columns:
                 total_width += next_thing

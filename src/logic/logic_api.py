@@ -1,3 +1,5 @@
+import dataclasses
+from copy import deepcopy
 from typing import Dict, List, Type
 
 from src.logic.contractor_logic import ContractorLogic
@@ -7,7 +9,7 @@ from src.logic.real_estate_logic import RealEstateLogic
 from src.logic.utilities import RegexFilter
 from src.logic.work_report_logic import WorkReportLogic
 from src.logic.work_request_logic import WorkRequestLogic
-from src.models.models import M, Model
+from src.models.models import M, Model, WorkRequest
 from src.storage.employee_storage import EmployeeStorage
 from src.storage.storage import StorageAPI
 from src.utilities.singleton import Singleton
@@ -32,8 +34,27 @@ class LogicAPI(metaclass=Singleton):
             result = [entity for entity in result if filt(entity)]
         return result
 
-    def set(self, model: Model):
-        self.storage.set(model)
+    def set(self, entity: Model) -> bool:
+        # check if required fields are all set
+        for field in dataclasses.fields(entity):
+            if not bool(getattr(entity, field.name)) and field.metadata.get("required"):
+                return False
+        if isinstance(entity, WorkRequest):
+            print("its a workreq")
+            current_date = entity.start_date
+            while current_date < entity.end_date:
+                new_entity = deepcopy(entity)
+                # for field in dataclasses.fields(entity):
+                #     if field.metadata.get("initializer"):
+                new_entity.id = 0
+                new_entity.date = current_date
+
+                print(f"adding {new_entity}")
+                self.storage.set(new_entity)
+                current_date += entity.repeat_period
+        else:
+            self.storage.set(entity)
+        return True
 
     def flush_to_disk(self):
         self.storage.flush_to_disk()
