@@ -136,7 +136,7 @@ def date_validator(string: str):
     year, month, day = string.split("-")
     isValidDate = True
     try:
-        datetime.datetime(int(year), int(month), int(day))
+        date.datetime(int(year), int(month), int(day))
     except ValueError:
         isValidDate = False
     if isValidDate:
