@@ -121,7 +121,7 @@ class WorkRequest(Model):
     )
     date: datetime.date = field(
         default=datetime.date.today(),
-        metadata={"pretty_name": "Date", "required": True},
+        metadata={"pretty_name": "Date", "derived": True, "required": True},
     )
     priority: str = field(
         default="",
