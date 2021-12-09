@@ -1,26 +1,29 @@
-[
-    {
-        "location": "Kulusuk",
-        "working_hours": "08:00 - 16:00",
-        "phone": "888-3434",
-        "name_of_contact": "Jón Ólafsson",
-        "name": "JÓ-Contractors",
-        "id": 1
-    },
-    {
-        "location": "Thorshofn",
-        "working_hours": "09:00 - 17:00",
-        "phone": "777-2525",
-        "name_of_contact": "Guðmundur Guðmundsson",
-        "name": "GG-Contractors",
-        "id": 2
-    },
-    {
-        "location": "Longyearbyen",
-        "working_hours": "08:00 - 17:00",
-        "phone": "666-7887",
-        "name_of_contact": "Jóhann Jónsdóttir",
-        "name": "JJ-Contractors",
-        "id": 3
+{
+    "next_id": 4,
+    "data": {
+        "1": {
+            "location": 1,
+            "working_hours": "08:00 - 16:00",
+            "phone": "888-3434",
+            "name": "J\u00f3n \u00d3lafsson",
+            "name_of_company": "J\u00d3-Contractors",
+            "id": 1
+        },
+        "2": {
+            "location": 2,
+            "working_hours": "09:00 - 17:00",
+            "phone": "777-2525",
+            "name": "Gu\u00f0mundur Gu\u00f0mundsson",
+            "name_of_company": "GG-Contractors",
+            "id": 2
+        },
+        "3": {
+            "location": 3,
+            "working_hours": "08:00 - 17:00",
+            "phone": "666-7887",
+            "name": "J\u00f3hann J\u00f3nsd\u00f3ttir",
+            "name_of_company": "JJ-Contractors",
+            "id": 3
+        }
     }
-]
+}

@@ -43,7 +43,7 @@ class Storage:
         self.model = model
         self.loaded = False
         self.modified = False
-        self.file_name = f"new_data/{self.model.__name__}.json"
+        self.file_name = f"data/{self.model.__name__}.json"
         self._next_id = 0
 
         self.data = {}

@@ -1,3 +1,4 @@
+import os
 from typing import List
 
 from src.logic.logic_api import LogicAPI
@@ -121,4 +122,3 @@ class MainMenu(SimpleMenu):
             ("Contractor", ContractorMenu),
             ("Destination", DestinationMenu),
         ]
-
