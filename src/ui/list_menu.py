@@ -44,16 +44,22 @@ class AbstractListMenu(HelpfulMenu):
 
         self._update_term_size()
         # calculate column widths
+        # start with the widths of the headers
         column_widths = {
             field.name: len(self.options[field.name])
             for field in dataclasses.fields(self.model)
         }
+        # find the widest value
         for k in column_widths:
             for entity in entities:
                 value = str(getattr(entity, k))
                 column_widths[k] = max(column_widths[k], *map(len, value.split("\n")))
+        # hidden fields have a length of 6
+        for field in dataclasses.fields(self.model):
+            if field.metadata.get("hidden"):
+                column_widths[field.name] = max(column_widths[field.name], 6)
 
-        # figure out which fields to show
+        # figure out which fields fit on the screen
         fields_to_show = []
         total_width = 1
         for field in dataclasses.fields(self.model):
@@ -90,6 +96,8 @@ class AbstractListMenu(HelpfulMenu):
                 if len(line + next_thing) <= self.term_size.columns:
                     if type(prop) is int:
                         line += f" {prop:>{width}} " + "\u2502"
+                    elif field.metadata.get("hidden"):
+                        line += f" {'******':<{width}} " + "\u2502"
                     else:
                         line += f" {prop:<{width}} " + "\u2502"
             print(line)
