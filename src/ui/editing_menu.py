@@ -29,30 +29,32 @@ class EditingMenu(HelpfulMenu):
         max_const_len = max(len(prop.name) for prop in self.constants) + 1
         max_var_len = max(len(prop.name) for prop in self.variables) + 1
 
-        print("Constant properties:")
-        for field in self.constants:
-            # get pretty name for property
-            name = field.metadata.get("pretty_name", field.name)
-            print(f"{name:<{max_const_len}}", end="")
-            # show property if it has a value
-            if field.name in dir(self.entity) and getattr(self.entity, field.name):
-                print(f"= {getattr(self.entity, field.name)}", end="")
+        if self.constants:
+            print("Constant properties:")
+            for field in self.constants:
+                # get pretty name for property
+                name = field.metadata.get("pretty_name", field.name)
+                print(f"{name:<{max_const_len}}", end="")
+                # show property if it has a value
+                if field.name in dir(self.entity) and getattr(self.entity, field.name):
+                    print(f"= {getattr(self.entity, field.name)}", end="")
+                print()
             print()
-        print()
-        print("Modifiable properties:")
-        for (i, field) in self.options.items():
-            # get pretty name for property
-            name = field.metadata.get("pretty_name", field.name)
-            print(
-                f"{str(i) + '.':<{3 if len(self.options) > 9 else 2}} {name:<{max_var_len}}",
-                end="",
-            )
+        if self.variables:
+            print("Modifiable properties:")
+            for (i, field) in self.options.items():
+                # get pretty name for property
+                name = field.metadata.get("pretty_name", field.name)
+                print(
+                    f"{str(i) + '.':<{3 if len(self.options) > 9 else 2}} {name:<{max_var_len}}",
+                    end="",
+                )
 
-            # show property if it has a value
-            if field.name in dir(self.entity) and getattr(self.entity, field.name):
-                print(f"= {getattr(self.entity, field.name)}", end="")
+                # show property if it has a value
+                if field.name in dir(self.entity) and getattr(self.entity, field.name):
+                    print(f"= {getattr(self.entity, field.name)}", end="")
+                print()
             print()
-        print()
         print("c. Confirm changes")
         super().show()
 
