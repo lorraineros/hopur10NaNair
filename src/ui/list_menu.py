@@ -16,7 +16,7 @@ from src.ui.utilities import MessageToParent
 
 
 class AbstractListMenu(HelpfulMenu):
-    """This class contains menu functions"""
+    """This is an abstract class that shows a menu that can be filtered, sorted and more."""
 
     def __init__(self, model: Type[M]):
         super().__init__()
@@ -56,10 +56,20 @@ class AbstractListMenu(HelpfulMenu):
             if not field.metadata.get("initialized")
         }
         # find the widest value
-        for k in column_widths:
+        for field in self.fields:
             for entity in entities:
-                value = str(getattr(entity, k))
-                column_widths[k] = max(column_widths[k], *map(len, value.split("\n")))
+                value = ""
+                if field.metadata.get("id"):
+                    value = (
+                        LogicAPI()
+                        .get(field.metadata.get("id")(), getattr(entity, field.name))
+                        .short_name()
+                    )
+                else:
+                    value = str(getattr(entity, field.name))
+                column_widths[field.name] = max(
+                    column_widths[field.name], *map(len, value.split("\n"))
+                )
         # hidden fields have a length of 6
         for field in self.fields:
             if field.metadata.get("hidden"):
@@ -97,7 +107,15 @@ class AbstractListMenu(HelpfulMenu):
         for entity in entities:
             line = "\u2502"
             for (field, width) in column_widths.items():
-                prop = str(getattr(entity, field.name))
+                prop = ""
+                if field.metadata.get("id"):
+                    prop = (
+                        LogicAPI()
+                        .get(field.metadata.get("id")(), getattr(entity, field.name))
+                        .short_name()
+                    )
+                else:
+                    prop = str(getattr(entity, field.name))
                 next_thing = f" {prop:<{width}} " + "\u2502"
                 if len(line + next_thing) <= self.term_size.columns:
                     if type(prop) is int:
@@ -215,7 +233,10 @@ Help message:
 
 
 class EditPickerMenu(AbstractListMenu):
-    """This class is to edit to PickerMenu"""
+    """This class shows a list of entities that can be chosen and edited"""
+
+    def name(self):
+        return f"Edit picker menu for{self.model.model_name()}"
 
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
@@ -227,6 +248,8 @@ class EditPickerMenu(AbstractListMenu):
 
 
 class IdPickerMenu(AbstractListMenu):
+    """This class shows a list of entities that can be used to pick an ID when editing an entity"""
+
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
             return MessageToParent(id=int(command))
