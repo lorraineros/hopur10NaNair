@@ -114,9 +114,6 @@ class AbstractListMenu(HelpfulMenu):
                         .short_name()
                     )
                 if len(prop) > self.max_column_width:
-                    # print(prop)
-                    # print(repr(prop))
-                    # print(len(prop))
                     prop = prop[: self.max_column_width - 1] + "\u2026"
                 next_thing = f" {prop:<{width}} " + "\u2502"
                 if len(line + next_thing) <= self.term_size.columns:
