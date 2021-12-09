@@ -3,7 +3,6 @@ from typing import List
 
 from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu, BasicNavigationMenu, SimpleMenu
-from src.ui.common_menus import BackQuitMenu, ChangingMenu
 from src.ui.utilities import MessageToParent
 
 from ..ui.contractor_ui import ContractorMenu
@@ -12,10 +11,10 @@ from ..ui.employee_ui import EmployeeMenu
 from ..ui.real_estate_ui import RealEstateMenu
 from ..ui.work_request_ui import WorkRequestMenu
 
-from src.ui.ui_employee_user.user_emp_employee_ui import EmployeeMenuUserEmp
-from src.ui.ui_employee_user.user_emp_contractor_ui import ContractorMenuUserEmp
-from src.ui.ui_employee_user.user_emp_real_estate_ui import RealEstateMenuUserEmp
-from src.ui.ui_employee_user.user_emp_work_request_ui import WorkRequestMenuUserEmp
+# from src.ui.ui_employee_user.user_emp_employee_ui import EmployeeMenuUserEmp
+# from src.ui.ui_employee_user.user_emp_contractor_ui import ContractorMenuUserEmp
+# from src.ui.ui_employee_user.user_emp_real_estate_ui import RealEstateMenuUserEmp
+# from src.ui.ui_employee_user.user_emp_work_request_ui import WorkRequestMenuUserEmp
 
 
 class App:
@@ -100,6 +99,11 @@ class MainMenu(SimpleMenu):
 
     @property
     def header(self):
+
+        if UserControl().is_manager:
+            user = "Manager "
+        else:
+            user = "Employee"
         return """
 ╭──────────────────────────────────────────────────╮
 │        _   _       _   _      _    _             │
@@ -111,10 +115,10 @@ class MainMenu(SimpleMenu):
 │               ╭──────────────────╮               │
 │               │Welcome to NaN Air│               │ 
 │               ├──────────────────┤               │
-│               │  User: Manager   │               │    
+│               │  User: {}  │               │    
 │               ╰──────────────────╯               │
 ╰──────────────────────────────────────────────────╯
-"""
+""".format(user)
 
     @property
     def options(self):
@@ -127,34 +131,34 @@ class MainMenu(SimpleMenu):
         ]
 
 
-class MainMenuUserEmp(SimpleMenu):
-    """This class is the main menu for the employees"""
+# class MainMenuUserEmp(SimpleMenu):
+#     """This class is the main menu for the employees"""
 
-    is_root = True
+#     is_root = True
 
-    @property
-    def header(self):
-        return """
-╭──────────────────────────────────────────────────╮
-│        _   _       _   _      _    _             │
-│       | \ | | __ _| \ | |    / \  (_)_ __        │
-│       |  \| |/ _` |  \| |   / _ \ | | '__|       │
-│       | |\  | (_| | |\  |  / ___ \| | |          │
-│       |_| \_|\__,_|_| \_| /_/   \_\_|_|          │
-│                                                  │
-│               ╭──────────────────╮               │
-│               │Welcome to NaN Air│               │ 
-│               ├──────────────────┤               │
-│               │  User: Employee  │               │    
-│               ╰──────────────────╯               │
-╰──────────────────────────────────────────────────╯
-"""
+#     @property
+#     def header(self):
+#         return """
+# ╭──────────────────────────────────────────────────╮
+# │        _   _       _   _      _    _             │
+# │       | \ | | __ _| \ | |    / \  (_)_ __        │
+# │       |  \| |/ _` |  \| |   / _ \ | | '__|       │
+# │       | |\  | (_| | |\  |  / ___ \| | |          │
+# │       |_| \_|\__,_|_| \_| /_/   \_\_|_|          │
+# │                                                  │
+# │               ╭──────────────────╮               │
+# │               │Welcome to NaN Air│               │ 
+# │               ├──────────────────┤               │
+# │               │  User: Employee  │               │    
+# │               ╰──────────────────╯               │
+# ╰──────────────────────────────────────────────────╯
+# """
 
-    @property
-    def options(self):
-        return [
-            ("Employee", EmployeeMenuUserEmp),
-            ("Real Estate", RealEstateMenuUserEmp),
-            ("Work request", WorkRequestMenuUserEmp),
-            ("Contractor", ContractorMenuUserEmp),
-        ]
+#     @property
+#     def options(self):
+#         return [
+#             ("Employee", EmployeeMenuUserEmp),
+#             ("Real Estate", RealEstateMenuUserEmp),
+#             ("Work request", WorkRequestMenuUserEmp),
+#             ("Contractor", ContractorMenuUserEmp),
+#         ]
