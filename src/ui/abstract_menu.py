@@ -61,7 +61,7 @@ class BasicNavigationMenu(AbstractMenu):
     @abstractmethod
     def handle_input(self, command):
         """This function handles input for basic navigation menu"""
-        if command == "b":
+        if not self.is_root and command == "b":
             return "back"
         elif command == "q":
             return "quit"
