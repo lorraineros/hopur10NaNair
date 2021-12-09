@@ -12,24 +12,24 @@ class EditingMenu(HelpfulMenu):
 
     def __init__(self, entity: Model):
         self.entity = entity
-        self.constants = [
-            field
-            for field in dataclasses.fields(entity)
-            if field.metadata.get("autoinit")
-        ]
-        self.variables = [
-            field
-            for field in dataclasses.fields(entity)
-            if not field.metadata.get("autoinit")
-        ]
+        self.constants = []
+        self.variables = []
+        for field in dataclasses.fields(entity):
+            if field.metadata.get("autoinit") or (
+                not self.is_manager and not field.metadata.get("employee_can_edit")
+            ):
+                self.constants.append(field)
+            else:
+                self.variables.append(field)
+
+        self.transients = []
         self.options = {(i + 1): v for i, v in enumerate(self.variables)}
 
     def show(self):
         """This function shows fields to edit"""
-        max_const_len = max(len(prop.name) for prop in self.constants) + 1
-        max_var_len = max(len(prop.name) for prop in self.variables) + 1
 
         if self.constants:
+            max_const_len = max(len(prop.name) for prop in self.constants) + 1
             print("Constant properties:")
             for field in self.constants:
                 # get pretty name for property
@@ -41,6 +41,7 @@ class EditingMenu(HelpfulMenu):
                 print()
             print()
         if self.variables:
+            max_var_len = max(len(prop.name) for prop in self.variables) + 1
             print("Modifiable properties:")
             for (i, field) in self.options.items():
                 # get pretty name for property
@@ -51,11 +52,15 @@ class EditingMenu(HelpfulMenu):
                 )
 
                 # show property if it has a value
-                if field.name in dir(self.entity) and getattr(self.entity, field.name):
+                if getattr(self.entity, field.name):
                     print(f"= {getattr(self.entity, field.name)}", end="")
                 print()
             print()
-        print("c. Confirm changes")
+        if self.transients:
+            print("Creation parameters:")
+
+        if self.variables or self.transients:
+            print("c. Confirm changes")
         super().show()
 
     def _help_message(self):
