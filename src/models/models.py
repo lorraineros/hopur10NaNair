@@ -105,11 +105,23 @@ class Contractor(BaseEmployee):
     )
     location: int = field(
         default=0,
-        metadata={"pretty_name": "Location", "id": lambda: Destination, "requierd": True},
+        metadata={
+            "pretty_name": "Location",
+            "id": lambda: Destination,
+            "requierd": True,
+        },
     )
 
     def short_name(self):
         return f"{self.id}. {self.name_of_company}"
+
+    @classmethod
+    def command(cls):
+        return "con"
+
+    @classmethod
+    def mentioned_by(cls):
+        return [WorkReport]
 
 
 @dataclass
@@ -169,6 +181,14 @@ class WorkRequest(Model):
 
     def short_name(self):
         return f"{self.id}. {self.title}"
+
+    @classmethod
+    def command(cls):
+        return "req"
+
+    @classmethod
+    def mentioned_by(cls):
+        return [WorkReport]
 
 
 @dataclass
@@ -232,6 +252,10 @@ class WorkReport(Model):
     def model_name(cls):
         return "Work report"
 
+    @classmethod
+    def command(cls):
+        return "rep"
+
 
 @dataclass
 class RealEstate(Model):
@@ -275,6 +299,14 @@ class RealEstate(Model):
     def model_name(cls):
         return "Real Estate"
 
+    @classmethod
+    def command(cls):
+        return "rea"
+
+    @classmethod
+    def mentioned_by(cls):
+        return [WorkRequest]
+
 
 @dataclass
 class Destination(Model):
@@ -289,3 +321,11 @@ class Destination(Model):
 
     def short_name(self):
         return f"{self.id}. {self.country}"
+
+    @classmethod
+    def command(cls):
+        return "dst"
+
+    @classmethod
+    def mentioned_by(cls):
+        return [Employee, Contractor, RealEstate]
