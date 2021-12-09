@@ -70,7 +70,12 @@ class AbstractListMenu(HelpfulMenu):
         line = "\u2502"
         for (field, width) in column_widths.items():
             prop = self.options[field.name]
-            line += f" {prop:<{width}} " + "\u2502"
+            if self.sort_order and field.name == self.sort_order[-1][0]:
+                line += "↑" if self.sort_order[-1][1] else "↓"
+            else:
+                line += " "
+            line += f"{prop:<{width}} "
+            line += "\u2502"
         print(line)
 
         # header/body separator
