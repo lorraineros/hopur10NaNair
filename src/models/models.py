@@ -113,10 +113,6 @@ class WorkRequest(Model):
         default="",
         metadata={"pretty_name": "Title", "required": True},
     )
-    location: str = field(
-        default="",
-        metadata={"pretty_name": "Location", "required": True},
-    )
     real_estate: int = field(
         default=0,
         metadata={
