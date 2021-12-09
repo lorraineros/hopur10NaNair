@@ -10,7 +10,7 @@ from src.ui.list_menu import EditPickerMenu
 class RealEstateMenu(SimpleMenu):
     @property
     def header(self):
-        return "--- Real Estate ---"
+        return "--- Real Estate Menu ---"
     
     @property
     def options(self):
@@ -24,6 +24,8 @@ class RealEstateMenu(SimpleMenu):
                 ("List of real estate", EditPickerMenu, RealEstate)
             ]
 
+    def name(self):
+        return f"Real Estate Menu"
 
     # def show(self):
     #     """This function shows the menu for Real Estate"""

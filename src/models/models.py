@@ -204,6 +204,10 @@ class WorkReport(Model):
         metadata={"pretty_name": "Comment"},
     )
 
+    date: datetime.datetime = field(
+        default=datetime.datetime.now()
+    )
+
     @classmethod
     def model_name(cls):
         return "Work report"

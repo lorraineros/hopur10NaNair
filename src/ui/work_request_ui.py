@@ -13,7 +13,7 @@ from datetime import datetime
 class WorkRequestMenu(SimpleMenu):
     @property
     def header(self):
-        return "--- Work requests ---"
+        return "--- Work Request Menu ---"
 
     @property
     def options(self):
@@ -27,7 +27,8 @@ class WorkRequestMenu(SimpleMenu):
                 ("Register a new work report", CreationMenu, WorkReport),
                 ("List of work requests", EditPickerMenu, WorkRequest)
             ]
-            
+    def name(self):
+        return f"Work Request Menu"
 
 #     def display_all_work_requests(self):
 #         print()

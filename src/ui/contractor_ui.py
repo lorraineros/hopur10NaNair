@@ -10,7 +10,7 @@ class ContractorMenu(SimpleMenu):
     """This class is for contract menu"""
     @property
     def header(self):
-        return "--- Contractor ---"
+        return "--- Contractor Menu ---"
 
     @property
     def options(self):
@@ -23,6 +23,9 @@ class ContractorMenu(SimpleMenu):
             return[
                 ("List of contractors", EditPickerMenu, Contractor)
             ]
+    
+    def name(self):
+        return f"Contractor Menu"
             
     # def show(self):
     #     print("1. Register a new contractor")

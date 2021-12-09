@@ -97,10 +97,10 @@ Help message:
     To change a modifiable property input:
     > <property number> <new value>
 
-    \tFor example, to change the {self.options[1].name} " "property to Angela Merkel, you would write:
+    For example, to change the {self.options[1].name} " "property to Angela Merkel, you would write:
     > 1 Angela Merkel
 
-    \tBecause the {self.options[1].name} property " "is number 1 in the list above
+    Because the {self.options[1].name} property " "is number 1 in the list above
 
     If the the property is a statement like Is Employee a Manager? input either "True" or "False"
     """
@@ -184,6 +184,8 @@ Help message:
                 return "self"
         return super().handle_input(command)
 
+    def name(self):
+        return f"Editing Menu"
 
 def id_validator(string: str):
     if string.isdigit():
