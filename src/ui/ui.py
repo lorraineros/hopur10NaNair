@@ -56,7 +56,9 @@ class App:
             else:
                 self.stack[
                     -1
-                ]._user_message += "I did not understand that dave, try again"
+                ]._user_message += """Chuck Norris does not use spell check. 
+If he happens to misspell a word, Oxford will change the spelling.
+But that does not apply to you try again!"""
 
 
 class UserControl(BasicNavigationMenu):
