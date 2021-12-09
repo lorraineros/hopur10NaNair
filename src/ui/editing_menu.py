@@ -99,6 +99,7 @@ class EditingMenu(HelpfulMenu):
             print()
             print()
 
+        extra_print = False
         for model in self.entity.mentioned_by():
             for field in dataclasses.fields(model):
                 ref = field.metadata.get("id")
@@ -111,7 +112,10 @@ class EditingMenu(HelpfulMenu):
                         if getattr(ent, field.name) == self.entity.id
                     ]
                 ):
+                    extra_print = True
                     print(f"{model.command()}. Show a list of {model.model_name()}")
+        if extra_print:
+            print()
 
         if self.variables or self.transients:
             print("c. Confirm changes")
