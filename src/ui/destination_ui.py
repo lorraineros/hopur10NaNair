@@ -7,7 +7,7 @@ from src.ui.list_menu import EditPickerMenu
 
 
 class DestinationMenu(SimpleMenu):
-    """This class contrlos destination menu"""
+    """This class controls destination menu"""
     @property
     def header(self):
         return "--- Destination ---"
