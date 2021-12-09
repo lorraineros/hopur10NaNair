@@ -1,37 +1,52 @@
 from src.logic.logic_api import LogicAPI
 from src.models.models import Destination
-from src.ui.abstract_menu import AbstractMenu
+from src.ui.abstract_menu import AbstractMenu, SimpleMenu
 from src.ui.common_menus import BackQuitMenu
 from src.ui.creation_menu import CreationMenu
 from src.ui.list_menu import EditPickerMenu
 
 
-class DestinationMenu(AbstractMenu):
+class DestinationMenu(SimpleMenu):
     """This class contrlos destination menu"""
+    @property
+    def header(self):
+        return "--- Destination ---"
 
-    def show(self):
-        print(
-            """
---- Destination Menu ---
-1. Register a new destination   
-2. List of all destinations 
+    @property
+    def options(self):
+        if self.is_manager:
+            return [
+                ("Register a new destination", CreationMenu, Destination),
+                ("List of destinations", EditPickerMenu, Destination)
+            ]
+        else:
+            return[
+                ("List of destinations", EditPickerMenu, Destination)
+            ]
 
-q. Quit
-b. Back
-        """
-        )
+#     def show(self):
+#         print(
+#             """
+# --- Destination Menu ---
+# 1. Register a new destination   
+# 2. List of all destinations 
 
-    def handle_input(self, command):
-        """This function handles input for AbstractMenu"""
+# q. Quit
+# b. Back
+#         """
+#         )
 
-        if command == "1":
-            return CreationMenu(Destination)
-        elif command == "2":
-            return EditPickerMenu(Destination)
-        elif command == "b":
-            return "back"
-        elif command == "q":
-            return "quit"
+#     def handle_input(self, command):
+#         """This function handles input for AbstractMenu"""
+
+#         if command == "1":
+#             return CreationMenu(Destination)
+#         elif command == "2":
+#             return EditPickerMenu(Destination)
+#         elif command == "b":
+#             return "back"
+#         elif command == "q":
+#             return "quit"
 
     # def list_of_all_destinations(self):
     #     """This function handles input for list of all destinations"""

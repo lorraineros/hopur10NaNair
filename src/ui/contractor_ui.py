@@ -1,29 +1,45 @@
 from src.logic.logic_api import LogicAPI
 from src.models.models import Contractor, Destination
-from src.ui.abstract_menu import AbstractMenu
+from src.ui.abstract_menu import AbstractMenu, SimpleMenu
 from src.ui.common_menus import BackQuitMenu, ChangingMenu
 from src.ui.creation_menu import CreationMenu
 from src.ui.list_menu import EditPickerMenu
 
 
-class ContractorMenu(AbstractMenu):
+class ContractorMenu(SimpleMenu):
     """This class is for contract menu"""
-    def show(self):
-        print("1. Register a new contractor")
-        print("2. Display list of contractors")
-        print("b. Back")
-        print("q. Quit")
+    @property
+    def header(self):
+        return "--- Contractor ---"
 
-    def handle_input(self, command):
-        """This function handles input for contractor menu"""
-        if command == "1":
-            return CreationMenu(Contractor)
-        elif command == "2":
-            return EditPickerMenu(Contractor)
-        elif command == "b":
-            return "back"
-        elif command == "q":
-            return "quit"
+    @property
+    def options(self):
+        if self.is_manager:
+            return [
+                ("Register a new contractpr", CreationMenu, Contractor),
+                ("List of contractors", EditPickerMenu, Contractor)
+            ]
+        else:
+            return[
+                ("List of contractors", EditPickerMenu, Contractor)
+            ]
+            
+    # def show(self):
+    #     print("1. Register a new contractor")
+    #     print("2. Display list of contractors")
+    #     print("b. Back")
+    #     print("q. Quit")
+
+    # def handle_input(self, command):
+    #     """This function handles input for contractor menu"""
+    #     if command == "1":
+    #         return CreationMenu(Contractor)
+    #     elif command == "2":
+    #         return EditPickerMenu(Contractor)
+    #     elif command == "b":
+    #         return "back"
+    #     elif command == "q":
+    #         return "quit"
 
 #     def display_all_contractors(self):
 #         """This function displays all contractors"""
