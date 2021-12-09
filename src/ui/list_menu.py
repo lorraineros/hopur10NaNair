@@ -132,7 +132,7 @@ Help message:
     A column can be filtered by inputting the capital letter in it's header,
     followed by a string that should be matched.
     If a column represents a date, the string should be a valid date in the format: yyyy-mm-dd
-    A date column can receive a start and an end date seperated with a space, to show entries within a period: Start(yyyy-mm-dd) End(yyyy-mm-dd)
+    A date column can receive a start and an end date separated with a space, to show entries within a period: Start(yyyy-mm-dd) End(yyyy-mm-dd)
 
     All filters can be removed with the 'r' command.
     Individual filters can be removed by inputting 'r' followed by the number of the filter shown.
@@ -201,7 +201,7 @@ Help message:
 
     @staticmethod
     def _draw_border(start, fill, split, end, column_widths):
-        """Function that draws border according to size of terminla"""
+        """Function that draws border according to size of terminal"""
         line = start
         for (field, width) in column_widths.items():
             line += fill * (2 + width) + split

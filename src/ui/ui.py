@@ -20,10 +20,7 @@ class App:
         """This function runs the generic menues"""
         # os.system("cls" if os.name == "nt" else "clear")
         while True:
-            # if type(self.stack[-1]) == type(ChangingMenu()) or type(self.stack[-1]) == type(BackQuitMenu()):
-            #     pass
-            # else:
-            #     os.system("cls" if os.name == "nt" else "clear")
+            os.system("cls" if os.name == "nt" else "clear")
 
             # Breadcrumb
             print(" -> ".join(menu.name() for menu in self.stack[1:]))
@@ -58,7 +55,9 @@ class App:
             else:
                 self.stack[
                     -1
-                ]._user_message += "I did not understand that dave, try again"
+                ]._user_message += """Chuck Norris does not use spell check. 
+If he happens to misspell a word, Oxford will change the spelling.
+But that does not apply to you try again!"""
 
 
 class UserControl(BasicNavigationMenu):
@@ -123,35 +122,3 @@ class MainMenu(SimpleMenu):
             ("Destination", DestinationMenu),
         ]
 
-
-# class MainMenuUserEmp(SimpleMenu):
-#     """This class is the main menu for the employees"""
-
-#     is_root = True
-
-#     @property
-#     def header(self):
-#         return """
-# ╭──────────────────────────────────────────────────╮
-# │        _   _       _   _      _    _             │
-# │       | \ | | __ _| \ | |    / \  (_)_ __        │
-# │       |  \| |/ _` |  \| |   / _ \ | | '__|       │
-# │       | |\  | (_| | |\  |  / ___ \| | |          │
-# │       |_| \_|\__,_|_| \_| /_/   \_\_|_|          │
-# │                                                  │
-# │               ╭──────────────────╮               │
-# │               │Welcome to NaN Air│               │
-# │               ├──────────────────┤               │
-# │               │  User: Employee  │               │
-# │               ╰──────────────────╯               │
-# ╰──────────────────────────────────────────────────╯
-# """
-
-#     @property
-#     def options(self):
-#         return [
-#             ("Employee", EmployeeMenuUserEmp),
-#             ("Real Estate", RealEstateMenuUserEmp),
-#             ("Work request", WorkRequestMenuUserEmp),
-#             ("Contractor", ContractorMenuUserEmp),
-#         ]

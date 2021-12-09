@@ -19,7 +19,7 @@ class Id:
 class Model:
     id: int = field(
         default=int(),
-        metadata={"autoinit": True, "required": True},
+        metadata={"autoinit": True, "required": True, "pretty_name": "ID",},
     )
 
     @classmethod
@@ -206,11 +206,6 @@ class WorkReport(Model):
         default="",
         metadata={"pretty_name": "Comment"},
     )
-    # TODO: consider removal vvv
-    date: datetime.datetime = field(
-        default=datetime.datetime.now()
-    )  # <<< TODO: consider removal
-    # TODO: consider removal ^^^
 
     @classmethod
     def model_name(cls):
