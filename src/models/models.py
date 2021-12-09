@@ -83,6 +83,9 @@ class Employee(BaseEmployee):
 
     def __post_init__(self):
         self.is_manager = bool(self.is_manager)
+    
+    def short_name(self):
+        return f"{self.id}. {self.name}"
 
 
 @dataclass
@@ -99,6 +102,9 @@ class Contractor(BaseEmployee):
         default=0,
         metadata={"pretty_name": "Location"},
     )
+
+    def short_name(self):
+        return f"{self.id}. {self.name_of_company}"
 
 
 @dataclass
@@ -145,7 +151,7 @@ class WorkRequest(Model):
         return "Work request"
 
     def short_name(self):
-        return self.title
+        return f"{self.id}. {self.title}"
 
 
 @dataclass
@@ -242,12 +248,12 @@ class RealEstate(Model):
         metadata={"pretty_name": "Size"},
     )
 
+    def short_name(self):
+        return f"{self.id}. {self.real_estate_number}"
+
     @classmethod
     def model_name(cls):
         return "Real Estate"
-
-    def short_name(self):
-        return self.address
 
 
 @dataclass
@@ -262,4 +268,4 @@ class Destination(Model):
     )
 
     def short_name(self):
-        return self.name
+        return f"{self.id}. {self.country}"
