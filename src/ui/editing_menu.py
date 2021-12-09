@@ -3,9 +3,10 @@ import os
 from datetime import date, timedelta
 
 from src.logic.logic_api import LogicAPI
-from src.models.models import Model, WorkReport
+from src.logic.utilities import IdFilter
+from src.models.models import Model, RealEstate, WorkReport
 from src.ui.abstract_menu import HelpfulMenu
-from src.ui.list_menu import IdPickerMenu
+from src.ui.list_menu import EditPickerMenu, IdPickerMenu
 
 
 class EditingMenu(HelpfulMenu):
@@ -98,6 +99,20 @@ class EditingMenu(HelpfulMenu):
             print()
             print()
 
+        for model in self.entity.mentioned_by():
+            for field in dataclasses.fields(model):
+                ref = field.metadata.get("id")
+                if (
+                    ref
+                    and ref() == type(self.entity)
+                    and [
+                        ent
+                        for ent in LogicAPI().get_all(model).values()
+                        if getattr(ent, field.name) == self.entity.id
+                    ]
+                ):
+                    print(f"{model.command()}. Show a list of {model.model_name()}")
+
         if self.variables or self.transients:
             print("c. Confirm changes")
         super().show()
@@ -118,6 +133,22 @@ Help message:
 
     def handle_input(self, command: str):
         """This function handles input editing menu"""
+        for model in self.entity.mentioned_by():
+            for field in dataclasses.fields(model):
+                ref = field.metadata.get("id")
+                if (
+                    ref  # if field is an ID field
+                    and ref() == type(self.entity)  # and references the right model
+                    and command == model.command()  # and it's command was input
+                    and [
+                        ent
+                        for ent in LogicAPI().get_all(model).values()
+                        if getattr(ent, field.name) == self.entity.id
+                    ]
+                ):
+                    next_menu = EditPickerMenu(model)
+                    next_menu.filters.append(IdFilter(field, self.entity.id))
+                    return next_menu
         self.options = self.variable_options | self.transient_options
         (str_option, _sep, arg) = command.partition(" ")
         option = int(str_option) if str_option.isdigit() else None

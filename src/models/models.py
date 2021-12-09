@@ -34,6 +34,14 @@ class Model:
     def short_name(self):
         pass
 
+    @classmethod
+    def command(cls):
+        return cls.__name__
+
+    @classmethod
+    def mentioned_by(cls):
+        return []
+
 
 @dataclass
 class BaseEmployee(Model):
@@ -75,6 +83,14 @@ class Employee(BaseEmployee):
 
     def __post_init__(self):
         self.is_manager = bool(self.is_manager)
+
+    @classmethod
+    def command(cls):
+        return "emp"
+
+    @classmethod
+    def mentioned_by(cls):
+        return [WorkReport]
 
 
 @dataclass
