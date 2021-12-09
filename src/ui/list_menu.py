@@ -224,6 +224,9 @@ class EditPickerMenu(AbstractListMenu):
             return EditingMenu(LogicAPI().get(self.model, int(command)))
         else:
             return super().handle_input(command)
+        
+    def name(self):
+        return f"Edit picker menu for {self.model.model_name()}"
 
 
 class IdPickerMenu(AbstractListMenu):

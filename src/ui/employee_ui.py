@@ -10,7 +10,7 @@ from src.ui.list_menu import EditPickerMenu
 class EmployeeMenu(SimpleMenu):
     @property
     def header(self):
-        return "--- Employees ---"
+        return "--- Employee Menu ---"
 
     @property
     def options(self):
@@ -24,6 +24,8 @@ class EmployeeMenu(SimpleMenu):
                 ("List of employees", EditPickerMenu, Employee)
             ]
 
+    def name(self):
+        return f"Employee Menu"
 
 
     # def show(self):

@@ -10,7 +10,7 @@ class DestinationMenu(SimpleMenu):
     """This class controls destination menu"""
     @property
     def header(self):
-        return "--- Destination ---"
+        return "--- Destination Menu ---"
 
     @property
     def options(self):
@@ -23,6 +23,9 @@ class DestinationMenu(SimpleMenu):
             return[
                 ("List of destinations", EditPickerMenu, Destination)
             ]
+    
+    def name(self):
+        return f"Destination Menu"
 
 #     def show(self):
 #         print(

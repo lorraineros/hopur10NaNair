@@ -122,3 +122,5 @@ class MainMenu(SimpleMenu):
             ("Contractor", ContractorMenu),
             ("Destination", DestinationMenu),
         ]
+    def name(self):
+        return "Main Menu"

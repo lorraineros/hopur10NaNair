@@ -184,6 +184,8 @@ Help message:
                 return "self"
         return super().handle_input(command)
 
+    def name(self):
+        return f"Editing Menu"
 
 def id_validator(string: str):
     if string.isdigit():
