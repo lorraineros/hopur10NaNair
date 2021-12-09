@@ -29,7 +29,7 @@ class LogicAPI(metaclass=Singleton):
     def get_filtered(self, model: Type[M], filters: List[RegexFilter]) -> List[M]:
         result = list(self.get_all(model).values())
         for filt in filters:
-            result = [entity for entity in result if filt(v)]
+            result = [entity for entity in result if filt(entity)]
         return result
 
     def set(self, model: Model):
