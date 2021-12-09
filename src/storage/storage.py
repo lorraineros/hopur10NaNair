@@ -55,7 +55,7 @@ class Storage:
 
     def get(self, id: int):
         self._ensure_loaded()
-        return self.data[id]
+        return self.data.get(id)
 
     def get_all(self):
         self._ensure_loaded()
