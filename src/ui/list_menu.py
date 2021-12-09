@@ -5,7 +5,7 @@ from datetime import date
 from typing import List, Type
 
 from src.logic.logic_api import LogicAPI
-from src.logic.utilities import DateFilter, PeriodFilter, RegexFilter
+from src.logic.utilities import AbstractFilter, DateFilter, PeriodFilter, RegexFilter
 from src.models.models import M
 from src.ui.abstract_menu import HelpfulMenu
 from src.ui.utilities import MessageToParent
@@ -28,7 +28,7 @@ class AbstractListMenu(HelpfulMenu):
             for field in dataclasses.fields(self.model)
             if not field.metadata.get("initializer")
         ]
-        self.filters: List[RegexFilter] = []
+        self.filters: List[AbstractFilter] = []
         self.filter_options = {
             chr(ord("A") + i): field for i, field in enumerate(self.fields)
         }

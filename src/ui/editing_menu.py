@@ -21,8 +21,6 @@ class EditingMenu(HelpfulMenu):
             if field.metadata.get("initializer"):
                 self.transients.append(field)
             elif field.metadata.get("derived"):
-                print("is derived")
-                print(field)
                 pass  # don't display derived values
             elif field.metadata.get("autoinit") or (
                 not self.is_manager and not field.metadata.get("employee_can_edit")
@@ -58,7 +56,14 @@ class EditingMenu(HelpfulMenu):
             print()
         extra_padding = 3 if len(self.variables) + len(self.transients) >= 10 else 2
         max_var_len = (
-            max(len(field.name) for field in (self.variables + self.transients)) + 1
+            max(
+                [0]
+                + [
+                    len(field.metadata.get("pretty_name", field.name))
+                    for field in (self.variables + self.transients)
+                ]
+            )
+            + 1
         )
         if self.variable_options:
             print("Modifiable properties:")
@@ -116,6 +121,7 @@ Help message:
         self.options = self.variable_options | self.transient_options
         (str_option, _sep, arg) = command.partition(" ")
         option = int(str_option) if str_option.isdigit() else None
+        # handle property changing commands
         if option in self.options and arg:
             set_option = lambda val: (
                 setattr(self.entity, self.options[option].name, val),
