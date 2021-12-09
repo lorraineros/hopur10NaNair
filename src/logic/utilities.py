@@ -20,6 +20,8 @@ class DateFilter(AbstractFilter):
     def __call__(self, entity: Model) -> bool:
         prop = getattr(entity, self.field.name)
         return self.date == prop
+    def __str__(self):
+        return f"""Filtering enteries in the "{self.field.metadata['pretty_name']} by {self.date}"""
 
 
 @dataclass
@@ -31,6 +33,9 @@ class PeriodFilter(AbstractFilter):
     def __call__(self, entity: Model) -> bool:
         prop = getattr(entity, self.field.name)
         return self.start_date <= prop and prop <= self.end_date
+
+    def __str__(self):
+        return f"""Filtering enteries in the "{self.field.metadata['pretty_name']} by {self.start_date} and {self.end_date}"""
 
 
 @dataclass

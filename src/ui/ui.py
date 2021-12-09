@@ -67,11 +67,26 @@ class UserControl(BasicNavigationMenu):
     is_root = True
 
     def show(self):
-        print("--- Please choose a user type ---")
-        print("1. Manager")
-        print("2. Employee")
-        print("")
-        super().show()
+        print("""
+╭──────────────────────────────────────────────────╮
+│        _   _       _   _      _    _             │
+│       | \ | | __ _| \ | |    / \  (_)_ __        │
+│       |  \| |/ _` |  \| |   / _ \ | | '__|       │
+│       | |\  | (_| | |\  |  / ___ \| | |          │
+│       |_| \_|\__,_|_| \_| /_/   \_\_|_|          │
+│                                                  │
+│            ╭─────────────────────────╮           │
+│            │   Please choose a user  │           │
+│            ├────────────┬────────────┤           │
+│            │ 1. Manager │ 2.Employee │           │
+│            ╰────────────┴────────────╯           │
+╰──────────────────────────────────────────────────╯        
+""")
+        # print("--- Please choose a user type ---")
+        # print("1. Manager")
+        # print("2. Employee")
+        # print("")
+        # super().show()
 
     def handle_input(self, command):
         """This finction handles input for a simple menu"""

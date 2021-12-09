@@ -60,7 +60,7 @@ class BaseEmployee(Model):
 
 @dataclass
 class Employee(BaseEmployee):
-    home_address: str = field(  # Why are there two home_address?
+    home_address: str = field(
         default="",
         metadata={"required": True},
     )
@@ -78,7 +78,7 @@ class Employee(BaseEmployee):
     )
     work_destination: int = field(
         default=int(),
-        metadata={"pretty_name": "Location", "id": lambda: Destination},
+        metadata={"pretty_name": "Destination ID", "id": lambda: Destination},
     )
 
     def __post_init__(self):
@@ -101,14 +101,14 @@ class Contractor(BaseEmployee):
     )
     working_hours: str = field(
         default="",
-        metadata={"pretty_name": "Working Hours", "requierd": True},
+        metadata={"pretty_name": "Working Hours", "required": True},
     )
     location: int = field(
         default=0,
         metadata={
             "pretty_name": "Location",
             "id": lambda: Destination,
-            "requierd": True,
+            "required": True,
         },
     )
 
@@ -133,7 +133,7 @@ class WorkRequest(Model):
     real_estate: int = field(
         default=0,
         metadata={
-            "pretty_name": "Real Estate",
+            "pretty_name": "Real Estate ID",
             "required": True,
             "id": lambda: RealEstate,
         },
@@ -267,9 +267,9 @@ class RealEstate(Model):
         default="",
         metadata={"pretty_name": "Real Estate Number", "required": True},
     )
-    destination: int = field(
+    location: int = field(
         default=int(),
-        metadata={"pretty_name": "Destination", "id": lambda: Destination},
+        metadata={"pretty_name": "Location ID", "id": lambda: Destination},
     )
     condition: str = field(
         default="",

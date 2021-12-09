@@ -10,7 +10,7 @@
             "type_of_real_estate": "House",
             "rooms": 4,
             "size": 150,
-            "destination": 3
+            "location": 3
         },
         "2": {
             "id": 2,
@@ -21,7 +21,7 @@
             "type_of_real_estate": "Submarine Common Space",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "3": {
             "id": 3,
@@ -32,7 +32,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "4": {
             "id": 4,
@@ -43,7 +43,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "5": {
             "id": 5,
@@ -54,7 +54,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "6": {
             "id": 6,
@@ -65,7 +65,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "7": {
             "id": 7,
@@ -76,7 +76,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "8": {
             "id": 8,
@@ -87,7 +87,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "9": {
             "id": 9,
@@ -98,7 +98,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "10": {
             "id": 10,
@@ -109,7 +109,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "11": {
             "id": 11,
@@ -120,7 +120,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "12": {
             "id": 12,
@@ -131,7 +131,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "13": {
             "id": 13,
@@ -142,7 +142,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "14": {
             "id": 14,
@@ -153,7 +153,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "15": {
             "id": 15,
@@ -164,7 +164,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "16": {
             "id": 16,
@@ -175,7 +175,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "17": {
             "id": 17,
@@ -186,7 +186,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "18": {
             "id": 18,
@@ -197,7 +197,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "19": {
             "id": 19,
@@ -208,7 +208,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "20": {
             "id": 20,
@@ -219,7 +219,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "21": {
             "id": 21,
@@ -230,7 +230,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "22": {
             "id": 22,
@@ -241,7 +241,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "23": {
             "id": 23,
@@ -252,7 +252,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "24": {
             "id": 24,
@@ -263,7 +263,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "25": {
             "id": 25,
@@ -274,7 +274,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "26": {
             "id": 26,
@@ -285,7 +285,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "27": {
             "id": 27,
@@ -296,7 +296,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "28": {
             "id": 28,
@@ -307,7 +307,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "29": {
             "id": 29,
@@ -318,7 +318,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "30": {
             "id": 30,
@@ -329,7 +329,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "31": {
             "id": 31,
@@ -340,7 +340,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "32": {
             "id": 32,
@@ -351,7 +351,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "33": {
             "id": 33,
@@ -362,7 +362,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "34": {
             "id": 34,
@@ -373,7 +373,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "35": {
             "id": 35,
@@ -384,7 +384,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "36": {
             "id": 36,
@@ -395,7 +395,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "37": {
             "id": 37,
@@ -406,7 +406,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "38": {
             "id": 38,
@@ -417,7 +417,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "39": {
             "id": 39,
@@ -428,7 +428,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "40": {
             "id": 40,
@@ -439,7 +439,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "41": {
             "id": 41,
@@ -450,7 +450,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "42": {
             "id": 42,
@@ -461,7 +461,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "43": {
             "id": 43,
@@ -472,7 +472,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "44": {
             "id": 44,
@@ -483,7 +483,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "45": {
             "id": 45,
@@ -494,7 +494,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "46": {
             "id": 46,
@@ -505,7 +505,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "47": {
             "id": 47,
@@ -516,7 +516,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "48": {
             "id": 48,
@@ -527,7 +527,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "49": {
             "id": 49,
@@ -538,7 +538,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "50": {
             "id": 50,
@@ -549,7 +549,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "51": {
             "id": 51,
@@ -560,7 +560,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "52": {
             "id": 52,
@@ -571,7 +571,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "53": {
             "id": 53,
@@ -582,7 +582,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "54": {
             "id": 54,
@@ -593,7 +593,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "55": {
             "id": 55,
@@ -604,7 +604,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "56": {
             "id": 56,
@@ -615,7 +615,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "57": {
             "id": 57,
@@ -626,7 +626,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "58": {
             "id": 58,
@@ -637,7 +637,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "59": {
             "id": 59,
@@ -648,7 +648,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "60": {
             "id": 60,
@@ -659,7 +659,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "61": {
             "id": 61,
@@ -670,7 +670,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "62": {
             "id": 62,
@@ -681,7 +681,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "63": {
             "id": 63,
@@ -692,7 +692,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "64": {
             "id": 64,
@@ -703,7 +703,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "65": {
             "id": 65,
@@ -714,7 +714,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "66": {
             "id": 66,
@@ -725,7 +725,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "67": {
             "id": 67,
@@ -736,7 +736,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "68": {
             "id": 68,
@@ -747,7 +747,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "69": {
             "id": 69,
@@ -758,7 +758,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "70": {
             "id": 70,
@@ -769,7 +769,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "71": {
             "id": 71,
@@ -780,7 +780,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "72": {
             "id": 72,
@@ -791,7 +791,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "73": {
             "id": 73,
@@ -802,7 +802,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "74": {
             "id": 74,
@@ -813,7 +813,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "75": {
             "id": 75,
@@ -824,7 +824,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "76": {
             "id": 76,
@@ -835,7 +835,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "77": {
             "id": 77,
@@ -846,7 +846,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "78": {
             "id": 78,
@@ -857,7 +857,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "79": {
             "id": 79,
@@ -868,7 +868,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "80": {
             "id": 80,
@@ -879,7 +879,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "81": {
             "id": 81,
@@ -890,7 +890,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "82": {
             "id": 82,
@@ -901,7 +901,7 @@
             "type_of_real_estate": "Submarine",
             "rooms": 1,
             "size": 62,
-            "destination": 3
+            "location": 3
         },
         "83": {
             "id": 83,
@@ -912,7 +912,7 @@
             "type_of_real_estate": "Reception and restaurant",
             "rooms": 1,
             "size": 100,
-            "destination": 1
+            "location": 1
         },
         "84": {
             "id": 84,
@@ -923,7 +923,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "85": {
             "id": 85,
@@ -934,7 +934,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "86": {
             "id": 86,
@@ -945,7 +945,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "87": {
             "id": 87,
@@ -956,7 +956,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "88": {
             "id": 88,
@@ -967,7 +967,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "89": {
             "id": 89,
@@ -978,7 +978,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "90": {
             "id": 90,
@@ -989,7 +989,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "91": {
             "id": 91,
@@ -1000,7 +1000,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "92": {
             "id": 92,
@@ -1011,7 +1011,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "93": {
             "id": 93,
@@ -1022,7 +1022,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 35,
-            "destination": 1
+            "location": 1
         },
         "94": {
             "id": 94,
@@ -1033,7 +1033,7 @@
             "type_of_real_estate": "Apartment",
             "rooms": 1,
             "size": 34,
-            "destination": 1
+            "location": 1
         },
         "95": {
             "id": 95,
@@ -1044,7 +1044,7 @@
             "type_of_real_estate": "Apartment",
             "rooms": 1,
             "size": 34,
-            "destination": 1
+            "location": 1
         },
         "96": {
             "id": 96,
@@ -1055,7 +1055,7 @@
             "type_of_real_estate": "Igloo",
             "rooms": 1,
             "size": 10,
-            "destination": 1
+            "location": 1
         },
         "97": {
             "id": 97,
@@ -1066,7 +1066,7 @@
             "type_of_real_estate": "Villa",
             "rooms": 8,
             "size": 400,
-            "destination": 1
+            "location": 1
         },
         "98": {
             "id": 98,
@@ -1077,7 +1077,7 @@
             "type_of_real_estate": "Ra\u00f0h\u00fas???",
             "rooms": 1,
             "size": 35,
-            "destination": 2
+            "location": 2
         },
         "99": {
             "id": 99,
@@ -1088,7 +1088,7 @@
             "type_of_real_estate": "Ra\u00f0h\u00fas???",
             "rooms": 1,
             "size": 35,
-            "destination": 2
+            "location": 2
         },
         "100": {
             "id": 100,
@@ -1099,7 +1099,7 @@
             "type_of_real_estate": "Ra\u00f0h\u00fas???",
             "rooms": 1,
             "size": 35,
-            "destination": 2
+            "location": 2
         },
         "101": {
             "id": 101,
@@ -1110,7 +1110,7 @@
             "type_of_real_estate": "House",
             "rooms": 5,
             "size": 200,
-            "destination": 2
+            "location": 2
         },
         "102": {
             "id": 102,
@@ -1121,7 +1121,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "103": {
             "id": 103,
@@ -1132,7 +1132,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "104": {
             "id": 104,
@@ -1143,7 +1143,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "105": {
             "id": 105,
@@ -1154,7 +1154,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "106": {
             "id": 106,
@@ -1165,7 +1165,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "107": {
             "id": 107,
@@ -1176,7 +1176,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "108": {
             "id": 108,
@@ -1187,7 +1187,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "109": {
             "id": 109,
@@ -1198,7 +1198,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "110": {
             "id": 110,
@@ -1209,7 +1209,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "111": {
             "id": 111,
@@ -1220,7 +1220,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "112": {
             "id": 112,
@@ -1231,7 +1231,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         },
         "113": {
             "id": 113,
@@ -1242,7 +1242,7 @@
             "type_of_real_estate": "Mold house",
             "rooms": 1,
             "size": 15,
-            "destination": 2
+            "location": 2
         }
     }
 }
