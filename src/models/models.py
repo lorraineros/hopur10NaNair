@@ -56,10 +56,6 @@ class Employee(BaseEmployee):
         default="",
         metadata={"required": True},
     )
-    password: str = field(
-        default="",
-        metadata={"pretty_name": "Password", "hidden": True, "required": True},
-    )
     gsm: str = field(
         default="",
         metadata={"pretty_name": "GSM"},
@@ -71,10 +67,6 @@ class Employee(BaseEmployee):
     is_manager: bool = field(
         default=False,
         metadata={"pretty_name": "Is Employee a Manager? ", "required": True},
-    )
-    home_address: str = field(
-        default="",
-        metadata={"pretty_name": "Home Address", "required": True},
     )
     work_destination: int = field(
         default=int(),
