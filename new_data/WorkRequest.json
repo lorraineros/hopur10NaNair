@@ -2360,7 +2360,7 @@
             "description": "Wash the windows",
             "priority": "As soon as possible",
             "is_open": 1
-            },
+        },
         "237": {
             "id": 237,
             "title": "Window washing",

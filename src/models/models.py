@@ -57,6 +57,9 @@ class Employee(BaseEmployee):
     )
     work_destination: int = field(default=int(), metadata={"id": lambda: Destination})
 
+    def __post_init__(self):
+        self.is_manager = bool(self.is_manager)
+
 
 @dataclass
 class Contractor(BaseEmployee):
