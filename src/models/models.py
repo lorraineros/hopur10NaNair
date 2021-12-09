@@ -19,7 +19,7 @@ class Id:
 class Model:
     id: int = field(
         default=int(),
-        metadata={"autoinit": True, "required": True, "pretty_name": "ID",},
+        metadata={"autoinit": True, "required": True, "pretty_name": "ID"},
     )
 
     @classmethod
@@ -47,12 +47,12 @@ class BaseEmployee(Model):
     )
 
     def short_name(self):
-        return self.name
+        return f"{self.id}. {self.name}"
 
 
 @dataclass
 class Employee(BaseEmployee):
-    home_address: str = field(  # Why are there two home_address?
+    home_address: str = field(
         default="",
         metadata={"required": True},
     )
@@ -66,18 +66,15 @@ class Employee(BaseEmployee):
     )
     is_manager: bool = field(
         default=False,
-        metadata={"pretty_name": "Is Employee a Manager? ", "required": True},
+        metadata={"pretty_name": "Is Employee a Manager? "},
     )
     work_destination: int = field(
         default=int(),
-        metadata={"pretty_name": "Location", "id": lambda: Destination},
+        metadata={"pretty_name": "Destination ID", "id": lambda: Destination},
     )
 
     def __post_init__(self):
         self.is_manager = bool(self.is_manager)
-
-    def short_name(self):
-        return f"{self.id}. {self.name}"
 
 
 @dataclass
@@ -92,7 +89,7 @@ class Contractor(BaseEmployee):
     )
     location: int = field(
         default=0,
-        metadata={"pretty_name": "Location", "requierd": True},
+        metadata={"pretty_name": "Location ID", "id": lambda: Destination, "requierd": True},
     )
 
     def short_name(self):
@@ -108,7 +105,7 @@ class WorkRequest(Model):
     real_estate: int = field(
         default=0,
         metadata={
-            "pretty_name": "Real Estate",
+            "pretty_name": "Real Estate ID",
             "required": True,
             "id": lambda: RealEstate,
         },
@@ -212,6 +209,9 @@ class WorkReport(Model):
         metadata={"pretty_name": "Date"},
     )
 
+    def __post_init__(self):
+        self.done = bool(self.done)
+
     @classmethod
     def model_name(cls):
         return "Work report"
@@ -227,9 +227,9 @@ class RealEstate(Model):
         default="",
         metadata={"pretty_name": "Real Estate Number", "required": True},
     )
-    destination: int = field(
+    location: int = field(
         default=int(),
-        metadata={"pretty_name": "Destination", "id": lambda: Destination},
+        metadata={"pretty_name": "Location ID", "id": lambda: Destination},
     )
     condition: str = field(
         default="",

@@ -16,10 +16,11 @@ from src.ui.utilities import MessageToParent
 
 
 class AbstractListMenu(HelpfulMenu):
-    """This class contains menu functions"""
+    """This is an abstract class that shows a menu that can be filtered, sorted and more."""
 
     def __init__(self, model: Type[M]):
         super().__init__()
+        self.max_column_width = 32
         self.model = model
         self.term_size = shutil.get_terminal_size()
         self.fields = [
@@ -56,10 +57,18 @@ class AbstractListMenu(HelpfulMenu):
             if not field.metadata.get("initialized")
         }
         # find the widest value
-        for k in column_widths:
+        for field in self.fields:
             for entity in entities:
-                value = str(getattr(entity, k))
-                column_widths[k] = max(column_widths[k], *map(len, value.split("\n")))
+                value = str(getattr(entity, field.name)).replace("\n", "")
+                if field.metadata.get("id"):
+                    value = (
+                        LogicAPI()
+                        .get(field.metadata.get("id")(), getattr(entity, field.name))
+                        .short_name()
+                    )
+                column_widths[field.name] = min(
+                    self.max_column_width, max(column_widths[field.name], len(value))
+                )
         # hidden fields have a length of 6
         for field in self.fields:
             if field.metadata.get("hidden"):
@@ -69,9 +78,9 @@ class AbstractListMenu(HelpfulMenu):
         fields_to_show = []
         total_width = 1
         for field in self.fields:
-            next_thing = (2 + column_widths[field.name]) + 1
-            if total_width + next_thing <= self.term_size.columns:
-                total_width += next_thing
+            cell = (2 + column_widths[field.name]) + 1
+            if total_width + cell <= self.term_size.columns:
+                total_width += cell
                 fields_to_show.append(field)
         column_widths = {field: column_widths[field.name] for field in fields_to_show}
 
@@ -97,15 +106,27 @@ class AbstractListMenu(HelpfulMenu):
         for entity in entities:
             line = "\u2502"
             for (field, width) in column_widths.items():
-                prop = str(getattr(entity, field.name))
-                next_thing = f" {prop:<{width}} " + "\u2502"
-                if len(line + next_thing) <= self.term_size.columns:
-                    if type(prop) is int:
-                        line += f" {prop:>{width}} " + "\u2502"
-                    elif field.metadata.get("hidden"):
-                        line += f" {'******':<{width}} " + "\u2502"
-                    else:
-                        line += f" {prop:<{width}} " + "\u2502"
+                prop = getattr(entity, field.name)
+                if field.type == bool:
+                    prop = str(prop)
+                if prop and field.metadata.get("id"):
+                    prop = (
+                        LogicAPI()
+                        .get(field.metadata.get("id")(), getattr(entity, field.name))
+                        .short_name()
+                    )
+                prop = str(prop).replace("\n", "") if prop else ""
+                if len(prop) > self.max_column_width:
+                    prop = prop[: self.max_column_width - 1] + "\u2026"
+                if type(prop) is int:
+                    cell = f" {prop:>{width}} "
+                elif field.metadata.get("hidden"):
+                    cell = f" {'******':<{width}} "
+                else:
+                    cell = f" {prop:<{width}} "
+                if len(line + cell) + 1 <= self.term_size.columns:
+                    line += cell + "\u2502"
+
             print(line)
 
         # bottom border
@@ -163,7 +184,9 @@ Help message:
                             )
                         )
                 except ValueError as e:
-                    self._user_message = e
+                    self._user_message = (
+                        str(e) + os.linesep + "Valid format: yyyy-mm-dd" + os.linesep
+                    )
                     return
             else:
                 self.filters.append(RegexFilter(self.filter_options[str_option], arg))
@@ -215,7 +238,10 @@ Help message:
 
 
 class EditPickerMenu(AbstractListMenu):
-    """This class is to edit to PickerMenu"""
+    """This class shows a list of entities that can be chosen and edited"""
+
+    def name(self):
+        return f"{self.model.model_name()} selection list"
 
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
@@ -224,12 +250,11 @@ class EditPickerMenu(AbstractListMenu):
             return EditingMenu(LogicAPI().get(self.model, int(command)))
         else:
             return super().handle_input(command)
-        
-    def name(self):
-        return f"Edit picker menu for {self.model.model_name()}"
 
 
 class IdPickerMenu(AbstractListMenu):
+    """This class shows a list of entities that can be used to pick an ID when editing an entity"""
+
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
             return MessageToParent(id=int(command))

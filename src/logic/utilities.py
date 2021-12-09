@@ -45,8 +45,12 @@ class RegexFilter(AbstractFilter):
     regex: str
 
     def __call__(self, entity: Model) -> bool:
-        prop = getattr(entity, self.field.name)
-        return bool(re.search(self.regex, prop))
+        prop = str(getattr(entity, self.field.name))
+        try:
+            result = bool(re.search(self.regex, prop))
+        except re.error:
+            result = self.regex in prop
+        return result
 
     def __str__(self):
         return f"""Filtering entries in the "{self.field.metadata['pretty_name']}" column by "{self.regex}" """

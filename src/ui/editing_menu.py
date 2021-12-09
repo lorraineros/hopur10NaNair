@@ -3,7 +3,7 @@ import os
 from datetime import date, timedelta
 
 from src.logic.logic_api import LogicAPI
-from src.models.models import Model
+from src.models.models import Model, WorkReport
 from src.ui.abstract_menu import HelpfulMenu
 from src.ui.list_menu import IdPickerMenu
 
@@ -33,6 +33,12 @@ class EditingMenu(HelpfulMenu):
 
         self.variable_options = dict(enumerate(self.variables, 1))
         self.transient_options = {}
+
+    def name(self):
+        if self.is_manager or isinstance(self.entity, WorkReport):
+            return f"Editing {self.entity.model_name().lower()}"
+        else:
+            return f"{self.entity.model_name()}"
 
     def show(self):
         """This function shows fields to edit"""
@@ -183,25 +189,3 @@ Help message:
             else:
                 return "self"
         return super().handle_input(command)
-
-    def name(self):
-        return f"Editing Menu"
-
-def id_validator(string: str):
-    if string.isdigit():
-        return True
-    else:
-        print("Invalid ID")
-
-
-def date_validator(string: str):
-    year, month, day = string.split("-")
-    isValidDate = True
-    try:
-        date.datetime(int(year), int(month), int(day))
-    except ValueError:
-        isValidDate = False
-    if isValidDate:
-        return
-    else:
-        print("Input date is not valid..")
