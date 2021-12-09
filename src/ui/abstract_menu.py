@@ -2,12 +2,17 @@ from abc import ABC, abstractmethod
 
 from src.ui.utilities import MessageToParent
 
+_is_manager = None
+
+
+class IllegalArgumentException(ValueError):
+    pass
+
 
 class AbstractMenu(ABC):
     """This class is for abstrct menu"""
 
     is_root = False
-    is_manager = False
     _inbox = None
     _user_message = ""
 
@@ -20,6 +25,21 @@ class AbstractMenu(ABC):
     @abstractmethod
     def handle_input(self, command):
         pass
+
+    @property
+    def is_manager(self):
+        return _is_manager
+
+    @is_manager.setter
+    def is_manager(self, value):
+        global _is_manager
+        if type(value) == bool:
+            if _is_manager is None:
+                _is_manager = value
+            else:
+                raise Exception("manager constant can't be changed after program start")
+        else:
+            raise IllegalArgumentException("is_manager must be a boolean")
 
     def name(self):
         return self.__class__.__name__

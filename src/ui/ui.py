@@ -57,7 +57,6 @@ class App:
             elif choice == "self":
                 continue
             elif issubclass(type(choice), AbstractMenu):
-                choice.is_manager = self.stack[-1].is_manager
                 self.stack.append(choice)
             elif type(choice) is MessageToParent:
                 self.stack.pop()
