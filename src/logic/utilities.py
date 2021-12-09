@@ -1,8 +1,7 @@
-from abc import abstractmethod
-import re
-from dataclasses import Field, dataclass
-from typing import Any
 import datetime
+import re
+from abc import abstractmethod
+from dataclasses import Field, dataclass
 
 from src.models.models import Model
 
@@ -49,3 +48,12 @@ class RegexFilter(AbstractFilter):
 
     def __str__(self):
         return f"""Filtering entries in the "{self.field.metadata['pretty_name']}" column by "{self.regex}" """
+
+
+@dataclass
+class IdFilter(AbstractFilter):
+    field: Field
+    id: int
+
+    def __call__(self, entity: Model) -> bool:
+        return getattr(entity, self.field.name) == self.id
