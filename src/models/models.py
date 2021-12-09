@@ -19,7 +19,7 @@ class Id:
 class Model:
     id: int = field(
         default=int(),
-        metadata={"autoinit": True, "required": True, "pretty_name": "ID",},
+        metadata={"autoinit": True, "required": True, "pretty_name": "ID"},
     )
 
     @classmethod
@@ -47,7 +47,7 @@ class BaseEmployee(Model):
     )
 
     def short_name(self):
-        return self.name
+        return f"{self.id}. {self.name}"
 
 
 @dataclass
@@ -75,9 +75,6 @@ class Employee(BaseEmployee):
 
     def __post_init__(self):
         self.is_manager = bool(self.is_manager)
-
-    def short_name(self):
-        return f"{self.id}. {self.name}"
 
 
 @dataclass
