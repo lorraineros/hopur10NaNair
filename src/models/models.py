@@ -85,11 +85,11 @@ class Contractor(BaseEmployee):
     )
     working_hours: str = field(
         default="",
-        metadata={"pretty_name": "Working Hours"},
+        metadata={"pretty_name": "Working Hours", "requierd": True},
     )
     location: int = field(
         default=0,
-        metadata={"pretty_name": "Location"},
+        metadata={"pretty_name": "Location", "requierd": True},
     )
 
     def short_name(self):
@@ -116,7 +116,7 @@ class WorkRequest(Model):
     )
     priority: str = field(
         default="",
-        metadata={"pretty_name": "Priority"},
+        metadata={"pretty_name": "Priority", "required": True},
     )
     is_open: bool = field(
         default=True,
@@ -205,7 +205,8 @@ class WorkReport(Model):
     )
 
     date: datetime.datetime = field(
-        default=datetime.datetime.now()
+        default=datetime.datetime.now(),
+        metadata={"pretty_name": "Date"},
     )
 
     @classmethod
