@@ -69,31 +69,41 @@ Help message:
 
     def handle_input(self, command: str):
         """This function handles input editing menu"""
-        self.assistance = False
+        self._user_message = ""
         (str_option, _sep, arg) = command.partition(" ")
         option = int(str_option) if str_option.isdigit() else None
-        if option in self.options:
-            if arg:
-                if self.options[option].type is date:
-                    try:
-                        setattr(
-                            self.entity,
-                            self.options[option].name,
-                            date.fromisoformat(arg),
-                        )
-                    except ValueError as e:
-                        self._user_message = e
-                elif self.options[option].type is str:
-                    setattr(self.entity, self.options[option].name, arg)
-            elif self.options[option].metadata.get("id"):
-                # a somewhat high risk play
-                self.message_from_child = lambda message: setattr(
-                    self.entity, self.options[option].name, message.messages["id"]
-                )
-                return IdPickerMenu(self.options[option].metadata.get("id")())
         if option in self.options and arg:
-            setattr(self.entity, self.options[option].name, arg)
-            return "self"
+            if self.options[option].type is bool:
+                if arg.lower() in ["1", "t", "true"]:
+                    setattr(self.entity, self.options[option].name, True)
+                    return "self"
+                elif arg.lower() in ["0", "f", "false"]:
+                    setattr(self.entity, self.options[option].name, False)
+                    return "self"
+            elif self.options[option].type is date:
+                try:
+                    setattr(
+                        self.entity, self.options[option].name, date.fromisoformat(arg)
+                    )
+                    return "self"
+                except ValueError as e:
+                    self._user_message = e
+            elif self.options[option].type is str:
+                setattr(self.entity, self.options[option].name, arg)
+                return "self"
+            elif self.options[option].type is int:
+                if not self.options[option].metadata.get("id") and arg.isdigit():
+                    setattr(self.entity, self.options[option].name, arg)
+                    return "self"
+            # Invalid command return nothing
+            return
+        if option in self.options and self.options[option].metadata.get("id"):
+            # field is an ID, open a list to pick it
+            # a somewhat high risk play
+            self.message_from_child = lambda message: setattr(
+                self.entity, self.options[option].name, message.messages["id"]
+            )
+            return IdPickerMenu(self.options[option].metadata.get("id")())
         if command == "c":
             LogicAPI().set(self.entity)
             return "back"
