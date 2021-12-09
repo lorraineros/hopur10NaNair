@@ -78,9 +78,9 @@ class AbstractListMenu(HelpfulMenu):
         fields_to_show = []
         total_width = 1
         for field in self.fields:
-            next_thing = (2 + column_widths[field.name]) + 1
-            if total_width + next_thing <= self.term_size.columns:
-                total_width += next_thing
+            cell = (2 + column_widths[field.name]) + 1
+            if total_width + cell <= self.term_size.columns:
+                total_width += cell
                 fields_to_show.append(field)
         column_widths = {field: column_widths[field.name] for field in fields_to_show}
 
@@ -106,23 +106,27 @@ class AbstractListMenu(HelpfulMenu):
         for entity in entities:
             line = "\u2502"
             for (field, width) in column_widths.items():
-                prop = str(getattr(entity, field.name)).replace("\n", "")
-                if field.metadata.get("id"):
+                prop = getattr(entity, field.name)
+                if field.type == bool:
+                    prop = str(prop)
+                if prop and field.metadata.get("id"):
                     prop = (
                         LogicAPI()
                         .get(field.metadata.get("id")(), getattr(entity, field.name))
                         .short_name()
                     )
+                prop = str(prop).replace("\n", "") if prop else ""
                 if len(prop) > self.max_column_width:
                     prop = prop[: self.max_column_width - 1] + "\u2026"
-                next_thing = f" {prop:<{width}} " + "\u2502"
-                if len(line + next_thing) <= self.term_size.columns:
-                    if type(prop) is int:
-                        line += f" {prop:>{width}} " + "\u2502"
-                    elif field.metadata.get("hidden"):
-                        line += f" {'******':<{width}} " + "\u2502"
-                    else:
-                        line += f" {prop:<{width}} " + "\u2502"
+                if type(prop) is int:
+                    cell = f" {prop:>{width}} "
+                elif field.metadata.get("hidden"):
+                    cell = f" {'******':<{width}} "
+                else:
+                    cell = f" {prop:<{width}} "
+                if len(line + cell) + 1 <= self.term_size.columns:
+                    line += cell + "\u2502"
+
             print(line)
 
         # bottom border
