@@ -66,7 +66,7 @@ class Employee(BaseEmployee):
     )
     is_manager: bool = field(
         default=False,
-        metadata={"pretty_name": "Is Employee a Manager? ", "required": True},
+        metadata={"pretty_name": "Is Employee a Manager? "},
     )
     work_destination: int = field(
         default=int(),
@@ -91,7 +91,7 @@ class Contractor(BaseEmployee):
         default=0,
         metadata={"pretty_name": "Location", "id": lambda: Destination, "requierd": True},
     )
-    
+
     def short_name(self):
         return f"{self.id}. {self.name_of_company}"
 
