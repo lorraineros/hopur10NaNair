@@ -53,7 +53,10 @@ class EditingMenu(HelpfulMenu):
 
                 # show property if it has a value
                 if getattr(self.entity, field.name):
-                    print(f"= {getattr(self.entity, field.name)}", end="")
+                    if field.metadata.get("hidden"):
+                        print(f"= ******", end="")
+                    else:
+                        print(f"= {getattr(self.entity, field.name)}", end="")
                 print()
             print()
         if self.transients:
