@@ -18,9 +18,9 @@ class Id:
 @dataclass
 class Model:
     id: int = field(
-        default=int(), 
-        metadata={"autoinit": True, "required": True}
-        )
+        default=int(),
+        metadata={"autoinit": True, "required": True},
+    )
 
     @classmethod
     def from_dict(cls, dictionary: Dict[str, Any]):
@@ -38,13 +38,13 @@ class Model:
 @dataclass
 class BaseEmployee(Model):
     name: str = field(
-        default="", 
-        metadata={"pretty_name": "Name", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Name", "required": True},
+    )
     phone: str = field(
-        default="", 
-        metadata={"pretty_name": "Phone number", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Phone number", "required": True},
+    )
 
     def short_name(self):
         return self.name
@@ -52,34 +52,34 @@ class BaseEmployee(Model):
 
 @dataclass
 class Employee(BaseEmployee):
-    home_address: str = field( # Why are there two home_address?
-        default="", 
-        metadata={"required": True}
-        ) 
+    home_address: str = field(  # Why are there two home_address?
+        default="",
+        metadata={"required": True},
+    )
     password: str = field(
-        default="", 
-        metadata={"pretty_name": "Password", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Password", "hidden": True, "required": True},
+    )
     gsm: str = field(
-        default="", 
-        metadata={"pretty_name": "GSM"}
-        )
+        default="",
+        metadata={"pretty_name": "GSM"},
+    )
     email: str = field(
-        default="", 
-        metadata={"pretty_name": "Email"}
-        )
+        default="",
+        metadata={"pretty_name": "Email"},
+    )
     is_manager: bool = field(
-        default=False, 
-        metadata={"pretty_name": "Is Employee a Manager? ", "required": True}
-        )
+        default=False,
+        metadata={"pretty_name": "Is Employee a Manager? ", "required": True},
+    )
     home_address: str = field(
-        default="", 
-        metadata={"pretty_name": "Home Address", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Home Address", "required": True},
+    )
     work_destination: int = field(
-        default=int(), 
-        metadata={"pretty_name": "Location","id": lambda: Destination}
-        )
+        default=int(),
+        metadata={"pretty_name": "Location", "id": lambda: Destination},
+    )
 
     def __post_init__(self):
         self.is_manager = bool(self.is_manager)
@@ -88,49 +88,53 @@ class Employee(BaseEmployee):
 @dataclass
 class Contractor(BaseEmployee):
     name_of_company: str = field(
-        default="", 
-        metadata={"pretty_name": "Name Of Company", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Name Of Company", "required": True},
+    )
     working_hours: str = field(
-        default="", 
-        metadata={"pretty_name": "Working Hours"}
-        )
+        default="",
+        metadata={"pretty_name": "Working Hours"},
+    )
     location: int = field(
-        default=0, 
-        metadata={"pretty_name": "Location"}
-        )
+        default=0,
+        metadata={"pretty_name": "Location"},
+    )
 
 
 @dataclass
 class WorkRequest(Model):
     title: str = field(
-        default="", 
-        metadata={"pretty_name": "Title", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Title", "required": True},
+    )
     location: str = field(
-        default="", 
-        metadata={"pretty_name": "Location", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Location", "required": True},
+    )
     real_estate: int = field(
-        default=0, 
-        metadata={"pretty_name": "Real Estate", "required": True, "id": lambda: RealEstate},
-        )
+        default=0,
+        metadata={
+            "pretty_name": "Real Estate",
+            "required": True,
+            "id": lambda: RealEstate,
+        },
+    )
     date: datetime.date = field(
-        default=datetime.date.today(), 
-        metadata={"pretty_name": "Date", "required": True}
-        )
+        default=datetime.date.today(),
+        metadata={"pretty_name": "Date", "required": True},
+    )
     priority: str = field(
-        default="", 
-        metadata={"pretty_name": "Priority"}
-        )
+        default="",
+        metadata={"pretty_name": "Priority"},
+    )
     is_open: bool = field(
-        default=True, 
-        metadata={"pretty_name": "Is it Open?", "required": True}
-        )
+        default=True,
+        metadata={"pretty_name": "Is it Open?", "required": True},
+    )
     description: str = field(
-        default="", 
-        metadata={"pretty_name": "Description", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Description", "required": True},
+    )
 
     def __post_init__(self):
         if not isinstance(self.date, datetime.date):
@@ -147,39 +151,55 @@ class WorkRequest(Model):
 @dataclass
 class WorkReport(Model):
     work_request_id: int = field(
-        default=int(), 
-        metadata={"pretty_name": "Work Request ID", "required": True, "id": lambda: WorkRequest, "employee_can_edit": True}
-        )
+        default=int(),
+        metadata={
+            "pretty_name": "Work Request ID",
+            "required": True,
+            "id": lambda: WorkRequest,
+            "employee_can_edit": True,
+        },
+    )
     employee_id: int = field(
-        default=int(), 
-        metadata={"pretty_name": "Employee ID", "required": True, "id": lambda: Employee, "employee_can_edit": True},
-        )
+        default=int(),
+        metadata={
+            "pretty_name": "Employee ID",
+            "required": True,
+            "id": lambda: Employee,
+            "employee_can_edit": True,
+        },
+    )
     contractor_id: int = field(
-        default=int(), 
-        metadata={"pretty_name": "Contractor ID", "id": lambda: Contractor, "employee_can_edit": True}
-        )
+        default=int(),
+        metadata={
+            "pretty_name": "Contractor ID",
+            "id": lambda: Contractor,
+            "employee_can_edit": True,
+        },
+    )
     contractors_fee: str = field(
-        default="", 
-        metadata={"pretty_name": "Contractor's fee", "employee_can_edit": True}
-        )
+        default="",
+        metadata={"pretty_name": "Contractor's fee", "employee_can_edit": True},
+    )
     description: str = field(
-        default="", 
-        metadata={"pretty_name": "Description", "employee_can_edit": True}
-        )
+        default="",
+        metadata={"pretty_name": "Description", "employee_can_edit": True},
+    )
     material_cost: str = field(
-        default="", 
-        metadata={"pretty_name": "Material cost", "employee_can_edit": True}
-        )
+        default="",
+        metadata={"pretty_name": "Material cost", "employee_can_edit": True},
+    )
     done: bool = field(
-        default=False, 
-        metadata={"pretty_name": "Done", "employee_can_edit": True}
-        )
+        default=False,
+        metadata={"pretty_name": "Done", "employee_can_edit": True},
+    )
     comment: str = field(
-        default="", 
-        metadata={"pretty_name": "Comment"}
-        )
+        default="",
+        metadata={"pretty_name": "Comment"},
+    )
     # TODO: consider removal vvv
-    date: datetime.datetime = field(default=datetime.datetime.now()) # <<< TODO: consider removal 
+    date: datetime.datetime = field(
+        default=datetime.datetime.now()
+    )  # <<< TODO: consider removal
     # TODO: consider removal ^^^
 
     @classmethod
@@ -190,37 +210,37 @@ class WorkReport(Model):
 @dataclass
 class RealEstate(Model):
     address: str = field(
-        default="", 
-        metadata={"pretty_name": "Address", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Address", "required": True},
+    )
     real_estate_number: str = field(
-        default="", 
-        metadata={"pretty_name": "Real Estate Number", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Real Estate Number", "required": True},
+    )
     destination: int = field(
-        default=int(), 
+        default=int(),
         metadata={"pretty_name": "Destination", "id": lambda: Destination},
-        )
+    )
     condition: str = field(
-        default="", 
-        metadata={"pretty_name": "Condition"}
-        )
+        default="",
+        metadata={"pretty_name": "Condition"},
+    )
     facilities: str = field(
-        default="", 
-        metadata={"pretty_name": "Facilities"}
-        )
+        default="",
+        metadata={"pretty_name": "Facilities"},
+    )
     type_of_real_estate: str = field(
-        default="", 
-        metadata={"pretty_name": "Type of Real Estate"}
-        )
+        default="",
+        metadata={"pretty_name": "Type of Real Estate"},
+    )
     rooms: int = field(
-        default=0, 
-        metadata={"pretty_name": "Rooms"}
-        )
+        default=0,
+        metadata={"pretty_name": "Rooms"},
+    )
     size: int = field(
-        default=0, 
-        metadata={"pretty_name": "Size"}
-        )
+        default=0,
+        metadata={"pretty_name": "Size"},
+    )
 
     @classmethod
     def model_name(cls):
@@ -233,14 +253,13 @@ class RealEstate(Model):
 @dataclass
 class Destination(Model):
     name: str = field(
-        default="", 
-        metadata={"pretty_name": "Name", "required": True}
-        )
+        default="",
+        metadata={"pretty_name": "Name", "required": True},
+    )
     country: str = field(
-        default="", 
-        metadata={"pretty_name": "Country", "required": True}
+        default="",
+        metadata={"pretty_name": "Country", "required": True},
     )
 
     def short_name(self):
         return self.name
-
