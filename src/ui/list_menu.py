@@ -195,7 +195,7 @@ Help message:
 
     @staticmethod
     def _draw_border(start, fill, split, end, column_widths):
-        """Function that draws border according to size of terminla"""
+        """Function that draws border according to size of terminal"""
         line = start
         for (field, width) in column_widths.items():
             line += fill * (2 + width) + split
