@@ -56,10 +56,6 @@ class Employee(BaseEmployee):
         default="",
         metadata={"required": True},
     )
-    password: str = field(
-        default="",
-        metadata={"pretty_name": "Password", "hidden": True, "required": True},
-    )
     gsm: str = field(
         default="",
         metadata={"pretty_name": "GSM"},
@@ -72,10 +68,6 @@ class Employee(BaseEmployee):
         default=False,
         metadata={"pretty_name": "Is Employee a Manager? ", "required": True},
     )
-    home_address: str = field(
-        default="",
-        metadata={"pretty_name": "Home Address", "required": True},
-    )
     work_destination: int = field(
         default=int(),
         metadata={"pretty_name": "Location", "id": lambda: Destination},
@@ -83,6 +75,9 @@ class Employee(BaseEmployee):
 
     def __post_init__(self):
         self.is_manager = bool(self.is_manager)
+    
+    def short_name(self):
+        return f"{self.id}. {self.name}"
 
 
 @dataclass
@@ -100,16 +95,15 @@ class Contractor(BaseEmployee):
         metadata={"pretty_name": "Location"},
     )
 
+    def short_name(self):
+        return f"{self.id}. {self.name_of_company}"
+
 
 @dataclass
 class WorkRequest(Model):
     title: str = field(
         default="",
         metadata={"pretty_name": "Title", "required": True},
-    )
-    location: str = field(
-        default="",
-        metadata={"pretty_name": "Location", "required": True},
     )
     real_estate: int = field(
         default=0,
@@ -145,7 +139,7 @@ class WorkRequest(Model):
         return "Work request"
 
     def short_name(self):
-        return self.title
+        return f"{self.id}. {self.title}"
 
 
 @dataclass
@@ -242,12 +236,12 @@ class RealEstate(Model):
         metadata={"pretty_name": "Size"},
     )
 
+    def short_name(self):
+        return f"{self.id}. {self.real_estate_number}"
+
     @classmethod
     def model_name(cls):
         return "Real Estate"
-
-    def short_name(self):
-        return self.address
 
 
 @dataclass
@@ -262,4 +256,4 @@ class Destination(Model):
     )
 
     def short_name(self):
-        return self.name
+        return f"{self.id}. {self.country}"
