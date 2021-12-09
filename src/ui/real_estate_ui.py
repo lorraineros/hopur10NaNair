@@ -1,31 +1,48 @@
 from src.logic.logic_api import LogicAPI
 from src.models.models import Destination, RealEstate
-from src.ui.abstract_menu import AbstractMenu
+from src.ui.abstract_menu import AbstractMenu, SimpleMenu
 from src.ui.common_menus import BackQuitMenu, ChangingMenu
 from src.ui.creation_menu import CreationMenu
 from src.ui.destination_ui import DestinationMenu
 from src.ui.list_menu import EditPickerMenu
 
 
-class RealEstateMenu(AbstractMenu):
-    def show(self):
-        """This function shows the menu for Real Estate"""
-        print("--- Real Estate Menu ---")
-        print("1. Register a new real estate")
-        print("2. Display list of real estate")
-        print("b. Back")
-        print("q. Quit")
+class RealEstateMenu(SimpleMenu):
+    @property
+    def header(self):
+        return "--- Real Estate ---"
+    
+    @property
+    def options(self):
+        if self.is_manager:
+            return [
+                ("Register a new real estate", CreationMenu, RealEstate),
+                ("List of real estate", EditPickerMenu, RealEstate),
+            ]
+        else:
+            return[
+                ("List of real estate", EditPickerMenu, RealEstate)
+            ]
 
-    def handle_input(self, command):
-        """This function handles input for the RealEstateMenu"""
-        if command == "1":
-            return CreationMenu(RealEstate)
-        elif command == "2":
-            return EditPickerMenu(RealEstate)
-        elif command == "b":
-            return "back"
-        elif command == "q":
-            return "quit"
+
+    # def show(self):
+    #     """This function shows the menu for Real Estate"""
+    #     print("--- Real Estate Menu ---")
+    #     print("1. Register a new real estate")
+    #     print("2. Display list of real estate")
+    #     print("b. Back")
+    #     print("q. Quit")
+
+    # def handle_input(self, command):
+    #     """This function handles input for the RealEstateMenu"""
+    #     if command == "1":
+    #         return CreationMenu(RealEstate)
+    #     elif command == "2":
+    #         return EditPickerMenu(RealEstate)
+    #     elif command == "b":
+    #         return "back"
+    #     elif command == "q":
+    #         return "quit"
 
     # def display_all_real_estate(self):
     #     """Display a list of all the real estate"""

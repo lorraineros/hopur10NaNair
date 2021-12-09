@@ -1,32 +1,48 @@
 from src.logic.logic_api import LogicAPI
 from src.models.models import Destination, Employee
-from src.ui.abstract_menu import AbstractMenu
+from src.ui.abstract_menu import AbstractMenu, SimpleMenu
 from src.ui.common_menus import ChangingMenu
 from src.ui.creation_menu import CreationMenu
 from src.ui.destination_ui import DestinationMenu
 from src.ui.list_menu import EditPickerMenu
 
 
-class EmployeeMenu(AbstractMenu):
-    """This class controles Abstract Menu"""
+class EmployeeMenu(SimpleMenu):
+    @property
+    def header(self):
+        return "--- Employees ---"
 
-    def show(self):
-        print("--- Employee Menu ---")
-        print("1. Register a new employee")
-        print("2. Display list of employees")
-        print("b. Back")
-        print("q. Quit")
+    @property
+    def options(self):
+        if self.is_manager:
+            return [
+                ("Register a new employee", CreationMenu, Employee),
+                ("List of employees", EditPickerMenu, Employee)
+            ]
+        else:
+            return[
+                ("List of employees", EditPickerMenu, Employee)
+            ]
 
-    def handle_input(self, command):
-        """This function handels input Abstrcat Menu"""
-        if command == "1":
-            return CreationMenu(Employee)
-        elif command == "2":
-            return EditPickerMenu(Employee)
-        elif command == "b":
-            return "back"
-        elif command == "q":
-            return "quit"
+
+
+    # def show(self):
+    #     print("--- Employee Menu ---")
+    #     print("1. Register a new employee")
+    #     print("2. Display list of employees")
+    #     print("b. Back")
+    #     print("q. Quit")
+
+    # def handle_input(self, command):
+    #     """This function handels input Abstrcat Menu"""
+    #     if command == "1":
+    #         return CreationMenu(Employee)
+    #     elif command == "2":
+    #         return EditPickerMenu(Employee)
+    #     elif command == "b":
+    #         return "back"
+    #     elif command == "q":
+    #         return "quit"
 
 #     def display_all_employees(self):
 #         """This function displays all employees"""
