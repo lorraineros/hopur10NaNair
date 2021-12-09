@@ -9,9 +9,9 @@
             "contractors_fee": "18.000kr",
             "description": "We hired a contractor who has a good rubber defect, they will make sure that the nuclear reactor is heated properly",
             "material_cost": "22.000kr",
-            "date":"2021-11-15",
-            "done": 1,
-            "comment": ""
+            "done": true,
+            "comment": "",
+            "date": "2021-11-15"
         },
         "2": {
             "id": 2,
@@ -21,9 +21,9 @@
             "contractors_fee": "18.000kr",
             "description": "We hired a contractor who has a good rubber defect, they will make sure that the nuclear reactor is heated properly",
             "material_cost": "22.000kr",
-            "date": "2021-11-22",
-            "done": 1,
-            "comment": ""
+            "done": true,
+            "comment": "",
+            "date": "2021-11-22"
         },
         "3": {
             "id": 3,
@@ -33,9 +33,9 @@
             "contractors_fee": "18.000kr",
             "description": "We hired a contractor who has a good rubber defect, they will make sure that the nuclear reactor is heated properly",
             "material_cost": "22.000kr",
-            "date": "2021-11-22",
-            "done": 1,
-            "comment": ""
+            "done": true,
+            "comment": "",
+            "date": "2021-11-22"
         },
         "4": {
             "id": 4,
@@ -45,9 +45,9 @@
             "contractors_fee": "18.000kr",
             "description": "We hired a contractor who has a good rubber defect, they will make sure that the nuclear reactor is heated properly",
             "material_cost": "22.000kr",
-            "date": "2021-12-06",
-            "done": 1,
-            "comment": ""
+            "done": true,
+            "comment": "",
+            "date": "2021-12-06"
         },
         "5": {
             "id": 5,
@@ -57,9 +57,9 @@
             "contractors_fee": "18.000kr",
             "description": "We replaced all summer season into the iGloo-ville houses. Added alot of snow and other Christmas decoration",
             "material_cost": "56.000kr",
-            "date": "2021-11-01",
-            "done": 1,
-            "comment": ""
+            "done": true,
+            "comment": "",
+            "date": "2021-11-01"
         },
         "6": {
             "id": 6,
@@ -69,9 +69,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-07-15",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-07-15"
         },
         "7": {
             "id": 7,
@@ -81,9 +81,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-07-18",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-07-18"
         },
         "8": {
             "id": 8,
@@ -93,9 +93,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-07-21",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-07-21"
         },
         "9": {
             "id": 9,
@@ -105,9 +105,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-07-24",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-07-24"
         },
         "10": {
             "id": 10,
@@ -117,9 +117,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-07-27",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-07-27"
         },
         "11": {
             "id": 11,
@@ -129,9 +129,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-07-30",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-07-30"
         },
         "12": {
             "id": 12,
@@ -141,9 +141,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-08-02",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-08-02"
         },
         "13": {
             "id": 13,
@@ -153,9 +153,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-08-05",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-08-05"
         },
         "14": {
             "id": 14,
@@ -165,9 +165,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-08-08",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-08-08"
         },
         "15": {
             "id": 15,
@@ -177,9 +177,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-08-11",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-08-11"
         },
         "16": {
             "id": 16,
@@ -189,9 +189,9 @@
             "contractors_fee": "13.000kr",
             "description": "The snow houses has been cooled down. We added alot of snow and we hired some contractors to take care of them.",
             "material_cost": "18.000kr",
-            "date": "2021-08-14",
-            "done": 0,
-            "comment": ""
+            "done": false,
+            "comment": "",
+            "date": "2021-08-14"
         }
     }
 }

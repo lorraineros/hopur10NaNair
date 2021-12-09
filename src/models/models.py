@@ -209,6 +209,9 @@ class WorkReport(Model):
         metadata={"pretty_name": "Date"},
     )
 
+    def __post_init__(self):
+        self.done = bool(self.done)
+
     @classmethod
     def model_name(cls):
         return "Work report"
