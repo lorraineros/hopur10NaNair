@@ -89,9 +89,9 @@ class Contractor(BaseEmployee):
     )
     location: int = field(
         default=0,
-        metadata={"pretty_name": "Location", "requierd": True},
+        metadata={"pretty_name": "Location", "id": lambda: Destination, "requierd": True},
     )
-
+    
     def short_name(self):
         return f"{self.id}. {self.name_of_company}"
 
