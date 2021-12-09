@@ -2164,7 +2164,7 @@
         "241": {
             "id": 241,
             "title": "Window washing",
-            "real_estate": "ix-92239",
+            "real_estate": 101,
             "date": "2021-12-16",
             "priority": "As soon as possible",
             "is_open": true,
@@ -2173,7 +2173,7 @@
         "242": {
             "id": 242,
             "title": "Window washing",
-            "real_estate": "ix-92239",
+            "real_estate": 101,
             "date": "2021-12-23",
             "priority": "As soon as possible",
             "is_open": true,
@@ -2182,7 +2182,7 @@
         "243": {
             "id": 243,
             "title": "Window washing",
-            "real_estate": "ix-92239",
+            "real_estate": 101,
             "date": "2021-12-30",
             "priority": "As soon as possible",
             "is_open": true,
@@ -2191,7 +2191,7 @@
         "244": {
             "id": 244,
             "title": "Window washing",
-            "real_estate": "ix-92239",
+            "real_estate": 101,
             "date": "2022-01-06",
             "priority": "As soon as possible",
             "is_open": true,
@@ -2200,7 +2200,7 @@
         "245": {
             "id": 245,
             "title": "Window washing",
-            "real_estate": "ix-92239",
+            "real_estate": 101,
             "date": "2022-01-13",
             "priority": "As soon as possible",
             "is_open": true,
