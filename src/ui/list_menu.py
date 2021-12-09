@@ -181,7 +181,9 @@ Help message:
                             )
                         )
                 except ValueError as e:
-                    self._user_message = e
+                    self._user_message = (
+                        str(e) + os.linesep + "Valid format: yyyy-mm-dd" + os.linesep
+                    )
                     return
             else:
                 self.filters.append(RegexFilter(self.filter_options[str_option], arg))
@@ -236,7 +238,7 @@ class EditPickerMenu(AbstractListMenu):
     """This class shows a list of entities that can be chosen and edited"""
 
     def name(self):
-        return f"Edit picker menu for{self.model.model_name()}"
+        return f"{self.model.model_name()} selection list"
 
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
@@ -245,9 +247,6 @@ class EditPickerMenu(AbstractListMenu):
             return EditingMenu(LogicAPI().get(self.model, int(command)))
         else:
             return super().handle_input(command)
-        
-    def name(self):
-        return f"Edit picker menu for {self.model.model_name()}"
 
 
 class IdPickerMenu(AbstractListMenu):

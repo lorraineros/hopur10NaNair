@@ -11,6 +11,6 @@ class CreationMenu(EditingMenu):
         self.transient_options = dict(
             enumerate(self.transients, 1 + len(self.variables))
         )
-    
+
     def name(self):
-        return f"Creation Menu"
+        return f"{self.entity.model_name().lower()} creation menu"
