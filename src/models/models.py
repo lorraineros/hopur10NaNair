@@ -118,14 +118,14 @@ class WorkRequest(Model):
     date: datetime.date = field(
         default=datetime.date.today(), metadata={"pretty_name": "Date", "required": True}
         )
-    description: str = field(
-        default="", metadata={"pretty_name": "Description", "required": True}
-        )
     priority: str = field(
         default="", metadata={"pretty_name": "Priority"}
         )
     is_open: bool = field(
         default=True, metadata={"pretty_name": "Is it Open?", "required": True}
+        )
+    description: str = field(
+        default="", metadata={"pretty_name": "Description", "required": True}
         )
 
     def __post_init__(self):
