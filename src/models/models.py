@@ -62,7 +62,7 @@ class Employee(BaseEmployee):
         default="", metadata={"pretty_name": "Email"}
         )
     is_manager: bool = field(
-        default=False, metadata={"pretty_name": "Is Employee a Manager?", "required": True}
+        default=False, metadata={"pretty_name": "Is Employee a Manager? ", "required": True}
         )
     home_address: str = field(
         default="", metadata={"pretty_name": "Home Address", "required": True}
@@ -125,7 +125,7 @@ class WorkRequest(Model):
         default="", metadata={"pretty_name": "Priority"}
         )
     is_open: bool = field(
-        default=True, metadata={"pretty_name": "Is Work Request Open?", "required": True}
+        default=True, metadata={"pretty_name": "Is it Open?", "required": True}
         )
 
     def __post_init__(self):
