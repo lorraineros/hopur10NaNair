@@ -20,6 +20,7 @@ class AbstractListMenu(HelpfulMenu):
 
     def __init__(self, model: Type[M]):
         super().__init__()
+        self.max_column_width = 32
         self.model = model
         self.term_size = shutil.get_terminal_size()
         self.fields = [
@@ -58,17 +59,15 @@ class AbstractListMenu(HelpfulMenu):
         # find the widest value
         for field in self.fields:
             for entity in entities:
-                value = ""
+                value = str(getattr(entity, field.name)).replace("\n", "")
                 if field.metadata.get("id"):
                     value = (
                         LogicAPI()
                         .get(field.metadata.get("id")(), getattr(entity, field.name))
                         .short_name()
                     )
-                else:
-                    value = str(getattr(entity, field.name))
-                column_widths[field.name] = max(
-                    column_widths[field.name], *map(len, value.split("\n"))
+                column_widths[field.name] = min(
+                    self.max_column_width, max(column_widths[field.name], len(value))
                 )
         # hidden fields have a length of 6
         for field in self.fields:
@@ -107,15 +106,18 @@ class AbstractListMenu(HelpfulMenu):
         for entity in entities:
             line = "\u2502"
             for (field, width) in column_widths.items():
-                prop = ""
+                prop = str(getattr(entity, field.name)).replace("\n", "")
                 if field.metadata.get("id"):
                     prop = (
                         LogicAPI()
                         .get(field.metadata.get("id")(), getattr(entity, field.name))
                         .short_name()
                     )
-                else:
-                    prop = str(getattr(entity, field.name))
+                if len(prop) > self.max_column_width:
+                    # print(prop)
+                    # print(repr(prop))
+                    # print(len(prop))
+                    prop = prop[: self.max_column_width - 1] + "\u2026"
                 next_thing = f" {prop:<{width}} " + "\u2502"
                 if len(line + next_thing) <= self.term_size.columns:
                     if type(prop) is int:
