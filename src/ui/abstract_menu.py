@@ -7,6 +7,7 @@ class AbstractMenu(ABC):
     """This class is for abstrct menu"""
 
     is_root = False
+    is_manager = False
     _inbox = None
     _user_message = ""
 
@@ -19,6 +20,9 @@ class AbstractMenu(ABC):
     @abstractmethod
     def handle_input(self, command):
         pass
+
+    def name(self):
+        return self.__class__.__name__
 
     def message_from_child(self, message: MessageToParent):
         self._inbox = message
@@ -85,7 +89,7 @@ class SimpleMenu(BasicNavigationMenu):
         super().show()
 
     def handle_input(self, command):
-        """This finction handels input for simpel menu"""
+        """This finction handles input for a simple menu"""
         if command.isdigit():
             choice = int(command) - 1
             if choice < len(self.options):

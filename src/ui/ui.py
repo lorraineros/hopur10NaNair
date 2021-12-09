@@ -2,7 +2,7 @@ import os
 from typing import List
 
 from src.logic.logic_api import LogicAPI
-from src.ui.abstract_menu import AbstractMenu, SimpleMenu
+from src.ui.abstract_menu import AbstractMenu, BasicNavigationMenu, SimpleMenu
 from src.ui.common_menus import BackQuitMenu, ChangingMenu
 from src.ui.utilities import MessageToParent
 
@@ -33,12 +33,13 @@ class App:
             #     os.system("cls" if os.name == "nt" else "clear")
 
             # Breadcrumb
-            print(" -> ".join(menu.__class__.__name__ for menu in self.stack[1:]))
+            print(" -> ".join(menu.name() for menu in self.stack[1:]))
             print()
             self.stack[-1].show()
             print()
             # this handles an issue that occurs with when inputting
             # unicode characters and erasing them
+            inp = ""
             while True:
                 try:
                     inp = input("> ")
@@ -57,6 +58,7 @@ class App:
             elif choice == "self":
                 continue
             elif issubclass(type(choice), AbstractMenu):
+                choice.is_manager = self.stack[-1].is_manager
                 self.stack.append(choice)
             elif type(choice) is MessageToParent:
                 self.stack.pop()
@@ -67,21 +69,28 @@ class App:
                 ]._user_message += "I did not understand that dave, try again"
 
 
-class UserControl(SimpleMenu):
+class UserControl(BasicNavigationMenu):
     """This class defines userclass"""
 
     is_root = True
 
-    @property
-    def header(self):
-        return "--- Please choose a user type ---"
+    def show(self):
+        print("--- Please choose a user type ---")
+        print("1. Manager")
+        print("2. Employee")
+        print("")
+        super().show()
 
-    @property
-    def options(self):
-        return [
-            ("Manager", MainMenu),
-            ("Employee", MainMenuUserEmp),
-        ]
+    def handle_input(self, command):
+        """This finction handles input for a simple menu"""
+        if command == "1":
+            self.is_manager = True
+            return MainMenu()
+        elif command == "2":
+            self.is_manager = False
+            return MainMenu()
+        else:
+            return super().handle_input(command)
 
 
 class MainMenu(SimpleMenu):
