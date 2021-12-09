@@ -19,7 +19,7 @@ class Id:
 class Model:
     id: int = field(
         default=int(),
-        metadata={"autoinit": True, "required": True},
+        metadata={"autoinit": True, "required": True, "pretty_name": "ID",},
     )
 
     @classmethod
