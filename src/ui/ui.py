@@ -100,11 +100,11 @@ class MainMenu(SimpleMenu):
     @property
     def header(self):
 
-        if UserControl().is_manager:
-            user = "Manager "
+        if self.is_manager:
+            user = "Manager"
         else:
             user = "Employee"
-        return """
+        return f"""
 ╭──────────────────────────────────────────────────╮
 │        _   _       _   _      _    _             │
 │       | \ | | __ _| \ | |    / \  (_)_ __        │
@@ -112,13 +112,13 @@ class MainMenu(SimpleMenu):
 │       | |\  | (_| | |\  |  / ___ \| | |          │
 │       |_| \_|\__,_|_| \_| /_/   \_\_|_|          │
 │                                                  │
-│               ╭──────────────────╮               │
-│               │Welcome to NaN Air│               │ 
-│               ├──────────────────┤               │
-│               │  User: {}  │               │    
-│               ╰──────────────────╯               │
+│              ╭────────────────────╮              │
+│              │ Welcome to NaN Air │              │
+│              ├────────────────────┤              │
+│              │   User: {user:<9}  │              │
+│              ╰────────────────────╯              │
 ╰──────────────────────────────────────────────────╯
-""".format(user)
+"""
 
     @property
     def options(self):
@@ -147,9 +147,9 @@ class MainMenu(SimpleMenu):
 # │       |_| \_|\__,_|_| \_| /_/   \_\_|_|          │
 # │                                                  │
 # │               ╭──────────────────╮               │
-# │               │Welcome to NaN Air│               │ 
+# │               │Welcome to NaN Air│               │
 # │               ├──────────────────┤               │
-# │               │  User: Employee  │               │    
+# │               │  User: Employee  │               │
 # │               ╰──────────────────╯               │
 # ╰──────────────────────────────────────────────────╯
 # """
