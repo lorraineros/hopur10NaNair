@@ -19,14 +19,14 @@ class EditingMenu(HelpfulMenu):
         self.variables = []
         self.transients = []
         for field in dataclasses.fields(entity):
-            if field.metadata.get("initializer"):
-                self.transients.append(field)
-            elif field.metadata.get("derived"):
-                pass  # don't display derived values
-            elif field.metadata.get("autoinit") or (
+            if field.metadata.get("autoinit") or (
                 not self.is_manager and not field.metadata.get("employee_can_edit")
             ):
                 self.constants.append(field)
+            elif field.metadata.get("initializer"):
+                self.transients.append(field)
+            elif field.metadata.get("derived"):
+                pass  # don't display derived values
             else:
                 self.variables.append(field)
 
