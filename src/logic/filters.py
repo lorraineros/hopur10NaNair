@@ -3,6 +3,7 @@ import re
 from abc import abstractmethod
 from dataclasses import Field, dataclass
 from typing import Union
+from src.logic.logic_api import LogicAPI
 
 from src.models.models import Model
 
@@ -54,6 +55,12 @@ class RegexFilter(AbstractFilter):
 
     def __call__(self, entity: Model) -> bool:
         prop = str(getattr(entity, self.field.name))
+        if self.field.metadata.get("id"):
+            prop = (
+                LogicAPI()
+                .get(self.field.metadata.get("id")(), getattr(entity, self.field.name))
+                .short_name()
+            )
         try:
             result = bool(re.search(self.regex, prop))
         except re.error:

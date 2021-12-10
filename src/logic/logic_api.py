@@ -1,11 +1,13 @@
 import dataclasses
 from copy import deepcopy
-from typing import Dict, List, Optional, Type
+from typing import TYPE_CHECKING, Dict, List, Optional, Type
 
-from src.logic.filters import AbstractFilter
 from src.models.models import M, Model, WorkReport, WorkRequest
 from src.storage.storage import StorageAPI
 from src.utilities.singleton import Singleton
+
+if TYPE_CHECKING:
+    from src.logic.filters import AbstractFilter
 
 
 class LogicAPI(metaclass=Singleton):
@@ -31,7 +33,7 @@ class LogicAPI(metaclass=Singleton):
     def get_all(self, model: Type[M]) -> Dict[int, M]:
         return self.storage.get_all(model)
 
-    def get_filtered(self, model: Type[M], filters: List[AbstractFilter]) -> List[M]:
+    def get_filtered(self, model: Type[M], filters: "List[AbstractFilter]") -> List[M]:
         result = list(self.get_all(model).values())
         for filt in filters:
             result = [entity for entity in result if filt(entity)]
