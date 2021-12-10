@@ -125,7 +125,7 @@ class EditingMenu(HelpfulMenu):
         return f"""
 Help message:
     To change a modifiable property input:
-    > <property number> <new value>
+    > <property number> (space between)  <new value>
 
     For example, to change the {self.options[1].name} " "property to Angela Merkel, you would write:
     > 1 Angela Merkel
