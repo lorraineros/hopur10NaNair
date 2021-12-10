@@ -65,10 +65,11 @@ class LogicAPI(metaclass=Singleton):
         self.storage.flush_to_disk()
 
     def is_a_locked_work_request(self, entity) -> bool:
-        if isinstance(entity, WorkRequest):  # if entity is a work request
+        if isinstance(entity, WorkReport):  # if entity is a work request
+            work_request = LogicAPI().get(WorkRequest, entity.work_request_id)
             work_report = LogicAPI().get_a_that_references_b(
                 WorkReport,
                 entity,
             )  # get the work report that references it
-            return bool(work_report) and work_report.done  # check if it's done
+            return bool(work_request) and not work_request.is_open  # check if it's done
         return False

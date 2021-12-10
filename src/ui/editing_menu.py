@@ -4,7 +4,7 @@ from datetime import date, timedelta
 from src.logic.filters import RegexFilter
 
 from src.logic.logic_api import LogicAPI
-from src.models.models import Model, WorkReport
+from src.models.models import Model, WorkReport, WorkRequest
 from src.ui.abstract_menu import HelpfulMenu
 from src.ui.list_menu import ChosenIdMenu, IdPickerMenu
 
@@ -100,10 +100,15 @@ class EditingMenu(HelpfulMenu):
         if extra_print:
             print()
 
+        extra_print = False
         if not self.is_creator and not self.locked:
             for (_, model) in referencing_models:
-                print(f"c {model.command()}. Create a {model.model_name()} entry")
-            if referencing_models:
+                if not (
+                    isinstance(self.entity, WorkRequest) and model == WorkReport
+                ) or (isinstance(self.entity, WorkRequest) and self.entity.is_open):
+                    extra_print = True
+                    print(f"c {model.command()}. Create a {model.model_name()} entry")
+            if extra_print:
                 print()
 
         if self.variables or self.transients:
@@ -157,30 +162,45 @@ Help message:
         for model in self.entity.mentioned_by():
             for field in dataclasses.fields(model):
                 ref = field.metadata.get("id")
-                if (
-                    ref  # if field is an ID field
-                    and ref() == type(self.entity)  # and references the right model
-                    and [
-                        ent
-                        for ent in LogicAPI().get_all(model).values()
-                        if getattr(ent, field.name) == self.entity.id
-                    ]
-                ):
-                    referencing_models.append((model, field, self.entity.id))
-        for (model, field, id) in referencing_models:
-            if command == "l " + model.command():
+                if ref and ref() == type(self.entity):
+                    referencing_models.append(
+                        (
+                            bool(
+                                [
+                                    ent
+                                    for ent in LogicAPI().get_all(model).values()
+                                    if getattr(ent, field.name) == self.entity.id
+                                ]
+                            ),
+                            model,
+                            field,
+                        )
+                    )
+        for (is_referenced, model, field) in referencing_models:
+            import os
+
+            self._user_message += (
+                str(isinstance(self.entity, WorkRequest) and model == WorkReport)
+                + os.linesep
+                + str(isinstance(self.entity, WorkRequest) and self.entity.is_open)
+                + os.linesep
+            )
+            if is_referenced and command == "l " + model.command():
                 # show a menu with an ID filter that only shows self.entity.id
-                return ChosenIdMenu(model, field, id)
+                return ChosenIdMenu(model, field, self.entity.id)
             elif (
                 not self.is_creator
-                and not self.locked
+                and (
+                    not (isinstance(self.entity, WorkRequest) and model == WorkReport)
+                    or (isinstance(self.entity, WorkRequest) and self.entity.is_open)
+                )
                 and command == "c " + model.command()
             ):
                 # if we are not creating an entity, allow an entity to be made that references self.entity
                 from src.ui.creation_menu import CreationMenu
 
                 boi = CreationMenu(model)
-                setattr(boi.entity, field.name, id)
+                setattr(boi.entity, field.name, self.entity.id)
                 return boi
         self.options = self.variable_options | self.transient_options
         (str_option, _sep, arg) = command.partition(" ")
