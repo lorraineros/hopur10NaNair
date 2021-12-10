@@ -1,0 +1,289 @@
+@startuml classes-simple
+set namespaceSeparator none
+abstract "AbstractFilter" as src.logic.filters.AbstractFilter {
+  field : dataclasses.Field
+  pname : str
+}
+abstract "AbstractListMenu" as src.ui.list_menu.AbstractListMenu {
+  fields
+  filter_options
+  filters : List[AbstractFilter]
+  hidden_filters : List[AbstractFilter]
+  max_column_width : int
+  model : Type[Model]
+  options
+  sort_order : list
+  term_size
+  handle_input(command: str)
+  show()
+}
+abstract "AbstractMenu" as src.ui.abstract_menu.AbstractMenu {
+  is_manager
+  is_root : bool = False
+  handle_input(command)
+  message_from_child(message: MessageToParent)
+  name()
+  show()
+}
+class "App" as src.ui.ui.App {
+  logic
+  stack : List[AbstractMenu]
+  run()
+}
+note left #red: <size:24><b>START HERE</b></size>
+abstract "BaseEmployee" as src.models.models.BaseEmployee {
+  name : str
+  phone : str
+  short_name()
+}
+abstract "BasicNavigationMenu" as src.ui.abstract_menu.BasicNavigationMenu {
+  handle_input(command)
+  show()
+}
+class "ChosenIdMenu" as src.ui.list_menu.ChosenIdMenu {
+}
+class "Contractor" as src.models.models.Contractor {
+  location : int
+  name_of_company : str
+  working_hours : str
+  command(cls)
+  mentioned_by(cls)
+  short_name()
+}
+class "ContractorMenu" as src.ui.contractor_ui.ContractorMenu {
+  header
+  options
+  name()
+}
+class "CreationMenu" as src.ui.creation_menu.CreationMenu {
+  is_creator : bool
+  transient_options : dict
+  name()
+}
+class "DateFilter" as src.logic.filters.DateFilter {
+  date : Union[datetime.date, datetime.datetime]
+}
+class "Destination" as src.models.models.Destination {
+  country : str
+  name : str
+  command(cls)
+  mentioned_by(cls)
+  short_name()
+}
+class "DestinationMenu" as src.ui.destination_ui.DestinationMenu {
+  header
+  options
+  name()
+}
+class "EditPickerMenu" as src.ui.list_menu.EditPickerMenu {
+  handle_input(command)
+  name()
+}
+class "EditingMenu" as src.ui.editing_menu.EditingMenu {
+  constants : list
+  entity : Model
+  is_creator : bool
+  locked
+  message_from_child
+  options
+  transient_options : dict
+  transients : list
+  variable_options : dict
+  variables : list
+  handle_input(command: str)
+  name()
+  show()
+  show_props(max_prop_len, options, modifiable)
+}
+class "Employee" as src.models.models.Employee {
+  email : str
+  gsm : str
+  home_address : str
+  is_manager : bool
+  work_destination : int
+  command(cls)
+  mentioned_by(cls)
+}
+class "EmployeeMenu" as src.ui.employee_ui.EmployeeMenu {
+  header
+  options
+  name()
+}
+abstract "HelpfulMenu" as src.ui.abstract_menu.HelpfulMenu {
+  handle_input(command)
+  show()
+}
+class "IdFilter" as src.logic.filters.IdFilter {
+  id : int
+}
+class "IdPickerMenu" as src.ui.list_menu.IdPickerMenu {
+  handle_input(command)
+  name()
+}
+class "LogicAPI" as src.logic.logic_api.LogicAPI {
+  storage
+  flush_to_disk()
+  get(model: Type[Model], id: int) -> Model
+  get_a_that_references_b(a: Type[Model], b: Model) -> Optional[Model]
+  get_all(model: Type[Model]) -> Dict[int, Model]
+  get_filtered(model: Type[Model], filters) -> List[Model]
+  get_new(model: Type[Model]) -> Model
+  is_a_locked_work_request(entity) -> bool
+  set(entity: Model) -> bool
+}
+class "MainMenu" as src.ui.ui.MainMenu {
+  header
+  is_root : bool = True
+  options
+  name()
+}
+class "MessageToParent" as src.ui.utilities.MessageToParent {
+  messages : dict
+}
+abstract "Model" as src.models.models.Model {
+  id : int
+  command(cls)
+  from_dict(cls: Dict[str, Any], dictionary)
+  mentioned_by(cls)
+  model_name(cls)
+  short_name()
+}
+class "PeriodFilter" as src.logic.filters.PeriodFilter {
+  end_date : Union[datetime.date, datetime.datetime]
+  start_date : Union[datetime.date, datetime.datetime]
+}
+class "RealEstate" as src.models.models.RealEstate {
+  address : str
+  condition : str
+  facilities : str
+  location : int
+  real_estate_number : str
+  rooms : int
+  size : int
+  type_of_real_estate : str
+  command(cls)
+  mentioned_by(cls)
+  model_name(cls)
+  short_name()
+}
+class "RealEstateMenu" as src.ui.real_estate_ui.RealEstateMenu {
+  header
+  options
+  name()
+}
+class "RegexFilter" as src.logic.filters.RegexFilter {
+  regex : str
+}
+abstract "SimpleMenu" as src.ui.abstract_menu.SimpleMenu {
+  header
+  options
+  handle_input(command)
+  show()
+}
+abstract "Singleton" as src.utilities.singleton.Singleton {
+}
+note left: This class is a metaclass that\nturns subclassas into singletons.
+class "Storage" as src.storage.storage.Storage {
+  data : dict
+  file_name
+  loaded : bool
+  model : Type[Model]
+  modified : bool
+  next_id
+  get(id: int) -> Model
+  get_all() -> Dict[int, Model]
+  load()
+  set(entity: Model)
+  store()
+}
+class "StorageAPI" as src.storage.storage.StorageAPI {
+  storages : Dict[Type[Model], Storage]
+  flush_to_disk()
+  get(model: Type[Model], id: int)
+  get_all(model: Type[Model]) -> Dict[int, Model]
+  next_id(model: Type[Model])
+  set(entity: Model)
+}
+class "UserControl" as src.ui.ui.UserControl {
+  is_manager : bool
+  is_root : bool = True
+  handle_input(command)
+  show()
+}
+class "WorkReport" as src.models.models.WorkReport {
+  comment : str
+  contractor_id : int
+  contractors_fee : str
+  date: datetime.datetime
+  description : str
+  done : bool
+  employee_id : int
+  material_cost : str
+  work_request_id : int
+  command(cls)
+  model_name(cls)
+  short_name()
+}
+class "WorkRequest" as src.models.models.WorkRequest {
+  date: datetime.date
+  description : str
+  is_open : bool
+  priority : str
+  real_estate : int
+  title : str
+  .. Initilization fields ..
+  start_date: datetime.date
+  end_date: datetime.date
+  repeat_period: datetime.timedelta
+  __
+  command(cls)
+  mentioned_by(cls)
+  model_name(cls)
+  short_name()
+}
+class "WorkRequestMenu" as src.ui.work_request_ui.WorkRequestMenu {
+  header
+  options
+  name()
+}
+src.logic.filters.DateFilter --|> src.logic.filters.AbstractFilter
+src.logic.filters.IdFilter --|> src.logic.filters.AbstractFilter
+src.logic.filters.PeriodFilter --|> src.logic.filters.AbstractFilter
+src.logic.filters.RegexFilter --|> src.logic.filters.AbstractFilter
+src.models.models.BaseEmployee --|> src.models.models.Model
+src.models.models.Contractor --|> src.models.models.BaseEmployee
+src.models.models.Destination --|> src.models.models.Model
+src.models.models.Employee --|> src.models.models.BaseEmployee
+src.models.models.RealEstate --|> src.models.models.Model
+src.models.models.WorkReport --|> src.models.models.Model
+src.models.models.WorkRequest --|> src.models.models.Model
+src.ui.abstract_menu.BasicNavigationMenu --|> src.ui.abstract_menu.AbstractMenu
+src.ui.abstract_menu.HelpfulMenu --|> src.ui.abstract_menu.BasicNavigationMenu
+src.ui.abstract_menu.SimpleMenu --|> src.ui.abstract_menu.BasicNavigationMenu
+src.ui.contractor_ui.ContractorMenu --|> src.ui.abstract_menu.SimpleMenu
+src.ui.creation_menu.CreationMenu --|> src.ui.editing_menu.EditingMenu
+src.ui.destination_ui.DestinationMenu --|> src.ui.abstract_menu.SimpleMenu
+src.ui.editing_menu.EditingMenu --|> src.ui.abstract_menu.HelpfulMenu
+src.ui.employee_ui.EmployeeMenu --|> src.ui.abstract_menu.SimpleMenu
+src.ui.list_menu.AbstractListMenu --|> src.ui.abstract_menu.HelpfulMenu
+src.ui.list_menu.ChosenIdMenu --|> src.ui.list_menu.EditPickerMenu
+src.ui.list_menu.EditPickerMenu --|> src.ui.list_menu.AbstractListMenu
+src.ui.list_menu.IdPickerMenu --|> src.ui.list_menu.AbstractListMenu
+src.ui.real_estate_ui.RealEstateMenu --|> src.ui.abstract_menu.SimpleMenu
+src.ui.ui.MainMenu --|> src.ui.abstract_menu.SimpleMenu
+src.ui.ui.UserControl --|> src.ui.abstract_menu.BasicNavigationMenu
+src.ui.work_request_ui.WorkRequestMenu --|> src.ui.abstract_menu.SimpleMenu
+src.models.models.Model --* src.ui.editing_menu.EditingMenu : entity
+src.ui.utilities.MessageToParent --* src.ui.abstract_menu.AbstractMenu : _inbox
+
+src.models.models.Model ..* src.ui.list_menu.AbstractListMenu : model
+note bottom on link : These are not instances\nbut the types themselves
+
+src.logic.logic_api.LogicAPI --* src.ui.ui.App : logic
+src.ui.abstract_menu.AbstractMenu "1..*" --* "1" src.ui.ui.App : stack
+src.storage.storage.StorageAPI --|> src.utilities.singleton.Singleton
+src.logic.logic_api.LogicAPI --|> src.utilities.singleton.Singleton
+src.storage.storage.Storage "1 for each Model" --* "1" src.storage.storage.StorageAPI : storages
+src.storage.storage.StorageAPI --* src.logic.logic_api.LogicAPI : storage
+src.logic.filters.AbstractFilter "*" --* "1" src.ui.list_menu.AbstractListMenu
+@enduml

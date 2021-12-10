@@ -1,0 +1,108 @@
+@startuml packages
+set namespaceSeparator none
+package "src" as src {
+}
+package "src.logic" as src.logic {
+}
+package "src.logic.filters" as src.logic.filters {
+}
+package "src.logic.logic_api" as src.logic.logic_api {
+}
+package "src.main" as src.main {
+}
+package "src.models" as src.models {
+}
+package "src.models.models" as src.models.models {
+}
+package "src.storage" as src.storage {
+}
+package "src.storage.storage" as src.storage.storage {
+}
+package "src.test" as src.test {
+}
+package "src.ui" as src.ui {
+}
+package "src.ui.abstract_menu" as src.ui.abstract_menu {
+}
+package "src.ui.contractor_ui" as src.ui.contractor_ui {
+}
+package "src.ui.creation_menu" as src.ui.creation_menu {
+}
+package "src.ui.destination_ui" as src.ui.destination_ui {
+}
+package "src.ui.editing_menu" as src.ui.editing_menu {
+}
+package "src.ui.employee_ui" as src.ui.employee_ui {
+}
+package "src.ui.list_menu" as src.ui.list_menu {
+}
+package "src.ui.real_estate_ui" as src.ui.real_estate_ui {
+}
+package "src.ui.ui" as src.ui.ui {
+}
+package "src.ui.utilities" as src.ui.utilities {
+}
+package "src.ui.work_request_ui" as src.ui.work_request_ui {
+}
+package "src.utilities" as src.utilities {
+}
+package "src.utilities.singleton" as src.utilities.singleton {
+}
+src.logic.filters --> src.logic.logic_api
+src.logic.filters --> src.models.models
+src.logic.logic_api --> src.logic.filters
+src.logic.logic_api --> src.models.models
+src.logic.logic_api --> src.storage.storage
+src.logic.logic_api --> src.utilities.singleton
+src.main --> src.ui.ui
+src.storage.storage --> src.models.models
+src.storage.storage --> src.utilities.singleton
+src.test --> src.logic.logic_api
+src.test --> src.models.models
+src.test --> src.storage.storage
+src.test --> src.ui.abstract_menu
+src.test --> src.ui.creation_menu
+src.test --> src.ui.editing_menu
+src.test --> src.ui.list_menu
+src.test --> src.ui.ui
+src.ui.abstract_menu --> src.ui.utilities
+src.ui.contractor_ui --> src.models.models
+src.ui.contractor_ui --> src.ui.abstract_menu
+src.ui.contractor_ui --> src.ui.creation_menu
+src.ui.contractor_ui --> src.ui.list_menu
+src.ui.creation_menu --> src.logic.logic_api
+src.ui.creation_menu --> src.models.models
+src.ui.creation_menu --> src.ui.editing_menu
+src.ui.destination_ui --> src.models.models
+src.ui.destination_ui --> src.ui.abstract_menu
+src.ui.destination_ui --> src.ui.creation_menu
+src.ui.destination_ui --> src.ui.list_menu
+src.ui.editing_menu --> src.logic.filters
+src.ui.editing_menu --> src.logic.logic_api
+src.ui.editing_menu --> src.models.models
+src.ui.editing_menu --> src.ui.abstract_menu
+src.ui.editing_menu --> src.ui.creation_menu
+src.ui.editing_menu --> src.ui.list_menu
+src.ui.employee_ui --> src.models.models
+src.ui.employee_ui --> src.ui.abstract_menu
+src.ui.employee_ui --> src.ui.creation_menu
+src.ui.employee_ui --> src.ui.list_menu
+src.ui.list_menu --> src.logic.filters
+src.ui.list_menu --> src.logic.logic_api
+src.ui.list_menu --> src.models.models
+src.ui.list_menu --> src.ui.abstract_menu
+src.ui.list_menu --> src.ui.creation_menu
+src.ui.list_menu --> src.ui.editing_menu
+src.ui.list_menu --> src.ui.utilities
+src.ui.real_estate_ui --> src.models.models
+src.ui.real_estate_ui --> src.ui.abstract_menu
+src.ui.real_estate_ui --> src.ui.creation_menu
+src.ui.real_estate_ui --> src.ui.list_menu
+src.ui.ui --> src.logic.logic_api
+src.ui.ui --> src.ui.abstract_menu
+src.ui.ui --> src.ui.utilities
+src.ui.work_request_ui --> src.models.models
+src.ui.work_request_ui --> src.ui.abstract_menu
+src.ui.work_request_ui --> src.ui.creation_menu
+src.ui.work_request_ui --> src.ui.list_menu
+@enduml
