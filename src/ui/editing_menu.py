@@ -107,7 +107,7 @@ class EditingMenu(HelpfulMenu):
             print(prop_lhs, end="")
 
             # show property if it has a value
-            if getattr(self.entity, field.name):
+            if (prop := getattr(self.entity, field.name)) or type(prop) == bool:
                 if field.metadata.get("hidden"):
                     print(f"= ******", end="")
                 else:
