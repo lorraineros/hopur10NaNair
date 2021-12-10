@@ -62,7 +62,7 @@ class BaseEmployee(Model):
 class Employee(BaseEmployee):
     home_address: str = field(
         default="",
-        metadata={"required": True},
+        metadata={"pretty_name": "Home address", "required": True},
     )
     gsm: str = field(
         default="",
@@ -97,7 +97,7 @@ class Employee(BaseEmployee):
 class Contractor(BaseEmployee):
     name_of_company: str = field(
         default="",
-        metadata={"pretty_name": "Name Of Company", "required": True},
+        metadata={"pretty_name": "Name of company", "required": True},
     )
     working_hours: str = field(
         default="",

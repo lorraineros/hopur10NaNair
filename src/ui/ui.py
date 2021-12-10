@@ -67,7 +67,8 @@ class UserControl(BasicNavigationMenu):
     is_root = True
 
     def show(self):
-        print("""
+        print(
+            """
 ╭──────────────────────────────────────────────────╮
 │        _   _       _   _      _    _             │
 │       | \ | | __ _| \ | |    / \  (_)_ __        │
@@ -81,7 +82,8 @@ class UserControl(BasicNavigationMenu):
 │            │ 1. Manager │ 2.Employee │           │
 │            ╰────────────┴────────────╯           │
 ╰──────────────────────────────────────────────────╯        
-""")
+"""
+        )
         # print("--- Please choose a user type ---")
         # print("1. Manager")
         # print("2. Employee")
@@ -137,5 +139,6 @@ class MainMenu(SimpleMenu):
             ("Contractor", ContractorMenu),
             ("Destination", DestinationMenu),
         ]
+
     def name(self):
         return "Main Menu"

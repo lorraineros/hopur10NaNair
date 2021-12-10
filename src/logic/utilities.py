@@ -6,7 +6,13 @@ from dataclasses import Field, dataclass
 from src.models.models import Model
 
 
+@dataclass
 class AbstractFilter:
+    field: Field
+
+    def __post_init__(self):
+        self.pname = self.field.metadata.get("pretty_name", self.field.name)
+
     @abstractmethod
     def __call__(self, entity: Model) -> bool:
         pass
@@ -14,19 +20,20 @@ class AbstractFilter:
 
 @dataclass
 class DateFilter(AbstractFilter):
-    field: Field
     date: datetime.date
 
     def __call__(self, entity: Model) -> bool:
         prop = getattr(entity, self.field.name)
         return self.date == prop
+
     def __str__(self):
-        return f"""Filtering enteries in the "{self.field.metadata['pretty_name']} by {self.date}"""
+        return (
+            f'Only showing entries with the date {self.date} in column "{self.pname}"'
+        )
 
 
 @dataclass
 class PeriodFilter(AbstractFilter):
-    field: Field
     start_date: datetime.date
     end_date: datetime.date
 
@@ -35,12 +42,13 @@ class PeriodFilter(AbstractFilter):
         return self.start_date <= prop and prop <= self.end_date
 
     def __str__(self):
-        return f"""Filtering enteries in the "{self.field.metadata['pretty_name']} by {self.start_date} and {self.end_date}"""
+        return f"Only showing entries with dates from "
+
+    '{self.start_date} to {self.end_date} in column "{self.pname}"'
 
 
 @dataclass
 class RegexFilter(AbstractFilter):
-    field: Field
     regex: str
 
     def __call__(self, entity: Model) -> bool:
@@ -52,13 +60,15 @@ class RegexFilter(AbstractFilter):
         return result
 
     def __str__(self):
-        return f"""Filtering entries in the "{self.field.metadata['pretty_name']}" column by "{self.regex}" """
+        return f'Limiting the "{self.pname}" column to entries that match the regex: "{self.regex}"'
 
 
 @dataclass
 class IdFilter(AbstractFilter):
-    field: Field
     id: int
 
     def __call__(self, entity: Model) -> bool:
         return getattr(entity, self.field.name) == self.id
+
+    def __str__(self):
+        return f"Only showing {self.pname} with the ID: {self.id}"
