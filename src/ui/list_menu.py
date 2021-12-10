@@ -241,7 +241,7 @@ class EditPickerMenu(AbstractListMenu):
     """This class shows a list of entities that can be chosen and edited"""
 
     def name(self):
-        return f"{self.model.model_name()} selection list"
+        return f"{self.model.model_name()} Selection List"
 
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
