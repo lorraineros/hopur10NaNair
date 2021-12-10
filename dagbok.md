@@ -127,10 +127,10 @@ Afrakstur dagsins:
 
 -   Andri Þór: Vann í WorkRequest að laga dagsetningar, vann líka í Models.
 -   Andriy:
--   Anh:
+-   Anh: Vann í WorkRequest og þess háttar
 -   Ari:
--   Arnaldur:
--   Lorraine:
+-   Arnaldur: Almennt að laga kóða og fínpússa
+-   Lorraine: Vann í WorkRequest og þess háttar
 
 ### 9. desember 2021
 
@@ -151,9 +151,9 @@ Lokadagurinn í dag og byrjuðum við þenna síðasta dag á því að hittast 
 
 Afrakstur dagsins:
 
--   Andri Þór: Vann í skýrslunni, frágang á kóða og gera kynningamyndband.
--   Andriy:
--   Anh:
+-   Andri Þór: Vann í skýrslunni, frágang á kóða, og gera kynningamyndband.
+-   Andriy: Vann í handriti á kynningamyndbandi
+-   Anh: Vann í wireframes og use cases
 -   Ari:
--   Arnaldur:
--   Lorraine:
+-   Arnaldur: Vann í að klára kóða og frágang á honum ásamt klasariti.
+-   Lorraine: Vann í wireframes og use cases
