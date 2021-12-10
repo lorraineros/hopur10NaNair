@@ -20,7 +20,7 @@ class AbstractListMenu(HelpfulMenu):
 
     def __init__(self, model: Type[M]):
         super().__init__()
-        self.max_column_width = 32
+        self.max_column_width = 20
         self.model = model
         self.term_size = shutil.get_terminal_size()
         self.fields = [
