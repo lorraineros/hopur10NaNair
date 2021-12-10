@@ -62,7 +62,7 @@ class BaseEmployee(Model):
 class Employee(BaseEmployee):
     home_address: str = field(
         default="",
-        metadata={"required": True},
+        metadata={"required": True, "pretty_name": "Home Address"},
     )
     gsm: str = field(
         default="",
