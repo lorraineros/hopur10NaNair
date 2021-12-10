@@ -151,7 +151,7 @@ Lokadagurinn í dag og byrjuðum við þenna síðasta dag á því að hittast 
 
 Afrakstur dagsins:
 
--   Andri Þór:
+-   Andri Þór: Vann í skýrslunni, frágang á kóða og gera kynningamyndband.
 -   Andriy:
 -   Anh:
 -   Ari:
