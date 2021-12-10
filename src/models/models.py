@@ -256,6 +256,9 @@ class WorkReport(Model):
     @classmethod
     def command(cls):
         return "rep"
+    
+    def short_name(self):
+        return f"{self.id}. {self.title}"
 
 
 @dataclass
