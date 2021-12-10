@@ -5,12 +5,6 @@ from src.logic.logic_api import LogicAPI
 from src.ui.abstract_menu import AbstractMenu, BasicNavigationMenu, SimpleMenu
 from src.ui.utilities import MessageToParent
 
-from ..ui.contractor_ui import ContractorMenu
-from ..ui.destination_ui import DestinationMenu
-from ..ui.employee_ui import EmployeeMenu
-from ..ui.real_estate_ui import RealEstateMenu
-from ..ui.work_request_ui import WorkRequestMenu
-
 
 class App:
     def __init__(self):
