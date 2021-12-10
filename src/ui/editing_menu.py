@@ -35,7 +35,7 @@ class EditingMenu(HelpfulMenu):
 
     def name(self):
         if self.is_manager or isinstance(self.entity, WorkReport):
-            return f"Editing {self.entity.model_name().lower()}"
+            return f"Editing {self.entity.model_name()}"
         else:
             return f"{self.entity.model_name()}"
 
