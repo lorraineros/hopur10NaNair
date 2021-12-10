@@ -16,7 +16,7 @@ class ContractorMenu(SimpleMenu):
     def options(self):
         if self.is_manager:
             return [
-                ("Register a new contractpr", CreationMenu, Contractor),
+                ("Register a new contractor", CreationMenu, Contractor),
                 ("List of contractors", EditPickerMenu, Contractor)
             ]
         else:
