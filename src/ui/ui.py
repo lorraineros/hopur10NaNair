@@ -133,7 +133,7 @@ class MainMenu(SimpleMenu):
         return [
             ("Employee", EmployeeMenu),
             ("Real Estate", RealEstateMenu),
-            ("Work request", WorkRequestMenu),
+            ("Work request & Work Report", WorkRequestMenu),
             ("Contractor", ContractorMenu),
             ("Destination", DestinationMenu),
         ]

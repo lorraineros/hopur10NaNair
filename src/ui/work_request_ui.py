@@ -7,7 +7,7 @@ from src.ui.list_menu import EditPickerMenu
 class WorkRequestMenu(SimpleMenu):
     @property
     def header(self):
-        return "--- Work Request Menu ---"
+        return "--- Work Request & Work Report Menu ---"
 
     @property
     def options(self):
