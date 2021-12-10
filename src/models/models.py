@@ -240,8 +240,8 @@ class WorkReport(Model):
         metadata={"pretty_name": "Comment"},
     )
 
-    date: datetime.datetime = field(
-        default=datetime.datetime.now(),
+    date: datetime.date = field(
+        default=datetime.date.today(),
         metadata={"pretty_name": "Date"},
     )
 
