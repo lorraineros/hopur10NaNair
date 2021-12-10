@@ -1,12 +1,12 @@
 import dataclasses
 import os
 from datetime import date, timedelta
+from src.logic.filters import RegexFilter
 
 from src.logic.logic_api import LogicAPI
-from src.logic.utilities import IdFilter
-from src.models.models import Model, RealEstate, WorkReport
+from src.models.models import Model, WorkReport
 from src.ui.abstract_menu import HelpfulMenu
-from src.ui.list_menu import EditPickerMenu, IdPickerMenu
+from src.ui.list_menu import ChosenIdMenu, IdPickerMenu
 
 
 class EditingMenu(HelpfulMenu):
@@ -18,24 +18,29 @@ class EditingMenu(HelpfulMenu):
         self.constants = []
         self.variables = []
         self.transients = []
+        self.locked = LogicAPI().is_a_locked_work_request(entity)
         for field in dataclasses.fields(entity):
-            if field.metadata.get("initializer"):
-                self.transients.append(field)
-            elif field.metadata.get("derived"):
+            if field.metadata.get("derived"):
                 pass  # don't display derived values
-            elif field.metadata.get("autoinit") or (
-                not self.is_manager and not field.metadata.get("employee_can_edit")
+            elif (
+                field.metadata.get("autoinit")
+                or (not self.is_manager and not field.metadata.get("employee_can_edit"))
+                or self.locked
             ):
-                self.constants.append(field)
+                if not field.metadata.get("initializer"):
+                    self.constants.append(field)
+            elif field.metadata.get("initializer"):
+                self.transients.append(field)
             else:
                 self.variables.append(field)
 
         self.variable_options = dict(enumerate(self.variables, 1))
         self.transient_options = {}
+        self.is_creator = False
 
     def name(self):
         if self.is_manager or isinstance(self.entity, WorkReport):
-            return f"Editing {self.entity.model_name().lower()}"
+            return f"Editing {self.entity.model_name()}"
         else:
             return f"{self.entity.model_name()}"
 
@@ -43,19 +48,13 @@ class EditingMenu(HelpfulMenu):
         """This function shows fields to edit"""
 
         print(f"Properties of a {self.entity.model_name()}")
+
         if self.constants:
             max_const_len = max(len(field.name) for field in self.constants) + 1
             print("Constant properties:")
-            for field in self.constants:
-                # get pretty name for property
-                name = field.metadata.get("pretty_name", field.name)
-                print(f"{name:<{max_const_len}}", end="")
-                # show property if it has a value
-                if field.name in dir(self.entity) and getattr(self.entity, field.name):
-                    print(f"= {getattr(self.entity, field.name)}", end="")
-                print()
+            self.show_props(max_const_len, enumerate(self.constants), False)
             print()
-        extra_padding = 3 if len(self.variables) + len(self.transients) >= 10 else 2
+
         max_var_len = (
             max(
                 [0]
@@ -68,64 +67,80 @@ class EditingMenu(HelpfulMenu):
         )
         if self.variable_options:
             print("Modifiable properties:")
-            for (i, field) in self.variable_options.items():
-                # get pretty name for property
-                name = field.metadata.get("pretty_name", field.name)
-                print(
-                    f"{str(i) + '.':<{extra_padding}} {name:<{max_var_len}}",
-                    end="",
-                )
-
-                # show property if it has a value
-                if getattr(self.entity, field.name):
-                    if field.metadata.get("hidden"):
-                        print(f"= ******", end="")
-                    else:
-                        print(f"= {getattr(self.entity, field.name)}", end="")
-                print()
+            self.show_props(max_var_len, self.variable_options.items(), True)
             print()
+
         if self.transient_options:
             print("Creation parameters:")
-            for (i, field) in self.transient_options.items():
-                name = field.metadata.get("pretty_name", field.name)
-                print(
-                    f"{str(i) + '.':<{extra_padding}} {name:<{max_var_len}}",
-                    end="",
-                )
-                # show property if it has a value
-                if getattr(self.entity, field.name):
-                    print(f"= {getattr(self.entity, field.name)}", end="")
-                print()
-            print()
+            self.show_props(max_var_len, self.transient_options.items(), True)
             print()
 
-        extra_print = False
+        referencing_models = []
         for model in self.entity.mentioned_by():
             for field in dataclasses.fields(model):
                 ref = field.metadata.get("id")
-                if (
-                    ref
-                    and ref() == type(self.entity)
-                    and [
-                        ent
-                        for ent in LogicAPI().get_all(model).values()
-                        if getattr(ent, field.name) == self.entity.id
-                    ]
-                ):
-                    extra_print = True
-                    print(f"{model.command()}. Show a list of {model.model_name()}")
+                if ref and ref() == type(self.entity):
+                    referencing_models.append(
+                        (
+                            bool(
+                                [
+                                    ent
+                                    for ent in LogicAPI().get_all(model).values()
+                                    if getattr(ent, field.name) == self.entity.id
+                                ]
+                            ),
+                            model,
+                        )
+                    )
+        extra_print = False
+        for (is_referenced, model) in referencing_models:
+            if is_referenced:
+                extra_print = True
+                print(f"l {model.command()}. Show a list of {model.model_name()}")
         if extra_print:
             print()
+
+        if not self.is_creator and not self.locked:
+            for (_, model) in referencing_models:
+                print(f"c {model.command()}. Create a {model.model_name()} entry")
+            if referencing_models:
+                print()
 
         if self.variables or self.transients:
             print("c. Confirm changes")
         super().show()
 
+    def show_props(self, max_prop_len, options, modifiable):
+        extra_padding = 3 if len(self.variables) + len(self.transients) >= 10 else 2
+        for (i, field) in options:
+            # get pretty name for property
+            name = field.metadata.get("pretty_name", field.name)
+            prop_lhs = ""
+            if modifiable:
+                prop_lhs = f"{str(i) + '.':<{extra_padding}} "
+            prop_lhs += f"{name:<{max_prop_len}}"
+            print(prop_lhs, end="")
+
+            # show property if it has a value
+            if (prop := getattr(self.entity, field.name)) or type(prop) == bool:
+                if field.metadata.get("hidden"):
+                    print(f"= ******", end="")
+                else:
+                    prop = str(getattr(self.entity, field.name)).splitlines()
+                    print(f"= {prop[0]}", end="")
+                    for line in prop[1:]:
+                        print()
+                        print(
+                            f"{' '*len(prop_lhs)}  {line}",
+                            end="",
+                        )
+            print()
+
     def _help_message(self):
         return f"""
 Help message:
     To change a modifiable property input:
-    > <property number> <new value>
+    > <property number> (space between) <new value>
 
     For example, to change the {self.options[1].name} " "property to Angela Merkel, you would write:
     > 1 Angela Merkel
@@ -137,22 +152,36 @@ Help message:
 
     def handle_input(self, command: str):
         """This function handles input editing menu"""
+        # create a list of models that reference the model of self.entity
+        referencing_models = []
         for model in self.entity.mentioned_by():
             for field in dataclasses.fields(model):
                 ref = field.metadata.get("id")
                 if (
                     ref  # if field is an ID field
                     and ref() == type(self.entity)  # and references the right model
-                    and command == model.command()  # and it's command was input
                     and [
                         ent
                         for ent in LogicAPI().get_all(model).values()
                         if getattr(ent, field.name) == self.entity.id
                     ]
                 ):
-                    next_menu = EditPickerMenu(model)
-                    next_menu.filters.append(IdFilter(field, self.entity.id))
-                    return next_menu
+                    referencing_models.append((model, field, self.entity.id))
+        for (model, field, id) in referencing_models:
+            if command == "l " + model.command():
+                # show a menu with an ID filter that only shows self.entity.id
+                return ChosenIdMenu(model, field, id)
+            elif (
+                not self.is_creator
+                and not self.locked
+                and command == "c " + model.command()
+            ):
+                # if we are not creating an entity, allow an entity to be made that references self.entity
+                from src.ui.creation_menu import CreationMenu
+
+                boi = CreationMenu(model)
+                setattr(boi.entity, field.name, id)
+                return boi
         self.options = self.variable_options | self.transient_options
         (str_option, _sep, arg) = command.partition(" ")
         option = int(str_option) if str_option.isdigit() else None
@@ -215,7 +244,13 @@ Help message:
             self.message_from_child = lambda message: setattr(
                 self.entity, self.options[option].name, message.messages["id"]
             )
-            return IdPickerMenu(self.options[option].metadata.get("id")())
+
+            next_menu = IdPickerMenu(self.options[option].metadata.get("id")())
+            if isinstance(self.entity, WorkReport):
+                for (i, field) in next_menu.filter_options.items():
+                    if field.name == "is_open":
+                        next_menu.hidden_filters.append(RegexFilter(field, "True"))
+            return next_menu
         if command == "c":
             for field in dataclasses.fields(self.entity):
                 if not bool(getattr(self.entity, field.name)) and field.metadata.get(

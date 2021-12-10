@@ -13,6 +13,8 @@ from ..ui.work_request_ui import WorkRequestMenu
 
 
 class App:
+    """This class manages the mein application loop"""
+
     def __init__(self):
         self.logic = LogicAPI()
         self.stack: List[AbstractMenu] = [UserControl()]
@@ -62,7 +64,7 @@ But that does not apply to you, try again!"""
 
 
 class UserControl(BasicNavigationMenu):
-    """This class defines userclass"""
+    """Opening menu, and access control"""
 
     is_root = True
 
@@ -84,14 +86,9 @@ class UserControl(BasicNavigationMenu):
 ╰──────────────────────────────────────────────────╯        
 """
         )
-        # print("--- Please choose a user type ---")
-        # print("1. Manager")
-        # print("2. Employee")
-        # print("")
-        # super().show()
 
     def handle_input(self, command):
-        """This finction handles input for a simple menu"""
+        """This function handles input for User control and defines the user"""
         if command == "1":
             self.is_manager = True
             return MainMenu()
@@ -103,7 +100,7 @@ class UserControl(BasicNavigationMenu):
 
 
 class MainMenu(SimpleMenu):
-    """This class prints the main menu for maneger"""
+    """The Main Menu"""
 
     is_root = True
 
@@ -135,7 +132,7 @@ class MainMenu(SimpleMenu):
         return [
             ("Employee", EmployeeMenu),
             ("Real Estate", RealEstateMenu),
-            ("Work request", WorkRequestMenu),
+            ("Work request & Work Report", WorkRequestMenu),
             ("Contractor", ContractorMenu),
             ("Destination", DestinationMenu),
         ]

@@ -1,16 +1,9 @@
 import dataclasses
 from copy import deepcopy
-from typing import Dict, List, Type
+from typing import Dict, List, Optional, Type
 
-from src.logic.contractor_logic import ContractorLogic
-from src.logic.destination_logic import DestinationLogic
-from src.logic.employee_logic import EmployeeLogic
-from src.logic.real_estate_logic import RealEstateLogic
-from src.logic.utilities import RegexFilter
-from src.logic.work_report_logic import WorkReportLogic
-from src.logic.work_request_logic import WorkRequestLogic
-from src.models.models import M, Model, WorkRequest
-from src.storage.employee_storage import EmployeeStorage
+from src.logic.filters import AbstractFilter
+from src.models.models import M, Model, WorkReport, WorkRequest
 from src.storage.storage import StorageAPI
 from src.utilities.singleton import Singleton
 
@@ -22,13 +15,23 @@ class LogicAPI(metaclass=Singleton):
     def get(self, model: Type[M], id: int) -> M:
         return self.storage.get(model, id)
 
+    def get_a_that_references_b(self, a: Type[M], b: M) -> Optional[M]:
+        for field in dataclasses.fields(a):
+            ref = field.metadata.get("id")
+            if ref and ref() == type(b):
+                for (i, ays) in self.get_all(a).items():
+                    if getattr(ays, field.name) == b.id:
+                        return ays
+                break
+        return None
+
     def get_new(self, model: Type[M]) -> M:
         return model(id=self.storage.next_id(model))
 
     def get_all(self, model: Type[M]) -> Dict[int, M]:
         return self.storage.get_all(model)
 
-    def get_filtered(self, model: Type[M], filters: List[RegexFilter]) -> List[M]:
+    def get_filtered(self, model: Type[M], filters: List[AbstractFilter]) -> List[M]:
         result = list(self.get_all(model).values())
         for filt in filters:
             result = [entity for entity in result if filt(entity)]
@@ -59,44 +62,11 @@ class LogicAPI(metaclass=Singleton):
     def flush_to_disk(self):
         self.storage.flush_to_disk()
 
-    def employee_list(self):
-        return EmployeeStorage().get_all()
-
-    def employee_id_check(self, employee_id):
-        return EmployeeLogic().id_check(employee_id)
-
-    def yes_no_check(self, yes_no_input):
-        return EmployeeLogic().yes_no_check(yes_no_input)
-
-    def address_list(self):
-        return RealEstateLogic().get_address_list()
-
-    def address_check(self, address_input):
-        return RealEstateLogic().address_check(address_input)
-
-    def real_estate_id_check(self, real_estate_id_input):
-        return RealEstateLogic().id_check(real_estate_id_input)
-
-    def re_num_check(self, re_num_input):
-        return RealEstateLogic().re_num_check(re_num_input)
-
-    def contractor_id_check(self, contractor_id_input):
-        return ContractorLogic().id_check(contractor_id_input)
-
-    def dest_check(self, dest_input):
-        return DestinationLogic().dest_check(dest_input)
-
-    def work_id_check(self, work_id):
-        return WorkRequestLogic().id_check(work_id)
-
-    def work_report_id_check(self, work_id):
-        return WorkReportLogic().id_check(work_id)
-
-    def real_est_work_check(self, real_est):
-        return WorkRequestLogic().real_est_work_check(real_est)
-
-    def emp_work_check(self, emp):
-        return WorkReportLogic().emp_work_check(emp)
-
-    def contr_work_check(self, contr):
-        return WorkReportLogic().contr_work_check(contr)
+    def is_a_locked_work_request(self, entity) -> bool:
+        if isinstance(entity, WorkRequest):  # if entity is a work request
+            work_report = LogicAPI().get_a_that_references_b(
+                WorkReport,
+                entity,
+            )  # get the work report that references it
+            return bool(work_report) and work_report.done  # check if it's done
+        return False

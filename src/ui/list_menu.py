@@ -1,11 +1,17 @@
 import dataclasses
 import os
 import shutil
-from datetime import date
+from datetime import date, datetime
 from typing import List, Type
 
 from src.logic.logic_api import LogicAPI
-from src.logic.utilities import AbstractFilter, DateFilter, PeriodFilter, RegexFilter
+from src.logic.filters import (
+    AbstractFilter,
+    DateFilter,
+    IdFilter,
+    PeriodFilter,
+    RegexFilter,
+)
 from src.models.models import M
 from src.ui.abstract_menu import HelpfulMenu
 from src.ui.utilities import MessageToParent
@@ -20,7 +26,7 @@ class AbstractListMenu(HelpfulMenu):
 
     def __init__(self, model: Type[M]):
         super().__init__()
-        self.max_column_width = 32
+        self.max_column_width = 28
         self.model = model
         self.term_size = shutil.get_terminal_size()
         self.fields = [
@@ -29,6 +35,7 @@ class AbstractListMenu(HelpfulMenu):
             if not field.metadata.get("initializer")
         ]
         self.filters: List[AbstractFilter] = []
+        self.hidden_filters: List[AbstractFilter] = []
         self.filter_options = {
             chr(ord("A") + i): field for i, field in enumerate(self.fields)
         }
@@ -43,7 +50,9 @@ class AbstractListMenu(HelpfulMenu):
     def show(self):
         """This function shows menu based on display used"""
         # fetch data from storage
-        entities = LogicAPI().get_filtered(self.model, self.filters)
+        entities = LogicAPI().get_filtered(
+            self.model, self.filters + self.hidden_filters
+        )
         # sort data
         for (field, rev) in self.sort_order:
             entities.sort(key=lambda ent: getattr(ent, field), reverse=rev)
@@ -165,24 +174,32 @@ Help message:
         (str_option, _, arg) = command.partition(" ")
         if str_option in self.filter_options and arg:  # Filtering
             chosen_column = self.filter_options[str_option]
+            (start, _, end) = arg.partition(" ")
             if chosen_column.type is date:
-                (start, _, end) = arg.partition(" ")
                 try:
+                    start_date = date.fromisoformat(start)
                     if end:
+                        end_date = date.fromisoformat(end)
                         self.filters.append(
-                            PeriodFilter(
-                                chosen_column,
-                                date.fromisoformat(start),
-                                date.fromisoformat(end),
-                            )
+                            PeriodFilter(chosen_column, start_date, end_date)
                         )
                     else:
+                        self.filters.append(DateFilter(chosen_column, start_date))
+                except ValueError as e:
+                    self._user_message = (
+                        str(e) + os.linesep + "Valid format: yyyy-mm-dd" + os.linesep
+                    )
+                    return
+            elif chosen_column.type is datetime:
+                try:
+                    start_date = datetime.fromisoformat(start)
+                    if end:
+                        end_date = datetime.fromisoformat(end)
                         self.filters.append(
-                            DateFilter(
-                                chosen_column,
-                                date.fromisoformat(start),
-                            )
+                            PeriodFilter(chosen_column, start_date, end_date)
                         )
+                    else:
+                        self.filters.append(DateFilter(chosen_column, start_date))
                 except ValueError as e:
                     self._user_message = (
                         str(e) + os.linesep + "Valid format: yyyy-mm-dd" + os.linesep
@@ -241,7 +258,7 @@ class EditPickerMenu(AbstractListMenu):
     """This class shows a list of entities that can be chosen and edited"""
 
     def name(self):
-        return f"{self.model.model_name()} selection list"
+        return f"{self.model.model_name()} Selection List"
 
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
@@ -255,7 +272,16 @@ class EditPickerMenu(AbstractListMenu):
 class IdPickerMenu(AbstractListMenu):
     """This class shows a list of entities that can be used to pick an ID when editing an entity"""
 
+    def name(self):
+        return f"Picking a(n) {self.model.model_name()} ID"
+
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
             return MessageToParent(id=int(command))
         return super().handle_input(command)
+
+
+class ChosenIdMenu(EditPickerMenu):
+    def __init__(self, entity: Type[M], field, id):
+        super().__init__(entity)
+        self.filters.append(IdFilter(field, id))

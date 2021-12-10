@@ -49,15 +49,15 @@ class Storage:
         self.data = {}
 
     @property
-    def next_id(self):
+    def next_id(self) -> int:
         self._ensure_loaded()
         return self._next_id
 
-    def get(self, id: int):
+    def get(self, id: int) -> Model:
         self._ensure_loaded()
         return self.data.get(id)
 
-    def get_all(self):
+    def get_all(self) -> Dict[int, Model]:
         self._ensure_loaded()
         return self.data
 

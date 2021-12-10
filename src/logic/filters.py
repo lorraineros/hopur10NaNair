@@ -2,6 +2,7 @@ import datetime
 import re
 from abc import abstractmethod
 from dataclasses import Field, dataclass
+from typing import Union
 
 from src.models.models import Model
 
@@ -20,7 +21,7 @@ class AbstractFilter:
 
 @dataclass
 class DateFilter(AbstractFilter):
-    date: datetime.date
+    date: Union[datetime.date, datetime.datetime]
 
     def __call__(self, entity: Model) -> bool:
         prop = getattr(entity, self.field.name)
@@ -34,8 +35,8 @@ class DateFilter(AbstractFilter):
 
 @dataclass
 class PeriodFilter(AbstractFilter):
-    start_date: datetime.date
-    end_date: datetime.date
+    start_date: Union[datetime.date, datetime.datetime]
+    end_date: Union[datetime.date, datetime.datetime]
 
     def __call__(self, entity: Model) -> bool:
         prop = getattr(entity, self.field.name)
