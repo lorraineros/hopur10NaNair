@@ -2,7 +2,7 @@ import dataclasses
 from copy import deepcopy
 from typing import Dict, List, Type
 
-from src.logic.utilities import RegexFilter
+from src.logic.filters import RegexFilter
 from src.models.models import M, Model, WorkRequest
 from src.storage.storage import StorageAPI
 from src.utilities.singleton import Singleton

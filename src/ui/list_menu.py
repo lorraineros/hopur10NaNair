@@ -5,7 +5,7 @@ from datetime import date
 from typing import List, Type
 
 from src.logic.logic_api import LogicAPI
-from src.logic.utilities import AbstractFilter, DateFilter, PeriodFilter, RegexFilter
+from src.logic.filters import AbstractFilter, DateFilter, PeriodFilter, RegexFilter
 from src.models.models import M
 from src.ui.abstract_menu import HelpfulMenu
 from src.ui.utilities import MessageToParent

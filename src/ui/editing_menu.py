@@ -3,7 +3,7 @@ import os
 from datetime import date, timedelta
 
 from src.logic.logic_api import LogicAPI
-from src.logic.utilities import IdFilter
+from src.logic.filters import IdFilter
 from src.models.models import Model, RealEstate, WorkReport
 from src.ui.abstract_menu import HelpfulMenu
 from src.ui.list_menu import EditPickerMenu, IdPickerMenu
