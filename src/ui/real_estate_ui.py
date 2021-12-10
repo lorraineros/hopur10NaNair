@@ -1,9 +1,6 @@
-from src.logic.logic_api import LogicAPI
-from src.models.models import Destination, RealEstate
-from src.ui.abstract_menu import AbstractMenu, SimpleMenu
-from src.ui.common_menus import BackQuitMenu, ChangingMenu
+from src.models.models import RealEstate
+from src.ui.abstract_menu import SimpleMenu
 from src.ui.creation_menu import CreationMenu
-from src.ui.destination_ui import DestinationMenu
 from src.ui.list_menu import EditPickerMenu
 
 
@@ -11,7 +8,7 @@ class RealEstateMenu(SimpleMenu):
     @property
     def header(self):
         return "--- Real Estate Menu ---"
-    
+
     @property
     def options(self):
         if self.is_manager:
@@ -20,9 +17,7 @@ class RealEstateMenu(SimpleMenu):
                 ("List of real estate", EditPickerMenu, RealEstate),
             ]
         else:
-            return[
-                ("List of real estate", EditPickerMenu, RealEstate)
-            ]
+            return [("List of real estate", EditPickerMenu, RealEstate)]
 
     def name(self):
         return f"Real Estate Menu"
@@ -103,6 +98,7 @@ class RealEstateMenu(SimpleMenu):
     #             )
     #     print("-" * 70)
     #     print()
+
 
 #     def print_real_estate(self, real_est):
 #         destination = LogicAPI().get(Destination, real_est.destination)

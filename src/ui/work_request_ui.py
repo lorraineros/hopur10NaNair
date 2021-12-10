@@ -1,13 +1,7 @@
-from src.logic.logic_api import LogicAPI
-from src.models.models import Contractor, Employee, RealEstate, WorkReport, WorkRequest
+from src.models.models import WorkReport, WorkRequest
 from src.ui.abstract_menu import SimpleMenu
-from src.ui.common_menus import BackQuitMenu, ChangingMenu
 from src.ui.creation_menu import CreationMenu
-from src.ui.contractor_ui import ContractorMenu
-from src.ui.employee_ui import EmployeeMenu
 from src.ui.list_menu import EditPickerMenu
-from src.ui.real_estate_ui import RealEstateMenu
-from datetime import datetime
 
 
 class WorkRequestMenu(SimpleMenu):
@@ -21,16 +15,18 @@ class WorkRequestMenu(SimpleMenu):
             return [
                 ("Register a new work request", CreationMenu, WorkRequest),
                 ("List of work requests", EditPickerMenu, WorkRequest),
-                ("List of work reports", EditPickerMenu, WorkReport)
+                ("List of work reports", EditPickerMenu, WorkReport),
             ]
         else:
-            return[
+            return [
                 ("Register a new work report", CreationMenu, WorkReport),
                 ("List of work requests", EditPickerMenu, WorkRequest),
-                ("List of work reports", EditPickerMenu, WorkReport)
+                ("List of work reports", EditPickerMenu, WorkReport),
             ]
+
     def name(self):
         return f"Work Request Menu"
+
 
 #     def display_all_work_requests(self):
 #         print()
@@ -118,7 +114,7 @@ class WorkRequestMenu(SimpleMenu):
 #         )
 #     def approve_work(self, work, work_report_list):
 #         approve_input = input("Do you want to accept work report (Y/N)? ")
-    
+
 #         if approve_input.lower() == "y":
 #             id = input("Enter id to choose a work report: ")
 #             is_id = LogicAPI().work_report_id_check(id)
@@ -133,7 +129,7 @@ class WorkRequestMenu(SimpleMenu):
 #                 workr = LogicAPI().get(WorkReport, int(id))
 #                 if not workr.done:
 #                     ready = False
-        
+
 #             if ready:
 #                 work.is_open = 0 # To-Do: Need to change the value of is_open in json file
 #                 comment = input("Enter comment: ")
@@ -258,7 +254,7 @@ class WorkRequestMenu(SimpleMenu):
 #                 workr = LogicAPI().get(WorkReport, int(work_report))
 #                 self.print_work_report(workr)
 #             self.approve_work(work, work_report_list)
-    
+
 #     def period_input(self):
 #         start_date = input("Enter start date (YYYY-MM-DD): ")
 #         end_date = input("Enter end date (YYYY-MM-DD): ")
@@ -462,7 +458,7 @@ class WorkRequestMenu(SimpleMenu):
 #                 )
 #             )
 #             print()
-    
+
 #     def date_input(self):
 #         date = input("Enter date to choose a work request (YYYY-MM-DD): ")
 #         year, month, day = date.split("-")

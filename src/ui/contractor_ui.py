@@ -1,13 +1,12 @@
-from src.logic.logic_api import LogicAPI
-from src.models.models import Contractor, Destination
-from src.ui.abstract_menu import AbstractMenu, SimpleMenu
-from src.ui.common_menus import BackQuitMenu, ChangingMenu
+from src.models.models import Contractor
+from src.ui.abstract_menu import SimpleMenu
 from src.ui.creation_menu import CreationMenu
 from src.ui.list_menu import EditPickerMenu
 
 
 class ContractorMenu(SimpleMenu):
     """This class is for contract menu"""
+
     @property
     def header(self):
         return "--- Contractor Menu ---"
@@ -17,16 +16,14 @@ class ContractorMenu(SimpleMenu):
         if self.is_manager:
             return [
                 ("Register a new contractor", CreationMenu, Contractor),
-                ("List of contractors", EditPickerMenu, Contractor)
+                ("List of contractors", EditPickerMenu, Contractor),
             ]
         else:
-            return[
-                ("List of contractors", EditPickerMenu, Contractor)
-            ]
-    
+            return [("List of contractors", EditPickerMenu, Contractor)]
+
     def name(self):
         return f"Contractor Menu"
-            
+
     # def show(self):
     #     print("1. Register a new contractor")
     #     print("2. Display list of contractors")
@@ -43,6 +40,7 @@ class ContractorMenu(SimpleMenu):
     #         return "back"
     #     elif command == "q":
     #         return "quit"
+
 
 #     def display_all_contractors(self):
 #         """This function displays all contractors"""

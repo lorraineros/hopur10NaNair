@@ -1,9 +1,6 @@
-from src.logic.logic_api import LogicAPI
-from src.models.models import Destination, Employee
-from src.ui.abstract_menu import AbstractMenu, SimpleMenu
-from src.ui.common_menus import ChangingMenu
+from src.models.models import Employee
+from src.ui.abstract_menu import SimpleMenu
 from src.ui.creation_menu import CreationMenu
-from src.ui.destination_ui import DestinationMenu
 from src.ui.list_menu import EditPickerMenu
 
 
@@ -17,16 +14,13 @@ class EmployeeMenu(SimpleMenu):
         if self.is_manager:
             return [
                 ("Register a new employee", CreationMenu, Employee),
-                ("List of employees", EditPickerMenu, Employee)
+                ("List of employees", EditPickerMenu, Employee),
             ]
         else:
-            return[
-                ("List of employees", EditPickerMenu, Employee)
-            ]
+            return [("List of employees", EditPickerMenu, Employee)]
 
     def name(self):
         return f"Employee Menu"
-
 
     # def show(self):
     #     print("--- Employee Menu ---")
@@ -45,6 +39,7 @@ class EmployeeMenu(SimpleMenu):
     #         return "back"
     #     elif command == "q":
     #         return "quit"
+
 
 #     def display_all_employees(self):
 #         """This function displays all employees"""
