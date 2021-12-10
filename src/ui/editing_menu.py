@@ -177,14 +177,6 @@ Help message:
                         )
                     )
         for (is_referenced, model, field) in referencing_models:
-            import os
-
-            self._user_message += (
-                str(isinstance(self.entity, WorkRequest) and model == WorkReport)
-                + os.linesep
-                + str(isinstance(self.entity, WorkRequest) and self.entity.is_open)
-                + os.linesep
-            )
             if is_referenced and command == "l " + model.command():
                 # show a menu with an ID filter that only shows self.entity.id
                 return ChosenIdMenu(model, field, self.entity.id)
