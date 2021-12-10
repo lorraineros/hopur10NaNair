@@ -202,6 +202,10 @@ class WorkReport(Model):
             "employee_can_edit": True,
         },
     )
+    date: datetime.datetime = field(
+        default=datetime.datetime.now(),
+        metadata={"pretty_name": "Date"},
+    )
     employee_id: int = field(
         default=int(),
         metadata={
@@ -240,13 +244,10 @@ class WorkReport(Model):
         metadata={"pretty_name": "Comment"},
     )
 
-    date: datetime.date = field(
-        default=datetime.date.today(),
-        metadata={"pretty_name": "Date"},
-    )
-
     def __post_init__(self):
         self.done = bool(self.done)
+        if not isinstance(self.date, datetime.datetime):
+            self.date = datetime.datetime.fromisoformat(self.date)
 
     @classmethod
     def model_name(cls):

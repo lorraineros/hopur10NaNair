@@ -21,11 +21,13 @@ class WorkRequestMenu(SimpleMenu):
             return [
                 ("Register a new work request", CreationMenu, WorkRequest),
                 ("List of work requests", EditPickerMenu, WorkRequest),
+                ("List of work reports", EditPickerMenu, WorkReport)
             ]
         else:
             return[
                 ("Register a new work report", CreationMenu, WorkReport),
-                ("List of work requests", EditPickerMenu, WorkRequest)
+                ("List of work requests", EditPickerMenu, WorkRequest),
+                ("List of work reports", EditPickerMenu, WorkReport)
             ]
     def name(self):
         return f"Work Request Menu"
