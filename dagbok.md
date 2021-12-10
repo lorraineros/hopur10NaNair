@@ -134,20 +134,20 @@ Afrakstur dagsins:
 
 ### 9. desember 2021
 
-(Upplýsingar um daginn)
+Dagurinn í dag fór í að klára forritið og öll þau smáatriði sem eftir voru ásamt því að passa upp á að forritið virki eðlilega. Settum saman svolítinn TODO lista og voru allir að vinna í því að klára hann.
 
 Afrakstur dagsins:
 
--   Andri Þór:
--   Andriy:
--   Anh:
--   Ari:
--   Arnaldur:
--   Lorraine:
+-   Andri Þór: Vinna í að klára forritið og fínpússa
+-   Andriy: Vinna í að klára forritið og fínpússa
+-   Anh: Vinna í að klára forritið og fínpússa
+-   Ari: Vinna í að klára forritið og fínpússa
+-   Arnaldur: Vinna í að klára forritið og fínpússa
+-   Lorraine: Vinna í að klára forritið og fínpússa
 
 ### 10. desember 2021
 
-(Upplýsingar um daginn)
+Lokadagurinn í dag og byrjuðum við þenna síðasta dag á því að hittast í HR kl.10. Í upphafi fórum við yfir forritið og skoðuðum hvort eitthvað vantaði og hvort allt virkaði rétt. Síðan fórum við í það að búa til kynningamyndband, klára skýrsluna og hreinsa kóðann og hafa hann fallegann.
 
 Afrakstur dagsins:
 
