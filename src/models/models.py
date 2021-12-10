@@ -7,15 +7,6 @@ M = TypeVar("M")
 
 
 @dataclass
-class Id:
-    idx: int = 0
-    model: str = ""
-
-    def __bool__(self):
-        return bool(self.idx) or bool(self.model)
-
-
-@dataclass
 class Model:
     id: int = field(
         default=int(),
