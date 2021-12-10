@@ -2,11 +2,15 @@ import datetime
 import re
 from abc import abstractmethod
 from dataclasses import Field, dataclass
+from typing import Union
 
 from src.models.models import Model
 
 
+@dataclass
 class AbstractFilter:
+    field: Field
+
     @abstractmethod
     def __call__(self, entity: Model) -> bool:
         pass
@@ -14,15 +18,11 @@ class AbstractFilter:
 
 @dataclass
 class DateFilter(AbstractFilter):
-    field: Field
-    date: datetime.date
+    date: Union[datetime.date, datetime.datetime]
 
     def __call__(self, entity: Model) -> bool:
         prop = getattr(entity, self.field.name)
-        if isinstance(prop, datetime.datetime):
-            return self.date == prop.date()
-        else:
-            return self.date == prop
+        return self.date == prop
 
     def __str__(self):
         return f"""Filtering enteries in the "{self.field.metadata['pretty_name']} by {self.date}"""
@@ -30,16 +30,12 @@ class DateFilter(AbstractFilter):
 
 @dataclass
 class PeriodFilter(AbstractFilter):
-    field: Field
-    start_date: datetime.date
-    end_date: datetime.date
+    start_date: Union[datetime.date, datetime.datetime]
+    end_date: Union[datetime.date, datetime.datetime]
 
     def __call__(self, entity: Model) -> bool:
         prop = getattr(entity, self.field.name)
-        if isinstance(prop, datetime.datetime):
-            return self.start_date <= prop.date() and prop.date() <= self.end_date
-        else:
-            return self.start_date <= prop and prop <= self.end_date
+        return self.start_date <= prop and prop <= self.end_date
 
     def __str__(self):
         return f"""Filtering enteries in the "{self.field.metadata['pretty_name']} by {self.start_date} and {self.end_date}"""
@@ -47,7 +43,6 @@ class PeriodFilter(AbstractFilter):
 
 @dataclass
 class RegexFilter(AbstractFilter):
-    field: Field
     regex: str
 
     def __call__(self, entity: Model) -> bool:
@@ -64,7 +59,6 @@ class RegexFilter(AbstractFilter):
 
 @dataclass
 class IdFilter(AbstractFilter):
-    field: Field
     id: int
 
     def __call__(self, entity: Model) -> bool:

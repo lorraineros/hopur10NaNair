@@ -1,6 +1,7 @@
 import dataclasses
 import os
 from datetime import date, timedelta
+from src.logic.filters import RegexFilter
 
 from src.logic.logic_api import LogicAPI
 from src.models.models import Model, WorkReport
@@ -213,7 +214,13 @@ Help message:
             self.message_from_child = lambda message: setattr(
                 self.entity, self.options[option].name, message.messages["id"]
             )
-            return IdPickerMenu(self.options[option].metadata.get("id")())
+
+            next_menu = IdPickerMenu(self.options[option].metadata.get("id")())
+            if isinstance(self.entity, WorkReport):
+                for (i, field) in next_menu.filter_options.items():
+                    if field.name == "is_open":
+                        next_menu.hidden_filters.append(RegexFilter(field, "True"))
+            return next_menu
         if command == "c":
             for field in dataclasses.fields(self.entity):
                 if not bool(getattr(self.entity, field.name)) and field.metadata.get(
