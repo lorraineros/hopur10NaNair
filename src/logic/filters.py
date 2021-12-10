@@ -19,7 +19,7 @@ class DateFilter(AbstractFilter):
 
     def __call__(self, entity: Model) -> bool:
         prop = getattr(entity, self.field.name)
-        if isinstance(datetime.datetime, prop):
+        if isinstance(prop, datetime.datetime):
             return self.date == prop.date()
         else:
             return self.date == prop
@@ -36,7 +36,7 @@ class PeriodFilter(AbstractFilter):
 
     def __call__(self, entity: Model) -> bool:
         prop = getattr(entity, self.field.name)
-        if isinstance(datetime.datetime, prop):
+        if isinstance(prop, datetime.datetime):
             return self.start_date <= prop.date() and prop.date() <= self.end_date
         else:
             return self.start_date <= prop and prop <= self.end_date
