@@ -255,6 +255,9 @@ class EditPickerMenu(AbstractListMenu):
 class IdPickerMenu(AbstractListMenu):
     """This class shows a list of entities that can be used to pick an ID when editing an entity"""
 
+    def name(self):
+        return f"Picking a(n) {self.model.model_name()} ID"
+
     def handle_input(self, command):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
             return MessageToParent(id=int(command))
