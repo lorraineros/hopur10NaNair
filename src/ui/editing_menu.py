@@ -43,19 +43,13 @@ class EditingMenu(HelpfulMenu):
         """This function shows fields to edit"""
 
         print(f"Properties of a {self.entity.model_name()}")
+
         if self.constants:
             max_const_len = max(len(field.name) for field in self.constants) + 1
             print("Constant properties:")
-            for field in self.constants:
-                # get pretty name for property
-                name = field.metadata.get("pretty_name", field.name)
-                print(f"{name:<{max_const_len}}", end="")
-                # show property if it has a value
-                if field.name in dir(self.entity) and getattr(self.entity, field.name):
-                    print(f"= {getattr(self.entity, field.name)}", end="")
-                print()
+            self.show_props(max_const_len, enumerate(self.constants), False)
             print()
-        extra_padding = 3 if len(self.variables) + len(self.transients) >= 10 else 2
+
         max_var_len = (
             max(
                 [0]
@@ -68,35 +62,12 @@ class EditingMenu(HelpfulMenu):
         )
         if self.variable_options:
             print("Modifiable properties:")
-            for (i, field) in self.variable_options.items():
-                # get pretty name for property
-                name = field.metadata.get("pretty_name", field.name)
-                print(
-                    f"{str(i) + '.':<{extra_padding}} {name:<{max_var_len}}",
-                    end="",
-                )
-
-                # show property if it has a value
-                if getattr(self.entity, field.name):
-                    if field.metadata.get("hidden"):
-                        print(f"= ******", end="")
-                    else:
-                        print(f"= {getattr(self.entity, field.name)}", end="")
-                print()
+            self.show_props(max_var_len, self.variable_options.items(), True)
             print()
+
         if self.transient_options:
             print("Creation parameters:")
-            for (i, field) in self.transient_options.items():
-                name = field.metadata.get("pretty_name", field.name)
-                print(
-                    f"{str(i) + '.':<{extra_padding}} {name:<{max_var_len}}",
-                    end="",
-                )
-                # show property if it has a value
-                if getattr(self.entity, field.name):
-                    print(f"= {getattr(self.entity, field.name)}", end="")
-                print()
-            print()
+            self.show_props(max_var_len, self.transient_options.items(), True)
             print()
 
         extra_print = False
@@ -120,6 +91,32 @@ class EditingMenu(HelpfulMenu):
         if self.variables or self.transients:
             print("c. Confirm changes")
         super().show()
+
+    def show_props(self, max_prop_len, options, modifiable):
+        extra_padding = 3 if len(self.variables) + len(self.transients) >= 10 else 2
+        for (i, field) in options:
+            # get pretty name for property
+            name = field.metadata.get("pretty_name", field.name)
+            prop_lhs = ""
+            if modifiable:
+                prop_lhs = f"{str(i) + '.':<{extra_padding}} "
+            prop_lhs += f"{name:<{max_prop_len}}"
+            print(prop_lhs, end="")
+
+            # show property if it has a value
+            if getattr(self.entity, field.name):
+                if field.metadata.get("hidden"):
+                    print(f"= ******", end="")
+                else:
+                    prop = str(getattr(self.entity, field.name)).splitlines()
+                    print(f"= {prop[0]}", end="")
+                    for line in prop[1:]:
+                        print()
+                        print(
+                            f"{' '*len(prop_lhs)}  {line}",
+                            end="",
+                        )
+            print()
 
     def _help_message(self):
         return f"""
