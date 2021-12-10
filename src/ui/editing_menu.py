@@ -36,6 +36,7 @@ class EditingMenu(HelpfulMenu):
 
         self.variable_options = dict(enumerate(self.variables, 1))
         self.transient_options = {}
+        self.is_creator = False
 
     def name(self):
         if self.is_manager or isinstance(self.entity, WorkReport):
@@ -74,23 +75,36 @@ class EditingMenu(HelpfulMenu):
             self.show_props(max_var_len, self.transient_options.items(), True)
             print()
 
-        extra_print = False
+        referencing_models = []
         for model in self.entity.mentioned_by():
             for field in dataclasses.fields(model):
                 ref = field.metadata.get("id")
-                if (
-                    ref
-                    and ref() == type(self.entity)
-                    and [
-                        ent
-                        for ent in LogicAPI().get_all(model).values()
-                        if getattr(ent, field.name) == self.entity.id
-                    ]
-                ):
-                    extra_print = True
-                    print(f"{model.command()}. Show a list of {model.model_name()}")
+                if ref and ref() == type(self.entity):
+                    referencing_models.append(
+                        (
+                            bool(
+                                [
+                                    ent
+                                    for ent in LogicAPI().get_all(model).values()
+                                    if getattr(ent, field.name) == self.entity.id
+                                ]
+                            ),
+                            model,
+                        )
+                    )
+        extra_print = False
+        for (is_referenced, model) in referencing_models:
+            if is_referenced:
+                extra_print = True
+                print(f"l {model.command()}. Show a list of {model.model_name()}")
         if extra_print:
             print()
+
+        if not self.is_creator and not self.locked:
+            for (_, model) in referencing_models:
+                print(f"c {model.command()}. Create a {model.model_name()} entry")
+            if referencing_models:
+                print()
 
         if self.variables or self.transients:
             print("c. Confirm changes")
@@ -138,20 +152,36 @@ Help message:
 
     def handle_input(self, command: str):
         """This function handles input editing menu"""
+        # create a list of models that reference the model of self.entity
+        referencing_models = []
         for model in self.entity.mentioned_by():
             for field in dataclasses.fields(model):
                 ref = field.metadata.get("id")
                 if (
                     ref  # if field is an ID field
                     and ref() == type(self.entity)  # and references the right model
-                    and command == model.command()  # and it's command was input
                     and [
                         ent
                         for ent in LogicAPI().get_all(model).values()
                         if getattr(ent, field.name) == self.entity.id
                     ]
                 ):
-                    return ChosenIdMenu(model, field, self.entity.id)
+                    referencing_models.append((model, field, self.entity.id))
+        for (model, field, id) in referencing_models:
+            if command == "l " + model.command():
+                # show a menu with an ID filter that only shows self.entity.id
+                return ChosenIdMenu(model, field, id)
+            elif (
+                not self.is_creator
+                and not self.locked
+                and command == "c " + model.command()
+            ):
+                # if we are not creating an entity, allow an entity to be made that references self.entity
+                from src.ui.creation_menu import CreationMenu
+
+                boi = CreationMenu(model)
+                setattr(boi.entity, field.name, id)
+                return boi
         self.options = self.variable_options | self.transient_options
         (str_option, _sep, arg) = command.partition(" ")
         option = int(str_option) if str_option.isdigit() else None

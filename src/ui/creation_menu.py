@@ -8,6 +8,7 @@ from src.ui.editing_menu import EditingMenu
 class CreationMenu(EditingMenu):
     def __init__(self, model: Type[Model]):
         super().__init__(LogicAPI().get_new(model))
+        self.is_creator = True
         self.transient_options = dict(
             enumerate(self.transients, 1 + len(self.variables))
         )
