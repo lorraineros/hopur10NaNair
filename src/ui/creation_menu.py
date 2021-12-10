@@ -13,4 +13,4 @@ class CreationMenu(EditingMenu):
         )
 
     def name(self):
-        return f"{self.entity.model_name().lower()} creation menu"
+        return f"{self.entity.model_name().capitalize()} Creation Menu"
