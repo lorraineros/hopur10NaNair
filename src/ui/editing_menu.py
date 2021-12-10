@@ -3,10 +3,9 @@ import os
 from datetime import date, timedelta
 
 from src.logic.logic_api import LogicAPI
-from src.logic.filters import IdFilter
-from src.models.models import Model, RealEstate, WorkReport
+from src.models.models import Model, WorkReport
 from src.ui.abstract_menu import HelpfulMenu
-from src.ui.list_menu import EditPickerMenu, IdPickerMenu
+from src.ui.list_menu import ChosenIdMenu, IdPickerMenu
 
 
 class EditingMenu(HelpfulMenu):
@@ -18,15 +17,19 @@ class EditingMenu(HelpfulMenu):
         self.constants = []
         self.variables = []
         self.transients = []
+        self.locked = LogicAPI().is_a_locked_work_request(entity)
         for field in dataclasses.fields(entity):
-            if field.metadata.get("autoinit") or (
-                not self.is_manager and not field.metadata.get("employee_can_edit")
+            if field.metadata.get("derived"):
+                pass  # don't display derived values
+            elif (
+                field.metadata.get("autoinit")
+                or (not self.is_manager and not field.metadata.get("employee_can_edit"))
+                or self.locked
             ):
-                self.constants.append(field)
+                if not field.metadata.get("initializer"):
+                    self.constants.append(field)
             elif field.metadata.get("initializer"):
                 self.transients.append(field)
-            elif field.metadata.get("derived"):
-                pass  # don't display derived values
             else:
                 self.variables.append(field)
 
@@ -147,9 +150,7 @@ Help message:
                         if getattr(ent, field.name) == self.entity.id
                     ]
                 ):
-                    next_menu = EditPickerMenu(model)
-                    next_menu.filters.append(IdFilter(field, self.entity.id))
-                    return next_menu
+                    return ChosenIdMenu(model, field, self.entity.id)
         self.options = self.variable_options | self.transient_options
         (str_option, _sep, arg) = command.partition(" ")
         option = int(str_option) if str_option.isdigit() else None

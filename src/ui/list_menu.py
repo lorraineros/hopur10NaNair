@@ -5,7 +5,13 @@ from datetime import date
 from typing import List, Type
 
 from src.logic.logic_api import LogicAPI
-from src.logic.filters import AbstractFilter, DateFilter, PeriodFilter, RegexFilter
+from src.logic.filters import (
+    AbstractFilter,
+    DateFilter,
+    IdFilter,
+    PeriodFilter,
+    RegexFilter,
+)
 from src.models.models import M
 from src.ui.abstract_menu import HelpfulMenu
 from src.ui.utilities import MessageToParent
@@ -262,3 +268,9 @@ class IdPickerMenu(AbstractListMenu):
         if command.isdigit() and LogicAPI().get(self.model, int(command)):
             return MessageToParent(id=int(command))
         return super().handle_input(command)
+
+
+class ChosenIdMenu(EditPickerMenu):
+    def __init__(self, entity: Type[M], field, id):
+        super().__init__(entity)
+        self.filters.append(IdFilter(field, id))
